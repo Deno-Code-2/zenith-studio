@@ -2,7 +2,7 @@ import { Calendar, Phone } from "lucide-react";
 import ActionButton from "./ActionButton";
 
 const Header = () => {
-  const menuItems = ["About me", "Skills", "SaaS Website", "Services I Provide"];
+  const menuItems = ["About me", "Skills", "Services I Provide"];
 
   return (
     <header className="w-full py-8 px-8 flex items-center justify-between bg-white/80 backdrop-blur-sm border-b border-gray-100">
