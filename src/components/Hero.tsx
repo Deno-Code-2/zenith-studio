@@ -17,6 +17,25 @@ const Hero = () => {
         >
           Let's connect
         </ActionButton>
+
+        <div className="flex flex-wrap justify-start gap-12 mt-16 text-left">
+          <div className="achievement-item">
+            <span className="block text-4xl font-bold text-[#4357A2]">260</span>
+            <span className="text-gray-600">Happy Customers</span>
+          </div>
+          <div className="achievement-item">
+            <span className="block text-4xl font-bold text-[#4357A2]">4</span>
+            <span className="text-gray-600">Years Experience</span>
+          </div>
+          <div className="achievement-item">
+            <span className="block text-4xl font-bold text-[#4357A2]">79</span>
+            <span className="text-gray-600">E-Commerce Sites</span>
+          </div>
+          <div className="achievement-item">
+            <span className="block text-4xl font-bold text-[#4357A2]">14</span>
+            <span className="text-gray-600">Team Members</span>
+          </div>
+        </div>
       </div>
     </div>
   );
