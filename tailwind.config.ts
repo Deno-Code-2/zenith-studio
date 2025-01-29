@@ -19,6 +19,11 @@ export default {
     },
     extend: {
       colors: {
+        "dark-green": "#132a13",
+        "hunter-green": "#31572c",
+        "fern-green": "#4f772d",
+        "moss-green": "#90a955",
+        "mindaro": "#ecf39e",
         primary: {
           DEFAULT: "#40916c",
           light: "#4ca17c",
@@ -53,6 +58,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      fontFamily: {
+        syne: ['Syne', 'sans-serif'],
+        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
