@@ -20,6 +20,26 @@ const services = [
     title: "Hosting Services",
     description: "Providing reliable hosting solutions with high uptime, security features, and scalable options for business websites.",
     image: "/lovable-uploads/897f3ea0-40cb-437c-bd9f-b222cedf0f46.png"
+  },
+  {
+    title: "WordPress & Shopify",
+    description: "Customizing WordPress, Wix, and Shopify platforms for unique, user-friendly websites tailored to your brand.",
+    image: "/lovable-uploads/195a50df-31db-4c8f-941c-e9bdab720cf1.png"
+  },
+  {
+    title: "SEO Optimization",
+    description: "Optimizing website content and structure to improve visibility on search engines, driving organic traffic growth.",
+    image: "/lovable-uploads/195a50df-31db-4c8f-941c-e9bdab720cf1.png"
+  },
+  {
+    title: "Graphic Designing",
+    description: "Creating impactful visual identities, including logos and graphics, that resonate with your brand's message.",
+    image: "/lovable-uploads/195a50df-31db-4c8f-941c-e9bdab720cf1.png"
+  },
+  {
+    title: "Video Editing",
+    description: "Crafting professional videos with seamless edits, engaging effects, and captivating storytelling for impactful communication.",
+    image: "/lovable-uploads/195a50df-31db-4c8f-941c-e9bdab720cf1.png"
   }
 ];
 
