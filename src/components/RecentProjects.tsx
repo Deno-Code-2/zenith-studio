@@ -4,28 +4,28 @@ const projects = [
   {
     id: 1,
     name: "Alphankela",
-    image: "/lovable-uploads/49d0139e-2632-442c-9a15-3da4b0ead595.png",
+    image: "/lovable-uploads/cef3806d-cc75-44b0-9a49-bb61a1cf12ef.png",
     description: "E-commerce fashion website with latest collections",
     link: "#"
   },
   {
     id: 2,
     name: "Brownway Medical",
-    image: "/lovable-uploads/49d0139e-2632-442c-9a15-3da4b0ead595.png",
+    image: "/lovable-uploads/cef3806d-cc75-44b0-9a49-bb61a1cf12ef.png",
     description: "Medical equipment and supplies platform",
     link: "#"
   },
   {
     id: 3,
     name: "Nagar Security Group",
-    image: "/lovable-uploads/49d0139e-2632-442c-9a15-3da4b0ead595.png",
+    image: "/lovable-uploads/cef3806d-cc75-44b0-9a49-bb61a1cf12ef.png",
     description: "Security services company website",
     link: "#"
   },
   {
     id: 4,
     name: "Beauty Essence",
-    image: "/lovable-uploads/49d0139e-2632-442c-9a15-3da4b0ead595.png",
+    image: "/lovable-uploads/cef3806d-cc75-44b0-9a49-bb61a1cf12ef.png",
     description: "Beauty products e-commerce platform",
     link: "#"
   }

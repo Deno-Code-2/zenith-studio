@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full py-8 px-8 flex items-center justify-between bg-dark-green/80 backdrop-blur-sm border-b border-hunter-green relative">
+    <header className="w-full py-4 px-8 flex items-center justify-between bg-dark-green/80 backdrop-blur-sm border-b border-hunter-green sticky top-0 z-50">
       <div>
         <h1 className="text-2xl font-bold text-mindaro hover:text-moss-green transition-colors font-syne">
           Zenith Studio
@@ -43,7 +43,7 @@ const Header = () => {
       <div className="hidden lg:block">
         <ActionButton 
           href="#book-call"
-          className="text-sm font-jakarta"
+          className="text-sm font-jakarta bg-moss-green text-dark-green hover:bg-moss-green/90"
         >
           <span className="flex items-center">
             <Calendar className="w-4 h-4 mr-2" />
@@ -66,15 +66,6 @@ const Header = () => {
                 {item}
               </a>
             ))}
-            <ActionButton 
-              href="#book-call"
-              className="text-sm font-jakarta mt-4"
-            >
-              <span className="flex items-center">
-                <Calendar className="w-4 h-4 mr-2" />
-                Book a Call
-              </span>
-            </ActionButton>
           </nav>
         </div>
       )}
