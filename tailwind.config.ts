@@ -19,15 +19,14 @@ export default {
     },
     extend: {
       colors: {
-        "dark-green": "#132a13",
-        "hunter-green": "#31572c",
-        "fern-green": "#4f772d",
-        "moss-green": "#90a955",
-        "mindaro": "#ecf39e",
+        jet: "#353535ff",
+        "caribbean-current": "#3c6e71ff",
+        platinum: "#d9d9d9ff",
+        "indigo-dye": "#284b63ff",
         primary: {
-          DEFAULT: "#40916c",
-          light: "#4ca17c",
-          dark: "#368159",
+          DEFAULT: "#3c6e71ff",
+          light: "#4c8e91ff",
+          dark: "#2c4e51ff",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
