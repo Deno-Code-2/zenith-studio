@@ -4,6 +4,7 @@ import Services from "@/components/Services";
 import RecentProjects from "@/components/RecentProjects";
 import { MarqueeDemo } from "@/components/Reviews";
 import GridPattern from "@/components/GridPattern";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
           <MarqueeDemo />
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
