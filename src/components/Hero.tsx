@@ -22,28 +22,28 @@ const Hero = () => {
 
         <div className="mt-20">
           <h3 className="text-3xl font-bold text-white mb-10 font-syne">Our Achievements</h3>
-          <div className="flex items-center justify-between gap-8 overflow-x-auto pb-4 px-4">
-            <div className="flex-shrink-0">
+          <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div>
               <span className="block text-4xl font-bold text-custom-orange font-syne">260</span>
               <span className="text-gray-300 font-jakarta">Happy Clients</span>
             </div>
-            <div className="flex-shrink-0">
+            <div>
               <span className="block text-4xl font-bold text-custom-orange font-syne">4</span>
               <span className="text-gray-300 font-jakarta">Years Experience</span>
             </div>
-            <div className="flex-shrink-0">
+            <div>
               <span className="block text-4xl font-bold text-custom-orange font-syne">79</span>
               <span className="text-gray-300 font-jakarta">E-Commerce Sites</span>
             </div>
-            <div className="flex-shrink-0">
+            <div>
               <span className="block text-4xl font-bold text-custom-orange font-syne">14</span>
               <span className="text-gray-300 font-jakarta">Team Members</span>
             </div>
-            <div className="flex-shrink-0">
+            <div>
               <span className="block text-4xl font-bold text-custom-orange font-syne">120+</span>
               <span className="text-gray-300 font-jakarta">Projects Completed</span>
             </div>
-            <div className="flex-shrink-0">
+            <div>
               <span className="block text-4xl font-bold text-custom-orange font-syne">98%</span>
               <span className="text-gray-300 font-jakarta">Client Satisfaction</span>
             </div>

@@ -18,6 +18,24 @@ const Header = () => {
         </h1>
       </div>
       
+      {/* Desktop Navigation */}
+      <nav className="hidden lg:flex items-center justify-center flex-1">
+        <div className="flex items-center justify-center space-x-12 flex-1">
+          {menuItems.map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+              className="text-white hover:text-custom-orange transition-colors text-base font-medium font-jakarta"
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+        <ActionButton variant="primary" className="ml-8">
+          Book a call
+        </ActionButton>
+      </nav>
+
       {/* Mobile Menu Button */}
       <button 
         className="lg:hidden text-white hover:text-custom-orange"
@@ -25,22 +43,6 @@ const Header = () => {
       >
         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
-
-      {/* Desktop Navigation */}
-      <nav className="hidden lg:flex items-center justify-center space-x-12 flex-1">
-        {menuItems.map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-            className="text-white hover:text-custom-orange transition-colors text-base font-medium font-jakarta"
-          >
-            {item}
-          </a>
-        ))}
-        <ActionButton variant="primary" className="ml-4">
-          Book a call
-        </ActionButton>
-      </nav>
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
