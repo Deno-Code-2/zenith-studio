@@ -15,8 +15,8 @@ const ActionButton = ({
   const buttonClasses = cn(
     "px-6 py-3 rounded-lg font-medium transition-all duration-200 ease-in-out",
     variant === "primary"
-      ? "bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm"
-      : "bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm",
+      ? "bg-custom-orange hover:bg-custom-orange/90 text-black border border-custom-orange/20 backdrop-blur-sm"
+      : "bg-black hover:bg-black/90 text-white border border-custom-orange/20 backdrop-blur-sm",
     className
   );
 

@@ -19,10 +19,7 @@ export default {
     },
     extend: {
       colors: {
-        "hunter-green": "#000000",
-        "fern-green": "#000000",
-        "moss-green": "#ffffff",
-        mindaro: "#ffffff",
+        "custom-orange": "#E46534",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
