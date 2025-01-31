@@ -30,36 +30,26 @@ const services = [
     title: "SEO Optimization",
     description: "Optimizing website content and structure to improve visibility on search engines, driving organic traffic growth.",
     image: "/lovable-uploads/195a50df-31db-4c8f-941c-e9bdab720cf1.png"
-  },
-  {
-    title: "Graphic Designing",
-    description: "Creating impactful visual identities, including logos and graphics, that resonate with your brand's message.",
-    image: "/lovable-uploads/195a50df-31db-4c8f-941c-e9bdab720cf1.png"
-  },
-  {
-    title: "Video Editing",
-    description: "Crafting professional videos with seamless edits, engaging effects, and captivating storytelling for impactful communication.",
-    image: "/lovable-uploads/195a50df-31db-4c8f-941c-e9bdab720cf1.png"
   }
 ];
 
 const Services = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-dark-green to-hunter-green">
+    <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-mindaro font-syne text-4xl font-bold mb-4">ALL SERVICES</h2>
+          <h2 className="text-custom-orange font-syne text-4xl font-bold mb-4">ALL SERVICES</h2>
           <h3 className="text-white font-syne text-5xl font-bold mb-6">
-            Complete Business <span className="text-moss-green">Solutions</span> Delivered
+            Complete Business <span className="text-custom-orange">Solutions</span> Delivered
           </h3>
           <p className="text-gray-300 font-jakarta max-w-3xl mx-auto">
             We offer comprehensive business solutions, expertly designed to enhance efficiency, drive growth, and achieve exceptional results for your company.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-fern-green/10 backdrop-blur-sm border-moss-green/20 p-6 hover:transform hover:-translate-y-2 transition-all duration-300">
+            <Card key={index} className="bg-black/10 backdrop-blur-sm border-custom-orange/20 p-6 hover:transform hover:-translate-y-2 transition-all duration-300">
               <div className="aspect-square mb-6 overflow-hidden rounded-lg">
                 <img 
                   src={service.image} 
@@ -67,9 +57,9 @@ const Services = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="text-mindaro font-syne text-xl font-bold mb-3">{service.title}</h4>
+              <h4 className="text-white font-syne text-xl font-bold mb-3">{service.title}</h4>
               <p className="text-gray-300 font-jakarta text-sm mb-4">{service.description}</p>
-              <a href="#" className="text-moss-green hover:text-mindaro font-jakarta font-medium transition-colors">
+              <a href="#" className="text-custom-orange hover:text-white font-jakarta font-medium transition-colors">
                 Learn More →
               </a>
             </Card>
