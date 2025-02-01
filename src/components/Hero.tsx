@@ -29,7 +29,7 @@ const Hero = () => {
                 className="w-12 h-12 rounded-full border-2 border-black bg-gray-300 flex items-center justify-center overflow-hidden"
               >
                 <img
-                  src={`/lovable-uploads/c668a09e-b5f1-4512-9a80-1abc366f4aba.png`}
+                  src={`/lovable-uploads/My-Logo.png`}
                   alt={`Team member ${index}`}
                   className="w-full h-full object-cover"
                 />
@@ -42,7 +42,7 @@ const Hero = () => {
       {/* Right Image */}
       <div className="hidden lg:block w-1/2 h-[600px] relative">
         <img
-          src="/lovable-uploads/c668a09e-b5f1-4512-9a80-1abc366f4aba.png"
+          src="/lovable-uploads/My-Logo.png"
           alt="Hero"
           className="w-full h-full object-cover rounded-2xl"
         />
