@@ -1,4 +1,5 @@
 import { Sparkles, Lightbulb, Smartphone, Zap, Users2, Search } from "lucide-react";
+import TextRotate from "./TextRotate";
 
 const services = [
   {
@@ -39,11 +40,18 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl lg:text-6xl font-bold mb-4 font-syne text-white">
-            Reasons to Choose Zenith for
+            Reasons to Choose Zenith for{" "}
+            <TextRotate
+              texts={[
+                "Innovation",
+                "Excellence",
+                "Growth",
+                "Success",
+                "Results",
+                "Vision",
+              ]}
+            />
           </h2>
-          <p className="text-3xl text-gray-500 font-syne">
-            Your Digital Journey
-          </p>
           <p className="mt-6 text-gray-400 max-w-3xl mx-auto font-jakarta">
             Partnering with Zenith offers a multitude of advantages. Experience increased brand visibility, improved customer engagement, and higher ROI. Our tailored solutions are designed to meet your unique business needs, ensuring lasting success.
           </p>

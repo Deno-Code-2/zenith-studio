@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, PhoneCall } from "lucide-react";
 import ActionButton from "./ActionButton";
 
 const Header = () => {
@@ -18,8 +18,8 @@ const Header = () => {
         </h1>
       </div>
       
-      {/* Desktop Navigation */}
-      <nav className="hidden lg:flex items-center justify-between flex-1 max-w-4xl ml-20">
+      {/* Desktop Navigation - Centered */}
+      <nav className="hidden lg:flex items-center justify-center flex-1">
         <div className="flex items-center justify-center space-x-12">
           {menuItems.map((item) => (
             <a
@@ -31,10 +31,15 @@ const Header = () => {
             </a>
           ))}
         </div>
-        <ActionButton variant="primary" className="text-lg">
+      </nav>
+
+      {/* Book a Call Button */}
+      <div className="hidden lg:flex items-center">
+        <ActionButton variant="primary" className="text-lg flex items-center gap-2">
+          <PhoneCall className="w-5 h-5" />
           Book a call
         </ActionButton>
-      </nav>
+      </div>
 
       {/* Mobile Menu Button */}
       <button 
@@ -58,7 +63,8 @@ const Header = () => {
                 {item}
               </a>
             ))}
-            <ActionButton variant="primary" className="mt-4">
+            <ActionButton variant="primary" className="mt-4 flex items-center gap-2">
+              <PhoneCall className="w-4 h-4" />
               Book a call
             </ActionButton>
           </nav>
