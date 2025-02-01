@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import RecentProjects from "@/components/RecentProjects";
 import Testimonials from "@/components/Testimonials";
+import AgencyShowcase from "@/components/AgencyShowcase";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -21,6 +22,7 @@ const Index = () => {
         <Services />
         <RecentProjects />
         <Testimonials />
+        <AgencyShowcase />
         <Footer />
       </main>
     </>

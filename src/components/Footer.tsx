@@ -104,11 +104,15 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="mt-16 pt-8 border-t border-custom-orange/20">
-          <p className="text-sm text-gray-400 font-jakarta text-center">
-            Made with <span className="text-red-500">❤</span> by the{" "}
-            <span className="text-custom-orange">Zen Browser Team</span> | Version 1.0 | 
-            <a href="/cookie-policy" className="text-white hover:text-custom-orange ml-2">Cookie Policy</a> | 
-            <a href="/privacy-policy" className="text-white hover:text-custom-orange ml-2">Privacy Policy</a>
+          <p className="text-sm text-gray-400 font-jakarta text-center space-x-2">
+            <span>Made with <span className="text-red-500">❤</span> by the</span>
+            <span className="text-custom-orange">Zen Browser Team</span>
+            <span>|</span>
+            <span>Version 1.0</span>
+            <span>|</span>
+            <a href="/cookie-policy" className="text-white hover:text-custom-orange">Cookie Policy</a>
+            <span>|</span>
+            <a href="/privacy-policy" className="text-white hover:text-custom-orange">Privacy Policy</a>
           </p>
         </div>
       </div>
