@@ -11,27 +11,27 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full py-6 px-8 flex items-center justify-between bg-black/95 backdrop-blur-sm border-b border-custom-orange/20 sticky top-0 z-50">
+    <header className="w-full py-8 px-8 lg:px-16 flex items-center justify-between bg-black/95 backdrop-blur-sm border-b border-custom-orange/20 sticky top-0 z-50">
       <div>
-        <h1 className="text-3xl font-bold text-white hover:text-custom-orange transition-colors font-syne">
+        <h1 className="text-4xl font-bold text-white hover:text-custom-orange transition-colors font-syne">
           Zenith Studio
         </h1>
       </div>
       
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex items-center justify-center flex-1">
-        <div className="flex items-center justify-center space-x-12 flex-1">
+      <nav className="hidden lg:flex items-center justify-between flex-1 max-w-4xl ml-20">
+        <div className="flex items-center justify-center space-x-12">
           {menuItems.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-white hover:text-custom-orange transition-colors text-base font-medium font-jakarta"
+              className="text-white hover:text-custom-orange transition-colors text-lg font-medium font-jakarta"
             >
               {item}
             </a>
           ))}
         </div>
-        <ActionButton variant="primary" className="ml-8">
+        <ActionButton variant="primary" className="text-lg">
           Book a call
         </ActionButton>
       </nav>

@@ -1,54 +1,51 @@
 import ActionButton from "./ActionButton";
+import { PhoneCall } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="min-h-[calc(100vh-80px)] flex items-center justify-center px-8 lg:px-16 py-32">
-      <div className="max-w-4xl text-center space-y-8 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-        <h2 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white font-syne">
-          Crafting Digital Excellence with Innovation and Style
+    <div className="min-h-[calc(100vh-80px)] flex items-center justify-between px-8 lg:px-16 py-32">
+      {/* Left Content */}
+      <div className="max-w-2xl text-left space-y-8 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
+        <h2 className="text-6xl lg:text-7xl font-bold leading-tight text-white font-syne">
+          Crafting Digital Excellence with Innovation
         </h2>
-        <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto font-jakarta">
+        <p className="text-xl text-gray-300 leading-relaxed font-jakarta">
           We transform your digital presence through innovative design, strategic development, 
           and cutting-edge solutions that elevate your brand to new heights.
         </p>
-        <div className="flex justify-center mt-12">
+        <div className="flex items-center gap-6 mt-12">
           <ActionButton 
             href="#start-project" 
             className="text-lg px-8 py-4 rounded-full hover:translate-y-[-2px] transition-all duration-200 bg-custom-orange text-black font-jakarta font-medium shadow-lg hover:shadow-xl"
           >
             Let's connect
           </ActionButton>
-        </div>
-
-        <div className="mt-20">
-          <h3 className="text-3xl font-bold text-white mb-10 font-syne">Our Achievements</h3>
-          <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div>
-              <span className="block text-4xl font-bold text-custom-orange font-syne">260</span>
-              <span className="text-gray-300 font-jakarta">Happy Clients</span>
-            </div>
-            <div>
-              <span className="block text-4xl font-bold text-custom-orange font-syne">4</span>
-              <span className="text-gray-300 font-jakarta">Years Experience</span>
-            </div>
-            <div>
-              <span className="block text-4xl font-bold text-custom-orange font-syne">79</span>
-              <span className="text-gray-300 font-jakarta">E-Commerce Sites</span>
-            </div>
-            <div>
-              <span className="block text-4xl font-bold text-custom-orange font-syne">14</span>
-              <span className="text-gray-300 font-jakarta">Team Members</span>
-            </div>
-            <div>
-              <span className="block text-4xl font-bold text-custom-orange font-syne">120+</span>
-              <span className="text-gray-300 font-jakarta">Projects Completed</span>
-            </div>
-            <div>
-              <span className="block text-4xl font-bold text-custom-orange font-syne">98%</span>
-              <span className="text-gray-300 font-jakarta">Client Satisfaction</span>
-            </div>
+          
+          {/* Avatar Circles */}
+          <div className="flex -space-x-4">
+            {[1, 2, 3, 4].map((index) => (
+              <div
+                key={index}
+                className="w-12 h-12 rounded-full border-2 border-black bg-gray-300 flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  src={`/lovable-uploads/c668a09e-b5f1-4512-9a80-1abc366f4aba.png`}
+                  alt={`Team member ${index}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+
+      {/* Right Image */}
+      <div className="hidden lg:block w-1/2 h-[600px] relative">
+        <img
+          src="/lovable-uploads/c668a09e-b5f1-4512-9a80-1abc366f4aba.png"
+          alt="Hero"
+          className="w-full h-full object-cover rounded-2xl"
+        />
       </div>
     </div>
   );
