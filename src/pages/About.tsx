@@ -23,7 +23,7 @@ const About = () => {
             </div>
             <div className="flex-1">
               <img 
-                src="/lovable-uploads/eb54254d-4104-44da-9fb8-d469e889c9ae.png"
+                src="/lovable-uploads/My-Logo.png"
                 alt="Team"
                 className="rounded-lg w-full"
               />
