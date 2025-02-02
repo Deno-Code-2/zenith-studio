@@ -84,7 +84,6 @@ const Header = () => {
                 setIsMenuOpen(false);
               }}
             >
-              <PhoneCall className="w-4 h-4" />
               Book a call
             </ActionButton>
           </nav>
