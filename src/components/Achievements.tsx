@@ -35,14 +35,14 @@ const BentoCard: React.FC<BentoCardProps> = ({
 
   return (
     <motion.div
-      className="relative overflow-hidden h-full bg-black rounded-xl border border-custom-orange/20"
+      className="relative overflow-hidden h-full bg-white rounded-xl"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay }}
     >
       <AnimatedGradient colors={colors} speed={0.05} blur="medium" />
       <motion.div
-        className="relative z-10 p-3 sm:p-5 md:p-8 text-white"
+        className="relative z-10 p-3 sm:p-5 md:p-8 text-foreground"
         variants={container}
         initial="hidden"
         animate="show"
@@ -51,7 +51,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
           {title}
         </motion.h3>
         <motion.p
-          className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 font-syne text-custom-orange"
+          className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 font-syne"
           variants={item}
         >
           {value}
@@ -84,7 +84,7 @@ const Achievements = () => {
             title="Projects Completed"
             value="500+"
             subtitle="Delivering excellence across industries"
-            colors={["#E46534", "#000000", "#1a1a1a"]}
+            colors={["#3B82F6", "#60A5FA", "#93C5FD"]}
             delay={0.2}
           />
         </div>
@@ -92,14 +92,14 @@ const Achievements = () => {
           title="Client Satisfaction"
           value="98%"
           subtitle="Based on client feedback"
-          colors={["#000000", "#E46534", "#1a1a1a"]}
+          colors={["#60A5FA", "#34D399", "#93C5FD"]}
           delay={0.4}
         />
         <BentoCard
           title="Team Growth"
           value="200%"
           subtitle="Year over year expansion"
-          colors={["#1a1a1a", "#E46534", "#000000"]}
+          colors={["#F59E0B", "#A78BFA", "#FCD34D"]}
           delay={0.6}
         />
         <div className="md:col-span-2">
@@ -107,7 +107,7 @@ const Achievements = () => {
             title="Global Reach"
             value="25+"
             subtitle="Countries served worldwide"
-            colors={["#E46534", "#1a1a1a", "#000000"]}
+            colors={["#3B82F6", "#A78BFA", "#FBCFE8"]}
             delay={0.8}
           />
         </div>
