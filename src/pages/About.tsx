@@ -15,7 +15,7 @@ const About = () => {
               <p className="text-custom-orange font-jakarta">About</p>
               <h1 className="text-4xl md:text-6xl font-bold text-white font-syne">
                 Empowering Your Online Presence<br />
-                Discover the <span className="text-blue-500">Zenith Studio</span> Difference Today!
+                Discover the <span className="text-orange-500">Zenith Studio</span> Difference Today!
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed">
                 Zenith Studio is more than a digital agency; we're your partner in online success. With a commitment to excellence and a passion for innovation, we offer a full suite of services designed to elevate your brand and expand your reach.
@@ -64,7 +64,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
               <h2 className="text-4xl font-bold text-white font-syne">
-                Our <span className="text-blue-500">Mission</span>
+                Our <span className="text-orange-500">Mission</span>
               </h2>
               <p className="text-gray-300 leading-relaxed">
                 At Zenith Studio, our mission is to empower businesses and startups with innovative digital solutions that drive growth and success. We believe in the transformative power of technology and design, and we are committed to helping our clients harness this power to achieve their goals.
@@ -76,7 +76,7 @@ const About = () => {
             <div className="space-y-8">
               <div className="flex gap-4 items-start">
                 <div className="p-3 bg-navy-800 rounded-lg">
-                  <Users className="w-6 h-6 text-blue-500" />
+                  <Users className="w-6 h-6 text-orange-500" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">Best Team</h3>
@@ -87,7 +87,7 @@ const About = () => {
               </div>
               <div className="flex gap-4 items-start">
                 <div className="p-3 bg-navy-800 rounded-lg">
-                  <Building2 className="w-6 h-6 text-blue-500" />
+                  <Building2 className="w-6 h-6 text-orange-500" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">Building Startups</h3>
@@ -98,7 +98,7 @@ const About = () => {
               </div>
               <div className="flex gap-4 items-start">
                 <div className="p-3 bg-navy-800 rounded-lg">
-                  <MessageSquareMore className="w-6 h-6 text-blue-500" />
+                  <MessageSquareMore className="w-6 h-6 text-orange-500" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">24/7 Customer Support</h3>
