@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Users, Building2, MessageSquareMore } from "lucide-react";
+import AgencyShowcase from "@/components/AgencyShowcase";
 
 const About = () => {
   return (
@@ -111,7 +112,7 @@ const About = () => {
           </div>
         </div>
       </section>
-
+      <AgencyShowcase />
       <Footer />
     </main>
   );
