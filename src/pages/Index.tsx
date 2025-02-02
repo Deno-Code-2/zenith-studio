@@ -9,6 +9,7 @@ import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import Achievements from "@/components/Achievements";
+import Features from "@/components/Features";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +22,7 @@ const Index = () => {
         <Header />
         <Hero />
         <Achievements />
+        <Features />
         <Services />
         <RecentProjects />
         <Testimonials />

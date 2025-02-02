@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Menu, X, PhoneCall } from "lucide-react";
-import ActionButton from "./ActionButton";
+import { Menu, X, Calendar } from "lucide-react";
+import { Button } from "./ui/button";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
   const menuItems = [
     { name: "About me", path: "/about" },
-    { name: "Skills", path: "#skills" },
+    { name: "Pricing", path: "/pricing" },
     { name: "Services", path: "#services" },
     { name: "Blog", path: "#blog" },
     { name: "Contact Us", path: "/contact" }
@@ -26,7 +26,6 @@ const Header = () => {
         </Link>
       </div>
       
-      {/* Desktop Navigation - Centered */}
       <nav className="hidden lg:flex items-center justify-center flex-1">
         <div className="flex items-center justify-center space-x-12">
           {menuItems.map((item) => (
@@ -42,19 +41,17 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Book a Call Button */}
       <div className="hidden lg:flex items-center">
-        <ActionButton 
-          variant="primary" 
-          className="text-lg flex items-center gap-2"
+        <Button 
+          variant="default"
+          className="bg-custom-orange hover:bg-custom-orange/90 text-black flex items-center gap-2"
           onClick={() => navigate('/contact')}
         >
-          <PhoneCall className="w-5 h-5" />
+          <Calendar className="w-5 h-5" />
           Book a call
-        </ActionButton>
+        </Button>
       </div>
 
-      {/* Mobile Menu Button */}
       <button 
         className="lg:hidden text-white hover:text-custom-orange"
         onClick={toggleMenu}
@@ -62,7 +59,6 @@ const Header = () => {
         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-b border-custom-orange/20 py-4">
           <nav className="flex flex-col items-center space-y-4">
@@ -76,16 +72,16 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <ActionButton 
-              variant="primary" 
-              className="mt-4 flex items-center gap-2"
+            <Button 
+              variant="default"
+              className="bg-custom-orange hover:bg-custom-orange/90 text-black flex items-center gap-2"
               onClick={() => {
                 navigate('/contact');
                 setIsMenuOpen(false);
               }}
             >
               Book a call
-            </ActionButton>
+            </Button>
           </nav>
         </div>
       )}

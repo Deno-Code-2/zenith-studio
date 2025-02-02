@@ -42,6 +42,21 @@ const Footer = () => {
                   Contact Us
                 </Link>
               </li>
+              <li>
+                <Link to="/pricing" className="text-white hover:text-custom-orange transition-colors">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link to="/team" className="text-white hover:text-custom-orange transition-colors">
+                  Our Team
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-white hover:text-custom-orange transition-colors">
+                  Careers
+                </Link>
+              </li>
             </ul>
           </div>
 
