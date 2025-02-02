@@ -82,7 +82,7 @@ const Achievements = () => {
         <div className="md:col-span-2">
           <BentoCard
             title="Projects Completed"
-            value="500+"
+            value="20+"
             subtitle="Delivering excellence across industries"
             colors={["#3B82F6", "#60A5FA", "#93C5FD"]}
             delay={0.2}
@@ -105,7 +105,7 @@ const Achievements = () => {
         <div className="md:col-span-2">
           <BentoCard
             title="Global Reach"
-            value="25+"
+            value="3+"
             subtitle="Countries served worldwide"
             colors={["#3B82F6", "#A78BFA", "#FBCFE8"]}
             delay={0.8}
