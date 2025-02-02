@@ -1,17 +1,17 @@
 import ActionButton from "./ActionButton";
-import { PhoneCall } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="min-h-[calc(100vh-80px)] flex items-center justify-between px-8 lg:px-16 py-32">
+    <div className="min-h-[90vh] flex items-center justify-between px-8 lg:px-16 py-20">
       {/* Left Content */}
       <div className="max-w-2xl text-left space-y-8 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
         <h2 className="text-6xl lg:text-7xl font-bold leading-tight text-white font-syne">
-          Crafting Digital Excellence with Innovation
+          Crafting <span className="text-custom-orange">Digital Excellence</span> with Innovation
         </h2>
         <p className="text-xl text-gray-300 leading-relaxed font-jakarta">
-          We transform your digital presence through innovative design, strategic development, 
-          and cutting-edge solutions that elevate your brand to new heights.
+          We <span className="text-custom-orange">transform</span> your digital presence through 
+          <span className="text-custom-orange"> innovative design</span>, strategic development, 
+          and <span className="text-custom-orange">cutting-edge solutions</span> that elevate your brand to new heights.
         </p>
         <div className="flex items-center gap-6 mt-12">
           <ActionButton 
@@ -40,7 +40,7 @@ const Hero = () => {
       </div>
 
       {/* Right Image */}
-      <div className="hidden lg:block w-1/2 h-[600px] relative">
+      <div className="hidden lg:block w-1/2 h-[500px] relative">
         <img
           src="/lovable-uploads/My-Logo.png"
           alt="Hero"
