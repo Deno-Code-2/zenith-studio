@@ -1,4 +1,5 @@
 import { Github, Twitter, AtSign, Bird, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -32,14 +33,14 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6 font-syne text-white">About Us</h3>
             <ul className="space-y-3 font-jakarta">
               <li>
-                <a href="/about" className="text-white hover:text-custom-orange transition-colors">
+                <Link to="/about" className="text-white hover:text-custom-orange transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy" className="text-white hover:text-custom-orange transition-colors">
-                  Privacy Policy
-                </a>
+                <Link to="/contact" className="text-white hover:text-custom-orange transition-colors">
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
@@ -49,24 +50,14 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6 font-syne text-white">Get Started</h3>
             <ul className="space-y-3 font-jakarta">
               <li>
-                <a href="/download" className="text-white hover:text-custom-orange transition-colors">
-                  Download
-                </a>
+                <Link to="/services" className="text-white hover:text-custom-orange transition-colors">
+                  Services
+                </Link>
               </li>
               <li>
-                <a href="/mods" className="text-white hover:text-custom-orange transition-colors">
-                  Zen Mods
-                </a>
-              </li>
-              <li>
-                <a href="/releases" className="text-white hover:text-custom-orange transition-colors">
-                  Release Notes
-                </a>
-              </li>
-              <li>
-                <a href="/twilight" className="text-white hover:text-custom-orange transition-colors">
-                  Twilight
-                </a>
+                <Link to="/blog" className="text-white hover:text-custom-orange transition-colors">
+                  Blog
+                </Link>
               </li>
             </ul>
           </div>
@@ -83,37 +74,36 @@ const Footer = () => {
               <li>
                 <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  <a href="/status" className="text-white hover:text-custom-orange transition-colors">
-                    Uptime Status
-                  </a>
+                  <Link to="/status" className="text-white hover:text-custom-orange transition-colors">
+                    Status
+                  </Link>
                 </div>
               </li>
               <li>
-                <a href="/report" className="text-white hover:text-custom-orange transition-colors">
-                  Report an Issue
-                </a>
-              </li>
-              <li>
-                <a href="mailto:hello@zen-browser.app" className="text-white hover:text-custom-orange transition-colors">
-                  hello@zen-browser.app
-                </a>
+                <Link to="/contact" className="text-white hover:text-custom-orange transition-colors">
+                  Support
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Section with new layout */}
+        {/* Bottom Section */}
         <div className="mt-16 pt-8 border-t border-custom-orange/20">
-          <div className="flex justify-between items-center">
-            <div className="text-white">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-white font-jakarta">
               Made with <span className="text-red-500">❤</span> by the Zenith Studio Team
             </div>
-            <div className="text-white">
+            <div className="text-white font-jakarta">
               Version 1.0
             </div>
-            <div className="flex space-x-4 text-white">
-              <a href="/cookie-policy" className="hover:text-custom-orange transition-colors">Cookie Policy</a>
-              <a href="/privacy-policy" className="hover:text-custom-orange transition-colors">Privacy Policy</a>
+            <div className="flex space-x-4 text-white font-jakarta">
+              <Link to="/privacy-policy" className="hover:text-custom-orange transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/cookie-policy" className="hover:text-custom-orange transition-colors">
+                Cookie Policy
+              </Link>
             </div>
           </div>
         </div>
