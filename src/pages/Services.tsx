@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Sparkles, Lightbulb, Smartphone, Zap, Users2, Search, Code, Palette } from "lucide-react";
+import AgencyShowcase from "@/components/AgencyShowcase";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -115,6 +116,7 @@ const Services = () => {
           ))}
         </div>
       </main>
+      <AgencyShowcase />
       <Footer />
     </div>
   );
