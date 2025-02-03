@@ -63,7 +63,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         duration: 1.2,
         stagger: 0.2,
         ease: "power2.inOut",
-        transformOrigin: "center"
+        transformOrigin: "center center"
       }, "-=0.5");
 
       // Animate progress bar with bounce effect
@@ -75,7 +75,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
       // Animate progress percentage with smooth counting
       tl.to(progressTextRef.current, {
-        innerText: "100",
+        innerText: 100,
         duration: 1.5,
         snap: { innerText: 1 },
         ease: "power2.inOut"
