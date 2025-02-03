@@ -12,17 +12,29 @@ import Achievements from "@/components/Achievements";
 import Features from "@/components/Features";
 import Safari from "@/components/magicui/safari";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    gsap.from(".fade-in-section", {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out"
+    // GSAP animations for sections
+    const sections = document.querySelectorAll('.fade-in-section');
+    
+    sections.forEach((section) => {
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom-=100",
+          toggleActions: "play none none reverse"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+      });
     });
   }, []);
 
@@ -37,7 +49,15 @@ const Index = () => {
         {/* Safari Demo Section */}
         <section className="py-20 px-4 fade-in-section">
           <div className="container mx-auto max-w-5xl">
-            <Safari url="zenithstudio.com" className="w-full" />
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-syne">
+                Experience Our <span className="text-custom-orange">Platform</span>
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto font-jakarta">
+                Discover how our powerful platform can transform your digital presence
+              </p>
+            </div>
+            <Safari url="zenithstudio.com" className="w-full shadow-2xl" />
           </div>
         </section>
 
