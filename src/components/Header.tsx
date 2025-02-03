@@ -9,8 +9,8 @@ const Header = () => {
   const menuItems = [
     { name: "About me", path: "/about" },
     { name: "Pricing", path: "/pricing" },
-    { name: "Services", path: "#services" },
-    { name: "Blog", path: "#blog" },
+    { name: "Services", path: "/services" }, // Updated from "#services" to "/services"
+    { name: "Blog", path: "/blog" },
     { name: "Contact Us", path: "/contact" }
   ];
 
