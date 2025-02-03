@@ -74,11 +74,6 @@ const Footer = () => {
                   Services
                 </Link>
               </li>
-              <li>
-                <Link to="/blog" className="text-white hover:text-custom-orange transition-colors">
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
 
