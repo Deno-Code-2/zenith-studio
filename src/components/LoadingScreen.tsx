@@ -62,7 +62,8 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         opacity: [0, 1, 0],
         duration: 1.2,
         stagger: 0.2,
-        ease: "power2.inOut"
+        ease: "power2.inOut",
+        transformOrigin: "center"
       }, "-=0.5");
 
       // Animate progress bar with bounce effect
