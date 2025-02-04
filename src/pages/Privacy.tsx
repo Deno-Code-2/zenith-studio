@@ -4,7 +4,7 @@ import { GridPattern } from "@/components/magicui/grid-pattern";
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-custom-orange">
       <Header />
       <div className="relative">
         <GridPattern
@@ -13,7 +13,7 @@ const Privacy = () => {
           className="absolute inset-x-0 -top-20 -bottom-20 [mask-image:linear-gradient(to_bottom,white_20%,transparent_80%)] -z-10"
         />
         <div className="container mx-auto px-4 py-20">
-          <h1 className="text-4xl font-bold mb-8 text-text font-syne">Privacy Policy</h1>
+          <h1 className="text-4xl font-bold mb-8 text-white font-syne">Privacy Policy</h1>
           <div className="prose prose-lg max-w-none text-text font-jakarta space-y-6">
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Information Collection</h2>
