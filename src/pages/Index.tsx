@@ -11,8 +11,10 @@ import LoadingScreen from "@/components/LoadingScreen";
 import Achievements from "@/components/Achievements";
 import Features from "@/components/Features";
 import Safari from "@/components/magicui/safari";
+import FAQ from "@/components/FAQ";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MarqueeDemo } from "@/components/Reviews";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +22,6 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // GSAP animations for sections
     const sections = document.querySelectorAll('.fade-in-section');
     
     sections.forEach((section) => {
@@ -36,6 +37,9 @@ const Index = () => {
         ease: "power3.out"
       });
     });
+
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -46,21 +50,12 @@ const Index = () => {
         <Header />
         <Hero />
         
-        {/* Safari Demo Section */}
         <section className="py-20 px-4 fade-in-section">
           <div className="container mx-auto max-w-5xl">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-syne">
-                Experience Our <span className="text-custom-orange">Platform</span>
-              </h2>
-            </div>
-            <div className="relative">
-              <Safari
-                url="magicui.design"
-                className="size-full"
-                imageSrc="https://via.placeholder.com/1200x750"
-              />
-            </div>
+            <Safari
+              url="zenithstudio.design"
+              className="w-full h-[600px]"
+            />
           </div>
         </section>
 
@@ -68,8 +63,9 @@ const Index = () => {
         <Features />
         <Services />
         <RecentProjects />
-        <Testimonials />
+        <MarqueeDemo />
         <AgencyShowcase />
+        <FAQ />
         <Footer />
       </main>
     </>
