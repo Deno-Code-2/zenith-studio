@@ -8,6 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
   const menuItems = [
     { name: "About me", path: "/about" },
+    { name: "Projects", path: "/projects" },
     { name: "Pricing", path: "/pricing" },
     { name: "Services", path: "/services" },
     { name: "Contact Us", path: "/contact" }

@@ -5,6 +5,12 @@ const Footer = () => {
   return (
     <footer className="w-full bg-black py-20">
       <div className="container mx-auto px-4">
+        {/* Agency Description */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-white mb-4 font-syne">Zenith Studio</h2>
+          <p className="text-gray-400 font-jakarta">Transforming Digital Dreams Into Stunning Reality Today</p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Follow Us Section */}
           <div>
@@ -53,13 +59,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/team" className="text-white hover:text-custom-orange transition-colors">
-                  Our Team
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="text-white hover:text-custom-orange transition-colors">
-                  Careers
+                <Link to="/projects" className="text-white hover:text-custom-orange transition-colors">
+                  Projects
                 </Link>
               </li>
             </ul>
@@ -72,6 +73,11 @@ const Footer = () => {
               <li>
                 <Link to="/services" className="text-white hover:text-custom-orange transition-colors">
                   Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects" className="text-white hover:text-custom-orange transition-colors">
+                  Projects
                 </Link>
               </li>
             </ul>

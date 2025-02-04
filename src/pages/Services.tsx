@@ -3,15 +3,16 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Sparkles, Lightbulb, Smartphone, Zap, Users2, Search, Code, Palette } from "lucide-react";
-import AgencyShowcase from "@/components/AgencyShowcase";
+import { Smartphone, Zap, MonitorSmartphone, BarChart3 } from "lucide-react";
+import ActionButton from "@/components/ActionButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   useEffect(() => {
-    const services = document.querySelectorAll('.service-card');
+    window.scrollTo(0, 0);
     
+    const services = document.querySelectorAll('.service-card');
     services.forEach((service, index) => {
       gsap.from(service, {
         scrollTrigger: {
@@ -19,67 +20,39 @@ const Services = () => {
           start: "top bottom-=100",
           toggleActions: "play none none reverse"
         },
-        y: 100,
+        y: 50,
         opacity: 0,
         duration: 1,
         delay: index * 0.2,
         ease: "power3.out"
       });
     });
-
-    gsap.from(".services-title", {
-      scrollTrigger: {
-        trigger: ".services-title",
-        start: "top bottom",
-        toggleActions: "play none none reverse"
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out"
-    });
   }, []);
 
   const services = [
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "Web Development",
-      description: "Custom web applications built with cutting-edge technologies and modern frameworks."
-    },
-    {
-      icon: <Palette className="w-8 h-8" />,
-      title: "UI/UX Design",
-      description: "Beautiful, intuitive interfaces that enhance user experience and drive engagement."
-    },
-    {
-      icon: <Smartphone className="w-8 h-8" />,
-      title: "Mobile Development",
-      description: "Native and cross-platform mobile applications for iOS and Android platforms."
-    },
-    {
-      icon: <Sparkles className="w-8 h-8" />,
-      title: "Digital Marketing",
-      description: "Strategic marketing solutions to boost your online presence and reach."
-    },
-    {
-      icon: <Lightbulb className="w-8 h-8" />,
-      title: "Brand Strategy",
-      description: "Comprehensive brand development and positioning strategies."
-    },
-    {
-      icon: <Search className="w-8 h-8" />,
-      title: "SEO Optimization",
-      description: "Advanced SEO techniques to improve your search engine rankings."
-    },
-    {
-      icon: <Users2 className="w-8 h-8" />,
-      title: "Social Media",
-      description: "Engaging social media management and content creation services."
+      icon: <MonitorSmartphone className="w-8 h-8" />,
+      title: "Web Design",
+      description: "Our Web Design service is all about creating visually stunning and user-friendly websites that leave a lasting impression on your audience. We focus on modern web technologies to create websites that showcase your brand's identity while ensuring seamless navigation and optimal user experience.",
+      price: "1,500"
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Performance",
-      description: "Website optimization for maximum speed and performance."
+      title: "Web Development",
+      description: "Our Web Development service is focused on turning your website into a powerful digital asset. We utilize the latest technologies and industry best practices to build dynamic and scalable websites that cater to your business objectives.",
+      price: "1,800"
+    },
+    {
+      icon: <Smartphone className="w-8 h-8" />,
+      title: "Mobile App Development",
+      description: "With our Mobile App Development service, we harness the power of mobile technology to create cutting-edge applications that engage your customers on-the-go. Our team of skilled developers builds feature-rich and intuitive apps for both Android and iOS platforms.",
+      price: "2,500"
+    },
+    {
+      icon: <BarChart3 className="w-8 h-8" />,
+      title: "Digital Marketing",
+      description: "In the digital age, marketing is a critical aspect of your business's success. Our Digital Marketing service employs data-driven strategies to enhance your brand's visibility, attract targeted traffic, and boost conversions. From SEO and PPC campaigns to social media marketing, we've got your digital marketing needs covered.",
+      price: "1,900"
     }
   ];
 
@@ -87,36 +60,44 @@ const Services = () => {
     <div className="min-h-screen bg-black">
       <Header />
       <main className="container mx-auto px-4 py-20">
-        <div className="services-title text-center mb-20">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-syne">
+        <div className="text-center mb-20">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-syne">
             Our <span className="text-custom-orange">Services</span>
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto font-jakarta">
-            We offer a comprehensive suite of digital services to help your business thrive in the modern digital landscape.
+          <p className="text-gray-400 max-w-3xl mx-auto font-jakarta">
+            At Zenith Studio, we are committed to providing exceptional digital solutions tailored to suit your unique business needs. Our comprehensive service offerings cover a wide spectrum of digital disciplines, including web design, app development, web development, and marketing.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card bg-black border border-custom-orange/20 rounded-xl p-8 hover:border-custom-orange/40 transition-all duration-300 group"
+              className="service-card bg-black/50 backdrop-blur-sm border border-custom-orange/20 rounded-xl p-8 hover:border-custom-orange/40 transition-all duration-300"
             >
-              <div className="w-16 h-16 rounded-full bg-custom-orange/10 flex items-center justify-center mb-6 group-hover:bg-custom-orange/20 transition-colors">
+              <div className="w-16 h-16 rounded-full bg-custom-orange/10 flex items-center justify-center mb-6">
                 <div className="text-custom-orange">
                   {service.icon}
                 </div>
               </div>
-              <h2 className="text-xl font-bold text-white mb-4 font-syne group-hover:text-custom-orange transition-colors">
+              <h2 className="text-2xl font-bold text-white mb-4 font-syne">
                 {service.title}
               </h2>
-              <p className="text-gray-400 font-jakarta">
+              <p className="text-gray-400 mb-6 font-jakarta">
                 {service.description}
               </p>
+              <div className="flex items-center justify-between">
+                <p className="text-custom-orange font-syne">
+                  Starts at Price: ${service.price}
+                </p>
+                <ActionButton href="/contact" variant="primary">
+                  Book a Call
+                </ActionButton>
+              </div>
             </div>
           ))}
         </div>
       </main>
-      <AgencyShowcase />
       <Footer />
     </div>
   );
