@@ -7,6 +7,8 @@ import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import Pricing from "./pages/Pricing";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,6 +31,8 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
