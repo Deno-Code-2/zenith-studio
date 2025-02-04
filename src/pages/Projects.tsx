@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ExternalLink } from "lucide-react";
+import AgencyShowcase from "@/components/AgencyShowcase";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,6 +79,7 @@ const Projects = () => {
           ))}
         </div>
       </main>
+      <AgencyShowcase />
       <Footer />
     </div>
   );
