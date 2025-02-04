@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -7,7 +7,6 @@ import Testimonials from "@/components/Testimonials";
 import AgencyShowcase from "@/components/AgencyShowcase";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
-import LoadingScreen from "@/components/LoadingScreen";
 import Achievements from "@/components/Achievements";
 import Features from "@/components/Features";
 import Safari from "@/components/magicui/safari";
@@ -19,8 +18,6 @@ import { MarqueeDemo } from "@/components/Reviews";
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     const sections = document.querySelectorAll('.fade-in-section');
     
@@ -43,32 +40,29 @@ const Index = () => {
   }, []);
 
   return (
-    <>
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      <main className={`min-h-screen bg-black relative overflow-hidden ${isLoading ? 'hidden' : ''}`}>
-        <GridPattern />
-        <Header />
-        <Hero />
-        
-        <section className="py-20 px-4 fade-in-section">
-          <div className="container mx-auto max-w-5xl">
-            <Safari
-              url="zenithstudio.design"
-              className="w-full h-[600px]"
-            />
-          </div>
-        </section>
+    <main className="min-h-screen bg-background relative overflow-hidden">
+      <GridPattern />
+      <Header />
+      <Hero />
+      
+      <section className="py-20 px-4 fade-in-section">
+        <div className="container mx-auto max-w-5xl">
+          <Safari
+            url="zenithstudio.design"
+            className="w-full h-[600px]"
+          />
+        </div>
+      </section>
 
-        <Achievements />
-        <Features />
-        <Services />
-        <RecentProjects />
-        <MarqueeDemo />
-        <AgencyShowcase />
-        <FAQ />
-        <Footer />
-      </main>
-    </>
+      <Achievements />
+      <Features />
+      <Services />
+      <RecentProjects />
+      <MarqueeDemo />
+      <AgencyShowcase />
+      <FAQ />
+      <Footer />
+    </main>
   );
 };
 

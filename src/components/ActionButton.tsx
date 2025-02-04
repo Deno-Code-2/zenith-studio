@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
-import { PhoneCall } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 interface ActionButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
   href?: string;
-  showIcon?: boolean;
+  icon?: React.ReactNode;
 }
 
 const ActionButton = ({
@@ -12,20 +12,20 @@ const ActionButton = ({
   className,
   variant = "primary",
   href,
-  showIcon = true,
+  icon,
   ...props
 }: ActionButtonProps) => {
   const buttonClasses = cn(
     "px-6 py-3 rounded-lg font-medium transition-all duration-200 ease-in-out flex items-center gap-2",
     variant === "primary"
-      ? "bg-custom-orange hover:bg-custom-orange/90 text-black border border-custom-orange/20 backdrop-blur-sm"
-      : "bg-black hover:bg-black/90 text-white border border-custom-orange/20 backdrop-blur-sm",
+      ? "bg-primary hover:bg-primary/90 text-white"
+      : "bg-background hover:bg-background/90 text-text border border-primary/20",
     className
   );
 
   const content = (
     <>
-      {showIcon && <PhoneCall className="w-5 h-5" />}
+      {icon}
       {children}
     </>
   );
