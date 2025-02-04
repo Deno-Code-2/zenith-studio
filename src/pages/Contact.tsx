@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
+import AgencyShowcase from "@/components/AgencyShowcase";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -139,7 +140,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
+      <AgencyShowcase />
       <Footer />
     </main>
   );
