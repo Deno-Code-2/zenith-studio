@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="w-full bg-black py-20">
+     <div className="container mx-auto px-4">
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Follow Us Section */}
           <div>
