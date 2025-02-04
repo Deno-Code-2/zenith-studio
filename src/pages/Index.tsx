@@ -53,11 +53,14 @@ const Index = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-syne">
                 Experience Our <span className="text-custom-orange">Platform</span>
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto font-jakarta">
-                Discover how our powerful platform can transform your digital presence
-              </p>
             </div>
-            <Safari url="zenithstudio.com" className="w-full shadow-2xl" />
+            <div className="relative">
+              <Safari
+                url="magicui.design"
+                className="size-full"
+                imageSrc="https://via.placeholder.com/1200x750"
+              />
+            </div>
           </div>
         </section>
 

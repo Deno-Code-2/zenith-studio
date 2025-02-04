@@ -57,14 +57,13 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       circles.forEach(circle => circlesRef.current?.appendChild(circle));
 
       // Animate circles in a sequence
-      tl.to(circles, {
+      gsap.to(circles, {
         scale: [0, 1.5, 1],
         opacity: [0, 1, 0],
         duration: 1.2,
         stagger: 0.2,
-        ease: "power2.inOut",
-        transformOrigin: "center center"
-      }, "-=0.5");
+        ease: "power2.inOut"
+      });
 
       // Animate progress bar with bounce effect
       tl.to(progressRef.current, {
@@ -73,13 +72,13 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         ease: "elastic.out(1, 0.75)"
       }, "-=1");
 
-      // Animate progress percentage with smooth counting
-      tl.to(progressTextRef.current, {
-        innerText: 100,
+      // Animate progress percentage
+      gsap.to(progressTextRef.current, {
+        innerHTML: "100",
         duration: 1.5,
-        snap: { innerText: 1 },
+        snap: "innerHTML",
         ease: "power2.inOut"
-      }, "-=1.5");
+      });
     }
   }, [onComplete]);
 
