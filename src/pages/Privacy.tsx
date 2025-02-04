@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GridPattern } from "@/components/magicui/grid-pattern";
+import AgencyShowcase from "@/components/AgencyShowcase";
+
 
 const Privacy = () => {
   return (
@@ -42,6 +44,7 @@ const Privacy = () => {
           </div>
         </div>
       </div>
+      <AgencyShowcase />
       <Footer />
     </div>
   );
