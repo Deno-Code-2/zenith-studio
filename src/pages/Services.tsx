@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Smartphone, Zap, MonitorSmartphone, BarChart3 } from "lucide-react";
 import ActionButton from "@/components/ActionButton";
+import AgencyShowcase from "@/components/AgencyShowcase";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,6 +100,7 @@ const Services = () => {
           ))}
         </div>
       </main>
+      <AgencyShowcase />
       <Footer />
     </div>
   );
