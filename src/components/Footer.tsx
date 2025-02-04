@@ -71,7 +71,7 @@ const Footer = () => {
 
           {/* Get Started Section */}
           <div>
-            <h3 className="text-lg font-bold mb-6 font-syne text-text">Get Started</h3>
+            <h3 className="text-lg font-bold mb-6 font-syne text-white">Get Started</h3>
             <ul className="space-y-3 font-jakarta">
               <li>
                 <Link to="/services" className="text-white hover:text-custom-orange transition-colors">
