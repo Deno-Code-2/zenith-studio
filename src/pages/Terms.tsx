@@ -4,7 +4,7 @@ import { GridPattern } from "@/components/magicui/grid-pattern";
 
 const Terms = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-custom-orange">
       <Header />
       <div className="relative">
         <GridPattern
@@ -14,7 +14,7 @@ const Terms = () => {
         />
         <div className="container mx-auto px-4 py-20">
           <h1 className="text-4xl font-bold mb-8 text-text font-syne">Terms and Conditions</h1>
-          <div className="prose prose-lg max-w-none text-text font-jakarta space-y-6">
+          <div className="prose prose-lg max-w-none text-white font-jakarta space-y-6">
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Services Agreement</h2>
               <p>By engaging with our agency, you agree to these terms and conditions. We provide digital marketing, web development, and creative services as specified in individual project agreements.</p>
