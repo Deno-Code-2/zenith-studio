@@ -3,17 +3,14 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import RecentProjects from "@/components/RecentProjects";
-import Testimonials from "@/components/Testimonials";
 import AgencyShowcase from "@/components/AgencyShowcase";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
 import Achievements from "@/components/Achievements";
 import Features from "@/components/Features";
-import Safari from "@/components/magicui/safari";
 import FAQ from "@/components/FAQ";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MarqueeDemo } from "@/components/Reviews";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,21 +41,10 @@ const Index = () => {
       <GridPattern />
       <Header />
       <Hero />
-      
-      <section className="py-20 px-4 fade-in-section">
-        <div className="container mx-auto max-w-5xl">
-          <Safari
-            url="zenithstudio.design"
-            className="w-full h-[600px]"
-          />
-        </div>
-      </section>
-
       <Achievements />
       <Features />
       <Services />
       <RecentProjects />
-      <MarqueeDemo />
       <AgencyShowcase />
       <FAQ />
       <Footer />
