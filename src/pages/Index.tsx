@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -6,7 +7,6 @@ import RecentProjects from "@/components/RecentProjects";
 import AgencyShowcase from "@/components/AgencyShowcase";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
-import Achievements from "@/components/Achievements";
 import Features from "@/components/Features";
 import FAQ from "@/components/FAQ";
 import { gsap } from "gsap";
@@ -16,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   useEffect(() => {
+    // GSAP animations for sections
     const sections = document.querySelectorAll('.fade-in-section');
     
     sections.forEach((section) => {
@@ -40,14 +41,15 @@ const Index = () => {
     <main className="min-h-screen bg-background relative overflow-hidden">
       <GridPattern />
       <Header />
-      <Hero />
-      <Achievements />
-      <Features />
-      <Services />
-      <RecentProjects />
-      <AgencyShowcase />
-      <FAQ />
-      <Footer />
+      <div className="pt-32"> {/* Added padding top to create space after header */}
+        <Hero />
+        <Features className="mt-32 mb-32" /> {/* Added margin for better spacing */}
+        <Services />
+        <RecentProjects />
+        <AgencyShowcase />
+        <FAQ />
+        <Footer />
+      </div>
     </main>
   );
 };

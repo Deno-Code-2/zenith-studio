@@ -1,3 +1,4 @@
+
 import { cn } from "@/lib/utils";
 import {
   IconAdjustmentsBolt,
@@ -53,12 +54,12 @@ const features = [
   },
 ];
 
-const Features = () => {
+const Features = ({ className }: { className?: string }) => {
   return (
-    <section className="py-20 bg-black">
+    <section className={cn("py-20 bg-black", className)}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 font-syne text-white">
+        <div className="text-center mb-24"> {/* Increased bottom margin */}
+          <h2 className="text-4xl font-bold mb-8 font-syne text-white"> {/* Increased bottom margin */}
             Why Choose <span className="text-custom-orange">Zenith Studio</span>
           </h2>
           <p className="text-xl text-gray-400 font-jakarta max-w-2xl mx-auto">
