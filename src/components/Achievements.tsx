@@ -3,7 +3,7 @@
 
 import React from "react"
 import { motion } from "framer-motion"
-import AnimatedGradient from "@/fancy/components/background/animated-gradient-with-svg"
+import { AnimatedGradient } from "@/components/AnimatedGradient"
 
 interface BentoCardProps {
   title: string
