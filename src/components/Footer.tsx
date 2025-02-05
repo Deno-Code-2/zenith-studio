@@ -5,20 +5,6 @@ const Footer = () => {
   return (
     <footer className="w-full bg-black py-20">
       <div className="container mx-auto px-4">
-        {/* Logo */}
-        <div className="flex justify-center mb-12">
-          <img
-            src="/lovable-uploads/My-Logo.png"
-            alt="Agency Logo"
-            className="h-16 w-auto"
-          />
-        </div>
-        
-        {/* Version number */}
-        <div className="text-center mb-12">
-          <span className="text-custom-orange font-jakarta">Version 1.0</span>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Follow Us Section */}
           <div>
@@ -117,8 +103,13 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Version number */}
+        <div className="text-center my-12">
+          <span className="text-custom-orange font-jakarta">Version 1.0</span>
+        </div>
+
         {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-custom-orange/20">
+        <div className="mt-8 pt-8 border-t border-custom-orange/20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white font-jakarta">
               © 2025 All rights reserved
