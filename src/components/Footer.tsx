@@ -13,6 +13,12 @@ const Footer = () => {
             className="h-16 w-auto"
           />
         </div>
+        
+        {/* Version number */}
+        <div className="text-center mb-12">
+          <span className="text-custom-orange font-jakarta">Version 1.0</span>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Follow Us Section */}
           <div>

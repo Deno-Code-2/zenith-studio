@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -16,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   useEffect(() => {
-    // GSAP animations for sections
     const sections = document.querySelectorAll('.fade-in-section');
     
     sections.forEach((section) => {
@@ -33,7 +31,6 @@ const Index = () => {
       });
     });
 
-    // Scroll to top on page load
     window.scrollTo(0, 0);
   }, []);
 
@@ -41,9 +38,9 @@ const Index = () => {
     <main className="min-h-screen bg-background relative overflow-hidden">
       <GridPattern />
       <Header />
-      <div className="pt-32"> {/* Added padding top to create space after header */}
+      <div className="pt-24"> {/* Adjusted padding top */}
         <Hero />
-        <Features className="mt-32 mb-32" /> {/* Added margin for better spacing */}
+        <Features className="mt-24 mb-24" /> {/* Adjusted margins */}
         <Services />
         <RecentProjects />
         <AgencyShowcase />
