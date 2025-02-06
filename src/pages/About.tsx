@@ -8,27 +8,25 @@ const About = () => {
     <main className="min-h-screen bg-black">
       <Header />
       
-      {/* Hero Section */}
-      <section className="py-20 px-4 md:px-8">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="flex-1 space-y-6">
-              <p className="text-custom-orange font-jakarta">About</p>
-              <h1 className="text-4xl md:text-6xl font-bold text-white font-syne">
-                Empowering Your Online Presence<br />
-                Discover the <span className="text-orange-500">Zenith Studio</span> Difference Today!
-              </h1>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Zenith Studio is more than a digital agency; we're your partner in online success. With a commitment to excellence and a passion for innovation, we offer a full suite of services designed to elevate your brand and expand your reach.
-              </p>
-            </div>
-            <div className="flex-1">
-              <img 
-                src="/lovable-uploads/My-Logo.png"
-                alt="Team"
-                className="rounded-lg w-full"
-              />
-            </div>
+      {/* Hero Section with adjusted padding */}
+      <section className="pt-32 px-4 md:px-8">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex-1 space-y-6">
+            <p className="text-custom-orange font-jakarta">About</p>
+            <h1 className="text-4xl md:text-6xl font-bold text-white font-syne">
+              Empowering Your Online Presence<br />
+              Discover the <span className="text-orange-500">Zenith Studio</span> Difference Today!
+            </h1>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Zenith Studio is more than a digital agency; we're your partner in online success. With a commitment to excellence and a passion for innovation, we offer a full suite of services designed to elevate your brand and expand your reach.
+            </p>
+          </div>
+          <div className="flex-1">
+            <img 
+              src="/lovable-uploads/My-Logo.png"
+              alt="Team"
+              className="rounded-lg w-full"
+            />
           </div>
         </div>
       </section>

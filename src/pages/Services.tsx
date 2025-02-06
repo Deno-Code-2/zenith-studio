@@ -7,7 +7,6 @@ import { Smartphone, Zap, MonitorSmartphone, BarChart3 } from "lucide-react";
 import ActionButton from "@/components/ActionButton";
 import AgencyShowcase from "@/components/AgencyShowcase";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
@@ -35,25 +34,25 @@ const Services = () => {
     {
       icon: <MonitorSmartphone className="w-8 h-8" />,
       title: "Web Design",
-      description: "Our Web Design service is all about creating visually stunning and user-friendly websites that leave a lasting impression on your audience. We focus on modern web technologies to create websites that showcase your brand's identity while ensuring seamless navigation and optimal user experience.",
+      description: "Our Web Design service is all about creating visually stunning and user-friendly websites that leave a lasting impression on your audience.",
       price: "1,500"
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Web Development",
-      description: "Our Web Development service is focused on turning your website into a powerful digital asset. We utilize the latest technologies and industry best practices to build dynamic and scalable websites that cater to your business objectives.",
+      description: "Our Web Development service is focused on turning your website into a powerful digital asset.",
       price: "1,800"
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
       title: "Mobile App Development",
-      description: "With our Mobile App Development service, we harness the power of mobile technology to create cutting-edge applications that engage your customers on-the-go. Our team of skilled developers builds feature-rich and intuitive apps for both Android and iOS platforms.",
+      description: "With our Mobile App Development service, we harness the power of mobile technology to create cutting-edge applications.",
       price: "2,500"
     },
     {
       icon: <BarChart3 className="w-8 h-8" />,
       title: "Digital Marketing",
-      description: "In the digital age, marketing is a critical aspect of your business's success. Our Digital Marketing service employs data-driven strategies to enhance your brand's visibility, attract targeted traffic, and boost conversions. From SEO and PPC campaigns to social media marketing, we've got your digital marketing needs covered.",
+      description: "In the digital age, marketing is a critical aspect of your business's success.",
       price: "1,900"
     }
   ];
@@ -61,13 +60,13 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="container mx-auto px-4 py-20">
+      <main className="container mx-auto px-4 pt-32">
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 font-syne">
             Our <span className="text-custom-orange">Services</span>
           </h1>
           <p className="text-gray-400 max-w-3xl mx-auto font-jakarta">
-            At Zenith Studio, we are committed to providing exceptional digital solutions tailored to suit your unique business needs. Our comprehensive service offerings cover a wide spectrum of digital disciplines, including web design, app development, web development, and marketing.
+            At Zenith Studio, we are committed to providing exceptional digital solutions tailored to suit your unique business needs.
           </p>
         </div>
 
@@ -90,7 +89,7 @@ const Services = () => {
               </p>
               <div className="flex items-center justify-between">
                 <p className="text-custom-orange font-syne">
-                  Starts at Price: ${service.price}
+                  Starts at ${service.price}
                 </p>
                 <ActionButton href="/contact" variant="primary">
                   Book a Call

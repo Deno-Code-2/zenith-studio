@@ -20,14 +20,14 @@ export default {
     extend: {
       colors: {
         "custom-orange": "#E46534",
-        background: "#F7FAFC", // This was present before
+        background: "#F7FAFC",
         primary: "#1E40AF",
         accent: "#16A34A",
         text: "#111827",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))", // Duplicate, kept before
+        background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -57,15 +57,6 @@ export default {
       fontFamily: {
         syne: ['Syne', 'sans-serif'],
         jakarta: ['Plus Jakarta Sans', 'sans-serif'],
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-      },
-      animation: {
-        fadeIn: "fadeIn 0.5s ease-out forwards",
       },
     },
   },

@@ -45,7 +45,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="container mx-auto px-4 py-20">
+      <main className="container mx-auto px-4 pt-32">
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 font-syne">
             Key Features of <span className="text-custom-orange">Our Projects</span>
