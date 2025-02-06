@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Robot, X } from 'lucide-react';
+import { Bot, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { toast } from "sonner";
 
@@ -46,7 +46,7 @@ const Chatbot = () => {
           onClick={() => setIsOpen(true)}
           className="fixed bottom-4 right-4 rounded-full p-4 bg-custom-orange hover:bg-custom-orange/90 shadow-lg scale-100 hover:scale-110 transition-all duration-200"
         >
-          <Robot className="w-6 h-6" />
+          <Bot className="w-6 h-6" />
         </Button>
       )}
 
@@ -54,7 +54,7 @@ const Chatbot = () => {
         <div className="fixed bottom-4 right-4 w-96 bg-black border border-custom-orange/20 rounded-lg shadow-xl z-50">
           <div className="flex items-center justify-between p-4 border-b border-custom-orange/20">
             <div className="flex items-center gap-2">
-              <Robot className="w-6 h-6 text-custom-orange" />
+              <Bot className="w-6 h-6 text-custom-orange" />
               <h3 className="text-lg font-bold text-white font-syne">AI Assistant</h3>
             </div>
             <Button
