@@ -1,13 +1,16 @@
+
 import { useState } from 'react';
-import { MessageSquare, X } from 'lucide-react';
+import { Robot, X } from 'lucide-react';
 import { Button } from './ui/button';
+import { toast } from "sonner";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([
-    { text: "Hi! How can I help you today?", isUser: false }
+    { text: "Hi! I'm your AI assistant. How can I help you today?", isUser: false }
   ]);
   const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -15,18 +18,25 @@ const Chatbot = () => {
     const userMessage = { text: input, isUser: true };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
+    setIsTyping(true);
 
-    // Add a loading message
-    const loadingMessage = { text: "Typing...", isUser: false };
-    setMessages(prev => [...prev, loadingMessage]);
-
-    // Simulate AI response (replace with actual API call)
-    setTimeout(() => {
-      setMessages(prev => [
-        ...prev.filter(msg => msg.text !== "Typing..."),
-        { text: "Thank you for your message! Our team will get back to you soon.", isUser: false }
-      ]);
-    }, 1000);
+    try {
+      // Simulate AI response - Replace with actual API call
+      setTimeout(() => {
+        setMessages(prev => [
+          ...prev,
+          { 
+            text: "Thank you for your message! I'm processing your request and will assist you shortly.", 
+            isUser: false 
+          }
+        ]);
+        setIsTyping(false);
+        toast.success("Message sent successfully!");
+      }, 1000);
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+      setIsTyping(false);
+    }
   };
 
   return (
@@ -34,16 +44,19 @@ const Chatbot = () => {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 rounded-full p-4 bg-custom-orange hover:bg-custom-orange/90"
+          className="fixed bottom-4 right-4 rounded-full p-4 bg-custom-orange hover:bg-custom-orange/90 shadow-lg scale-100 hover:scale-110 transition-all duration-200"
         >
-          <MessageSquare className="w-6 h-6" />
+          <Robot className="w-6 h-6" />
         </Button>
       )}
 
       {isOpen && (
-        <div className="fixed bottom-4 right-4 w-96 bg-black border border-custom-orange/20 rounded-lg shadow-xl">
+        <div className="fixed bottom-4 right-4 w-96 bg-black border border-custom-orange/20 rounded-lg shadow-xl z-50">
           <div className="flex items-center justify-between p-4 border-b border-custom-orange/20">
-            <h3 className="text-lg font-bold text-white font-syne">Chat with us</h3>
+            <div className="flex items-center gap-2">
+              <Robot className="w-6 h-6 text-custom-orange" />
+              <h3 className="text-lg font-bold text-white font-syne">AI Assistant</h3>
+            </div>
             <Button
               variant="ghost"
               size="icon"
@@ -71,6 +84,13 @@ const Chatbot = () => {
                 </div>
               </div>
             ))}
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="bg-gray-800 text-white p-3 rounded-lg">
+                  <span className="animate-pulse">Typing...</span>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="p-4 border-t border-custom-orange/20">
@@ -82,10 +102,12 @@ const Chatbot = () => {
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type your message..."
                 className="flex-1 p-2 rounded-lg bg-gray-800 text-white border border-custom-orange/20 focus:outline-none focus:border-custom-orange"
+                disabled={isTyping}
               />
               <Button
                 onClick={handleSend}
                 className="bg-custom-orange hover:bg-custom-orange/90 text-black"
+                disabled={isTyping}
               >
                 Send
               </Button>

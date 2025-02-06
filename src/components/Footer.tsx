@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black py-20">
-      <div className="container mx-auto px-4">
+    <footer className="w-full bg-black py-20 relative overflow-hidden">
+      {/* Large Agency Name Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
+        <h1 className="text-[20vw] font-black text-white font-syne">ZENITH</h1>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Follow Us Section */}
           <div>
