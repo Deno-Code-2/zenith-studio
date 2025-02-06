@@ -10,7 +10,7 @@ import {
   IconTerminal2,
 } from "@tabler/icons-react";
 
-export function FeaturesSectionDemo() {
+const Features = () => {
   const features = [
     {
       title: "Built for developers",
@@ -65,7 +65,7 @@ export function FeaturesSectionDemo() {
       ))}
     </div>
   );
-}
+};
 
 const Feature = ({
   title,
@@ -107,3 +107,5 @@ const Feature = ({
     </div>
   );
 };
+
+export default Features;

@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -39,9 +38,9 @@ const Index = () => {
     <main className="min-h-screen bg-background relative overflow-hidden">
       <GridPattern />
       <Header />
-      <div className="pt-24"> {/* Adjusted padding top */}
+      <div className="pt-24">
         <Hero />
-        <Features className="mt-24 mb-24" /> {/* Adjusted margins */}
+        <Features className="mt-24 mb-24" />
         <Services />
         <RecentProjects />
         <AgencyShowcase />
