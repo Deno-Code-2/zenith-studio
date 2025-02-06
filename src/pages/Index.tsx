@@ -10,7 +10,6 @@ import { Features } from "@/components/Features";
 import FAQ from "@/components/FAQ";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +47,6 @@ const Index = () => {
         <FAQ />
         <Footer />
       </div>
-      <SpeedInsights />
     </main>
   );
 };
