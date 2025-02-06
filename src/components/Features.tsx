@@ -13,56 +13,67 @@ import {
 const Features = () => {
   const features = [
     {
-      title: "Built for developers",
+      title: "Strategic Design Solutions",
       description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
+        "We craft intuitive and engaging digital experiences that captivate your audience.",
       icon: <IconTerminal2 />,
     },
     {
-      title: "Ease of use",
+      title: "Seamless Integration",
       description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
+        "Our solutions integrate perfectly with your existing systems and workflows.",
       icon: <IconEaseInOut />,
     },
     {
-      title: "Pricing like no other",
+      title: "Competitive Pricing",
       description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
+        "Premium digital solutions at competitive rates that deliver exceptional ROI.",
       icon: <IconCurrencyDollar />,
     },
     {
-      title: "100% Uptime guarantee",
-      description: "We just cannot be taken down by anyone.",
+      title: "Cloud Infrastructure",
+      description: "Robust cloud solutions ensuring 99.9% uptime and reliability.",
       icon: <IconCloud />,
     },
     {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
+      title: "Scalable Architecture",
+      description: "Future-proof solutions that grow with your business needs.",
       icon: <IconRouteAltLeft />,
     },
     {
-      title: "24/7 Customer Support",
+      title: "24/7 Expert Support",
       description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
+        "Round-the-clock support from our dedicated team of professionals.",
       icon: <IconHelp />,
     },
     {
-      title: "Money back guarantee",
+      title: "Performance Optimization",
       description:
-        "If you donot like EveryAI, we will convince you to like us.",
+        "Continuous optimization to ensure peak performance and efficiency.",
       icon: <IconAdjustmentsBolt />,
     },
     {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
+      title: "Client-Centric Approach",
+      description: "Your success is our priority - we're committed to your growth.",
       icon: <IconHeart />,
     },
   ];
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto">
-      {features.map((feature, index) => (
-        <Feature key={feature.title} {...feature} index={index} />
-      ))}
+    <div className="py-20 bg-black">
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-bold mb-6 font-syne">
+          <span className="text-custom-orange">Innovative</span> Features
+        </h2>
+        <p className="text-gray-400 max-w-2xl mx-auto font-jakarta">
+          Discover the powerful features that set us apart and drive your digital success
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
+        {features.map((feature, index) => (
+          <Feature key={feature.title} {...feature} index={index} />
+        ))}
+      </div>
     </div>
   );
 };
@@ -81,27 +92,21 @@ const Feature = ({
   return (
     <div
       className={cn(
-        "flex flex-col lg:border-r  py-10 relative group/feature dark:border-neutral-800",
-        (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
-        index < 4 && "lg:border-b dark:border-neutral-800"
+        "flex flex-col lg:border-r border-zinc-800 py-10 relative group/feature",
+        (index === 0 || index === 4) && "lg:border-l",
+        index < 4 && "lg:border-b"
       )}
     >
-      {index < 4 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
-      )}
-      {index >= 4 && (
-        <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
-      )}
-      <div className="mb-4 relative z-10 px-10 text-neutral-600 dark:text-neutral-400">
+      <div className="mb-4 relative z-10 px-10 text-custom-orange">
         {icon}
       </div>
       <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center" />
-        <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800 dark:text-neutral-100">
+        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-custom-orange group-hover/feature:bg-custom-orange transition-all duration-200 origin-center" />
+        <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-white font-syne">
           {title}
         </span>
       </div>
-      <p className="text-sm text-neutral-600 dark:text-neutral-300 max-w-xs relative z-10 px-10">
+      <p className="text-sm text-gray-400 max-w-xs relative z-10 px-10 font-jakarta">
         {description}
       </p>
     </div>
