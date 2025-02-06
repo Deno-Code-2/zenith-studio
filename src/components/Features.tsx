@@ -10,55 +10,61 @@ import {
   IconTerminal2,
 } from "@tabler/icons-react";
 
-const Features = () => {
-  const features = [
-    {
-      title: "Strategic Design Solutions",
-      description:
-        "We craft intuitive and engaging digital experiences that captivate your audience.",
-      icon: <IconTerminal2 />,
-    },
-    {
-      title: "Seamless Integration",
-      description:
-        "Our solutions integrate perfectly with your existing systems and workflows.",
-      icon: <IconEaseInOut />,
-    },
-    {
-      title: "Competitive Pricing",
-      description:
-        "Premium digital solutions at competitive rates that deliver exceptional ROI.",
-      icon: <IconCurrencyDollar />,
-    },
-    {
-      title: "Cloud Infrastructure",
-      description: "Robust cloud solutions ensuring 99.9% uptime and reliability.",
-      icon: <IconCloud />,
-    },
-    {
-      title: "Scalable Architecture",
-      description: "Future-proof solutions that grow with your business needs.",
-      icon: <IconRouteAltLeft />,
-    },
-    {
-      title: "24/7 Expert Support",
-      description:
-        "Round-the-clock support from our dedicated team of professionals.",
-      icon: <IconHelp />,
-    },
-    {
-      title: "Performance Optimization",
-      description:
-        "Continuous optimization to ensure peak performance and efficiency.",
-      icon: <IconAdjustmentsBolt />,
-    },
-    {
-      title: "Client-Centric Approach",
-      description: "Your success is our priority - we're committed to your growth.",
-      icon: <IconHeart />,
-    },
-  ];
+interface Feature {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
 
+const features: Feature[] = [
+  {
+    title: "Strategic Design Solutions",
+    description:
+      "We craft intuitive and engaging digital experiences that captivate your audience.",
+    icon: <IconTerminal2 />,
+  },
+  {
+    title: "Seamless Integration",
+    description:
+      "Our solutions integrate perfectly with your existing systems and workflows.",
+    icon: <IconEaseInOut />,
+  },
+  {
+    title: "Competitive Pricing",
+    description:
+      "Premium digital solutions at competitive rates that deliver exceptional ROI.",
+    icon: <IconCurrencyDollar />,
+  },
+  {
+    title: "Cloud Infrastructure",
+    description: "Robust cloud solutions ensuring 99.9% uptime and reliability.",
+    icon: <IconCloud />,
+  },
+  {
+    title: "Scalable Architecture",
+    description: "Future-proof solutions that grow with your business needs.",
+    icon: <IconRouteAltLeft />,
+  },
+  {
+    title: "24/7 Expert Support",
+    description:
+      "Round-the-clock support from our dedicated team of professionals.",
+    icon: <IconHelp />,
+  },
+  {
+    title: "Performance Optimization",
+    description:
+      "Continuous optimization to ensure peak performance and efficiency.",
+    icon: <IconAdjustmentsBolt />,
+  },
+  {
+    title: "Client-Centric Approach",
+    description: "Your success is our priority - we're committed to your growth.",
+    icon: <IconHeart />,
+  },
+];
+
+export const Features = () => {
   return (
     <div className="py-20 bg-black">
       <div className="text-center mb-16">
@@ -69,7 +75,7 @@ const Features = () => {
           Discover the powerful features that set us apart and drive your digital success
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 max-w-7xl mx-auto px-4">
         {features.map((feature, index) => (
           <Feature key={feature.title} {...feature} index={index} />
         ))}
@@ -83,12 +89,7 @@ const Feature = ({
   description,
   icon,
   index,
-}: {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  index: number;
-}) => {
+}: Feature & { index: number }) => {
   return (
     <div
       className={cn(

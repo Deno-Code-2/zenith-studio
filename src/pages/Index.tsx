@@ -6,10 +6,11 @@ import RecentProjects from "@/components/RecentProjects";
 import AgencyShowcase from "@/components/AgencyShowcase";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
-import Features from "@/components/Features";
+import { Features } from "@/components/Features";
 import FAQ from "@/components/FAQ";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,13 +41,14 @@ const Index = () => {
       <Header />
       <div className="pt-24">
         <Hero />
-        <Features className="mt-24 mb-24" />
+        <Features />
         <Services />
         <RecentProjects />
         <AgencyShowcase />
         <FAQ />
         <Footer />
       </div>
+      <SpeedInsights />
     </main>
   );
 };
