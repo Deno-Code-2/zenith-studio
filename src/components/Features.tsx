@@ -1,117 +1,139 @@
-import { cn } from "@/lib/utils";
-import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
-} from "@tabler/icons-react";
+import React from "react";
+import { useId } from "react";
 
-interface Feature {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-}
-
-const features: Feature[] = [
-  {
-    title: "Strategic Design Solutions",
-    description:
-      "We craft intuitive and engaging digital experiences that captivate your audience.",
-    icon: <IconTerminal2 />,
-  },
-  {
-    title: "Seamless Integration",
-    description:
-      "Our solutions integrate perfectly with your existing systems and workflows.",
-    icon: <IconEaseInOut />,
-  },
-  {
-    title: "Competitive Pricing",
-    description:
-      "Premium digital solutions at competitive rates that deliver exceptional ROI.",
-    icon: <IconCurrencyDollar />,
-  },
-  {
-    title: "Cloud Infrastructure",
-    description: "Robust cloud solutions ensuring 99.9% uptime and reliability.",
-    icon: <IconCloud />,
-  },
-  {
-    title: "Scalable Architecture",
-    description: "Future-proof solutions that grow with your business needs.",
-    icon: <IconRouteAltLeft />,
-  },
-  {
-    title: "24/7 Expert Support",
-    description:
-      "Round-the-clock support from our dedicated team of professionals.",
-    icon: <IconHelp />,
-  },
-  {
-    title: "Performance Optimization",
-    description:
-      "Continuous optimization to ensure peak performance and efficiency.",
-    icon: <IconAdjustmentsBolt />,
-  },
-  {
-    title: "Client-Centric Approach",
-    description: "Your success is our priority - we're committed to your growth.",
-    icon: <IconHeart />,
-  },
-];
-
-export const Features = () => {
+export function FeaturesSectionDemo() {
   return (
-    <div className="py-20 bg-black">
-      <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold mb-6 font-syne">
-          <span className="text-custom-orange">Innovative</span> Features
-        </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto font-jakarta">
-          Discover the powerful features that set us apart and drive your digital success
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 max-w-7xl mx-auto px-4">
-        {features.map((feature, index) => (
-          <Feature key={feature.title} {...feature} index={index} />
+    <div className="py-20 lg:py-40">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
+        {grid.map((feature) => (
+          <div
+            key={feature.title}
+            className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden"
+          >
+            <Grid size={20} />
+            <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
+              {feature.title}
+            </p>
+            <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
+              {feature.description}
+            </p>
+          </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
-const Feature = ({
-  title,
-  description,
-  icon,
-  index,
-}: Feature & { index: number }) => {
+const grid = [
+  {
+    title: "HIPAA and SOC2 Compliant",
+    description:
+      "Our applications are HIPAA and SOC2 compliant, your data is safe with us, always.",
+  },
+  {
+    title: "Automated Social Media Posting",
+    description:
+      "Schedule and automate your social media posts across multiple platforms to save time and maintain a consistent online presence.",
+  },
+  {
+    title: "Advanced Analytics",
+    description:
+      "Gain insights into your social media performance with detailed analytics and reporting tools to measure engagement and ROI.",
+  },
+  {
+    title: "Content Calendar",
+    description:
+      "Plan and organize your social media content with an intuitive calendar view, ensuring you never miss a post.",
+  },
+  {
+    title: "Audience Targeting",
+    description:
+      "Reach the right audience with advanced targeting options, including demographics, interests, and behaviors.",
+  },
+  {
+    title: "Social Listening",
+    description:
+      "Monitor social media conversations and trends to stay informed about what your audience is saying and respond in real-time.",
+  },
+  {
+    title: "Customizable Templates",
+    description:
+      "Create stunning social media posts with our customizable templates, designed to fit your brand's unique style and voice.",
+  },
+  {
+    title: "Collaboration Tools",
+    description:
+      "Work seamlessly with your team using our collaboration tools, allowing you to assign tasks, share drafts, and provide feedback in real-time.",
+  },
+];
+
+export const Grid = ({
+  pattern,
+  size,
+}: {
+  pattern?: number[][];
+  size?: number;
+}) => {
+  const p = pattern ?? [
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+  ];
   return (
-    <div
-      className={cn(
-        "flex flex-col lg:border-r lg:border-zinc-800 py-10 relative group/feature",
-        (index === 0 || index === 4) && "lg:border-l",
-        index < 4 && "lg:border-b lg:border-zinc-800"
-      )}
-    >
-      <div className="mb-4 relative z-10 px-10 text-custom-orange">
-        {icon}
+    <div className="pointer-events-none absolute left-1/2 top-0  -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">
+      <div className="absolute inset-0 bg-gradient-to-r  [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-zinc-900/30 from-zinc-100/30 to-zinc-300/30 dark:to-zinc-900/30 opacity-100">
+        <GridPattern
+          width={size ?? 20}
+          height={size ?? 20}
+          x="-12"
+          y="4"
+          squares={p}
+          className="absolute inset-0 h-full w-full  mix-blend-overlay dark:fill-white/10 dark:stroke-white/10 stroke-black/10 fill-black/10"
+        />
       </div>
-      <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-custom-orange group-hover/feature:bg-custom-orange transition-all duration-200 origin-center" />
-        <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-white font-syne">
-          {title}
-        </span>
-      </div>
-      <p className="text-sm text-gray-400 max-w-xs relative z-10 px-10 font-jakarta">
-        {description}
-      </p>
     </div>
   );
 };
 
-export default Features;
+export function GridPattern({ width, height, x, y, squares, ...props }: any) {
+  const patternId = useId();
+
+  return (
+    <svg aria-hidden="true" {...props}>
+      <defs>
+        <pattern
+          id={patternId}
+          width={width}
+          height={height}
+          patternUnits="userSpaceOnUse"
+          x={x}
+          y={y}
+        >
+          <path d={`M.5 ${height}V.5H${width}`} fill="none" />
+        </pattern>
+      </defs>
+      <rect
+        width="100%"
+        height="100%"
+        strokeWidth={0}
+        fill={`url(#${patternId})`}
+      />
+      {squares && (
+        <svg x={x} y={y} className="overflow-visible">
+          {squares.map(([x, y]: any) => (
+            <rect
+              strokeWidth="0"
+              key={`${x}-${y}`}
+              width={width + 1}
+              height={height + 1}
+              x={x * width}
+              y={y * height}
+            />
+          ))}
+        </svg>
+      )}
+    </svg>
+  );
+}
