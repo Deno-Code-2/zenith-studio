@@ -1,16 +1,10 @@
-
 import { Github, Twitter, AtSign, Bird, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black py-20 relative overflow-hidden">
-      {/* Large Agency Name Background */}
-      <div className="absolute inset-0 flex items-end justify-center pointer-events-none opacity-5">
-        <h1 className="text-[25vw] leading-none font-black text-white font-syne tracking-tight pb-20">ZENITH</h1>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <footer className="w-full bg-black py-20">
+      <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Follow Us Section */}
           <div>
@@ -109,13 +103,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Version number moved to bottom center */}
-        <div className="text-center mt-20 mb-12 border-t border-custom-orange/20 pt-12">
-          <span className="text-custom-orange font-jakarta inline-block">Version 1.0</span>
-        </div>
-
         {/* Bottom Section */}
-        <div className="mt-8 pt-8 border-t border-custom-orange/20">
+        <div className="mt-20 pt-8 border-t border-custom-orange/20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white font-jakarta">
               © 2025 All rights reserved

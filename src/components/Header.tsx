@@ -1,11 +1,13 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X, Calendar } from "lucide-react";
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +17,12 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate('/');
+  };
 
   const menuItems = [
     { name: "About", path: "/about" },
@@ -33,14 +41,15 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link 
-          to="/" 
+        <a 
+          href="/"
+          onClick={handleLogoClick}
           className="logo text-3xl font-bold text-white hover:text-custom-orange transition-colors font-syne relative group"
         >
           Zenith
           <span className="text-custom-orange">.</span>
           <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-custom-orange transition-all duration-300 group-hover:w-full"></div>
-        </Link>
+        </a>
         
         <nav className="hidden lg:flex items-center space-x-12">
           {menuItems.map((item) => (

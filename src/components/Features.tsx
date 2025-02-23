@@ -63,7 +63,14 @@ const Features = () => {
   return (
     <div className="py-20 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Features</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6">
+            Features
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Discover the powerful features that make our platform stand out
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <Feature key={feature.title} {...feature} index={index} />

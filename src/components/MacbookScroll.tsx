@@ -34,7 +34,7 @@ const MacbookScroll = () => {
             </div>
           </motion.div>
 
-          {/* Second Macbook with Video */}
+          {/* Second Macbook */}
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
