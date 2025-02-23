@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="w-full bg-black py-20 relative overflow-hidden">
       {/* Large Agency Name Background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-        <h1 className="text-[20vw] font-black text-white font-syne">ZENITH</h1>
+        <h1 className="text-[25vw] leading-none font-black text-white font-syne tracking-tight">ZENITH</h1>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -108,9 +108,9 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Version number */}
-        <div className="text-center my-12">
-          <span className="text-custom-orange font-jakarta">Version 1.0</span>
+        {/* Version number moved to bottom center */}
+        <div className="text-center mt-20 mb-12 border-t border-custom-orange/20 pt-12">
+          <span className="text-custom-orange font-jakarta inline-block">Version 1.0</span>
         </div>
 
         {/* Bottom Section */}
