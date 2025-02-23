@@ -64,11 +64,11 @@ const Features = () => {
     <div className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Features
+          <h2 className="text-4xl md:text-6xl font-bold text-custom-orange mb-6">
+            The Arsenal
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Discover the powerful features that make our platform stand out
+          <p className="text-lg text-custom-orange-300 max-w-2xl mx-auto">
+            We don’t follow standards. We set them.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
