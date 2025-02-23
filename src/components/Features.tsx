@@ -61,13 +61,13 @@ const Features = () => {
   ];
 
   return (
-    <div className="py-20 bg-white dark:bg-black">
+    <div className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Features
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Discover the powerful features that make our platform stand out
           </p>
         </div>

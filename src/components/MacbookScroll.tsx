@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 const MacbookScroll = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-20 bg-gray-50 dark:bg-gray-900">
+    <div className="flex flex-col items-center justify-center py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* First Macbook */}
