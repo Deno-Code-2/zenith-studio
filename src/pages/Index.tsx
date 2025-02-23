@@ -8,6 +8,7 @@ import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
 import Features from "@/components/Features";
 import FAQ from "@/components/FAQ";
+import MacbookScroll from "@/components/MacbookScroll";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
         <RecentProjects />
         <AgencyShowcase />
         <FAQ />
+        <MacbookScroll />
         <Footer />
       </div>
     </main>
