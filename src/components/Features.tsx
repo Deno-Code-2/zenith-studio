@@ -1,8 +1,6 @@
-
 import React from "react";
 import { useId } from "react";
 
-// Update the export to be a default export
 const Features = () => {
   return (
     <div className="py-20 lg:py-40">
@@ -24,7 +22,7 @@ const Features = () => {
       </div>
     </div>
   );
-};
+}
 
 const grid = [
   {
@@ -69,7 +67,7 @@ const grid = [
   },
 ];
 
-const Grid = ({
+export const Grid = ({
   pattern,
   size,
 }: {
@@ -99,7 +97,7 @@ const Grid = ({
   );
 };
 
-function GridPattern({ width, height, x, y, squares, ...props }: any) {
+export function GridPattern({ width, height, x, y, squares, ...props }: any) {
   const patternId = useId();
 
   return (
@@ -139,5 +137,4 @@ function GridPattern({ width, height, x, y, squares, ...props }: any) {
     </svg>
   );
 }
-
 export { Features as default, Grid };
