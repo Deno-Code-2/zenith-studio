@@ -3,6 +3,7 @@ import { Sparkles } from "lucide-react";
 import ActionButton from "./ActionButton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
@@ -23,13 +24,12 @@ const Hero = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <ActionButton 
-                  href="https://calendly.com/demo/30min" 
+                <Button 
+                  ref="https://calendly.com/demo/30min" 
                   className="text-lg px-8 py-4 rounded-full hover:translate-y-[-2px] transition-all duration-200 bg-gradient-to-r from-custom-orange via-orange-500 to-custom-orange bg-[length:200%] hover:bg-right text-black font-jakarta font-medium shadow-lg hover:shadow-xl"
-                  icon={<Sparkles className="w-5 h-5 animate-pulse" />}
                 >
                   Start Your Journey
-                </ActionButton>
+                </Button>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Begin your digital transformation today!</p>
