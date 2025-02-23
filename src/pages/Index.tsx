@@ -6,7 +6,7 @@ import RecentProjects from "@/components/RecentProjects";
 import AgencyShowcase from "@/components/AgencyShowcase";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
-import { Features } from "@/components/Features";
+import Features from "@/components/Features";
 import FAQ from "@/components/FAQ";
 
 const Index = () => {
