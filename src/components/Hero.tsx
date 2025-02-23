@@ -1,9 +1,5 @@
 
-import { Sparkles } from "lucide-react";
-import ActionButton from "./ActionButton";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
@@ -20,23 +16,6 @@ const Hero = () => {
         <p className="text-xl text-gray-300 leading-relaxed font-jakarta">
           We create innovative digital solutions that empower businesses to thrive in the modern world. Our expertise in design and development helps you stay ahead of the competition.
         </p>
-        <div className="flex items-center gap-6 mt-8">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger>
-                <Button 
-                  ref="https://calendly.com/demo/30min" 
-                  className="text-lg px-8 py-4 rounded-full hover:translate-y-[-2px] transition-all duration-200 bg-gradient-to-r from-custom-orange via-orange-500 to-custom-orange bg-[length:200%] hover:bg-right text-black font-jakarta font-medium shadow-lg hover:shadow-xl"
-                >
-                  Start Your Journey
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Begin your digital transformation today!</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </div>
       </motion.div>
 
       <motion.div 
