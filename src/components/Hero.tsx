@@ -47,18 +47,13 @@ const Hero = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 relative z-10"
       >
-        <div className="relative">
-          <SafariWindow
-            url="zenithstudio.design"
-            className="size-full"
-          >
-            <img 
-              src="/lovable-uploads/original-0c3f408a1819dae82163cf37ea4e4782.png"
-              alt="Website Preview"
-              className="w-full h-auto"
-            />
-          </SafariWindow>
-        </div>
+    <div className="relative">
+      <Safari
+        url="magicui.design"
+        className="size-full"
+        imageSrc="https://via.placeholder.com/1200x750"
+      />
+    </div>
       </motion.div>
     </div>
   );
