@@ -55,7 +55,7 @@ const Hero = () => {
             className="size-full"
           >
             <img 
-              src="https://via.placeholder.com/1200x750"
+              src="/lovable-uploads/original-0c3f408a1819dae82163cf37ea4e4782.png"
               alt="Website Preview"
               className="w-full h-auto"
             />
