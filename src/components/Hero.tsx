@@ -1,24 +1,13 @@
 
 import { motion } from "framer-motion";
-import { SafariWindow } from "@/components/magicui/safari-window";
+import { Safari } from "@/components/magicui/safari-window";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { GridPattern } from "@/components/magicui/grid-pattern";
+import { SpotlightNew } from "@/components/ui/spotlight-new";
 
 const Hero = () => {
   return (
-    <div className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <GridPattern
-          width={100}
-          height={100}
-          x={0}
-          y={0}
-          className="absolute inset-0 h-full w-full opacity-50"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-black"/>
-      </div>
-      
+    <SpotlightNew className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -47,15 +36,15 @@ const Hero = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 relative z-10"
       >
-    <div className="relative">
-      <Safari
-        url="magicui.design"
-        className="size-full"
-        imageSrc="https://via.placeholder.com/1200x750"
-      />
-    </div>
+        <div className="relative">
+          <Safari
+            url="devstudio.design"
+            className="w-full"
+            imageSrc="/lovable-uploads/2c08ae35-eecb-4f9e-b00f-ff1bd20a66ad.png"
+          />
+        </div>
       </motion.div>
-    </div>
+    </SpotlightNew>
   );
 };
 

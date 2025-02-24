@@ -1,87 +1,82 @@
-import { Sparkles, Lightbulb, Smartphone, Zap, Users2, Search } from "lucide-react";
-import TextRotate from "./TextRotate";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { ThreeDCard } from "@/components/ui/3d-card";
+import { Button } from "@/components/ui/button";
+import {
+  IconBoxAlignRightFilled,
+  IconBoxAlignTopLeft,
+  IconClipboardCopy,
+  IconFileBroken,
+} from "@tabler/icons-react";
 
-const services = [
+const items = [
   {
-    icon: <Sparkles className="w-8 h-8" />,
-    title: "Expertise That Drives Results",
-    description: "Our team of seasoned professionals brings years of experience and expertise to the table."
+    title: "Web Development",
+    description:
+      "Crafting stunning and responsive websites tailored to your unique needs.",
+    header: "Front-end & Back-end",
+    icon: IconBoxAlignTopLeft,
+    price: "999",
   },
   {
-    icon: <Lightbulb className="w-8 h-8" />,
-    title: "Tailored Business Solutions",
-    description: "We understand that every business is unique. That's why our solutions are customized."
+    title: "UI/UX Design",
+    description:
+      "Creating intuitive and visually appealing interfaces that enhance user experience.",
+    header: "User-Centric Design",
+    icon: IconBoxAlignRightFilled,
+    price: "799",
   },
   {
-    icon: <Zap className="w-8 h-8" />,
-    title: "Cutting-Edge Web Design",
-    description: "Leave a lasting impression on your audience with our top-notch web design services."
+    title: "Content Creation",
+    description:
+      "Producing high-quality, engaging content that resonates with your target audience.",
+    header: "Blogs, Articles, Copywriting",
+    icon: IconClipboardCopy,
+    price: "499",
   },
   {
-    icon: <Smartphone className="w-8 h-8" />,
-    title: "Mobile-First Approach",
-    description: "In today's mobile-centric world, we prioritize mobile-first design to ensure your website."
+    title: "SEO Optimization",
+    description:
+      "Improving your website's visibility and ranking on search engines to drive organic traffic.",
+    header: "Keyword Research & Analysis",
+    icon: IconFileBroken,
+    price: "599",
   },
-  {
-    icon: <Users2 className="w-8 h-8" />,
-    title: "Marketing Strategies",
-    description: "Our data-driven marketing strategies allow us to target the right audience with precision."
-  },
-  {
-    icon: <Search className="w-8 h-8" />,
-    title: "Search Engine Optimization",
-    description: "(SEO) Mastery Boost your online visibility with our expert SEO techniques."
-  }
 ];
 
 const Services = () => {
   return (
-    <section className="py-20 px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-4 font-syne text-white">
-            Reasons to Choose Zenith for{" "}
-            <TextRotate
-              texts={[
-                "Innovation",
-                "Excellence",
-                "Growth",
-                "Success",
-                "Results",
-                "Vision",
-              ]}
-            />
+    <section className="py-20 bg-black">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-syne">
+            Our <span className="text-custom-orange">Services</span>
           </h2>
-          <p className="mt-6 text-gray-400 max-w-3xl mx-auto font-jakarta">
-            Partnering with Zenith offers a multitude of advantages. Experience increased brand visibility, improved customer engagement, and higher ROI. Our tailored solutions are designed to meet your unique business needs, ensuring lasting success.
+          <p className="text-gray-400 max-w-2xl mx-auto font-jakarta">
+            We provide comprehensive digital solutions to help your business thrive in the modern world.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className="p-8 rounded-2xl bg-black border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
-            >
-              <div className="w-16 h-16 rounded-full bg-custom-orange/10 flex items-center justify-center mb-6">
-                <div className="text-custom-orange">
-                  {service.icon}
+        <BentoGrid className="max-w-4xl mx-auto">
+          {items.map((item, i) => (
+            <ThreeDCard key={i} className={i === 3 ? "md:col-span-2" : ""}>
+              <BentoGridItem
+                title={item.title}
+                description={item.description}
+                header={item.header}
+                icon={item.icon}
+              >
+                <div className="mt-4 flex items-center justify-between">
+                  <p className="text-white font-syne">
+                    Starts at ${item.price}
+                  </p>
+                  <Button variant="outline">
+                    Book a Call
+                  </Button>
                 </div>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-white font-syne">
-                {service.title}
-              </h3>
-              <p className="text-gray-400 font-jakarta">
-                {service.description}
-              </p>
-              <Link to="/services-details" className="mt-6 text-custom-orange flex items-center gap-2 hover:gap-3 transition-all duration-300 font-jakarta">
-                Learn More <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+              </BentoGridItem>
+            </ThreeDCard>
           ))}
-        </div>
+        </BentoGrid>
       </div>
     </section>
   );

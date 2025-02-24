@@ -1,3 +1,4 @@
+
 import { Github, Twitter, AtSign, Bird, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -118,6 +119,13 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Large Website Name */}
+        <div className="mt-20 relative overflow-hidden">
+          <h1 className="text-[20vw] font-bold text-center opacity-5 font-syne select-none">
+            DevStudio
+          </h1>
         </div>
       </div>
     </footer>
