@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Calendar } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -35,7 +35,7 @@ const Header = () => {
     <header 
       className={`fixed w-full py-6 px-8 lg:px-16 transition-all duration-300 z-50 ${
         isScrolled 
-          ? "bg-black/95 backdrop-blur-sm border-b border-custom-orange/20" 
+          ? "bg-black/95 backdrop-blur-sm border-b border-neutral-800" 
           : "bg-transparent"
       }`}
     >
@@ -43,11 +43,10 @@ const Header = () => {
         <a 
           href="/"
           onClick={handleLogoClick}
-          className="logo text-3xl font-bold text-white hover:text-custom-orange transition-colors font-syne relative group"
+          className="logo text-3xl font-bold text-white hover:text-neutral-200 transition-colors font-syne relative group"
         >
           Zenith
-          <span className="text-custom-orange">.</span>
-          <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-custom-orange transition-all duration-300 group-hover:w-full"></div>
+          <span className="text-neutral-400">.</span>
         </a>
         
         <nav className="hidden lg:flex items-center space-x-12">
@@ -55,10 +54,9 @@ const Header = () => {
             <Link
               key={item.name}
               to={item.path}
-              className="nav-item text-white hover:text-custom-orange transition-colors text-base font-medium font-jakarta relative group"
+              className="nav-item text-white hover:text-neutral-200 transition-colors text-base font-medium font-jakarta"
             >
               {item.name}
-              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-custom-orange transition-all duration-300 group-hover:w-full"></div>
             </Link>
           ))}
         </nav>
@@ -66,7 +64,6 @@ const Header = () => {
         <div className="hidden lg:flex items-center">
           <Button 
             variant="outline"
-            className="border-custom-orange text-custom-orange hover:bg-custom-orange hover:text-black"
             onClick={() => window.open("https://calendly.com/demo/30min", "_blank")}
           >
             Book a Call
@@ -74,7 +71,7 @@ const Header = () => {
         </div>
 
         <button 
-          className="lg:hidden text-white hover:text-custom-orange transition-colors"
+          className="lg:hidden text-white hover:text-neutral-200 transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -87,21 +84,20 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="text-white hover:text-custom-orange transition-colors text-lg font-medium font-jakarta"
+                  className="text-white hover:text-neutral-200 transition-colors text-lg font-medium font-jakarta"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
               <Button 
-                variant="default"
-                className="bg-custom-orange hover:bg-custom-orange/90 text-black flex items-center gap-2 font-jakarta"
+                variant="outline"
                 onClick={() => {
                   window.open("https://calendly.com/demo/30min", "_blank");
                   setIsMenuOpen(false);
                 }}
               >
-                <Calendar className="w-5 h-5" />
+                <Calendar className="w-5 h-5 mr-2" />
                 Book a call
               </Button>
             </nav>

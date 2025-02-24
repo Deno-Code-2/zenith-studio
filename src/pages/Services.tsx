@@ -1,13 +1,74 @@
+
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Smartphone, Zap, MonitorSmartphone, BarChart3 } from "lucide-react";
-import ActionButton from "@/components/ActionButton";
+import { Button } from "@/components/ui/button";
 import AgencyShowcase from "@/components/AgencyShowcase";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import {
+  IconArrowWaveRightUp,
+  IconBoxAlignRightFilled,
+  IconBoxAlignTopLeft,
+  IconClipboardCopy,
+  IconFileBroken,
+  IconSignature,
+  IconTableColumn,
+} from "@tabler/icons-react";
+import LoadingScreen from "@/components/LoadingScreen";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const Skeleton = () => (
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
+);
+
+const items = [
+  {
+    title: "The Dawn of Innovation",
+    description: "Explore the birth of groundbreaking ideas and inventions.",
+    header: <Skeleton />,
+    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Digital Revolution",
+    description: "Dive into the transformative power of technology.",
+    header: <Skeleton />,
+    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Art of Design",
+    description: "Discover the beauty of thoughtful and functional design.",
+    header: <Skeleton />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Power of Communication",
+    description: "Understand the impact of effective communication in our lives.",
+    header: <Skeleton />,
+    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Pursuit of Knowledge",
+    description: "Join the quest for understanding and enlightenment.",
+    header: <Skeleton />,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Joy of Creation",
+    description: "Experience the thrill of bringing ideas to life.",
+    header: <Skeleton />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Spirit of Adventure",
+    description: "Embark on exciting journeys and thrilling discoveries.",
+    header: <Skeleton />,
+    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+  },
+];
 
 const Services = () => {
   useEffect(() => {
@@ -59,6 +120,7 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <LoadingScreen />
       <Header />
       <main className="container mx-auto px-4 pt-32">
         <div className="text-center mb-20">
@@ -70,14 +132,14 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card bg-black/50 backdrop-blur-sm border border-custom-orange/20 rounded-xl p-8 hover:border-custom-orange/40 transition-all duration-300"
+              className="service-card bg-black/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-8 hover:border-neutral-700 transition-all duration-300"
             >
-              <div className="w-16 h-16 rounded-full bg-custom-orange/10 flex items-center justify-center mb-6">
-                <div className="text-custom-orange">
+              <div className="w-16 h-16 rounded-full bg-neutral-900 flex items-center justify-center mb-6">
+                <div className="text-neutral-400">
                   {service.icon}
                 </div>
               </div>
@@ -88,15 +150,30 @@ const Services = () => {
                 {service.description}
               </p>
               <div className="flex items-center justify-between">
-                <p className="text-custom-orange font-syne">
+                <p className="text-white font-syne">
                   Starts at ${service.price}
                 </p>
-                <ActionButton href="/contact" variant="primary">
+                <Button variant="outline">
                   Book a Call
-                </ActionButton>
+                </Button>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mb-20">
+          <BentoGrid className="max-w-4xl mx-auto">
+            {items.map((item, i) => (
+              <BentoGridItem
+                key={i}
+                title={item.title}
+                description={item.description}
+                header={item.header}
+                icon={item.icon}
+                className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+              />
+            ))}
+          </BentoGrid>
         </div>
       </main>
       <AgencyShowcase />
