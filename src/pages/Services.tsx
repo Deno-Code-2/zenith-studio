@@ -17,7 +17,6 @@ import {
   IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
-import LoadingScreen from "@/components/LoadingScreen";
 
 gsap.registerPlugin(ScrollTrigger);
 
