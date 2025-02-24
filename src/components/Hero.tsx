@@ -3,15 +3,29 @@ import { motion } from "framer-motion";
 import { SafariWindow } from "@/components/magicui/safari-window";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { GridPattern } from "@/components/ui/grid-pattern";
 
 const Hero = () => {
   return (
-    <div className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12">
+    <div className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <GridPattern
+          width={100}
+          height={100}
+          className="absolute inset-0 h-full w-full opacity-50"
+          squares={[
+            [0, 1],
+            [1, 3],
+          ]}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-black"/>
+      </div>
+      
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-2xl text-left space-y-6"
+        className="max-w-2xl text-left space-y-6 z-10"
       >
         <h2 className="text-5xl lg:text-7xl font-bold leading-tight text-white font-syne">
           When You Need the <span className="text-custom-orange">Best</span>, You Come to Us
@@ -33,7 +47,7 @@ const Hero = () => {
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="w-full lg:w-1/2"
+        className="w-full lg:w-1/2 relative z-10"
       >
         <div className="relative">
           <SafariWindow
