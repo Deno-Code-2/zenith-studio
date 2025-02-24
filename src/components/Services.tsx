@@ -1,5 +1,7 @@
 import { Sparkles, Lightbulb, Smartphone, Zap, Users2, Search } from "lucide-react";
 import TextRotate from "./TextRotate";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -74,9 +76,9 @@ const Services = () => {
               <p className="text-gray-400 font-jakarta">
                 {service.description}
               </p>
-              <button className="mt-6 text-custom-orange flex items-center gap-2 hover:gap-3 transition-all duration-300 font-jakarta">
-                Learn More →
-              </button>
+              <Link to="/services-details" className="mt-6 text-custom-orange flex items-center gap-2 hover:gap-3 transition-all duration-300 font-jakarta">
+                Learn More <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           ))}
         </div>

@@ -35,13 +35,13 @@ const Hero = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2"
       >
-        <div className="relative w-full">
+        <div className="relative">
           <SafariWindow
             url="zenithstudio.design"
-            className="w-full h-auto"
+            className="size-full"
           >
             <img 
-              src="/lovable-uploads/86b95d70-fc21-4992-a2b3-f3a5c0f8bf4c.png" 
+              src="https://via.placeholder.com/1200x750"
               alt="Website Preview"
               className="w-full h-auto"
             />

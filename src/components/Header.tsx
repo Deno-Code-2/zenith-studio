@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X, Calendar } from "lucide-react";
 import { Button } from "./ui/button";
@@ -66,12 +65,11 @@ const Header = () => {
 
         <div className="hidden lg:flex items-center">
           <Button 
-            variant="default"
-            className="bg-custom-orange hover:bg-custom-orange/90 text-black flex items-center gap-2 font-jakarta"
+            variant="outline"
+            className="border-custom-orange text-custom-orange hover:bg-custom-orange hover:text-black"
             onClick={() => window.open("https://calendly.com/demo/30min", "_blank")}
           >
-            <Calendar className="w-5 h-5" />
-            Book a call
+            Book a Call
           </Button>
         </div>
 
