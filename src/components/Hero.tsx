@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Safari } from "@/components/magicui/safari-window";
+import { SafariWindow } from "@/components/magicui/safari-window";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -36,11 +36,16 @@ const Hero = () => {
         className="w-full lg:w-1/2"
       >
         <div className="relative w-full">
-          <Safari
+          <SafariWindow
             url="zenithstudio.design"
             className="w-full h-auto"
-            imageSrc="/lovable-uploads/86b95d70-fc21-4992-a2b3-f3a5c0f8bf4c.png"
-          />
+          >
+            <img 
+              src="/lovable-uploads/86b95d70-fc21-4992-a2b3-f3a5c0f8bf4c.png" 
+              alt="Website Preview"
+              className="w-full h-auto"
+            />
+          </SafariWindow>
         </div>
       </motion.div>
     </div>
