@@ -12,11 +12,9 @@ const Hero = () => {
         <GridPattern
           width={100}
           height={100}
+          x={0}
+          y={0}
           className="absolute inset-0 h-full w-full opacity-50"
-          squares={[
-            [0, 1],
-            [1, 3],
-          ]}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-black"/>
       </div>
