@@ -81,20 +81,23 @@ const Services = () => {
               <BentoGridItem
                 key={i}
                 title={item.title}
-                description={item.description}
+                description={
+                  <div>
+                    <p className="mb-4">{item.description}</p>
+                    <div className="flex items-center justify-between mt-4">
+                      <p className="text-white font-syne">
+                        Starts at ${item.price}
+                      </p>
+                      <Button variant="outline">
+                        Book a Call
+                      </Button>
+                    </div>
+                  </div>
+                }
                 header={item.header}
                 icon={item.icon}
                 className={i === 3 ? "md:col-span-2" : ""}
-              >
-                <div className="mt-4 flex items-center justify-between">
-                  <p className="text-white font-syne">
-                    Starts at ${item.price}
-                  </p>
-                  <Button variant="outline">
-                    Book a Call
-                  </Button>
-                </div>
-              </BentoGridItem>
+              />
             ))}
           </BentoGrid>
         </div>

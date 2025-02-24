@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { SafariWindow } from "@/components/magicui/safari-window";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { GridPattern } from "@/components/ui/grid-pattern";
+import { GridPattern } from "@/components/magicui/grid-pattern";
 
 const Hero = () => {
   return (
