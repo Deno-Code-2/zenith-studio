@@ -119,7 +119,6 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      <LoadingScreen />
       <Header />
       <main className="container mx-auto px-4 pt-32">
         <div className="text-center mb-20">
