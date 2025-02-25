@@ -54,11 +54,11 @@ const RecentProjects = () => {
   return (
     <section className="py-20 bg-black">
       <div className="container mx-auto px-8 lg:px-16">
-        <div className="text-left mb-16">
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 font-syne">
-            Recent <span className="text-custom-orange">Projects</span>
+            Tech <span className="text-custom-orange">MEETS</span>Precision
           </h2>
-          <p className="text-gray-300 font-jakarta max-w-2xl">
+          <p className="text-center text-gray-300 font-jakarta max-w-2xl">
             Zenith Studio's recent projects feature cutting-edge design, user-friendly interfaces, and tailored solutions for clients.
           </p>
         </div>
