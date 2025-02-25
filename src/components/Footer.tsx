@@ -123,7 +123,7 @@ const Footer = () => {
 
         {/* Large Website Name */}
         <div className="mt-20 relative overflow-hidden">
-          <h1 className="text-[20vw] font-bold text-center opacity-5 font-syne select-none">
+          <h1 className="text-[10vw] font-bold text-center opacity-5 font-syne select-none">
             Zenith Studio
           </h1>
         </div>
