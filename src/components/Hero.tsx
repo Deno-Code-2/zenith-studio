@@ -41,7 +41,7 @@ const Hero = () => {
             className="w-full shadow-2xl"
           >
             <img 
-              src="/lovable-uploads/75af366f-3448-4646-acc0-9ef4cf799b9d.png"
+              src="/lovable-uploads/My-Logo.png"
               alt="Website Preview"
               className="w-full h-auto"
             />
@@ -53,7 +53,7 @@ const Hero = () => {
             className="w-full shadow-2xl"
           >
             <img 
-              src="/lovable-uploads/75af366f-3448-4646-acc0-9ef4cf799b9d.png"
+              src="/lovable-uploads/My-Logo.png"
               alt="Website Preview"
               className="w-full h-auto"
             />
