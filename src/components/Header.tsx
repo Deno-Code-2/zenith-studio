@@ -65,8 +65,8 @@ const Header = () => {
         <div className="hidden lg:flex items-center">
           <Button 
             variant="outline"
-            onClick={() => window.open("https://calendly.com/demo/30min", "_blank")}
-            className="border-custom-orange/20 text-white hover:bg-custom-orange/10"
+            onClick={() => window.open("https://calendly.com/syedmoinuddin106", "_blank")}
+            className="border-custom-orange/20 font-jakarta text-white hover:bg-custom-orange/10"
           >
             <Calendar className="mr-2 h-4 w-4" />
             Book a Call
