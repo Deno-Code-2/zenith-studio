@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Safari } from "@/components/magicui/safari-window";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { SpotlightNew } from "@/components/ui/spotlight-new";
+import { Spotlight } from "@/components/ui/spotlight-new";
 
 const Hero = () => {
   return (
-    <SpotlightNew className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden">
+    <Spotlight className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ const Hero = () => {
           />
         </div>
       </motion.div>
-    </SpotlightNew>
+    </Spotlight>
   );
 };
 

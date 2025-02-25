@@ -1,6 +1,7 @@
+
 "use client";
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 type SpotlightProps = {
   gradientFirst?: string;
@@ -12,6 +13,8 @@ type SpotlightProps = {
   smallWidth?: number;
   duration?: number;
   xOffset?: number;
+  className?: string;
+  children?: React.ReactNode;
 };
 
 export const Spotlight = ({
@@ -24,105 +27,110 @@ export const Spotlight = ({
   smallWidth = 240,
   duration = 7,
   xOffset = 100,
-}: SpotlightProps = {}) => {
+  className,
+  children,
+}: SpotlightProps) => {
   return (
-    <motion.div
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1.5,
-      }}
-      className="pointer-events-none absolute inset-0 h-full w-full"
-    >
+    <div className={className}>
+      {children}
       <motion.div
+        initial={{
+          opacity: 0,
+        }}
         animate={{
-          x: [0, xOffset, 0],
+          opacity: 1,
         }}
         transition={{
-          duration,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",
+          duration: 1.5,
         }}
-        className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none"
+        className="pointer-events-none absolute inset-0 h-full w-full"
       >
-        <div
-          style={{
-            transform: `translateY(${translateY}px) rotate(-45deg)`,
-            background: gradientFirst,
-            width: `${width}px`,
-            height: `${height}px`,
+        <motion.div
+          animate={{
+            x: [0, xOffset, 0],
           }}
-          className={`absolute top-0 left-0`}
-        />
+          transition={{
+            duration,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+          className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none"
+        >
+          <div
+            style={{
+              transform: `translateY(${translateY}px) rotate(-45deg)`,
+              background: gradientFirst,
+              width: `${width}px`,
+              height: `${height}px`,
+            }}
+            className={`absolute top-0 left-0`}
+          />
 
-        <div
-          style={{
-            transform: "rotate(-45deg) translate(5%, -50%)",
-            background: gradientSecond,
-            width: `${smallWidth}px`,
-            height: `${height}px`,
-          }}
-          className={`absolute top-0 left-0 origin-top-left`}
-        />
+          <div
+            style={{
+              transform: "rotate(-45deg) translate(5%, -50%)",
+              background: gradientSecond,
+              width: `${smallWidth}px`,
+              height: `${height}px`,
+            }}
+            className={`absolute top-0 left-0 origin-top-left`}
+          />
 
-        <div
-          style={{
-            transform: "rotate(-45deg) translate(-180%, -70%)",
-            background: gradientThird,
-            width: `${smallWidth}px`,
-            height: `${height}px`,
+          <div
+            style={{
+              transform: "rotate(-45deg) translate(-180%, -70%)",
+              background: gradientThird,
+              width: `${smallWidth}px`,
+              height: `${height}px`,
+            }}
+            className={`absolute top-0 left-0 origin-top-left`}
+          />
+        </motion.div>
+
+        <motion.div
+          animate={{
+            x: [0, -xOffset, 0],
           }}
-          className={`absolute top-0 left-0 origin-top-left`}
-        />
+          transition={{
+            duration,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+          className="absolute top-0 right-0 w-screen h-screen z-40 pointer-events-none"
+        >
+          <div
+            style={{
+              transform: `translateY(${translateY}px) rotate(45deg)`,
+              background: gradientFirst,
+              width: `${width}px`,
+              height: `${height}px`,
+            }}
+            className={`absolute top-0 right-0`}
+          />
+
+          <div
+            style={{
+              transform: "rotate(45deg) translate(-5%, -50%)",
+              background: gradientSecond,
+              width: `${smallWidth}px`,
+              height: `${height}px`,
+            }}
+            className={`absolute top-0 right-0 origin-top-right`}
+          />
+
+          <div
+            style={{
+              transform: "rotate(45deg) translate(180%, -70%)",
+              background: gradientThird,
+              width: `${smallWidth}px`,
+              height: `${height}px`,
+            }}
+            className={`absolute top-0 right-0 origin-top-right`}
+          />
+        </motion.div>
       </motion.div>
-
-      <motion.div
-        animate={{
-          x: [0, -xOffset, 0],
-        }}
-        transition={{
-          duration,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",
-        }}
-        className="absolute top-0 right-0 w-screen h-screen z-40 pointer-events-none"
-      >
-        <div
-          style={{
-            transform: `translateY(${translateY}px) rotate(45deg)`,
-            background: gradientFirst,
-            width: `${width}px`,
-            height: `${height}px`,
-          }}
-          className={`absolute top-0 right-0`}
-        />
-
-        <div
-          style={{
-            transform: "rotate(45deg) translate(-5%, -50%)",
-            background: gradientSecond,
-            width: `${smallWidth}px`,
-            height: `${height}px`,
-          }}
-          className={`absolute top-0 right-0 origin-top-right`}
-        />
-
-        <div
-          style={{
-            transform: "rotate(45deg) translate(180%, -70%)",
-            background: gradientThird,
-            width: `${smallWidth}px`,
-            height: `${height}px`,
-          }}
-          className={`absolute top-0 right-0 origin-top-right`}
-        />
-      </motion.div>
-    </motion.div>
+    </div>
   );
 };
