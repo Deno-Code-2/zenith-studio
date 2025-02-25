@@ -1,3 +1,4 @@
+
 import { Github, Twitter, AtSign, Bird, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -104,7 +105,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-20 pt-8 border-t border-custom-orange/20">
+        <div className="mt-20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white font-jakarta">
               © 2025 All rights reserved
@@ -118,6 +119,13 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Large Website Name */}
+        <div className="mt-20 relative overflow-hidden">
+          <h1 className="text-[20vw] font-bold text-center opacity-5 font-syne select-none">
+            DevStudio
+          </h1>
         </div>
       </div>
     </footer>

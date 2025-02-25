@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -45,8 +46,8 @@ const Header = () => {
           onClick={handleLogoClick}
           className="logo text-3xl font-bold text-white hover:text-neutral-200 transition-colors font-syne relative group"
         >
-          Zenith
-          <span className="text-neutral-400">.</span>
+          DevStudio
+          <span className="text-custom-orange">.</span>
         </a>
         
         <nav className="hidden lg:flex items-center space-x-12">
@@ -65,7 +66,9 @@ const Header = () => {
           <Button 
             variant="outline"
             onClick={() => window.open("https://calendly.com/demo/30min", "_blank")}
+            className="border-custom-orange/20 text-white hover:bg-custom-orange/10"
           >
+            <Calendar className="mr-2 h-4 w-4" />
             Book a Call
           </Button>
         </div>
@@ -78,7 +81,7 @@ const Header = () => {
         </button>
 
         {isMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-[72px] bg-black/95 backdrop-blur-sm">
+          <div className="lg:hidden fixed inset-0 top-[72px] bg-black/95 backdrop-blur-sm animate-in slide-in-from-right">
             <nav className="flex flex-col items-center space-y-8 pt-12">
               {menuItems.map((item) => (
                 <Link
@@ -96,6 +99,7 @@ const Header = () => {
                   window.open("https://calendly.com/demo/30min", "_blank");
                   setIsMenuOpen(false);
                 }}
+                className="border-custom-orange/20 text-white hover:bg-custom-orange/10"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Book a call

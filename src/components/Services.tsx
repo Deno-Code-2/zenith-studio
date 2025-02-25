@@ -1,3 +1,4 @@
+
 import { Sparkles, Lightbulb, Smartphone, Zap, Users2, Search } from "lucide-react";
 import TextRotate from "./TextRotate";
 import { Link } from "react-router-dom";
@@ -55,7 +56,7 @@ const Services = () => {
             />
           </h2>
           <p className="mt-6 text-gray-400 max-w-3xl mx-auto font-jakarta">
-            Partnering with Zenith offers a multitude of advantages. Experience increased brand visibility, improved customer engagement, and higher ROI. Our tailored solutions are designed to meet your unique business needs, ensuring lasting success.
+            Transform your digital presence with our comprehensive solutions. We deliver results that exceed expectations.
           </p>
         </div>
 
@@ -63,7 +64,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="p-8 rounded-2xl bg-black border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
+              className="group p-8 rounded-2xl bg-black border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300 hover:-translate-y-2"
             >
               <div className="w-16 h-16 rounded-full bg-custom-orange/10 flex items-center justify-center mb-6">
                 <div className="text-custom-orange">
