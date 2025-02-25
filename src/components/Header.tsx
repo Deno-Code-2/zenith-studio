@@ -46,7 +46,7 @@ const Header = () => {
           onClick={handleLogoClick}
           className="logo text-3xl font-bold text-white hover:text-neutral-200 transition-colors font-syne relative group"
         >
-          DevStudio
+          Zenith Studio
           <span className="text-custom-orange">.</span>
         </a>
         
