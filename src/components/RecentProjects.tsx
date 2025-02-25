@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ExternalLink } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
@@ -24,23 +24,6 @@ const fetchProjects = async () => {
   }
 
   return data;
-};
-
-const BorderBeam = () => {
-  return (
-    <div className="absolute inset-0">
-      <div className="absolute inset-px rounded-[11px] dark:bg-zinc-900" />
-      <div className="absolute inset-0 rounded-xl dark:bg-zinc-800" />
-      <div className="absolute inset-px rounded-[11px] dark:bg-zinc-900" />
-      <div
-        className="absolute h-full w-[200%] animate-[beam_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-zinc-100/10 to-transparent"
-        style={{
-          maskImage: "linear-gradient(to right, transparent, black, transparent)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, black, transparent)",
-        }}
-      />
-    </div>
-  );
 };
 
 const RecentProjects = () => {
@@ -91,7 +74,6 @@ const RecentProjects = () => {
               key={project.id}
               className="group relative overflow-hidden rounded-xl bg-fern-green/10 backdrop-blur-sm border border-moss-green/20 transition-all duration-300 hover:border-moss-green/40"
             >
-              <BorderBeam />
               <div className="relative">
                 <div className="aspect-video overflow-hidden">
                   <img 
