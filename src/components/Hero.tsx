@@ -1,13 +1,24 @@
 
 import { motion } from "framer-motion";
-import { Safari } from "@/components/magicui/safari-window";
+import { SafariWindow } from "@/components/magicui/safari-window";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Spotlight } from "@/components/ui/spotlight-new";
+import { GridPattern } from "@/components/magicui/grid-pattern";
 
 const Hero = () => {
   return (
-    <Spotlight className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden">
+    <div className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <GridPattern
+          width={100}
+          height={100}
+          x={0}
+          y={0}
+          className="absolute inset-0 h-full w-full opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-black"/>
+      </div>
+      
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -37,14 +48,19 @@ const Hero = () => {
         className="w-full lg:w-1/2 relative z-10"
       >
         <div className="relative">
-          <Safari
-            url="devstudio.design"
-            className="w-full"
-            imageSrc="/lovable-uploads/2c08ae35-eecb-4f9e-b00f-ff1bd20a66ad.png"
-          />
+          <SafariWindow
+            url="zenithstudio.design"
+            className="size-full"
+          >
+            <img 
+              src="/lovable-uploads/original-0c3f408a1819dae82163cf37ea4e4782.png"
+              alt="Website Preview"
+              className="w-full h-auto"
+            />
+          </SafariWindow>
         </div>
       </motion.div>
-    </Spotlight>
+    </div>
   );
 };
 
