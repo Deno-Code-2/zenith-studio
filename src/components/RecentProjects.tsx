@@ -62,9 +62,6 @@ const RecentProjects = () => {
       Zenith Studio's recent projects feature cutting-edge design, user-friendly interfaces, and tailored solutions for clients.
     </p>
   </div>
-</div>
-
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects?.map(project => (
             <div 
