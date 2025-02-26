@@ -11,8 +11,7 @@ const AgencyShowcase = () => {
               Ready to <span className="text-custom-orange">Transform</span> Your Digital Presence?
             </h2>
             <p className="text-lg md:text-xl text-white font-jakarta max-w-2xl text-center mb-8 md:mb-12">
-              Take the first step towards digital success with Zenith Studio by your side. Our team of experts is eager to craft tailored solutions that drive growth for your business.
-            </p>
+              Take the first step towards <span className="text-custom-orange">digital success</span> with Zenith Studio by your side. Our team of <span className="text-custom-orange">experts</span> is eager to craft tailored solutions that drive growth for your business. Whether you need a stunning website, a powerful mobile app, or a data-driven marketing campaign, we've got you covered.
             <p className="text-base md:text-lg text-white/90 font-jakarta mb-8">
               Let's embark on this transformative journey together.
             </p>
