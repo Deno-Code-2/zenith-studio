@@ -16,12 +16,12 @@ const AgencyShowcase = () => {
               Let's embark on this transformative journey together.
             </p>
             <div className="flex flex-col md:flex-row gap-4">
-              <Button className="bg-white text-black px-6 md:px-8 py-3 rounded-full font-jakarta font-medium hover:bg-white/90 transition-colors">
+              <Button variant="default" className="bg-white text-black px-6 md:px-8 py-3 font-jakarta font-medium hover:bg-white/90 transition-colors">
                 Get Started
               </Button>
-              <button className="bg-transparent border border-white text-white px-6 md:px-8 py-3 rounded-full font-jakarta font-medium hover:bg-white/10 transition-colors">
+              <Button variant="default" className="bg-transparent border border-white text-white px-6 md:px-8 py-3 font-jakarta font-medium hover:bg-white/10 transition-colors">
                 Free Consultation
-              </button>
+              </Button>
             </div>
           </div>
         </div>
