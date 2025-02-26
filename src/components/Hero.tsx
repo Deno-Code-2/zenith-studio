@@ -1,6 +1,5 @@
 
 import { motion } from "framer-motion";
-import { SafariWindow } from "@/components/magicui/safari-window";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -17,47 +16,15 @@ const Hero = () => {
           Transform Your Digital <span className="text-custom-orange">Vision</span> Into Reality
         </h2>
         <p className="text-xl text-gray-300 leading-relaxed font-jakarta">
-          We're not just building websites – we're crafting digital experiences that drive growth and elevate your brand. Let's create something extraordinary together.
+          We're not just building websites – we're crafting digital experiences that drive growth and elevate your brand.
         </p>
         <div className="flex gap-4">
-          <Button className="bg-custom-orange hover:bg-custom-orange/90">
+          <Button className="bg-custom-orange hover:bg-custom-orange/90 font-jakarta">
             Get Started <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-          <Button variant="outline" className="border-custom-orange/20 text-white hover:bg-custom-orange/10">
+          <Button variant="outline" className="border-custom-orange/20 text-white hover:bg-custom-orange/10 font-jakarta">
             View Our Work
           </Button>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        initial={{ opacity: 0, x: 20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="w-full lg:w-1/2 relative z-10 grid grid-cols-2 gap-4"
-      >
-        <div className="relative -rotate-6 hover:rotate-0 transition-all duration-300">
-          <SafariWindow
-            url="devstudio.design"
-            className="w-full shadow-2xl"
-          >
-            <img 
-              src="/lovable-uploads/My-Logo.png"
-              alt="Website Preview"
-              className="w-full h-auto"
-            />
-          </SafariWindow>
-        </div>
-        <div className="relative rotate-6 hover:rotate-0 transition-all duration-300 mt-12">
-          <SafariWindow
-            url="devstudio.design/work"
-            className="w-full shadow-2xl"
-          >
-            <img 
-              src="/lovable-uploads/My-Logo.png"
-              alt="Website Preview"
-              className="w-full h-auto"
-            />
-          </SafariWindow>
         </div>
       </motion.div>
     </div>
