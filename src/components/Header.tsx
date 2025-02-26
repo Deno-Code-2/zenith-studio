@@ -55,7 +55,7 @@ const Header = () => {
             <Link
               key={item.name}
               to={item.path}
-              className="nav-item text-white hover:text-neutral-200 transition-colors text-base font-medium font-jakarta"
+              className="nav-item text-white hover:text-neutral-200 transition-colors text-base font-medium font-jakarta relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-custom-orange after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
             >
               {item.name}
             </Link>
