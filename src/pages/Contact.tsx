@@ -1,24 +1,78 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
 import AgencyShowcase from "@/components/AgencyShowcase";
+
+const SERVICE_TYPES = [
+  "Web Development",
+  "Mobile App Development",
+  "UI/UX Design",
+  "Digital Marketing",
+  "Branding",
+  "E-commerce Solutions",
+  "Custom Software Development",
+  "Other"
+];
+
+const PRICE_RANGES = [
+  "$500 - $1,000",
+  "$1,000 - $2,500",
+  "$2,500 - $5,000",
+  "$5,000 - $10,000",
+  "$10,000+"
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
+    price_range: "",
+    service_type: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      // Insert into Supabase
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert([formData]);
+
+      if (dbError) throw dbError;
+
+      // Send email notification
+      const { error: emailError } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
+
+      if (emailError) throw emailError;
+
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        price_range: "",
+        service_type: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -42,7 +96,6 @@ const Contact = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Information */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -74,7 +127,6 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Contact Form */}
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -118,6 +170,36 @@ const Contact = () => {
                     required
                   />
                 </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-400 mb-2 font-jakarta">Price Range</label>
+                    <select 
+                      value={formData.price_range}
+                      onChange={(e) => setFormData({...formData, price_range: e.target.value})}
+                      className="w-full bg-black border border-custom-orange/20 rounded-lg p-3 text-white focus:border-custom-orange transition-colors font-jakarta"
+                      required
+                    >
+                      <option value="">Select a range</option>
+                      {PRICE_RANGES.map((range) => (
+                        <option key={range} value={range}>{range}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-gray-400 mb-2 font-jakarta">Service Type</label>
+                    <select 
+                      value={formData.service_type}
+                      onChange={(e) => setFormData({...formData, service_type: e.target.value})}
+                      className="w-full bg-black border border-custom-orange/20 rounded-lg p-3 text-white focus:border-custom-orange transition-colors font-jakarta"
+                      required
+                    >
+                      <option value="">Select a service</option>
+                      {SERVICE_TYPES.map((service) => (
+                        <option key={service} value={service}>{service}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
                 <div>
                   <label className="block text-gray-400 mb-2 font-jakarta">Message</label>
                   <textarea 
@@ -125,16 +207,17 @@ const Contact = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     className="w-full bg-black border border-custom-orange/20 rounded-lg p-3 text-white focus:border-custom-orange transition-colors font-jakarta"
-                    placeholder="Your message here..."
+                    placeholder="Tell us about your project..."
                     required
                   ></textarea>
                 </div>
-                <button 
+                <Button 
                   type="submit" 
-                  className="w-full bg-custom-orange text-white py-3 rounded-lg hover:bg-custom-orange/90 transition-colors font-jakarta font-medium"
+                  className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white"
+                  disabled={isSubmitting}
                 >
-                  Send Message
-                </button>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
               </form>
             </motion.div>
           </div>
