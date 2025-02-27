@@ -62,7 +62,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="container mx-auto px-4 pt-32">
+      <main className="container mx-auto px-8 lg:px-16 pt-32">
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 font-syne">
             Our <span className="text-custom-orange">Projects</span>

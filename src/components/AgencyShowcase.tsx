@@ -1,9 +1,10 @@
+
 import { Button } from "./ui/button";
 
 const AgencyShowcase = () => {
   return (
     <section className="py-12 md:py-20 bg-black">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8 lg:px-16">
         <div className="relative min-h-[400px] md:h-[500px] w-full overflow-hidden rounded-lg border border-custom-orange/20 bg-gradient-to-br from-black via-custom-orange/10 to-black">
           <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 md:p-12">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 font-syne text-white text-center">

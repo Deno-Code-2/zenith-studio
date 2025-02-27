@@ -1,11 +1,25 @@
 
 import { Github, Twitter, AtSign, Bird, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TextFooterEffect from './TextFooterEffect';
 
 const Footer = () => {
   return (
     <footer className="w-full bg-black py-20">
+      <TextFooterEffect />
       <div className="container mx-auto px-8 lg:px-16">
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-white font-syne">
+            <span className="text-custom-orange">Zen</span>ith Studio
+          </h2>
+          <p className="text-gray-300 max-w-2xl font-jakarta">
+            At <span className="text-custom-orange">Zen</span>ith Studio, we're more than just a digital agency. 
+            We're your strategic partner in navigating the digital landscape. 
+            Our team of creative technologists and strategic thinkers work together 
+            to craft exceptional digital experiences that drive real business results.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Follow Us Section */}
           <div>
@@ -124,7 +138,7 @@ const Footer = () => {
         {/* Large Website Name */}
         <div className="mt-20 relative overflow-hidden">
           <h1 className="text-[12vw] font-bold text-center opacity-5 font-syne select-none">
-            Zenith Studio
+            <span className="text-custom-orange opacity-10">Zen</span>ith Studio
           </h1>
         </div>
       </div>
