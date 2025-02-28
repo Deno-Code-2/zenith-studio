@@ -18,7 +18,7 @@ const Hero = () => {
         className="max-w-2xl text-left space-y-6 z-10"
       >
         <h2 className="text-5xl lg:text-7xl font-bold leading-tight text-white font-syne">
-          Transform Your Digital <span className="text-custom-orange">Vision</span> Into <Cover>Reality</Cover>
+          Transform Your Digital Vision Into <Cover className="text-white">Reality</Cover>
         </h2>
         <p className="text-xl text-gray-300 leading-relaxed font-jakarta">
           We're not just building websites – we're crafting digital experiences that drive growth and elevate your brand.
