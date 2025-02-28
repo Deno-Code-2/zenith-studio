@@ -45,7 +45,7 @@ const FAQ = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-4 font-syne">
-            <span className="text-gray-500">Frequently</span>{" "}
+            <span className="text-white">Frequently</span>{" "}
             <span className="text-white">Asked Questions</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-8 font-jakarta">

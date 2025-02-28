@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import Features from "@/components/Features";
 import FAQ from "@/components/FAQ";
 
+
 const Index = () => {
   return (
     <main className="min-h-screen bg-background relative overflow-hidden">
