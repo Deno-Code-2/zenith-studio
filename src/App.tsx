@@ -14,8 +14,6 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import CookiePolicy from "./pages/CookiePolicy";
 import ServicesDetails from "./pages/ServicesDetails";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,8 +44,6 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Analytics />
