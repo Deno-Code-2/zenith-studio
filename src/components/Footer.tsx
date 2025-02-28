@@ -1,12 +1,10 @@
 
 import { Github, Twitter, AtSign, Bird, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import TextFooterEffect from './TextFooterEffect';
 
 const Footer = () => {
   return (
     <footer className="w-full bg-black py-20">
-      <TextFooterEffect />
       <div className="container mx-auto px-8 lg:px-16">
         <div className="mb-12">
           <h2 className="text-3xl font-bold mb-4 text-white font-syne">
@@ -24,6 +22,7 @@ const Footer = () => {
           {/* Follow Us Section */}
           <div>
             <h3 className="text-lg font-bold mb-6 font-syne text-white">Follow Us</h3>
+            <h4 className="text-base font-medium mb-4 text-custom-orange font-jakarta">Digital Solutions for Modern Businesses</h4>
             <div className="flex space-x-4">
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-custom-orange transition-colors">
                 <Github size={20} />

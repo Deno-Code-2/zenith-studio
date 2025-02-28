@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Cube3D } from "./Cube3D";
 
 const Hero = () => {
   return (
@@ -26,6 +27,15 @@ const Hero = () => {
             View Our Work
           </Button>
         </div>
+      </motion.div>
+      
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="flex-1 z-10"
+      >
+        <Cube3D />
       </motion.div>
     </div>
   );

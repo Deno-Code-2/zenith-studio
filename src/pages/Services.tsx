@@ -13,6 +13,11 @@ import {
   IconFileBroken,
   IconSignature,
   IconTableColumn,
+  IconDevices,
+  IconBrandShopee,
+  IconBrandGoogle,
+  IconUsers,
+  IconBrandWordpress,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
@@ -266,59 +271,59 @@ const SkeletonFive = () => {
 
 const items = [
   {
-    title: "AI Content Generation",
+    title: "Web Development",
     description: (
       <span className="text-sm">
-        Experience the power of AI in generating unique content.
+        Custom websites that are fast, secure, and optimized for all devices. We use the latest technologies to create robust solutions.
       </span>
     ),
     header: <SkeletonOne />,
     className: "md:col-span-1",
-    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+    icon: <IconDevices className="h-4 w-4 text-custom-orange" />,
   },
   {
-    title: "Automated Proofreading",
+    title: "E-Commerce Solutions",
     description: (
       <span className="text-sm">
-        Let AI handle the proofreading of your documents.
+        Complete online store development with secure payment gateways, inventory management, and user-friendly interfaces.
       </span>
     ),
     header: <SkeletonTwo />,
     className: "md:col-span-1",
-    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBrandShopee className="h-4 w-4 text-custom-orange" />,
   },
   {
-    title: "Contextual Suggestions",
+    title: "SEO Optimization",
     description: (
       <span className="text-sm">
-        Get AI-powered suggestions based on your writing context.
+        Boost your online visibility with our expert SEO strategies. Rank higher in search results and attract more qualified traffic.
       </span>
     ),
     header: <SkeletonThree />,
     className: "md:col-span-1",
-    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBrandGoogle className="h-4 w-4 text-custom-orange" />,
   },
   {
-    title: "Sentiment Analysis",
+    title: "UI/UX Design",
     description: (
       <span className="text-sm">
-        Understand the sentiment of your text with AI analysis.
+        User-centered design that not only looks beautiful but also creates intuitive and engaging experiences for your audience.
       </span>
     ),
     header: <SkeletonFour />,
     className: "md:col-span-2",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    icon: <IconUsers className="h-4 w-4 text-custom-orange" />,
   },
   {
-    title: "Text Summarization",
+    title: "CMS Development",
     description: (
       <span className="text-sm">
-        Summarize your lengthy documents with AI technology.
+        Custom WordPress themes and plugins or headless CMS solutions tailored to your specific content management needs.
       </span>
     ),
     header: <SkeletonFive />,
     className: "md:col-span-1",
-    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBrandWordpress className="h-4 w-4 text-custom-orange" />,
   },
 ];
 
@@ -330,7 +335,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="container mx-auto px-8 lg:px-16 pt-32">
+      <main className="max-w-7xl mx-auto px-8 lg:px-16 pt-32">
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 font-syne">
             Our <span className="text-custom-orange">Services</span>
@@ -353,7 +358,7 @@ const Services = () => {
                       <p className="text-white font-syne">
                         Starts at ${1500 + (i * 300)}
                       </p>
-                      <Button variant="outline">
+                      <Button variant="outline" className="text-custom-orange border-custom-orange/30 hover:bg-custom-orange/10 font-jakarta">
                         Book a Call
                       </Button>
                     </div>
@@ -365,6 +370,103 @@ const Services = () => {
               />
             ))}
           </BentoGrid>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          <div className="border border-custom-orange/20 rounded-lg p-8 bg-black/50 hover:border-custom-orange/40 transition-all">
+            <h2 className="text-2xl font-bold mb-4 text-white font-syne">Digital Strategy Services</h2>
+            <ul className="space-y-3 text-gray-300 font-jakarta">
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Digital Transformation Consulting</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Market Research & Competitor Analysis</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Brand Strategy Development</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Business Growth Planning</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Digital Channel Optimization</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="border border-custom-orange/20 rounded-lg p-8 bg-black/50 hover:border-custom-orange/40 transition-all">
+            <h2 className="text-2xl font-bold mb-4 text-white font-syne">Marketing Services</h2>
+            <ul className="space-y-3 text-gray-300 font-jakarta">
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Content Marketing Campaigns</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Social Media Management</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Email Marketing Automation</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>PPC & Display Advertising</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-custom-orange">•</span>
+                <span>Conversion Rate Optimization</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="text-center mb-24">
+          <h2 className="text-3xl font-bold mb-6 text-white font-syne">Our <span className="text-custom-orange">Process</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-custom-orange text-xl font-bold">1</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white font-syne">Discovery</h3>
+              <p className="text-gray-400 font-jakarta">We learn about your business, goals, and target audience</p>
+              {/* Connector Line */}
+              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
+            </div>
+            
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-custom-orange text-xl font-bold">2</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white font-syne">Planning</h3>
+              <p className="text-gray-400 font-jakarta">We develop a strategic roadmap for your project</p>
+              {/* Connector Line */}
+              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
+            </div>
+            
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-custom-orange text-xl font-bold">3</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white font-syne">Execution</h3>
+              <p className="text-gray-400 font-jakarta">We bring the vision to life with expert execution</p>
+              {/* Connector Line */}
+              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
+            </div>
+            
+            <div>
+              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-custom-orange text-xl font-bold">4</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white font-syne">Growth</h3>
+              <p className="text-gray-400 font-jakarta">We continuously optimize and scale your solution</p>
+            </div>
+          </div>
         </div>
       </main>
       <AgencyShowcase />

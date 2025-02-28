@@ -80,7 +80,7 @@ const Contact = () => {
       <Header />
       
       <section className="pt-40 pb-20 px-4">
-        <div className="container mx-auto max-w-6xl">
+        <div className="max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -213,7 +213,7 @@ const Contact = () => {
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white"
+                  className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
