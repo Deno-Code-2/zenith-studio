@@ -56,7 +56,7 @@ export const Cover = ({
               }}
               transition={{
                 translateX: {
-                  duration: 5, // Faster movement
+                  duration: 6, // Faster movement
                   ease: "linear",
                   repeat: Infinity,
                 },
