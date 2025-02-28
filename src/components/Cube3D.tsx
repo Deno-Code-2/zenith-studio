@@ -16,18 +16,28 @@ export function Cube3D() {
   }, []);
 
   return (
-    <div className="relative w-full h-[600px] flex items-center justify-center">
+    <div className="relative w-full h-[600px] md:h-[600px] flex items-center justify-center">
       <Suspense fallback={<div className="text-white font-jakarta">Loading 3D model...</div>}>
         {showSpline && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="w-full h-full scale-125"
+            className="w-full h-full transform scale-90 md:scale-125"
           >
             <LazySpline scene="https://prod.spline.design/mZBrYNcnoESGlTUG/scene.splinecode" />
             <style>
-              {`.spline-watermark { display: none !important; opacity: 0 !important; visibility: hidden !important; }`}
+              {`
+              .spline-watermark { display: none !important; opacity: 0 !important; visibility: hidden !important; }
+              @media (max-width: 768px) {
+                iframe {
+                  transform: scale(0.7);
+                  transform-origin: center;
+                  height: 100% !important;
+                  width: 100% !important;
+                }
+              }
+              `}
             </style>
           </motion.div>
         )}
