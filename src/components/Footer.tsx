@@ -114,7 +114,7 @@ const Footer = () => {
         {/* Large Website Name */}
         <div className="overflow-hidden pt-12 border-t border-gray-800">
           <div className="text-[20vw] leading-[0.8] font-bold text-center opacity-5 font-syne">
-            <span className="text-custom-orange opacity-10">Zen</span>ith
+            Zenith Studio
           </div>
         </div>
       </div>
