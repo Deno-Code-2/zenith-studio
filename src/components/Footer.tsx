@@ -1,14 +1,14 @@
 
-import { Github, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Twitter, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black py-20">
-      <div className="container mx-auto px-8 lg:px-16">
+    <footer className="w-full bg-black py-16">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Logo and Company Info */}
-          <div>
+          <div className="col-span-1">
             <h2 className="text-3xl font-bold mb-4 text-white font-syne">
               <span className="text-custom-orange">Zen</span>ith Studio
             </h2>
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
 
           {/* Pages */}
-          <div>
+          <div className="col-span-1">
             <h3 className="text-lg font-bold mb-6 font-syne text-white">Pages</h3>
             <ul className="space-y-3 font-jakarta">
               <li>
@@ -58,12 +58,12 @@ const Footer = () => {
           </div>
 
           {/* Socials */}
-          <div>
+          <div className="col-span-1">
             <h3 className="text-lg font-bold mb-6 font-syne text-white">Socials</h3>
             <ul className="space-y-3 font-jakarta">
               <li>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-custom-orange transition-colors flex items-center gap-2">
-                  <Twitter size={16} />
+                  <Facebook size={16} />
                   Facebook
                 </a>
               </li>
@@ -89,7 +89,7 @@ const Footer = () => {
           </div>
 
           {/* Legal */}
-          <div>
+          <div className="col-span-1">
             <h3 className="text-lg font-bold mb-6 font-syne text-white">Legal</h3>
             <ul className="space-y-3 font-jakarta">
               <li>
@@ -112,10 +112,10 @@ const Footer = () => {
         </div>
 
         {/* Large Website Name */}
-        <div className="pt-16 border-t border-gray-800 relative overflow-visible">
-          <h1 className="text-[20vw] leading-none font-bold text-center opacity-5 font-syne">
+        <div className="overflow-hidden pt-12 border-t border-gray-800">
+          <div className="text-[20vw] leading-[0.8] font-bold text-center opacity-5 font-syne">
             <span className="text-custom-orange opacity-10">Zen</span>ith
-          </h1>
+          </div>
         </div>
       </div>
     </footer>
