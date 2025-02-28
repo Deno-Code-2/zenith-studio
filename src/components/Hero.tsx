@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Cube3D } from "./Cube3D";
-import { Cover } from "@/components/ui/cover";
 import { useNavigate } from "react-router-dom";
+import { Cover } from "./ui/cover";
 
 const Hero = () => {
   const navigate = useNavigate();

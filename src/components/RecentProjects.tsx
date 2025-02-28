@@ -59,7 +59,7 @@ const RecentProjects = () => {
     <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 font-syne">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 font-syne">
             Tech <span className="text-custom-orange">MEETS</span> Precision
           </h2>
           <p className="text-center text-gray-300 font-jakarta max-w-2xl mx-auto">
