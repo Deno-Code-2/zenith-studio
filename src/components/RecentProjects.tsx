@@ -37,7 +37,7 @@ const RecentProjects = () => {
 
   if (isLoading) {
     return <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+      <div className="container mx-auto px-8 lg:px-16">
         <div className="text-center">
           <p className="text-gray-300 font-jakarta">Loading projects...</p>
         </div>
@@ -47,7 +47,7 @@ const RecentProjects = () => {
 
   if (error) {
     return <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+      <div className="container mx-auto px-8 lg:px-16">
         <div className="text-center">
           <p className="text-red-400 font-jakarta">Error loading projects. Please try again later.</p>
         </div>
@@ -57,7 +57,7 @@ const RecentProjects = () => {
 
   return (
     <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+      <div className="container mx-auto px-8 lg:px-16">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 font-syne">
             Tech <span className="text-custom-orange">MEETS</span> Precision
@@ -66,14 +66,14 @@ const RecentProjects = () => {
             Zenith Studio's recent projects feature cutting-edge design, user-friendly interfaces, and tailored solutions for clients.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {projects?.map(project => (
             <div 
               key={project.id} 
-              className="group relative overflow-hidden rounded-xl bg-black/50 backdrop-blur-sm border border-neutral-800 transition-all duration-300 hover:border-custom-orange/40"
+              className="group relative overflow-hidden rounded-xl bg-black/50 backdrop-blur-sm border border-neutral-800 transition-all duration-300 hover:border-neutral-700"
             >
               <div className="relative">
-                <div className="aspect-video overflow-hidden max-h-[200px]">
+                <div className="aspect-video overflow-hidden">
                   <img 
                     src={project.image_url} 
                     alt={project.title} 
@@ -87,7 +87,7 @@ const RecentProjects = () => {
                     </h3>
                     <a 
                       href={project.project_url} 
-                      className="text-neutral-400 hover:text-custom-orange transition-colors"
+                      className="text-neutral-400 hover:text-white transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
@@ -106,7 +106,7 @@ const RecentProjects = () => {
           <Button 
             variant="outline" 
             onClick={() => navigate('/projects')}
-            className="font-jakarta border-custom-orange/20 text-white hover:bg-custom-orange/10 hover:border-custom-orange/40"
+            className="font-jakarta"
           >
             View All Projects
           </Button>

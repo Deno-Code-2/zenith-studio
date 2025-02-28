@@ -62,7 +62,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="max-w-7xl mx-auto px-8 lg:px-16 pt-32">
+      <main className="container mx-auto px-8 lg:px-16 pt-32">
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 font-syne">
             Our <span className="text-custom-orange">Projects</span>
@@ -77,32 +77,32 @@ const Projects = () => {
         ) : error ? (
           <div className="text-center text-red-400">Error loading projects. Please try again later.</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects?.map((project) => (
               <div
                 key={project.id}
                 className="project-card group relative overflow-hidden rounded-xl bg-black/50 backdrop-blur-sm border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
               >
-                <div className="aspect-video overflow-hidden max-h-[180px]">
+                <div className="aspect-video overflow-hidden">
                   <img 
                     src={project.image_url} 
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-8">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-white font-syne">{project.title}</h3>
+                    <h3 className="text-2xl font-bold text-white font-syne">{project.title}</h3>
                     <a 
                       href={project.project_url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-custom-orange hover:text-custom-orange/80 transition-colors"
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      <ExternalLink className="w-6 h-6" />
                     </a>
                   </div>
-                  <p className="text-gray-400 font-jakarta text-sm">{project.description}</p>
+                  <p className="text-gray-400 font-jakarta">{project.description}</p>
                 </div>
               </div>
             ))}
