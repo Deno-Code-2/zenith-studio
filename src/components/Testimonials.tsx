@@ -1,104 +1,58 @@
-import { cn } from "@/lib/utils";
-import { Marquee } from "./magicui/marquee";
-
+import { Card } from "./ui/card";
+import { Twitter } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    name: "Mark Roberts",
+    role: "Founder of GreenEarth Eco Store",
+    content: "Working with Zenith Studio was a pleasure. Their web design team created a stunning website that perfectly captured our brand's essence. The feedback from our customers has been overwhelmingly positive.",
+    image: "/lovable-uploads/53ba9584-ecb7-4e75-95ee-504dc9872b0f.png"
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
+    name: "Lisa Williams",
+    role: "Head of Product at HealthTech Innovations",
+    content: "The mobile app Zenith Studio developed for us exceeded our expectations. Its user-friendly interface and seamless functionality have earned us rave reviews from our users.",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
-  },
+    name: "Michael Johnson",
+    role: "Marketing Manager at GlobalTech",
+    content: "Zenith Studio transformed our outdated website into a modern, responsive platform. Their attention to detail and ability to understand our needs made the entire process smooth and hassle-free.",
+  }
 ];
 
-const firstRow = testimonials.slice(0, testimonials.length / 2);
-const secondRow = testimonials.slice(testimonials.length / 2);
-const thirdRow = testimonials.slice(0, testimonials.length / 2);
-const fourthRow = testimonials.slice(testimonials.length / 2);
-
-const ReviewCard = ({
-  img,
-  name,
-  username,
-  body,
-}: {
-  img: string;
-  name: string;
-  username: string;
-  body: string;
-}) => {
+const Testimonials = () => {
   return (
-    <figure
-      className={cn(
-        "relative h-full w-36 cursor-pointer overflow-hidden rounded-xl border p-4",
-        // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-      )}
-    >
-      <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
-            {name}
-          </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+    <section className="py-20 bg-black">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 font-syne">
+            <span className="text-gray-500">Our</span>{" "}
+            <span className="text-white">Testimonials</span>
+          </h2>
+          <p className="text-gray-400 font-jakarta max-w-2xl mx-auto">
+            Don't just take our word for it; hear what our satisfied clients have to say about their experience with Zenith Studio. We take pride in building lasting relationships and delivering exceptional results.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <Card key={index} className="p-8 bg-zinc-900 border-none hover:bg-zinc-800/50 transition-all duration-300">
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center">
+                  <Twitter className="text-white w-5 h-5" />
+                </div>
+              </div>
+              <p className="text-gray-300 mb-6 font-jakarta leading-relaxed">{testimonial.content}</p>
+              <div className="mt-auto">
+                <h4 className="text-white font-bold font-syne">{testimonial.name}</h4>
+                <p className="text-gray-400 text-sm font-jakarta">{testimonial.role}</p>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
-    </figure>
+    </section>
   );
 };
 
-export function Marquee3D() {
-  return (
-    <div className="relative flex h-96 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
-      <div
-        className="flex flex-row items-center gap-4"
-        style={{
-          transform:
-            "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
-        }}
-      >
-        <Marquee pauseOnHover vertical className="[--duration:20s]">
-          {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
-          {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]" vertical>
-          {thirdRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-        <Marquee pauseOnHover className="[--duration:20s]" vertical>
-          {fourthRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
-          ))}
-        </Marquee>
-      </div>
-
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
-    </div>
-  );
-}
+export default Testimonials;

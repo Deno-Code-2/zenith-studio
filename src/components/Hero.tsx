@@ -15,7 +15,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-2xl text-left space-y-6 z-10 hero-anim"
+        className="max-w-2xl text-left space-y-6 z-10"
       >
         <h2 className="text-5xl lg:text-7xl font-bold leading-tight text-white font-syne">
           Transform Your Digital <span className="text-custom-orange">Vision</span> Into <Cover>Reality</Cover>
@@ -41,7 +41,7 @@ const Hero = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex-1 z-10 w-full max-w-xl hero-anim"
+        className="flex-1 z-10 w-full max-w-xl"
       >
         <Cube3D />
       </motion.div>

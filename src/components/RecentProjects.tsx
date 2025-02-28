@@ -5,7 +5,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { gsap } from "gsap";
 
 interface Project {
   id: string;
@@ -36,33 +35,8 @@ const RecentProjects = () => {
     queryFn: fetchProjects
   });
 
-  useEffect(() => {
-    // Add animations
-    gsap.from(".project-title", {
-      y: 30,
-      opacity: 0,
-      stagger: 0.2,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: ".project-section",
-        start: "top 80%"
-      }
-    });
-
-    gsap.from(".project-card", {
-      y: 50,
-      opacity: 0,
-      stagger: 0.3,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: ".project-card",
-        start: "top 80%"
-      }
-    });
-  }, [projects]);
-
   if (isLoading) {
-    return <section className="py-20 bg-black project-section">
+    return <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="text-center">
           <p className="text-gray-300 font-jakarta">Loading projects...</p>
@@ -72,7 +46,7 @@ const RecentProjects = () => {
   }
 
   if (error) {
-    return <section className="py-20 bg-black project-section">
+    return <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="text-center">
           <p className="text-red-400 font-jakarta">Error loading projects. Please try again later.</p>
@@ -82,10 +56,10 @@ const RecentProjects = () => {
   }
 
   return (
-    <section className="py-20 bg-black project-section">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 font-syne project-title">
+          <h2 className="text-4xl font-bold mb-4 font-syne">
             Tech <span className="text-custom-orange">MEETS</span> Precision
           </h2>
           <p className="text-center text-gray-300 font-jakarta max-w-2xl mx-auto">
@@ -96,10 +70,10 @@ const RecentProjects = () => {
           {projects?.map(project => (
             <div 
               key={project.id} 
-              className="group relative overflow-hidden rounded-xl bg-black/50 backdrop-blur-sm border border-neutral-800 transition-all duration-300 hover:border-custom-orange/40 project-card"
+              className="group relative overflow-hidden rounded-xl bg-black/50 backdrop-blur-sm border border-neutral-800 transition-all duration-300 hover:border-custom-orange/40"
             >
               <div className="relative">
-                <div className="aspect-video overflow-hidden max-h-[200px] flex items-center justify-center">
+                <div className="aspect-video overflow-hidden max-h-[200px]">
                   <img 
                     src={project.image_url} 
                     alt={project.title} 
