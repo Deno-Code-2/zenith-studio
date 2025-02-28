@@ -53,28 +53,28 @@ const SkeletonOne = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 bg-black/80"
     >
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
+        className="flex flex-row rounded-full border border-custom-orange/20 p-2 items-center space-x-2 bg-black"
       >
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
+        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-custom-orange to-amber-500 flex-shrink-0" />
+        <div className="w-full bg-custom-orange/10 h-4 rounded-full" />
       </motion.div>
       <motion.div
         variants={variantsSecond}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
+        className="flex flex-row rounded-full border border-custom-orange/20 p-2 items-center space-x-2 w-3/4 ml-auto bg-black"
       >
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
+        <div className="w-full bg-custom-orange/10 h-4 rounded-full" />
+        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-custom-orange to-amber-500 flex-shrink-0" />
       </motion.div>
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
+        className="flex flex-row rounded-full border border-custom-orange/20 p-2 items-center space-x-2 bg-black"
       >
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
+        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-custom-orange to-amber-500 flex-shrink-0" />
+        <div className="w-full bg-custom-orange/10 h-4 rounded-full" />
       </motion.div>
     </motion.div>
   );
@@ -104,7 +104,7 @@ const SkeletonTwo = () => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 bg-black/80"
     >
       {arr.map((_, i) => (
         <motion.div
@@ -113,7 +113,7 @@ const SkeletonTwo = () => {
           style={{
             maxWidth: Math.random() * (100 - 40) + 40 + "%",
           }}
-          className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
+          className="flex flex-row rounded-full border border-custom-orange/20 p-2 items-center space-x-2 bg-custom-orange/10 w-full h-4"
         ></motion.div>
       ))}
     </motion.div>
@@ -142,7 +142,7 @@ const SkeletonThree = () => {
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
       style={{
         background:
-          "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+          "linear-gradient(-45deg, #E46534, #ff8a4c, #E46534, #b33f20)",
         backgroundSize: "400% 400%",
       }}
     >
@@ -177,39 +177,39 @@ const SkeletonFour = () => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2 bg-black/80"
     >
       <motion.div
         variants={first}
-        className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
+        className="h-full w-1/3 rounded-2xl bg-black p-4 border-custom-orange/20 border flex flex-col items-center justify-center"
       >
-        <div className="rounded-full h-10 w-10 bg-gradient-to-r from-pink-500 to-violet-500" />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Just code in Vanilla Javascript
+        <div className="rounded-full h-10 w-10 bg-gradient-to-r from-custom-orange to-amber-500" />
+        <p className="sm:text-sm text-xs text-center font-semibold text-gray-300 mt-4 font-jakarta">
+          Creative Design
         </p>
-        <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Delusional
+        <p className="border border-custom-orange bg-custom-orange/20 text-custom-orange text-xs rounded-full px-2 py-0.5 mt-4">
+          Excellence
         </p>
       </motion.div>
-      <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
-        <div className="rounded-full h-10 w-10 bg-gradient-to-r from-pink-500 to-violet-500" />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Tailwind CSS is cool, you know
+      <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-black p-4 border-custom-orange/20 border flex flex-col items-center justify-center">
+        <div className="rounded-full h-10 w-10 bg-gradient-to-r from-custom-orange to-amber-500" />
+        <p className="sm:text-sm text-xs text-center font-semibold text-gray-300 mt-4 font-jakarta">
+          Responsive Design
         </p>
-        <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Sensible
+        <p className="border border-green-500 bg-green-500/10 text-green-500 text-xs rounded-full px-2 py-0.5 mt-4">
+          Adaptive
         </p>
       </motion.div>
       <motion.div
         variants={second}
-        className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
+        className="h-full w-1/3 rounded-2xl bg-black p-4 border-custom-orange/20 border flex flex-col items-center justify-center"
       >
-        <div className="rounded-full h-10 w-10 bg-gradient-to-r from-pink-500 to-violet-500" />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I love angular, RSC, and Redux.
+        <div className="rounded-full h-10 w-10 bg-gradient-to-r from-custom-orange to-amber-500" />
+        <p className="sm:text-sm text-xs text-center font-semibold text-gray-300 mt-4 font-jakarta">
+          SEO Optimization
         </p>
-        <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Helpless
+        <p className="border border-blue-500 bg-blue-500/10 text-blue-500 text-xs rounded-full px-2 py-0.5 mt-4">
+          Growth
         </p>
       </motion.div>
     </motion.div>
@@ -246,24 +246,23 @@ const SkeletonFive = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 bg-black/80"
     >
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 bg-white dark:bg-black"
+        className="flex flex-row rounded-2xl border border-custom-orange/20 p-2 items-start space-x-2 bg-black"
       >
-        <div className="rounded-full h-10 w-10 bg-gradient-to-r from-pink-500 to-violet-500" />
-        <p className="text-xs text-neutral-500">
-          There are a lot of cool framerworks out there like React, Angular,
-          Vue, Svelte that can make your life ....
+        <div className="rounded-full h-10 w-10 bg-gradient-to-r from-custom-orange to-amber-500" />
+        <p className="text-xs text-gray-300 font-jakarta">
+          Our CMS solutions make content management simple, intuitive, and powerful...
         </p>
       </motion.div>
       <motion.div
         variants={variantsSecond}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
+        className="flex flex-row rounded-full border border-custom-orange/20 p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-black"
       >
-        <p className="text-xs text-neutral-500">Use PHP.</p>
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
+        <p className="text-xs text-gray-300 font-jakarta">Full control.</p>
+        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-custom-orange to-amber-500 flex-shrink-0" />
       </motion.div>
     </motion.div>
   );
@@ -273,7 +272,7 @@ const items = [
   {
     title: "Web Development",
     description: (
-      <span className="text-sm">
+      <span className="text-sm text-gray-300 font-jakarta">
         Custom websites that are fast, secure, and optimized for all devices. We use the latest technologies to create robust solutions.
       </span>
     ),
@@ -284,7 +283,7 @@ const items = [
   {
     title: "E-Commerce Solutions",
     description: (
-      <span className="text-sm">
+      <span className="text-sm text-gray-300 font-jakarta">
         Complete online store development with secure payment gateways, inventory management, and user-friendly interfaces.
       </span>
     ),
@@ -295,7 +294,7 @@ const items = [
   {
     title: "SEO Optimization",
     description: (
-      <span className="text-sm">
+      <span className="text-sm text-gray-300 font-jakarta">
         Boost your online visibility with our expert SEO strategies. Rank higher in search results and attract more qualified traffic.
       </span>
     ),
@@ -306,7 +305,7 @@ const items = [
   {
     title: "UI/UX Design",
     description: (
-      <span className="text-sm">
+      <span className="text-sm text-gray-300 font-jakarta">
         User-centered design that not only looks beautiful but also creates intuitive and engaging experiences for your audience.
       </span>
     ),
@@ -317,7 +316,7 @@ const items = [
   {
     title: "CMS Development",
     description: (
-      <span className="text-sm">
+      <span className="text-sm text-gray-300 font-jakarta">
         Custom WordPress themes and plugins or headless CMS solutions tailored to your specific content management needs.
       </span>
     ),
@@ -345,7 +344,53 @@ const Services = () => {
           </p>
         </div>
 
+        {/* OUR PROCESS SECTION - Now shown first */}
+        <div className="text-center mb-24">
+          <h2 className="text-3xl font-bold mb-6 text-white font-syne">Our <span className="text-custom-orange">Process</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-custom-orange text-xl font-bold">1</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white font-syne">Discovery</h3>
+              <p className="text-gray-400 font-jakarta">We learn about your business, goals, and target audience</p>
+              {/* Connector Line */}
+              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
+            </div>
+            
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-custom-orange text-xl font-bold">2</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white font-syne">Planning</h3>
+              <p className="text-gray-400 font-jakarta">We develop a strategic roadmap for your project</p>
+              {/* Connector Line */}
+              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
+            </div>
+            
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-custom-orange text-xl font-bold">3</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white font-syne">Execution</h3>
+              <p className="text-gray-400 font-jakarta">We bring the vision to life with expert execution</p>
+              {/* Connector Line */}
+              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
+            </div>
+            
+            <div>
+              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-custom-orange text-xl font-bold">4</span>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white font-syne">Growth</h3>
+              <p className="text-gray-400 font-jakarta">We continuously optimize and scale your solution</p>
+            </div>
+          </div>
+        </div>
+
+        {/* BENTO GRID SECTION - Now shown after the process */}
         <div className="mb-20">
+          <h2 className="text-3xl font-bold mb-10 text-white font-syne text-center">Our <span className="text-custom-orange">Offerings</span></h2>
           <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
             {items.map((item, i) => (
               <BentoGridItem
@@ -423,49 +468,6 @@ const Services = () => {
                 <span>Conversion Rate Optimization</span>
               </li>
             </ul>
-          </div>
-        </div>
-
-        <div className="text-center mb-24">
-          <h2 className="text-3xl font-bold mb-6 text-white font-syne">Our <span className="text-custom-orange">Process</span></h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className="relative">
-              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-custom-orange text-xl font-bold">1</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-white font-syne">Discovery</h3>
-              <p className="text-gray-400 font-jakarta">We learn about your business, goals, and target audience</p>
-              {/* Connector Line */}
-              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
-            </div>
-            
-            <div className="relative">
-              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-custom-orange text-xl font-bold">2</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-white font-syne">Planning</h3>
-              <p className="text-gray-400 font-jakarta">We develop a strategic roadmap for your project</p>
-              {/* Connector Line */}
-              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
-            </div>
-            
-            <div className="relative">
-              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-custom-orange text-xl font-bold">3</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-white font-syne">Execution</h3>
-              <p className="text-gray-400 font-jakarta">We bring the vision to life with expert execution</p>
-              {/* Connector Line */}
-              <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-custom-orange/20"></div>
-            </div>
-            
-            <div>
-              <div className="w-16 h-16 rounded-full bg-custom-orange/20 flex items-center justify-center mx-auto mb-4">
-                <span className="text-custom-orange text-xl font-bold">4</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-white font-syne">Growth</h3>
-              <p className="text-gray-400 font-jakarta">We continuously optimize and scale your solution</p>
-            </div>
           </div>
         </div>
       </main>

@@ -6,44 +6,32 @@ const LazySpline = lazy(() => import("@splinetool/react-spline"));
 
 export function Cube3D() {
   const [showSpline, setShowSpline] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // Adjust breakpoint as needed
-    };
+    const timer = setTimeout(() => {
+      setShowSpline(true);
+    }, 1000);
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (!isMobile) {
-      const timer = setTimeout(() => {
-        setShowSpline(true);
-      }, 1000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isMobile]);
 
   return (
     <div className="relative w-full h-[500px] flex items-center justify-center">
-      {!isMobile && (
-        <Suspense fallback={<div>Loading...</div>}>
-          {showSpline && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
-              <LazySpline scene="https://prod.spline.design/mZBrYNcnoESGlTUG/scene.splinecode" />
-            </motion.div>
-          )}
-        </Suspense>
-      )}
+      <Suspense fallback={<div className="text-white font-jakarta">Loading 3D model...</div>}>
+        {showSpline && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="w-full h-full"
+          >
+            <LazySpline scene="https://prod.spline.design/mZBrYNcnoESGlTUG/scene.splinecode" />
+            <style>
+              {`.spline-watermark { display: none !important; opacity: 0 !important; visibility: hidden !important; }`}
+            </style>
+          </motion.div>
+        )}
+      </Suspense>
     </div>
   );
 }
