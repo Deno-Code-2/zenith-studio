@@ -13,7 +13,6 @@ export const Cover = ({
   className?: string;
 }) => {
   const [hovered, setHovered] = useState(false);
-
   const ref = useRef<HTMLDivElement>(null);
 
   const [containerWidth, setContainerWidth] = useState(0);
@@ -24,7 +23,7 @@ export const Cover = ({
       setContainerWidth(ref.current?.clientWidth ?? 0);
 
       const height = ref.current?.clientHeight ?? 0;
-      const numberOfBeams = Math.floor(height / 10); // Adjust the divisor to control the spacing
+      const numberOfBeams = Math.floor(height / 10); // Adjust beam spacing
       const positions = Array.from(
         { length: numberOfBeams },
         (_, i) => (i + 1) * (height / (numberOfBeams + 1))
@@ -38,7 +37,7 @@ export const Cover = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       ref={ref}
-       className="relative hover:bg-black group/cover inline-block bg-black px-2 py-2 transition duration-200 rounded-sm"
+      className="relative hover:bg-black group/cover inline-block bg-black px-2 py-2 transition duration-200 rounded-sm"
     >
       <AnimatePresence>
         {hovered && (
@@ -47,9 +46,7 @@ export const Cover = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
-              opacity: {
-                duration: 0.2,
-              },
+              opacity: { duration: 0.2 },
             }}
             className="h-full w-full overflow-hidden absolute inset-0"
           >
@@ -59,7 +56,7 @@ export const Cover = ({
               }}
               transition={{
                 translateX: {
-                  duration: 10,
+                  duration: 5, // Faster movement
                   ease: "linear",
                   repeat: Infinity,
                 },
@@ -86,24 +83,26 @@ export const Cover = ({
           </motion.div>
         )}
       </AnimatePresence>
+
       {beamPositions.map((position, index) => (
         <Beam
           key={index}
           hovered={hovered}
-          duration={Math.random() * 2 + 1}
-          delay={Math.random() * 2 + 1}
+          duration={Math.random() * 1 + 0.5} // Faster beams
+          delay={Math.random() * 1 + 0.5}
           width={containerWidth}
           style={{
             top: `${position}px`,
           }}
         />
       ))}
+
       <motion.span
         key={String(hovered)}
         animate={{
           scale: hovered ? 0.8 : 1,
-          x: hovered ? [0, -30, 30, -30, 30, 0] : 0,
-          y: hovered ? [0, 30, -30, 30, -30, 0] : 0,
+          x: hovered ? [0, -20, 20, -20, 20, 0] : 0,
+          y: hovered ? [0, 20, -20, 20, -20, 0] : 0,
         }}
         exit={{
           filter: "none",
@@ -113,22 +112,10 @@ export const Cover = ({
         }}
         transition={{
           duration: 0.2,
-          x: {
-            duration: 0.2,
-            repeat: Infinity,
-            repeatType: "loop",
-          },
-          y: {
-            duration: 0.2,
-            repeat: Infinity,
-            repeatType: "loop",
-          },
-          scale: {
-            duration: 0.2,
-          },
-          filter: {
-            duration: 0.2,
-          },
+          x: { duration: 0.2, repeat: Infinity, repeatType: "loop" },
+          y: { duration: 0.2, repeat: Infinity, repeatType: "loop" },
+          scale: { duration: 0.2 },
+          filter: { duration: 0.2 },
         }}
         className={cn(
           "dark:text-white inline-block text-neutral-900 relative z-20 group-hover/cover:text-white transition duration-200",
@@ -137,6 +124,7 @@ export const Cover = ({
       >
         {children}
       </motion.span>
+
       <CircleIcon className="absolute -right-[2px] -top-[2px]" />
       <CircleIcon className="absolute -bottom-[2px] -right-[2px]" delay={0.4} />
       <CircleIcon className="absolute -left-[2px] -top-[2px]" delay={0.8} />
@@ -194,16 +182,16 @@ export const Beam = ({
             y2: 0,
           }}
           transition={{
-            duration: hovered ? 0.5 : duration ?? 2,
+            duration: hovered ? 0.2 : duration ?? 1, // Faster beams
             ease: "linear",
             repeat: Infinity,
-            delay: hovered ? Math.random() * (1 - 0.2) + 0.2 : 0,
-            repeatDelay: hovered ? Math.random() * (2 - 1) + 1 : delay ?? 1,
+            delay: hovered ? Math.random() * (0.5 - 0.1) + 0.1 : 0,
+            repeatDelay: hovered ? Math.random() * (1 - 0.5) + 0.5 : delay ?? 0.5,
           }}
         >
-          <stop stopColor="#2EB9DF" stopOpacity="0" />
-          <stop stopColor="#3b82f6" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
+          <stop stopColor="#FFA500" stopOpacity="0" />
+          <stop stopColor="#FF6A00" />
+          <stop offset="1" stopColor="#FF6A00" stopOpacity="0" />
         </motion.linearGradient>
       </defs>
     </motion.svg>
