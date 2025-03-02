@@ -1,7 +1,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -28,15 +28,17 @@ const PRICE_RANGES = [
   "$10,000+"
 ];
 
+const initialFormState = {
+  name: "",
+  email: "",
+  subject: "",
+  price_range: "",
+  service_type: "",
+  message: "",
+};
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    price_range: "",
-    service_type: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -51,22 +53,34 @@ const Contact = () => {
 
       if (dbError) throw dbError;
 
-      // Send email notification
-      const { error: emailError } = await supabase.functions.invoke('send-contact-email', {
-        body: formData,
+      // Send email notification to admin
+      const { error: adminEmailError } = await supabase.functions.invoke('send-contact-email', {
+        body: { 
+          ...formData, 
+          recipient: "syedmoinuddin106@gmail.com",
+          isAdminEmail: true
+        },
       });
 
-      if (emailError) throw emailError;
-
-      toast.success("Message sent successfully! We'll get back to you soon.");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        price_range: "",
-        service_type: "",
-        message: "",
+      if (adminEmailError) throw adminEmailError;
+      
+      // Send confirmation email to user
+      const { error: userEmailError } = await supabase.functions.invoke('send-contact-email', {
+        body: { 
+          ...formData, 
+          recipient: formData.email,
+          isAdminEmail: false
+        },
       });
+
+      if (userEmailError) throw userEmailError;
+
+      toast.success("Message sent successfully! We'll get back to you soon.", {
+        duration: 5000,
+      });
+      
+      // Clear the form after successful submission
+      setFormData(initialFormState);
     } catch (error) {
       console.error('Error submitting form:', error);
       toast.error("Failed to send message. Please try again.");
@@ -91,7 +105,7 @@ const Contact = () => {
               Get in <span className="text-custom-orange">Touch</span> with Us Today!
             </h1>
             <p className="text-gray-300 max-w-2xl mx-auto font-jakarta">
-              Let's discuss your project and see how we can help you achieve your digital goals.
+              Let's discuss your project and see how we can help you achieve your digital goals. Fill out the form below and we'll get back to you as soon as possible.
             </p>
           </motion.div>
 
@@ -106,8 +120,8 @@ const Contact = () => {
                 <div className="p-6 border border-custom-orange/20 rounded-lg bg-black/50 backdrop-blur-sm hover:border-custom-orange transition-colors">
                   <Mail className="w-8 h-8 text-custom-orange mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2 font-syne">Email Us</h3>
-                  <a href="mailto:contact@zenithstudio.com" className="text-gray-300 hover:text-custom-orange transition-colors font-jakarta">
-                    contact@zenithstudio.com
+                  <a href="mailto:syedmoinuddin106@gmail.com" className="text-gray-300 hover:text-custom-orange transition-colors font-jakarta">
+                    syedmoinuddin106@gmail.com
                   </a>
                 </div>
                 <div className="p-6 border border-custom-orange/20 rounded-lg bg-black/50 backdrop-blur-sm hover:border-custom-orange transition-colors">
@@ -213,10 +227,11 @@ const Contact = () => {
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+                  className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta flex items-center justify-center gap-2"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
+                  {!isSubmitting && <Send size={16} />}
                 </Button>
               </form>
             </motion.div>
