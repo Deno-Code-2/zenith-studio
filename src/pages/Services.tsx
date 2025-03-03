@@ -8,24 +8,27 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import ServiceCard from "@/components/ServiceCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 type ServiceType = 'All' | 'Landing Page' | 'SaaS Website' | 'Startup Website' | 'E-commerce Website';
 
-type ProjectItem = {
+type ServiceItem = {
   id: string;
   title: string;
   description: string | null;
   image_url: string | null;
-  project_url: string | null;
-  project_type: string;
+  service_url: string | null;
+  service_type: string;
+  price: number;
+  features: string[];
 };
 
 const Services = () => {
   const [activeFilter, setActiveFilter] = useState<ServiceType>('All');
-  const [projects, setProjects] = useState<ProjectItem[]>([]);
-  const [filteredProjects, setFilteredProjects] = useState<ProjectItem[]>([]);
+  const [services, setServices] = useState<ServiceItem[]>([]);
+  const [filteredServices, setFilteredServices] = useState<ServiceItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   // Filter options
@@ -38,27 +41,26 @@ const Services = () => {
   ];
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchServices = async () => {
       setIsLoading(true);
       try {
         const { data, error } = await supabase
-          .from('projects')
+          .from('services')
           .select('*');
         
         if (error) {
-          console.error('Error fetching projects:', error);
+          console.error('Error fetching services:', error);
           return;
         }
         
         if (data) {
-          // Make sure we cast the data properly with project_type
-          const projectsWithType = data.map(project => ({
-            ...project,
-            project_type: project.project_type || 'Landing Page' // Provide fallback for older data
-          })) as ProjectItem[];
+          const servicesData = data.map(service => ({
+            ...service,
+            service_type: service.service_type || 'Landing Page' // Provide fallback for older data
+          })) as ServiceItem[];
           
-          setProjects(projectsWithType);
-          setFilteredProjects(projectsWithType);
+          setServices(servicesData);
+          setFilteredServices(servicesData);
         }
       } catch (err) {
         console.error('Error:', err);
@@ -67,7 +69,7 @@ const Services = () => {
       }
     };
 
-    fetchProjects();
+    fetchServices();
     
     // GSAP animations
     gsap.from(".services-title", {
@@ -80,13 +82,13 @@ const Services = () => {
 
   useEffect(() => {
     if (activeFilter === 'All') {
-      setFilteredProjects(projects);
+      setFilteredServices(services);
     } else {
-      setFilteredProjects(
-        projects.filter((project) => project.project_type === activeFilter)
+      setFilteredServices(
+        services.filter((service) => service.service_type === activeFilter)
       );
     }
-  }, [activeFilter, projects]);
+  }, [activeFilter, services]);
 
   const benefits = [
     "Increased online visibility and brand awareness",
@@ -182,45 +184,15 @@ const Services = () => {
             <div className="flex justify-center py-20">
               <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin"></div>
             </div>
-          ) : filteredProjects.length === 0 ? (
+          ) : filteredServices.length === 0 ? (
             <div className="text-center py-16">
-              <h3 className="text-2xl text-white font-jakarta mb-4">No projects found</h3>
+              <h3 className="text-2xl text-white font-jakarta mb-4">No services found</h3>
               <p className="text-gray-400">Try selecting a different category or check back later.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {filteredProjects.map((project) => (
-                <motion.div 
-                  key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="group relative rounded-xl overflow-hidden bg-black/30 border border-custom-orange/20 hover:border-custom-orange/40 transition-all"
-                >
-                  <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={project.image_url || "/placeholder.svg"} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                  </div>
-                  <div className="p-6 relative">
-                    <div className="bg-custom-orange/10 text-custom-orange px-3 py-1 rounded-full text-sm inline-block mb-4">
-                      {project.project_type}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-3 font-syne">{project.title}</h3>
-                    <p className="text-gray-300 mb-4 font-jakarta">{project.description}</p>
-                    <a 
-                      href={project.project_url || "#"} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-custom-orange hover:text-white transition-colors gap-2 font-jakarta"
-                    >
-                      View Project <ArrowRight size={16} />
-                    </a>
-                  </div>
-                </motion.div>
+              {filteredServices.map((service) => (
+                <ServiceCard key={service.id} service={service} />
               ))}
             </div>
           )}
@@ -359,7 +331,7 @@ const Services = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 href="/contact" 
-                className="inline-flex items-center gap-2 bg-custom-orange text-white font-bold py-3 px-8 rounded-md hover:bg-orange-600 transition-colors duration-300"
+                className="inline-flex items-center gap-2 bg-custom-orange text-white font-bold py-3 px-8 rounded-md hover:bg-orange-600 transition-colors duration-300 font-jakarta"
               >
                 Get in Touch <ArrowRight size={18} />
               </motion.a>

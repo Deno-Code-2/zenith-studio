@@ -1,391 +1,415 @@
 
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CheckCircle2, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Users, Building2, MessageSquareMore, Rocket, Code2, Palette, Target, BrainCircuit, Laptop, Lightbulb, Award, Clock, Globe, ShieldCheck } from "lucide-react";
-import AgencyShowcase from "@/components/AgencyShowcase";
-import { motion } from "framer-motion";
+import { Cube3D } from "@/components/Cube3D";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import FlickeringGrid from "@/components/magicui/flickering-grid";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    // Animate the timeline
+    gsap.from(".timeline-item", {
+      scrollTrigger: {
+        trigger: ".timeline-section",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    // Animate the stats
+    gsap.from(".stat-item", {
+      scrollTrigger: {
+        trigger: ".stats-section",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 0,
+      y: 30,
+      stagger: 0.1,
+      duration: 0.8,
+      ease: "power3.out"
+    });
+
+    // Animate the values section
+    gsap.from(".value-item", {
+      scrollTrigger: {
+        trigger: ".values-section",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 0,
+      y: 30,
+      stagger: 0.1,
+      duration: 0.8,
+      ease: "power3.out"
+    });
+  }, []);
+
+  const stats = [
+    { value: "5+", label: "Years Experience" },
+    { value: "100+", label: "Projects Completed" },
+    { value: "50+", label: "Satisfied Clients" },
+    { value: "15+", label: "Team Members" }
+  ];
+
+  const values = [
+    {
+      title: "Quality First",
+      description: "We never compromise on quality, delivering premium digital solutions that exceed expectations."
+    },
+    {
+      title: "Client-Centered",
+      description: "Your vision and goals are at the heart of everything we do, ensuring results that align with your needs."
+    },
+    {
+      title: "Innovative Thinking",
+      description: "We stay ahead of industry trends, implementing cutting-edge technologies and creative solutions."
+    },
+    {
+      title: "Transparent Process",
+      description: "Clear communication and honest feedback throughout the entire development journey."
+    }
+  ];
+
+  const milestones = [
+    {
+      year: "2018",
+      title: "Company Founded",
+      description: "Zenith Studio was established with a vision to transform digital experiences."
+    },
+    {
+      year: "2019",
+      title: "First Major Client",
+      description: "Secured our first major client and delivered an award-winning website."
+    },
+    {
+      year: "2020",
+      title: "Team Expansion",
+      description: "Expanded our team and office space to accommodate growing client demands."
+    },
+    {
+      year: "2021",
+      title: "International Recognition",
+      description: "Received international recognition for our innovative digital solutions."
+    },
+    {
+      year: "2022",
+      title: "Technology Partners",
+      description: "Formed strategic partnerships with leading technology providers."
+    },
+    {
+      year: "2023",
+      title: "Global Expansion",
+      description: "Expanded our services to clients across multiple countries."
+    }
+  ];
+
   return (
-    <main className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="pt-32 px-8 lg:px-16">
-        <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="flex-1 space-y-6">
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-custom-orange font-jakarta"
-            >
-              About Our Agency
-            </motion.p>
-            <motion.h1 
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl md:text-6xl font-bold text-white font-syne"
-            >
-              Empowering Your <span className="text-custom-orange">Digital Presence</span> With <span className="text-custom-orange">Innovative</span> Solutions
-            </motion.h1>
-            <motion.p 
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-gray-300 text-lg leading-relaxed"
-            >
-              At <span className="text-custom-orange font-semibold">Zenith Studio</span>, we're more than a digital agency; we're your strategic partner in achieving online excellence. With a passionate team of creatives, developers, and strategists, we transform visionary ideas into digital masterpieces that drive growth and elevate your brand.
-            </motion.p>
-          </div>
-          <motion.div 
-            className="flex-1"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <img 
-              src="/lovable-uploads/My-Logo.png"
-              alt="Team"
-              className="rounded-lg w-full shadow-[0_0_30px_rgba(228,101,52,0.3)]"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Our Vision & Mission Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-8"
-            >
+      <main>
+        {/* Hero Section */}
+        <section className="pt-32 pb-20">
+          <div className="max-w-7xl mx-auto px-8 lg:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-white font-syne mb-4">Our <span className="text-custom-orange">Vision</span></h2>
-                <p className="text-gray-300 leading-relaxed font-jakarta">
-                  To revolutionize the digital landscape by creating innovative experiences that bridge the gap between brands and their audiences, setting new standards of excellence in the industry.
-                </p>
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-block text-custom-orange font-medium mb-4 font-jakarta"
+                >
+                  About Us
+                </motion.span>
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-5xl md:text-6xl font-bold text-white mb-6 font-syne"
+                >
+                  Crafting <span className="text-custom-orange">Digital</span> Experiences
+                </motion.h1>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-gray-300 text-lg leading-relaxed mb-8 font-jakarta"
+                >
+                  Zenith Studio is a forward-thinking digital agency dedicated to transforming ideas into impactful digital experiences. With a team of creative minds and technical experts, we craft solutions that drive growth and success for our clients worldwide.
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="flex flex-wrap gap-4"
+                >
+                  <Button
+                    asChild
+                    className="bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+                  >
+                    <Link to="/services">
+                      Our Services <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-custom-orange/20 text-white hover:bg-custom-orange/10 hover:border-custom-orange/40 font-jakarta"
+                  >
+                    <Link to="/contact">
+                      Contact Us
+                    </Link>
+                  </Button>
+                </motion.div>
               </div>
-              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative"
+              >
+                <Cube3D />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mission & Vision Section */}
+        <section className="py-20 bg-black/30 relative">
+          <div className="absolute inset-0 opacity-30">
+            <FlickeringGrid />
+          </div>
+          <div className="max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7 }}
+                className="overflow-hidden rounded-xl"
+              >
+                <img 
+                  src="/lovable-uploads/c668a09e-b5f1-4512-9a80-1abc366f4aba.png" 
+                  alt="Our Mission" 
+                  className="w-full rounded-xl"
+                />
+              </motion.div>
               <div>
-                <h2 className="text-3xl font-bold text-white font-syne mb-4">Our <span className="text-custom-orange">Mission</span></h2>
-                <p className="text-gray-300 leading-relaxed font-jakarta">
-                  Empower businesses with cutting-edge digital solutions that drive meaningful connections, foster growth, and create lasting impact in an ever-evolving digital world.
-                </p>
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-block text-custom-orange font-medium mb-4 font-jakarta"
+                >
+                  Our Mission & Vision
+                </motion.span>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne"
+                >
+                  Empowering Businesses Through <span className="text-custom-orange">Digital Excellence</span>
+                </motion.h2>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-white mb-3 font-syne">Our Mission</h3>
+                    <p className="text-gray-300 leading-relaxed font-jakarta">
+                      To deliver innovative digital solutions that solve complex challenges and drive meaningful growth for our clients. We combine creativity, technology, and strategic thinking to transform ideas into impactful digital experiences.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3 font-syne">Our Vision</h3>
+                    <p className="text-gray-300 leading-relaxed font-jakarta">
+                      To be the leading digital transformation partner for businesses worldwide, known for our excellence, innovation, and the tangible value we create for our clients and their customers.
+                    </p>
+                  </div>
+                </motion.div>
               </div>
-              
-              <div className="flex flex-wrap gap-4">
-                <span className="bg-custom-orange/10 text-custom-orange px-4 py-2 rounded-full text-sm font-jakarta">Creative Excellence</span>
-                <span className="bg-custom-orange/10 text-custom-orange px-4 py-2 rounded-full text-sm font-jakarta">Technical Innovation</span>
-                <span className="bg-custom-orange/10 text-custom-orange px-4 py-2 rounded-full text-sm font-jakarta">Strategic Partnership</span>
-                <span className="bg-custom-orange/10 text-custom-orange px-4 py-2 rounded-full text-sm font-jakarta">Result-Oriented</span>
-              </div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 gap-6"
-            >
-              <div className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300">
-                <Award className="w-10 h-10 text-custom-orange mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2 font-syne">Excellence</h3>
-                <p className="text-gray-300 font-jakarta">We strive for excellence in every project we undertake.</p>
-              </div>
-              
-              <div className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300">
-                <ShieldCheck className="w-10 h-10 text-custom-orange mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2 font-syne">Integrity</h3>
-                <p className="text-gray-300 font-jakarta">We maintain the highest standards of honesty and ethics.</p>
-              </div>
-              
-              <div className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300">
-                <Clock className="w-10 h-10 text-custom-orange mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2 font-syne">Punctuality</h3>
-                <p className="text-gray-300 font-jakarta">We respect deadlines and deliver on time, every time.</p>
-              </div>
-              
-              <div className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300">
-                <Globe className="w-10 h-10 text-custom-orange mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2 font-syne">Global Reach</h3>
-                <p className="text-gray-300 font-jakarta">Our solutions reach audiences across the globe.</p>
-              </div>
-            </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Our Story Section */}
-      <section className="py-20 bg-black/50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
-            >
-              <h2 className="text-3xl font-bold text-white font-syne">Our <span className="text-custom-orange">Story</span></h2>
-              <p className="text-gray-300 leading-relaxed font-jakarta">
-                Founded with a vision to bridge the gap between innovative technology and business success, 
-                <span className="text-custom-orange font-semibold"> Zenith Studio</span> emerged from a passion for creating exceptional digital experiences. Our journey began when a group of tech enthusiasts and creative minds came together with a shared mission: to help businesses thrive in the digital landscape.
-              </p>
-              <p className="text-gray-300 leading-relaxed font-jakarta">
-                What makes us unique is our commitment to treating each project as a strategic partnership, focusing on 
-                your <span className="text-custom-orange font-semibold">long-term success</span> rather than just immediate results. Over the years, we've evolved from a small startup to a full-service digital agency, but our core values remain unchanged.
-              </p>
-              <p className="text-gray-300 leading-relaxed font-jakarta">
-                Today, we're proud to have helped <span className="text-custom-orange font-semibold">hundreds of businesses</span> across various industries establish powerful digital presences and achieve remarkable growth.
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <img 
-                src="/lovable-uploads/My-Logo.png"
-                alt="Our Journey"
-                className="rounded-lg shadow-2xl"
-              />
-            </motion.div>
+        {/* Stats Section */}
+        <section className="py-16 stats-section">
+          <div className="max-w-7xl mx-auto px-8 lg:px-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <div key={index} className="stat-item text-center bg-black/30 border border-custom-orange/20 rounded-lg p-8 hover:border-custom-orange/40 transition-all">
+                  <div className="text-4xl md:text-5xl font-bold text-custom-orange mb-2 font-syne">
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-300 font-medium font-jakarta">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-black/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center space-y-4"
-            >
-              <h3 className="text-5xl font-bold text-custom-orange font-syne">2018</h3>
-              <p className="text-xl font-bold text-white font-syne">Founded</p>
-              <p className="text-gray-300">
-                Founded with vision and innovation, ensuring exceptional digital solutions.
+        {/* Team Section */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-8 lg:px-16">
+            <div className="text-center mb-16">
+              <span className="inline-block text-custom-orange font-medium mb-4 font-jakarta">
+                Meet The Team
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
+                The <span className="text-custom-orange">Creative Minds</span> Behind Our Success
+              </h2>
+              <p className="text-gray-300 max-w-3xl mx-auto font-jakarta">
+                Our team of talented professionals brings diverse expertise and a shared passion for digital excellence to every project we undertake.
               </p>
-            </motion.div>
-            <motion.div 
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center space-y-4"
-            >
-              <h3 className="text-5xl font-bold text-custom-orange font-syne">162+</h3>
-              <p className="text-xl font-bold text-white font-syne">Websites Delivered</p>
-              <p className="text-gray-300">
-                Successfully crafted over 162 websites, delivering exceptional digital solutions worldwide.
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-center space-y-4"
-            >
-              <h3 className="text-5xl font-bold text-custom-orange font-syne">260+</h3>
-              <p className="text-xl font-bold text-white font-syne">Happy Clients</p>
-              <p className="text-gray-300">
-                Proudly served over 260 clients, delivering top-notch digital solutions.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Expertise & Values */}
-      <section className="py-20">
-        <div className="container mx-auto px-8 lg:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold text-white mb-4 text-center font-syne">Our <span className="text-custom-orange">Expertise</span> & <span className="text-custom-orange">Values</span></h2>
-            <p className="text-gray-300 max-w-3xl mx-auto">
-              We combine technical excellence with creative innovation to deliver solutions that exceed expectations and drive measurable results.
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
-            >
-              <Code2 className="w-12 h-12 text-custom-orange mb-4" />
-              <h3 className="text-xl font-bold text-white mb-3 font-syne">Technical Excellence</h3>
-              <p className="text-gray-300 font-jakarta">
-                Expertise in React, Next.js, TypeScript, and modern web technologies for robust, scalable solutions.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
-            >
-              <Palette className="w-12 h-12 text-custom-orange mb-4" />
-              <h3 className="text-xl font-bold text-white mb-3 font-syne">Creative Design</h3>
-              <p className="text-gray-300 font-jakarta">
-                Innovative UI/UX design combining aesthetics with functionality for exceptional user experiences.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
-            >
-              <Target className="w-12 h-12 text-custom-orange mb-4" />
-              <h3 className="text-xl font-bold text-white mb-3 font-syne">Strategic Approach</h3>
-              <p className="text-gray-300 font-jakarta">
-                Data-driven strategies ensuring your digital presence aligns with business objectives.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
-            >
-              <BrainCircuit className="w-12 h-12 text-custom-orange mb-4" />
-              <h3 className="text-xl font-bold text-white mb-3 font-syne">Innovation Focus</h3>
-              <p className="text-gray-300 font-jakarta">
-                Embracing cutting-edge technologies and methodologies to keep you ahead of the curve.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
-            >
-              <Laptop className="w-12 h-12 text-custom-orange mb-4" />
-              <h3 className="text-xl font-bold text-white mb-3 font-syne">Responsive Solutions</h3>
-              <p className="text-gray-300 font-jakarta">
-                Cross-platform compatibility ensuring seamless experiences across all devices.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="p-6 bg-black/30 rounded-lg border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
-            >
-              <Lightbulb className="w-12 h-12 text-custom-orange mb-4" />
-              <h3 className="text-xl font-bold text-white mb-3 font-syne">Problem Solving</h3>
-              <p className="text-gray-300 font-jakarta">
-                Creative solutions to complex challenges, turning obstacles into opportunities.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20 bg-black/30">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-white mb-4 text-center font-syne">Meet Our <span className="text-custom-orange">Team</span></h2>
-            <p className="text-gray-300 max-w-3xl mx-auto">
-              A diverse group of passionate experts dedicated to bringing your digital vision to life.
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-black/20 rounded-lg overflow-hidden group"
-            >
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="/lovable-uploads/cef3806d-cc75-44b0-9a49-bb61a1cf12ef.png" 
-                  alt="Team Member" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white font-syne">Alex Johnson</h3>
-                <p className="text-custom-orange">Creative Director</p>
-                <p className="text-gray-300 mt-3">
-                  With over 10 years of experience in design, Alex leads our creative team with vision and innovation.
-                </p>
-              </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-black/20 rounded-lg overflow-hidden group"
-            >
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="/lovable-uploads/eb54254d-4104-44da-9fb8-d469e889c9ae.png" 
-                  alt="Team Member" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white font-syne">Sarah Martinez</h3>
-                <p className="text-custom-orange">Lead Developer</p>
-                <p className="text-gray-300 mt-3">
-                  A coding wizard who transforms complex requirements into elegant, efficient solutions.
-                </p>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-black/20 rounded-lg overflow-hidden group"
-            >
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="/lovable-uploads/ef6c47ae-b45d-4fc0-9582-ceaa1b3f849b.png" 
-                  alt="Team Member" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white font-syne">Michael Chang</h3>
-                <p className="text-custom-orange">Marketing Strategist</p>
-                <p className="text-gray-300 mt-3">
-                  A data-driven marketer who crafts campaigns that connect, engage, and convert.
-                </p>
-              </div>
-            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { name: "Alex Johnson", role: "Founder & CEO", image: "/lovable-uploads/c56e51e7-ddcf-4b55-8a37-33329ec603c7.png" },
+                { name: "Sarah Chen", role: "Creative Director", image: "/lovable-uploads/53ba9584-ecb7-4e75-95ee-504dc9872b0f.png" },
+                { name: "David Kim", role: "Lead Developer", image: "/lovable-uploads/2866c035-24bd-4228-bf9f-af01f2e821da.png" },
+                { name: "Lisa Patel", role: "Marketing Strategist", image: "/lovable-uploads/cef3806d-cc75-44b0-9a49-bb61a1cf12ef.png" }
+              ].map((member, index) => (
+                <div 
+                  key={index}
+                  className="bg-black/30 border border-custom-orange/20 rounded-xl overflow-hidden hover:border-custom-orange/40 transition-all group"
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-bold text-white mb-1 font-syne">{member.name}</h3>
+                    <p className="text-custom-orange font-jakarta">{member.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <AgencyShowcase />
+        {/* Core Values Section */}
+        <section className="py-20 bg-black/30 values-section">
+          <div className="max-w-7xl mx-auto px-8 lg:px-16">
+            <div className="text-center mb-16">
+              <span className="inline-block text-custom-orange font-medium mb-4 font-jakarta">
+                Core Values
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
+                Principles That <span className="text-custom-orange">Guide Us</span>
+              </h2>
+              <p className="text-gray-300 max-w-3xl mx-auto font-jakarta">
+                Our core values define who we are and how we approach our work, guiding every decision and interaction.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {values.map((value, index) => (
+                <div key={index} className="value-item flex items-start gap-6 bg-black/30 border border-custom-orange/20 p-8 rounded-xl hover:border-custom-orange/40 transition-all">
+                  <div className="w-12 h-12 rounded-full bg-custom-orange/10 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-6 h-6 text-custom-orange" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3 font-syne">{value.title}</h3>
+                    <p className="text-gray-300 font-jakarta">{value.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Timeline Section */}
+        <section className="py-20 timeline-section">
+          <div className="max-w-7xl mx-auto px-8 lg:px-16">
+            <div className="text-center mb-16">
+              <span className="inline-block text-custom-orange font-medium mb-4 font-jakarta">
+                Our Journey
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
+                Key <span className="text-custom-orange">Milestones</span>
+              </h2>
+              <p className="text-gray-300 max-w-3xl mx-auto font-jakarta">
+                From our humble beginnings to where we are today, these are the significant moments that have shaped our journey.
+              </p>
+            </div>
+            
+            <div className="relative flex flex-col items-center max-w-4xl mx-auto">
+              {/* Timeline Line */}
+              <div className="absolute top-0 bottom-0 left-1/2 w-px bg-custom-orange/30 transform -translate-x-1/2"></div>
+              
+              {/* Timeline Items */}
+              {milestones.map((milestone, index) => (
+                <div 
+                  key={index} 
+                  className={`timeline-item relative w-full flex items-center mb-12 ${
+                    index % 2 === 0 ? "justify-start" : "justify-end"
+                  }`}
+                >
+                  {/* Timeline Circle */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-custom-orange"></div>
+                  
+                  {/* Content */}
+                  <div className={`w-full md:w-5/12 ${
+                    index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
+                  }`}>
+                    <div className="bg-black/30 border border-custom-orange/20 p-6 rounded-xl hover:border-custom-orange/40 transition-all">
+                      <div className="text-custom-orange font-bold mb-2 font-syne">{milestone.year}</div>
+                      <h3 className="text-xl font-bold text-white mb-3 font-syne">{milestone.title}</h3>
+                      <p className="text-gray-300 font-jakarta">{milestone.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-black/40">
+          <div className="max-w-7xl mx-auto px-8 lg:px-16">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
+                Ready to Bring Your <span className="text-custom-orange">Vision to Life</span>?
+              </h2>
+              <p className="text-gray-300 mb-8 font-jakarta">
+                Let's collaborate to create digital experiences that elevate your brand and drive your business forward. Contact us today to get started!
+              </p>
+              <Button
+                asChild
+                className="bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+              >
+                <Link to="/contact">
+                  Get In Touch <ChevronRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 };
 
