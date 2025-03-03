@@ -2,7 +2,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
-import LoadingScreen from "@/components/LoadingScreen";
 
 const IndexPage = lazy(() => import("@/pages/Index"));
 const AboutPage = lazy(() => import("@/pages/About"));
@@ -20,7 +19,12 @@ const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 function App() {
   return (
     <Router>
-      <Suspense fallback={<LoadingScreen />}>
+      <Suspense fallback={<div className="flex h-screen w-full items-center justify-center bg-black">
+        <div className="text-center">
+          <div className="h-16 w-16 animate-spin rounded-full border-t-4 border-custom-orange mx-auto"></div>
+          <p className="mt-4 text-white">Loading...</p>
+        </div>
+      </div>}>
         <Routes>
           <Route path="/" element={<IndexPage />} />
           <Route path="/about" element={<AboutPage />} />
