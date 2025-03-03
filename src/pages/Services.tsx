@@ -51,8 +51,14 @@ const Services = () => {
         }
         
         if (data) {
-          setProjects(data as ProjectItem[]);
-          setFilteredProjects(data as ProjectItem[]);
+          // Make sure we cast the data properly with project_type
+          const projectsWithType = data.map(project => ({
+            ...project,
+            project_type: project.project_type || 'Landing Page' // Provide fallback for older data
+          })) as ProjectItem[];
+          
+          setProjects(projectsWithType);
+          setFilteredProjects(projectsWithType);
         }
       } catch (err) {
         console.error('Error:', err);

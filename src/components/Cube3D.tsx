@@ -23,7 +23,7 @@ export function Cube3D() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="w-full h-full scale-100 md:scale-110 lg:scale-125"
+            className="w-full h-full scale-90 md:scale-110 lg:scale-125" // Changed scale-100 to scale-90 for better mobile display
           >
             <LazySpline scene="https://prod.spline.design/mZBrYNcnoESGlTUG/scene.splinecode" />
             <style>

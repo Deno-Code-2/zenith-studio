@@ -17,6 +17,7 @@ interface Project {
   description: string;
   image_url: string;
   project_url: string;
+  project_type: string; // Added project_type to match updated schema
 }
 
 const fetchProjects = async () => {
@@ -103,6 +104,11 @@ const Projects = () => {
                     </a>
                   </div>
                   <p className="text-gray-400 font-jakarta text-sm">{project.description}</p>
+                  <div className="mt-3">
+                    <span className="bg-custom-orange/10 text-custom-orange px-2 py-1 rounded-full text-xs">
+                      {project.project_type}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
