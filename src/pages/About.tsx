@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,7 +8,7 @@ import Footer from "@/components/Footer";
 import { Cube3D } from "@/components/Cube3D";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import FlickeringGrid from "@/components/magicui/flickering-grid";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 gsap.registerPlugin(ScrollTrigger);
 
