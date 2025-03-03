@@ -1,10 +1,55 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
+  const { toast } = useToast();
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const currentYear = new Date().getFullYear();
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setIsLoading(true);
+    
+    try {
+      const { error } = await supabase.functions.invoke("subscribe-newsletter", {
+        body: { email },
+      });
+      
+      if (error) throw error;
+      
+      toast({
+        title: "Subscription successful!",
+        description: "Thank you for subscribing to our newsletter.",
+      });
+      
+      setEmail("");
+    } catch (error) {
+      console.error("Error subscribing to newsletter:", error);
+      toast({
+        title: "Subscription failed",
+        description: "There was an error processing your subscription. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const footerLinks = {
     pages: [
@@ -38,9 +83,9 @@ const Footer = () => {
   return (
     <footer className="bg-black py-16 border-t border-neutral-800">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-8">
           {/* Logo and info */}
-          <div className="lg:col-span-1">
+          <div className="md:col-span-3">
             <Link to="/" className="inline-block mb-6">
               <img 
                 src="/lovable-uploads/My-Logo.png" 
@@ -54,7 +99,7 @@ const Footer = () => {
           </div>
 
           {/* Pages */}
-          <div>
+          <div className="md:col-span-3">
             <h3 className="text-white font-bold mb-6 font-syne">Pages</h3>
             <ul className="space-y-4">
               {footerLinks.pages.map((link) => (
@@ -71,7 +116,7 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="md:col-span-3">
             <h3 className="text-white font-bold mb-6 font-syne">Contact</h3>
             <ul className="space-y-4">
               {footerLinks.contact.map((link) => (
@@ -88,7 +133,7 @@ const Footer = () => {
           </div>
 
           {/* Follow Us */}
-          <div>
+          <div className="md:col-span-3">
             <h3 className="text-white font-bold mb-6 font-syne">Follow Us</h3>
             <div className="flex items-center space-x-4 mb-8">
               {socialIcons.map((social, index) => (
@@ -106,16 +151,23 @@ const Footer = () => {
 
             <div>
               <h4 className="text-white font-bold mb-3 font-syne">Subscribe to our newsletter</h4>
-              <div className="flex gap-2">
+              <form onSubmit={handleSubscribe} className="flex gap-2">
                 <input
                   type="email"
                   placeholder="Email address"
-                  className="bg-black/30 border border-neutral-800 rounded-md px-4 py-2 text-white w-full"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-black/30 border border-neutral-800 rounded-md px-4 py-2 text-white w-full font-jakarta"
+                  required
                 />
-                <Button className="bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta">
-                  Subscribe
+                <Button 
+                  type="submit" 
+                  className="bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+                  disabled={isLoading}
+                >
+                  {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Subscribe"}
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
