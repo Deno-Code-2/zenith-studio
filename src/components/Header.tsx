@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -124,15 +123,12 @@ const Header = () => {
           </Button>
         </div>
 
-        <motion.button 
-          ref={menuButtonRef}
+        <button 
           className="lg:hidden text-white hover:text-neutral-200 transition-colors z-50 p-2 rounded-full bg-custom-orange/20 hover:bg-custom-orange/30 fixed top-6 right-8"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          whileTap={{ scale: 0.9 }}
-          whileHover={{ scale: 1.1 }}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </motion.button>
+        </button>
 
         <AnimatePresence>
           {isMenuOpen && (

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="w-full bg-black py-16">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           {/* Logo and Company Info */}
           <div className="col-span-1">
             <h2 className="text-3xl font-bold mb-4 text-white font-syne">
@@ -15,7 +15,7 @@ const Footer = () => {
             <p className="text-gray-300 mb-6 font-jakarta">
               Transforming digital visions into reality with innovative solutions and cutting-edge technology.
             </p>
-            <div className="flex space-x-4 mb-6">
+            <div className="flex space-x-6 mb-6">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-custom-orange transition-colors">
                 <Facebook size={20} />
               </a>
@@ -98,35 +98,32 @@ const Footer = () => {
                   <span>123 Innovation Street, Tech Valley, CA 94025</span>
                 </div>
               </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="col-span-1">
-            <h3 className="text-lg font-bold mb-6 font-syne text-white">Legal</h3>
-            <ul className="space-y-3 font-jakarta">
               <li>
-                <Link to="/privacy" className="text-white hover:text-custom-orange transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms" className="text-white hover:text-custom-orange transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link to="/cookie-policy" className="text-white hover:text-custom-orange transition-colors">
-                  Cookie Policy
-                </Link>
+                <div className="text-white mt-6">
+                  <h4 className="font-medium mb-2">Follow Us</h4>
+                  <div className="flex space-x-4">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-custom-orange transition-colors">
+                      <Facebook size={18} />
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-custom-orange transition-colors">
+                      <Instagram size={18} />
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-custom-orange transition-colors">
+                      <Twitter size={18} />
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-custom-orange transition-colors">
+                      <Linkedin size={18} />
+                    </a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Large Website Name */}
-        <div className="overflow-hidden pt-12 border-t border-orange-500">
-          <div className="text-[10vw] leading-[0.8] font-bold text-center opacity-5 font-syne text-white-500">
+        <div className="overflow-hidden pt-8 border-t border-orange-500">
+          <div className="text-[8vw] leading-[0.8] font-bold text-center opacity-5 font-syne text-white-500">
             Zenith Studio
           </div>
         </div>
