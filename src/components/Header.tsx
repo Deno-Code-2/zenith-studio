@@ -75,7 +75,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Button
               variant="secondary"
-              className="font-jakarta mr-4"
+              className="font-jakarta"
             >
               Book A Call
             </Button>

@@ -46,20 +46,6 @@ const About = () => {
       duration: 0.8,
       ease: "power3.out"
     });
-
-    // Animate the values section
-    gsap.from(".value-item", {
-      scrollTrigger: {
-        trigger: ".values-section",
-        start: "top 80%",
-        toggleActions: "play none none reverse"
-      },
-      opacity: 0,
-      y: 30,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: "power3.out"
-    });
   }, []);
 
   const stats = [
@@ -67,25 +53,6 @@ const About = () => {
     { value: "100+", label: "Projects Completed" },
     { value: "50+", label: "Satisfied Clients" },
     { value: "15+", label: "Team Members" }
-  ];
-
-  const values = [
-    {
-      title: "Quality First",
-      description: "We never compromise on quality, delivering premium digital solutions that exceed expectations."
-    },
-    {
-      title: "Client-Centered",
-      description: "Your vision and goals are at the heart of everything we do, ensuring results that align with your needs."
-    },
-    {
-      title: "Innovative Thinking",
-      description: "We stay ahead of industry trends, implementing cutting-edge technologies and creative solutions."
-    },
-    {
-      title: "Transparent Process",
-      description: "Clear communication and honest feedback throughout the entire development journey."
-    }
   ];
 
   const milestones = [
@@ -379,65 +346,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Mission & Vision Section */}
-        <section className="py-20 bg-black/30 relative">
-          <div className="absolute inset-0 opacity-30">
-            <FlickeringGrid />
-          </div>
-          <div className="max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7 }}
-                className="overflow-hidden rounded-xl"
-              >
-                <img 
-                  src="/lovable-uploads/c668a09e-b5f1-4512-9a80-1abc366f4aba.png" 
-                  alt="Our Mission" 
-                  className="w-full rounded-xl"
-                />
-              </motion.div>
-              <div>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="inline-block text-custom-orange font-medium mb-4 font-jakarta"
-                >
-                  Our Mission & Vision
-                </motion.span>
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne"
-                >
-                  Empowering Businesses Through <span className="text-custom-orange">Digital Excellence</span>
-                </motion.h2>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <div className="mb-8">
-                    <h3 className="text-xl font-bold text-white mb-3 font-syne">Our Mission</h3>
-                    <p className="text-gray-300 leading-relaxed font-jakarta">
-                      To deliver innovative digital solutions that solve complex challenges and drive meaningful growth for our clients. We combine creativity, technology, and strategic thinking to transform ideas into impactful digital experiences.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 font-syne">Our Vision</h3>
-                    <p className="text-gray-300 leading-relaxed font-jakarta">
-                      To be the leading digital transformation partner for businesses worldwide, known for our excellence, innovation, and the tangible value we create for our clients and their customers.
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Stats Section */}
         <section className="py-16 stats-section">
           <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -492,37 +400,6 @@ const About = () => {
                   <div className="p-6 text-center">
                     <h3 className="text-xl font-bold text-white mb-1 font-syne">{member.name}</h3>
                     <p className="text-custom-orange font-jakarta">{member.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Core Values Section */}
-        <section className="py-20 bg-black/30 values-section">
-          <div className="max-w-7xl mx-auto px-8 lg:px-16">
-            <div className="text-center mb-16">
-              <span className="inline-block text-custom-orange font-medium mb-4 font-jakarta">
-                Core Values
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
-                Principles That <span className="text-custom-orange">Guide Us</span>
-              </h2>
-              <p className="text-gray-300 max-w-3xl mx-auto font-jakarta">
-                Our core values define who we are and how we approach our work, guiding every decision and interaction.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {values.map((value, index) => (
-                <div key={index} className="value-item flex items-start gap-6 bg-black/30 border border-custom-orange/20 p-8 rounded-xl hover:border-custom-orange/40 transition-all">
-                  <div className="w-12 h-12 rounded-full bg-custom-orange/10 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle2 className="w-6 h-6 text-custom-orange" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 font-syne">{value.title}</h3>
-                    <p className="text-gray-300 font-jakarta">{value.description}</p>
                   </div>
                 </div>
               ))}

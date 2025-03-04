@@ -169,17 +169,18 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-gray-400 text-center font-jakarta">
+        <div className="border-t border-neutral-800 mt-8 pt-8 text-center">
+          <p className="text-gray-400 font-jakarta">
             &copy; {currentYear} Zenith Studio. All rights reserved.
-        </p>
-        <div className="border-t border-neutral-800 mt-8 pt-8 text-center"></div>
-      </div>
-              {/* Large Agency Name at the Bottom */}
-        <div className="mt-16 mb-8">
-          <h2 className="text-[8vw] font-bold text-center opacity-10 font-syne tracking-tight">
-            Zenith Studio
-          </h2>
+          </p>
         </div>
+      </div>
+      {/* Large Agency Name at the Bottom */}
+      <div className="mt-16 mb-8">
+        <h2 className="text-[8vw] font-bold text-center opacity-10 font-syne tracking-tight">
+          Zenith Studio
+        </h2>
+      </div>
     </footer>
   );
 };
