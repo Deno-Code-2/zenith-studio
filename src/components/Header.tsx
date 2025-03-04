@@ -36,6 +36,7 @@ const Header = () => {
     { name: "Projects", href: "/projects" },
     { name: "Pricing", href: "/pricing" },
     { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -46,13 +47,11 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
+          {/* Agency Name instead of Logo */}
           <Link to="/" className="shrink-0">
-            <img
-              src="/lovable-uploads/My-Logo.png"
-              alt="Zenith Studio"
-              className="h-12"
-            />
+            <h1 className="text-2xl font-bold font-syne">
+              <span className="text-custom-orange">Zen</span>ith Studio
+            </h1>
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,13 +71,13 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Contact Button */}
+          {/* Book A Call Button */}
           <div className="hidden md:block">
             <Button
-              asChild
-              className="bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+              variant="secondary"
+              className="font-jakarta mr-4"
             >
-              <Link to="/contact">Contact Us</Link>
+              Book A Call
             </Button>
           </div>
 
@@ -116,10 +115,10 @@ const Header = () => {
               </Link>
             ))}
             <Button
-              asChild
-              className="w-full mt-4 bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+              variant="secondary"
+              className="w-full mt-4 font-jakarta"
             >
-              <Link to="/contact">Contact Us</Link>
+              Book A Call
             </Button>
           </div>
         </div>

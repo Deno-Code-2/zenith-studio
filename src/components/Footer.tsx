@@ -83,15 +83,13 @@ const Footer = () => {
   return (
     <footer className="bg-black py-16 border-t border-neutral-800">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-4">
           {/* Logo and info */}
           <div className="md:col-span-3">
             <Link to="/" className="inline-block mb-6">
-              <img 
-                src="/lovable-uploads/My-Logo.png" 
-                alt="Zenith Studio" 
-                className="h-14"
-              />
+              <h1 className="text-2xl font-bold font-syne">
+                <span className="text-custom-orange">Zen</span>ith Studio
+              </h1>
             </Link>
             <p className="text-gray-400 mb-8 font-jakarta">
               Transforming vision into digital reality with innovation, expertise, and meticulous craftsmanship.
@@ -100,8 +98,8 @@ const Footer = () => {
 
           {/* Pages */}
           <div className="md:col-span-3">
-            <h3 className="text-white font-bold mb-6 font-syne">Pages</h3>
-            <ul className="space-y-4">
+            <h3 className="text-white font-bold mb-4 font-syne">Pages</h3>
+            <ul className="space-y-3">
               {footerLinks.pages.map((link) => (
                 <li key={link.name}>
                   <Link 
@@ -117,8 +115,8 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="md:col-span-3">
-            <h3 className="text-white font-bold mb-6 font-syne">Contact</h3>
-            <ul className="space-y-4">
+            <h3 className="text-white font-bold mb-4 font-syne">Contact</h3>
+            <ul className="space-y-3">
               {footerLinks.contact.map((link) => (
                 <li key={link.name}>
                   <a 
@@ -134,8 +132,8 @@ const Footer = () => {
 
           {/* Follow Us */}
           <div className="md:col-span-3">
-            <h3 className="text-white font-bold mb-6 font-syne">Follow Us</h3>
-            <div className="flex items-center space-x-4 mb-8">
+            <h3 className="text-white font-bold mb-4 font-syne">Follow Us</h3>
+            <div className="flex items-center space-x-4 mb-6">
               {socialIcons.map((social, index) => (
                 <a 
                   key={index}
@@ -151,7 +149,7 @@ const Footer = () => {
 
             <div>
               <h4 className="text-white font-bold mb-3 font-syne">Subscribe to our newsletter</h4>
-              <form onSubmit={handleSubscribe} className="flex gap-2">
+              <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
                 <input
                   type="email"
                   placeholder="Email address"
@@ -172,7 +170,14 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-neutral-800 mt-12 pt-8 text-center">
+        {/* Large Agency Name at the Bottom */}
+        <div className="mt-16 mb-8">
+          <h2 className="text-[8vw] font-bold text-center opacity-10 font-syne tracking-tight">
+            <span className="text-custom-orange opacity-20">Zen</span>ith Studio
+          </h2>
+        </div>
+        
+        <div className="border-t border-neutral-800 mt-8 pt-8 text-center">
           <p className="text-gray-400 font-jakarta">
             &copy; {currentYear} Zenith Studio. All rights reserved.
           </p>
