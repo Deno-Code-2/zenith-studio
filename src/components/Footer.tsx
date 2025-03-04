@@ -169,7 +169,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-gray-400 font-jakarta">
+        <p className="text-gray-400 text-center font-jakarta">
             &copy; {currentYear} Zenith Studio. All rights reserved.
         </p>
         <div className="border-t border-neutral-800 mt-8 pt-8 text-center"></div>
