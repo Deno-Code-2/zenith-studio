@@ -1,12 +1,37 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
+import { useQuery } from "@tanstack/react-query";
 
 gsap.registerPlugin(ScrollTrigger);
+
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  image_url: string;
+  reading_time: number;
+  created_at: string;
+}
+
+const fetchBlogPosts = async (): Promise<BlogPost[]> => {
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Error fetching blog posts:', error);
+    throw error;
+  }
+  return data || [];
+};
 
 const Blog = () => {
   useEffect(() => {
@@ -28,56 +53,38 @@ const Blog = () => {
     });
   }, []);
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: "The Future of Web Development",
-      excerpt: "Exploring upcoming trends and technologies that will shape the future of web development.",
-      date: "March 15, 2024",
-      category: "Technology",
-      image: "/lovable-uploads/My-Logo.png"
-    },
-    {
-      id: 2,
-      title: "Mastering UI/UX Design",
-      excerpt: "Learn the principles and best practices for creating exceptional user experiences.",
-      date: "March 12, 2024",
-      category: "Design",
-      image: "/lovable-uploads/My-Logo.png"
-    },
-    {
-      id: 3,
-      title: "Digital Marketing Strategies",
-      excerpt: "Effective strategies to boost your online presence and reach your target audience.",
-      date: "March 10, 2024",
-      category: "Marketing",
-      image: "/lovable-uploads/My-Logo.png"
-    },
-    {
-      id: 4,
-      title: "How to Run a Successful Agency",
-      excerpt: "Key insights and strategies for building and managing a thriving digital agency.",
-      date: "March 8, 2024",
-      category: "Business",
-      image: "/lovable-uploads/My-Logo.png"
-    },
-    {
-      id: 5,
-      title: "Tech Stack for Modern SaaS Development",
-      excerpt: "A comprehensive guide to choosing the right technologies for your SaaS project.",
-      date: "March 5, 2024",
-      category: "Technology",
-      image: "/lovable-uploads/My-Logo.png"
-    },
-    {
-      id: 6,
-      title: "Monetizing Your SaaS Product",
-      excerpt: "Exploring different revenue models and strategies to generate income from your SaaS.",
-      date: "March 1, 2024",
-      category: "Business",
-      image: "/lovable-uploads/My-Logo.png"
-    }
-  ];
+  const { data: blogPosts, isLoading, error } = useQuery({
+    queryKey: ['blog-posts'],
+    queryFn: fetchBlogPosts
+  });
+
+  // Format date for display
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <Header />
+        <div className="w-12 h-12 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-black">
+        <Header />
+        <main className="container mx-auto px-4 py-20 pt-32 text-center">
+          <h1 className="text-3xl font-bold text-white">Error loading blog posts</h1>
+          <p className="text-gray-400 mt-4">Please try again later</p>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black">
@@ -87,7 +94,7 @@ const Blog = () => {
           Latest <span className="text-custom-orange">Insights</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
+          {blogPosts && blogPosts.map((post) => (
             <Link 
               to={`/blog/${post.id}`} 
               key={post.id}
@@ -95,7 +102,7 @@ const Blog = () => {
             >
               <div className="aspect-video relative overflow-hidden flex items-center justify-center">
                 <img 
-                  src={post.image} 
+                  src={post.image_url} 
                   alt={post.title}
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
                 />
@@ -106,7 +113,10 @@ const Blog = () => {
                   {post.title}
                 </h2>
                 <p className="text-gray-400 mb-4 font-jakarta">{post.excerpt}</p>
-                <div className="text-sm text-gray-500">{post.date}</div>
+                <div className="flex justify-between items-center">
+                  <div className="text-sm text-gray-500">{formatDate(post.created_at)}</div>
+                  <div className="text-sm text-gray-500">{post.reading_time} min read</div>
+                </div>
               </div>
             </Link>
           ))}
