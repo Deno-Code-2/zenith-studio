@@ -41,7 +41,7 @@ const Hero = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex-1 z-10 w-full sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto lg:mx-0"
+        className="flex-1 z-10 w-full sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto lg:mx-0 -ml-8 sm:-ml-0"
       >
         <Cube3D />
       </motion.div>

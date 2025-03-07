@@ -3,7 +3,6 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Chatbot from "@/components/Chatbot";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -47,7 +46,6 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
-        <Chatbot />
         <Toaster />
       </Router>
     </QueryClientProvider>

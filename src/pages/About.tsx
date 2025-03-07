@@ -280,16 +280,16 @@ const About = () => {
       <Header />
       <Toaster />
       <main className="pb-0">
-        {/* Hero Section */}
-        <section className="pt-32 pb-20">
-          <div className="max-w-7xl mx-auto px-8 lg:px-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Hero Section - Reduced vertical spacing */}
+        <section className="pt-24 pb-12">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="inline-block text-custom-orange font-medium mb-4 font-jakarta"
+                  className="inline-block text-custom-orange font-medium mb-3 font-jakarta"
                 >
                   About Us
                 </motion.span>
@@ -297,7 +297,7 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-5xl md:text-6xl font-bold text-white mb-6 font-syne"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-syne"
                 >
                   Crafting <span className="text-custom-orange">Digital</span> Experiences
                 </motion.h1>
@@ -305,7 +305,7 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-gray-300 text-lg leading-relaxed mb-8 font-jakarta"
+                  className="text-gray-300 text-lg leading-relaxed mb-6 font-jakarta"
                 >
                   Zenith Studio is a forward-thinking digital agency dedicated to transforming ideas into impactful digital experiences. With a team of creative minds and technical experts, we craft solutions that drive growth and success for our clients worldwide.
                 </motion.p>
@@ -338,7 +338,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative"
+                className="relative -ml-6 sm:ml-0"
               >
                 <Cube3D />
               </motion.div>
@@ -346,16 +346,16 @@ const About = () => {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-16 stats-section">
-          <div className="max-w-7xl mx-auto px-8 lg:px-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Stats Section - Reduced vertical spacing */}
+        <section className="py-10 stats-section">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
-                <div key={index} className="stat-item text-center bg-black/30 border border-custom-orange/20 rounded-lg p-8 hover:border-custom-orange/40 transition-all">
-                  <div className="text-4xl md:text-5xl font-bold text-custom-orange mb-2 font-syne">
+                <div key={index} className="stat-item text-center bg-black/30 border border-custom-orange/20 rounded-lg p-4 hover:border-custom-orange/40 transition-all">
+                  <div className="text-3xl md:text-4xl font-bold text-custom-orange mb-1 font-syne">
                     {stat.value}
                   </div>
-                  <div className="text-gray-300 font-medium font-jakarta">
+                  <div className="text-gray-300 text-sm font-medium font-jakarta">
                     {stat.label}
                   </div>
                 </div>
@@ -364,22 +364,22 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-8 lg:px-16">
-            <div className="text-center mb-16">
-              <span className="inline-block text-custom-orange font-medium mb-4 font-jakarta">
+        {/* Team Section - Reduced vertical spacing */}
+        <section className="py-12">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-10">
+              <span className="inline-block text-custom-orange font-medium mb-2 font-jakarta">
                 Meet The Team
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-syne">
                 The <span className="text-custom-orange">Creative Minds</span> Behind Our Success
               </h2>
-              <p className="text-gray-300 max-w-3xl mx-auto font-jakarta">
+              <p className="text-gray-300 max-w-3xl mx-auto text-sm md:text-base font-jakarta">
                 Our team of talented professionals brings diverse expertise and a shared passion for digital excellence to every project we undertake.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { name: "Alex Johnson", role: "Founder & CEO", image: "/lovable-uploads/c56e51e7-ddcf-4b55-8a37-33329ec603c7.png" },
                 { name: "Sarah Chen", role: "Creative Director", image: "/lovable-uploads/53ba9584-ecb7-4e75-95ee-504dc9872b0f.png" },
@@ -397,9 +397,9 @@ const About = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-xl font-bold text-white mb-1 font-syne">{member.name}</h3>
-                    <p className="text-custom-orange font-jakarta">{member.role}</p>
+                  <div className="p-3 text-center">
+                    <h3 className="text-base md:text-lg font-bold text-white mb-0 font-syne">{member.name}</h3>
+                    <p className="text-custom-orange text-xs font-jakarta">{member.role}</p>
                   </div>
                 </div>
               ))}
@@ -407,17 +407,17 @@ const About = () => {
           </div>
         </section>
         
-        {/* Animated Tabs Section */}
-        <section className="py-20 bg-black/40">
-          <div className="max-w-7xl mx-auto px-8 lg:px-16">
-            <div className="text-center mb-16">
-              <span className="inline-block text-custom-orange font-medium mb-4 font-jakarta">
+        {/* Animated Tabs Section - Reduced vertical spacing */}
+        <section className="py-12 bg-black/40">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-10">
+              <span className="inline-block text-custom-orange font-medium mb-2 font-jakarta">
                 More About Us
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-syne">
                 Discover <span className="text-custom-orange">Who We Are</span>
               </h2>
-              <p className="text-gray-300 max-w-3xl mx-auto font-jakarta">
+              <p className="text-gray-300 max-w-3xl mx-auto text-sm md:text-base font-jakarta">
                 Learn more about what makes Zenith Studio unique, from our vision and process to our team culture.
               </p>
             </div>
@@ -426,17 +426,17 @@ const About = () => {
           </div>
         </section>
 
-        {/* Timeline Section */}
-        <section className="py-20 timeline-section">
-          <div className="max-w-7xl mx-auto px-8 lg:px-16">
-            <div className="text-center mb-16">
-              <span className="inline-block text-custom-orange font-medium mb-4 font-jakarta">
+        {/* Timeline Section - Reduced vertical spacing */}
+        <section className="py-12 timeline-section">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-10">
+              <span className="inline-block text-custom-orange font-medium mb-2 font-jakarta">
                 Our Journey
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-syne">
                 Key <span className="text-custom-orange">Milestones</span>
               </h2>
-              <p className="text-gray-300 max-w-3xl mx-auto font-jakarta">
+              <p className="text-gray-300 max-w-3xl mx-auto text-sm md:text-base font-jakarta">
                 From our humble beginnings to where we are today, these are the significant moments that have shaped our journey.
               </p>
             </div>
@@ -449,21 +449,21 @@ const About = () => {
               {milestones.map((milestone, index) => (
                 <div 
                   key={index} 
-                  className={`timeline-item relative w-full flex items-center mb-12 ${
+                  className={`timeline-item relative w-full flex items-center mb-8 ${
                     index % 2 === 0 ? "justify-start" : "justify-end"
                   }`}
                 >
                   {/* Timeline Circle */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-custom-orange"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-custom-orange"></div>
                   
                   {/* Content */}
                   <div className={`w-full md:w-5/12 ${
-                    index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
+                    index % 2 === 0 ? "md:pr-10 md:text-right" : "md:pl-10"
                   }`}>
-                    <div className="bg-black/30 border border-custom-orange/20 p-6 rounded-xl hover:border-custom-orange/40 transition-all">
-                      <div className="text-custom-orange font-bold mb-2 font-syne">{milestone.year}</div>
-                      <h3 className="text-xl font-bold text-white mb-3 font-syne">{milestone.title}</h3>
-                      <p className="text-gray-300 font-jakarta">{milestone.description}</p>
+                    <div className="bg-black/30 border border-custom-orange/20 p-4 rounded-xl hover:border-custom-orange/40 transition-all">
+                      <div className="text-custom-orange font-bold mb-1 text-sm font-syne">{milestone.year}</div>
+                      <h3 className="text-lg font-bold text-white mb-2 font-syne">{milestone.title}</h3>
+                      <p className="text-gray-300 text-sm font-jakarta">{milestone.description}</p>
                     </div>
                   </div>
                 </div>
@@ -472,14 +472,14 @@ const About = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-black/40">
-          <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        {/* CTA Section - Reduced vertical spacing */}
+        <section className="py-12 bg-black/40">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-syne">
                 Ready to Bring Your <span className="text-custom-orange">Vision to Life</span>?
               </h2>
-              <p className="text-gray-300 mb-8 font-jakarta">
+              <p className="text-gray-300 mb-6 text-sm md:text-base font-jakarta">
                 Let's collaborate to create digital experiences that elevate your brand and drive your business forward. Contact us today to get started!
               </p>
               <Button
