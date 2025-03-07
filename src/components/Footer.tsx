@@ -63,8 +63,8 @@ const Footer = () => {
     contact: [
       { name: "Contact Us", href: "/contact" },
       { name: "support@zenithstudio.com", href: "mailto:support@zenithstudio.com" },
-      { name: "+1 (555) 123-4567", href: "tel:+15551234567" },
-      { name: "123 Innovation Way, Tech City, TX 75001", href: "#" },
+      { name: "+91 9108041057", href: "tel:+919108041057" },
+      { name: "HSR Layout, Bangalore, India 560102", href: "#" },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy" },
