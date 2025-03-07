@@ -140,7 +140,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-black border border-neutral-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-colors"
+                  className="w-10 h-10 bg-black border border-neutral-800 rounded-full flex items-center justify-center text-gray-400 hover:text-custom-orange hover:border-custom-orange transition-colors"
                 >
                   <social.icon size={20} />
                 </a>
@@ -175,10 +175,10 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      {/* Large Agency Name at the Bottom */}
+      {/* Large Text at the Bottom */}
       <div className="mt-16 mb-8">
         <h2 className="text-[8vw] font-bold text-center opacity-10 font-syne tracking-tight">
-          Zenith Studio
+          Building The Future.
         </h2>
       </div>
     </footer>

@@ -137,11 +137,11 @@ const Projects = () => {
                 key={project.id}
                 className="project-card group relative overflow-hidden rounded-xl bg-black/50 backdrop-blur-sm border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
               >
-                <div className="aspect-video overflow-hidden max-h-[180px]">
+                <div className="aspect-video overflow-hidden max-h-[180px] flex items-center justify-center">
                   <img 
                     src={project.image_url} 
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6">

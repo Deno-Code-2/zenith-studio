@@ -74,11 +74,11 @@ const RecentProjects = () => {
               className="group relative overflow-hidden rounded-xl bg-black/50 backdrop-blur-sm border border-neutral-800 transition-all duration-300 hover:border-custom-orange/40"
             >
               <div className="relative">
-                <div className="aspect-video overflow-hidden max-h-[200px]">
+                <div className="aspect-video overflow-hidden max-h-[200px] flex items-center justify-center">
                   <img 
                     src={project.image_url} 
                     alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" 
                   />
                 </div>
                 <div className="p-6">

@@ -1,6 +1,8 @@
+
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -28,6 +30,7 @@ const Blog = () => {
 
   const blogPosts = [
     {
+      id: 1,
       title: "The Future of Web Development",
       excerpt: "Exploring upcoming trends and technologies that will shape the future of web development.",
       date: "March 15, 2024",
@@ -35,6 +38,7 @@ const Blog = () => {
       image: "/lovable-uploads/My-Logo.png"
     },
     {
+      id: 2,
       title: "Mastering UI/UX Design",
       excerpt: "Learn the principles and best practices for creating exceptional user experiences.",
       date: "March 12, 2024",
@@ -42,10 +46,35 @@ const Blog = () => {
       image: "/lovable-uploads/My-Logo.png"
     },
     {
+      id: 3,
       title: "Digital Marketing Strategies",
       excerpt: "Effective strategies to boost your online presence and reach your target audience.",
       date: "March 10, 2024",
       category: "Marketing",
+      image: "/lovable-uploads/My-Logo.png"
+    },
+    {
+      id: 4,
+      title: "How to Run a Successful Agency",
+      excerpt: "Key insights and strategies for building and managing a thriving digital agency.",
+      date: "March 8, 2024",
+      category: "Business",
+      image: "/lovable-uploads/My-Logo.png"
+    },
+    {
+      id: 5,
+      title: "Tech Stack for Modern SaaS Development",
+      excerpt: "A comprehensive guide to choosing the right technologies for your SaaS project.",
+      date: "March 5, 2024",
+      category: "Technology",
+      image: "/lovable-uploads/My-Logo.png"
+    },
+    {
+      id: 6,
+      title: "Monetizing Your SaaS Product",
+      excerpt: "Exploring different revenue models and strategies to generate income from your SaaS.",
+      date: "March 1, 2024",
+      category: "Business",
       image: "/lovable-uploads/My-Logo.png"
     }
   ];
@@ -53,21 +82,22 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="container mx-auto px-4 py-20">
+      <main className="container mx-auto px-4 py-20 pt-32">
         <h1 className="text-5xl md:text-7xl font-bold text-center text-white mb-12 font-syne">
           Latest <span className="text-custom-orange">Insights</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <div
-              key={index}
+          {blogPosts.map((post) => (
+            <Link 
+              to={`/blog/${post.id}`} 
+              key={post.id}
               className="blog-card bg-black border border-custom-orange/20 rounded-xl overflow-hidden hover:border-custom-orange/40 transition-all duration-300"
             >
-              <div className="aspect-video relative overflow-hidden">
+              <div className="aspect-video relative overflow-hidden flex items-center justify-center">
                 <img 
                   src={post.image} 
                   alt={post.title}
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
@@ -78,7 +108,7 @@ const Blog = () => {
                 <p className="text-gray-400 mb-4 font-jakarta">{post.excerpt}</p>
                 <div className="text-sm text-gray-500">{post.date}</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </main>

@@ -60,9 +60,9 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-jakarta ${
+                className={`font-jakarta relative py-1 ${
                   location.pathname === item.href
-                    ? "text-custom-orange"
+                    ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:left-0 after:bottom-0"
                     : "text-white hover:text-custom-orange"
                 } transition-colors`}
               >
@@ -105,9 +105,9 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`block py-2 font-jakarta ${
+                className={`block py-2 font-jakarta relative ${
                   location.pathname === item.href
-                    ? "text-custom-orange"
+                    ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:left-0 after:bottom-0"
                     : "text-white hover:text-custom-orange"
                 } transition-colors`}
               >
