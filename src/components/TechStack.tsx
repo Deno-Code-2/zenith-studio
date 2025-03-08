@@ -1,85 +1,79 @@
 
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import Marquee from "./Marquee";
 
-const techStacks = [
+const techStack = [
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "Google Technology"
+    name: "React",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
   },
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "Microsoft Technology"
+    name: "Next.js",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg",
   },
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "Oracle Technology"
+    name: "GitHub",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
   },
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "Adobe Technology"
+    name: "Node.js",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
   },
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "SAP Technology"
+    name: "Express",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
   },
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "Meta Technology"
+    name: "MySQL",
+    logo: "https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg",
   },
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "Apple Technology"
+    name: "Redis",
+    logo: "https://upload.wikimedia.org/wikipedia/en/6/6b/Redis_Logo.svg",
   },
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "Amazon Technology"
+    name: "GraphQL",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg",
   },
   {
-    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
-    alt: "Netflix Technology"
+    name: "Webpack",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/94/Webpack.svg",
+  },
+  { 
+    name: "Vite", 
+    logo: "https://vitejs.dev/logo.svg" 
   },
   {
-    image: "/lovable-uploads/375c4a3f-3d4f-4ffc-9d9b-bba965ac13de.png",
-    alt: "Prisma Technology"
+    name: "Tailwind CSS",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
   },
   {
-    image: "/lovable-uploads/08b48e64-0210-4f80-b81b-942a339622a9.png",
-    alt: "Formik Technology"
+    name: "Sass",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg",
   },
   {
-    image: "/lovable-uploads/990fd2eb-d75f-4db6-a0cb-4fd5af08e5f3.png",
-    alt: "React Technology"
-  }
+    name: "AWS",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+  },
+  {
+    name: "Azure",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg",
+  },
+  {
+    name: "Nginx",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg",
+  },
+  {
+    name: "Flutter",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png",
+  },
+  {
+    name: "Django",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg",
+  },
 ];
 
 const TechStack = () => {
-  const scrollContainer = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const scrollAnimation = () => {
-      if (scrollContainer.current) {
-        const scrollWidth = scrollContainer.current.scrollWidth;
-        const containerWidth = scrollContainer.current.offsetWidth;
-        
-        if (scrollContainer.current.scrollLeft >= scrollWidth - containerWidth) {
-          // Reset scroll position when reaching the end
-          scrollContainer.current.scrollLeft = 0;
-        } else {
-          // Scroll by 1px
-          scrollContainer.current.scrollLeft += 1;
-        }
-      }
-    };
-    
-    // Set up the animation interval
-    const interval = setInterval(scrollAnimation, 20);
-    
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
   return (
     <section className="w-full py-16 bg-black overflow-hidden">
       <motion.div
@@ -92,49 +86,25 @@ const TechStack = () => {
           Tech Stack We Use
         </h2>
         
-        <div className="relative">
-          <div 
-            ref={scrollContainer}
-            className="flex overflow-x-auto gap-8 py-6 scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            <div className="flex gap-8 min-w-max">
-              {techStacks.map((tech, index) => (
-                <div 
-                  key={index}
-                  className="min-w-[180px] bg-[#111] rounded-xl p-4 border border-gray-800 flex flex-col items-center hover:border-custom-orange transition-all duration-300"
-                >
-                  <div className="h-32 w-full overflow-hidden rounded-lg flex items-center justify-center bg-black">
-                    <img 
-                      src={tech.image} 
-                      alt={tech.alt} 
-                      className="w-24 h-24 object-contain transition-transform duration-300 hover:scale-110"
-                    />
-                  </div>
-                </div>
-              ))}
-              
-              {/* Duplicate items for seamless looping */}
-              {techStacks.map((tech, index) => (
-                <div 
-                  key={`duplicate-${index}`}
-                  className="min-w-[180px] bg-[#111] rounded-xl p-4 border border-gray-800 flex flex-col items-center hover:border-custom-orange transition-all duration-300"
-                >
-                  <div className="h-32 w-full overflow-hidden rounded-lg flex items-center justify-center bg-black">
-                    <img 
-                      src={tech.image} 
-                      alt={tech.alt} 
-                      className="w-24 h-24 object-contain transition-transform duration-300 hover:scale-110"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="relative mt-6">
+          <Marquee className="max-w-full" speed={40}>
+            {techStack.map((tech, idx) => (
+              <div 
+                key={idx}
+                className="flex items-center justify-center h-16 w-28 mx-4"
+              >
+                <img
+                  src={tech.logo}
+                  className="h-10 w-auto grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  alt={tech.name}
+                />
+              </div>
+            ))}
+          </Marquee>
           
           {/* Gradient overlays for seamless scroll effect */}
-          <div className="absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-black to-transparent z-10"></div>
-          <div className="absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-black to-transparent z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/3 bg-gradient-to-r from-black to-transparent z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/3 bg-gradient-to-l from-black to-transparent z-10"></div>
         </div>
         
         <div className="text-center mt-8">

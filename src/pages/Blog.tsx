@@ -77,7 +77,7 @@ const Blog = () => {
     return (
       <div className="min-h-screen bg-black">
         <Header />
-        <main className="container mx-auto px-4 py-20 pt-28 text-center">
+        <main className="container mx-auto px-4 py-20 mt-24 text-center">
           <h1 className="text-3xl font-bold text-white">Error loading blog posts</h1>
           <p className="text-gray-400 mt-4">Please try again later</p>
         </main>
@@ -89,7 +89,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="container mx-auto px-4 py-20 pt-28">
+      <main className="container mx-auto px-4 py-20 mt-24">
         <h1 className="text-5xl md:text-7xl font-bold text-center text-white mb-12 font-syne">
           Latest <span className="text-custom-orange">Insights</span>
         </h1>

@@ -43,8 +43,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl lg:text-6xl font-bold mb-4 font-syne text-white">
-            Reasons to Choose Zenith for <span className="inline-flex">
-              <TextRotate
+            Reasons to Choose Zenith for <TextRotate
                 texts={[
                   "Innovation",
                   "Excellence",
@@ -54,7 +53,6 @@ const Services = () => {
                   "Vision",
                 ]}
               />
-            </span>
           </h2>
           <p className="mt-6 text-gray-400 max-w-3xl mx-auto font-jakarta">
             Transform your digital presence with our comprehensive solutions. We deliver results that exceed expectations.
