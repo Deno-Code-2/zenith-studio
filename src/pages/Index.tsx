@@ -1,6 +1,7 @@
 
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import TechStack from "@/components/TechStack";
 import Services from "@/components/Services";
 import RecentProjects from "@/components/RecentProjects";
 import AgencyShowcase from "@/components/AgencyShowcase";
@@ -16,6 +17,7 @@ const Index = () => {
       <Header />
       <div className="pt-24">
         <Hero />
+        <TechStack />
         <Features />
         <Services />
         <RecentProjects />

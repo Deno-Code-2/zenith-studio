@@ -54,6 +54,16 @@
   background: #d55a2b;
 }
 
+/* Hide scrollbar for the tech stack section */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 @layer base {
   * {
     @apply border-border;
