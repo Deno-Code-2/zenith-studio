@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -137,7 +136,7 @@ const Services = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-32">
+        <section className="container mx-auto px-4 py-32 pt-28">
           <div className="max-w-4xl mx-auto mb-16 text-center">
             <motion.span
               initial={{ opacity: 0 }}

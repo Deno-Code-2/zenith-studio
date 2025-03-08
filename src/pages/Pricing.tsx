@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -79,7 +80,7 @@ const Pricing = () => {
     <main className="min-h-screen bg-black">
       <Header />
 
-      <section className="pt-40 pb-20 px-4">
+      <section className="pt-28 pb-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-white font-syne mb-6">

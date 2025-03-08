@@ -4,34 +4,64 @@ import { useEffect, useRef } from "react";
 
 const techStacks = [
   {
+    name: "Google",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "Google Technology"
+  },
+  {
+    name: "Microsoft",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "Microsoft Technology"
+  },
+  {
+    name: "Oracle",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "Oracle Technology"
+  },
+  {
+    name: "Adobe",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "Adobe Technology"
+  },
+  {
+    name: "SAP",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "SAP Technology"
+  },
+  {
+    name: "Meta",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "Meta Technology"
+  },
+  {
+    name: "Apple",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "Apple Technology"
+  },
+  {
+    name: "Amazon",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "Amazon Technology"
+  },
+  {
+    name: "Netflix",
+    image: "/lovable-uploads/9a6bb897-1c81-4012-a1ce-acacb4c2d71a.png",
+    alt: "Netflix Technology"
+  },
+  {
+    name: "Prisma",
+    image: "/lovable-uploads/375c4a3f-3d4f-4ffc-9d9b-bba965ac13de.png",
+    alt: "Prisma Technology"
+  },
+  {
+    name: "Formik",
+    image: "/lovable-uploads/08b48e64-0210-4f80-b81b-942a339622a9.png",
+    alt: "Formik Technology"
+  },
+  {
     name: "React",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=300&auto=format&fit=crop",
+    image: "/lovable-uploads/990fd2eb-d75f-4db6-a0cb-4fd5af08e5f3.png",
     alt: "React Technology"
-  },
-  {
-    name: "Node.js",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=300&auto=format&fit=crop",
-    alt: "Node.js Technology"
-  },
-  {
-    name: "JavaScript",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=300&auto=format&fit=crop",
-    alt: "JavaScript Technology"
-  },
-  {
-    name: "TypeScript",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=300&auto=format&fit=crop",
-    alt: "TypeScript Technology"
-  },
-  {
-    name: "Next.js",
-    image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=300&auto=format&fit=crop",
-    alt: "Next.js Technology"
-  },
-  {
-    name: "GraphQL",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=300&auto=format&fit=crop",
-    alt: "GraphQL Technology"
   }
 ];
 
@@ -84,13 +114,13 @@ const TechStack = () => {
               {techStacks.map((tech, index) => (
                 <div 
                   key={index}
-                  className="min-w-[250px] bg-[#111] rounded-xl p-4 border border-gray-800 flex flex-col items-center hover:border-custom-orange transition-all duration-300"
+                  className="min-w-[180px] bg-[#111] rounded-xl p-4 border border-gray-800 flex flex-col items-center hover:border-custom-orange transition-all duration-300"
                 >
-                  <div className="h-48 w-full overflow-hidden rounded-lg mb-4">
+                  <div className="h-32 w-full overflow-hidden rounded-lg mb-4 flex items-center justify-center bg-black">
                     <img 
                       src={tech.image} 
                       alt={tech.alt} 
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      className="w-24 h-24 object-contain transition-transform duration-300 hover:scale-110"
                     />
                   </div>
                   <h3 className="text-xl font-bold text-white font-jakarta">{tech.name}</h3>
@@ -101,13 +131,13 @@ const TechStack = () => {
               {techStacks.map((tech, index) => (
                 <div 
                   key={`duplicate-${index}`}
-                  className="min-w-[250px] bg-[#111] rounded-xl p-4 border border-gray-800 flex flex-col items-center hover:border-custom-orange transition-all duration-300"
+                  className="min-w-[180px] bg-[#111] rounded-xl p-4 border border-gray-800 flex flex-col items-center hover:border-custom-orange transition-all duration-300"
                 >
-                  <div className="h-48 w-full overflow-hidden rounded-lg mb-4">
+                  <div className="h-32 w-full overflow-hidden rounded-lg mb-4 flex items-center justify-center bg-black">
                     <img 
                       src={tech.image} 
                       alt={tech.alt} 
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      className="w-24 h-24 object-contain transition-transform duration-300 hover:scale-110"
                     />
                   </div>
                   <h3 className="text-xl font-bold text-white font-jakarta">{tech.name}</h3>
