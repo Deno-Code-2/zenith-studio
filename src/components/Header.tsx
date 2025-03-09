@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Logo } from "@/components/ui/logo";
+import { Logo } from "./ui/logo";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
