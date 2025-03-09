@@ -1,16 +1,20 @@
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import Matter from "matter-js";
 
 const Footer = () => {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const currentYear = new Date().getFullYear();
+  const ballpitRef = useRef<HTMLDivElement>(null);
+  const engineRef = useRef<Matter.Engine>();
+  const boxRef = useRef<HTMLDivElement>(null);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,6 +55,131 @@ const Footer = () => {
     }
   };
 
+  useEffect(() => {
+    if (!ballpitRef.current) return;
+
+    // Module aliases
+    const Engine = Matter.Engine;
+    const Render = Matter.Render;
+    const World = Matter.World;
+    const Bodies = Matter.Bodies;
+    const Body = Matter.Body;
+    const Runner = Matter.Runner;
+
+    // Create engine
+    const engine = Engine.create({
+      gravity: { x: 0, y: 1 }
+    });
+    engineRef.current = engine;
+
+    // Create renderer
+    const containerWidth = ballpitRef.current.clientWidth;
+    const containerHeight = ballpitRef.current.clientHeight;
+    
+    const render = Render.create({
+      element: ballpitRef.current,
+      engine: engine,
+      options: {
+        width: containerWidth,
+        height: containerHeight,
+        wireframes: false,
+        background: 'transparent',
+      },
+    });
+
+    // Add walls
+    const wallOptions = {
+      isStatic: true,
+      render: {
+        visible: false
+      }
+    };
+
+    const walls = [
+      // Bottom wall
+      Bodies.rectangle(containerWidth / 2, containerHeight + 25, containerWidth, 50, wallOptions),
+      // Left wall
+      Bodies.rectangle(-25, containerHeight / 2, 50, containerHeight, wallOptions),
+      // Right wall
+      Bodies.rectangle(containerWidth + 25, containerHeight / 2, 50, containerHeight, wallOptions),
+    ];
+
+    // Create balls
+    const balls = [];
+    const colors = ['#E46534', '#e48734', '#e4a434', '#FFFFFF'];
+    
+    for (let i = 0; i < 40; i++) {
+      const radius = Math.random() * 10 + 5;
+      balls.push(
+        Bodies.circle(
+          Math.random() * containerWidth,
+          Math.random() * containerHeight * 0.5,
+          radius,
+          {
+            restitution: 0.8,
+            friction: 0.005,
+            render: {
+              fillStyle: colors[Math.floor(Math.random() * colors.length)]
+            }
+          }
+        )
+      );
+    }
+
+    // Add all bodies to the world
+    World.add(engine.world, [...walls, ...balls]);
+
+    // Run the renderer
+    Render.run(render);
+
+    // Create runner
+    const runner = Runner.create();
+    Runner.run(runner, engine);
+
+    // Handle resize
+    const handleResize = () => {
+      if (!ballpitRef.current) return;
+      
+      const newWidth = ballpitRef.current.clientWidth;
+      const newHeight = ballpitRef.current.clientHeight;
+      
+      // Update renderer
+      render.options.width = newWidth;
+      render.options.height = newHeight;
+      render.canvas.width = newWidth;
+      render.canvas.height = newHeight;
+      
+      // Update walls
+      Body.setPosition(walls[0], { x: newWidth / 2, y: newHeight + 25 });
+      Body.setPosition(walls[2], { x: newWidth + 25, y: newHeight / 2 });
+      
+      // Run a tick to update
+      Render.world(render);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      
+      // Clean up Matter.js
+      Render.stop(render);
+      Runner.stop(runner);
+      World.clear(engine.world, false);
+      Engine.clear(engine);
+      render.canvas.remove();
+      render.textures = {};
+    };
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const footerLinks = {
     pages: [
       { name: "Home", href: "/" },
@@ -86,7 +215,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-4">
           {/* Logo and info */}
           <div className="md:col-span-3">
-            <Link to="/" className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-6" onClick={scrollToTop}>
               <h1 className="text-2xl font-bold font-syne">
                 <span className="text-custom-orange">Zen</span>ith Studio
               </h1>
@@ -105,6 +234,7 @@ const Footer = () => {
                   <Link 
                     to={link.href}
                     className="text-gray-400 hover:text-white transition-colors font-jakarta"
+                    onClick={scrollToTop}
                   >
                     {link.name}
                   </Link>
@@ -175,11 +305,19 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      {/* Large Text at the Bottom */}
-      <div className="mt-16 mb-8">
-        <h2 className="text-[8vw] font-bold text-center opacity-10 font-syne tracking-tight">
-          Building The Future.
-        </h2>
+      
+      {/* Large Text at the Bottom with Ballpit */}
+      <div className="mt-16 mb-8 relative">
+        <div 
+          ref={ballpitRef} 
+          className="absolute inset-0 z-0 overflow-hidden" 
+          style={{ height: "200px" }}
+        />
+        <div ref={boxRef} className="relative z-10">
+          <h2 className="text-[8vw] font-bold text-center opacity-20 font-syne tracking-tight">
+            Building The Future.
+          </h2>
+        </div>
       </div>
     </footer>
   );

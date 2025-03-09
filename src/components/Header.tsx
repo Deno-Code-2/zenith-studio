@@ -29,6 +29,13 @@ const Header = () => {
     setMobileMenuOpen(false);
   }, [location]);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -48,7 +55,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="flex items-center justify-between py-4">
           {/* Agency Name instead of Logo */}
-          <Link to="/" className="shrink-0">
+          <Link to="/" className="shrink-0" onClick={scrollToTop}>
             <h1 className="text-2xl font-bold font-syne">
               <span className="text-custom-orange">Zen</span>ith Studio
             </h1>
@@ -65,6 +72,7 @@ const Header = () => {
                     ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:left-0 after:bottom-0"
                     : "text-white hover:text-custom-orange"
                 } transition-colors`}
+                onClick={scrollToTop}
               >
                 {item.name}
               </Link>
@@ -110,6 +118,7 @@ const Header = () => {
                     ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:left-0 after:bottom-0"
                     : "text-white hover:text-custom-orange"
                 } transition-colors`}
+                onClick={scrollToTop}
               >
                 {item.name}
               </Link>
