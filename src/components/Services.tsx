@@ -42,17 +42,18 @@ const Services = () => {
     <section className="py-20 px-8 lg:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-4 font-syne text-white flex items-center justify-center">
-            Reasons to Choose Zenith for <span className="inline-flex ml-2 items-center"><TextRotate
-                texts={[
-                  "Innovation",
-                  "Excellence",
-                  "Growth",
-                  "Success",
-                  "Results",
-                  "Vision",
-                ]}
-              /></span>
+          <h2 className="text-5xl lg:text-6xl font-bold mb-4 font-syne text-white flex items-center justify-center flex-wrap">
+            <span className="mr-2">Reasons to Choose Zenith for</span>
+            <TextRotate
+              texts={[
+                "Innovation",
+                "Excellence",
+                "Growth",
+                "Success",
+                "Results",
+                "Vision",
+              ]}
+            />
           </h2>
           <p className="mt-6 text-gray-400 max-w-3xl mx-auto font-jakarta">
             Transform your digital presence with our comprehensive solutions. We deliver results that exceed expectations.

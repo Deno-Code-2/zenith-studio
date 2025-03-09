@@ -15,7 +15,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-2xl text-left space-y-6 z-10 pl-0 lg:pl-8"
+        className="max-w-2xl text-left space-y-6 z-10 pl-0 lg:pl-12"
       >
         <h2 className="text-5xl lg:text-7xl font-bold leading-tight text-white font-syne">
           Transform Your Digital Vision Into <Cover className="text-white">Reality</Cover>
