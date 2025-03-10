@@ -308,11 +308,6 @@ const Footer = () => {
       
       {/* Large Text at the Bottom with Ballpit */}
       <div className="mt-16 mb-8 relative">
-        <div 
-          ref={ballpitRef} 
-          className="absolute inset-0 z-0 overflow-hidden" 
-          style={{ height: "200px" }}
-        />
         <div ref={boxRef} className="relative z-10">
           <h2 className="text-[8vw] font-bold text-center opacity-20 font-syne tracking-tight">
             Building The Future.
