@@ -18,7 +18,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     
     // Return saved theme if it exists, otherwise use system preference, default to 'dark'
-    return savedTheme || (prefersDark ? "dark" : "dark");
+    return savedTheme || (prefersDark ? "dark" : "light");
   });
 
   // Apply theme changes to the document
@@ -27,6 +27,19 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     document.documentElement.classList.add(theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
+
+  // Listen for system preference changes
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem("theme")) {
+        setTheme(e.matches ? "dark" : "light");
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === "dark" ? "light" : "dark");

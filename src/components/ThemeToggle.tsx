@@ -11,13 +11,13 @@ export const ThemeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="rounded-full"
+      className="rounded-full transition-colors"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
-        <Sun className="h-5 w-5 text-custom-orange" />
+        <Sun className="h-5 w-5 text-custom-orange transition-transform duration-300 hover:rotate-12" />
       ) : (
-        <Moon className="h-5 w-5" />
+        <Moon className="h-5 w-5 transition-transform duration-300 hover:rotate-12" />
       )}
     </Button>
   );
