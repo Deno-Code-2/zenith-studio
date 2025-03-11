@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Search } from "lucide-react";
 
@@ -41,14 +42,14 @@ const FAQ = () => {
   );
 
   return (
-    <section className="py-20 bg-black">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-4 font-syne">
-            <span className="text-white">Frequently</span>{" "}
-            <span className="text-custom-orange">Asked</span> <span>Questions</span>
+            <span className="text-black">Frequently</span>{" "}
+            <span className="text-custom-orange">Asked</span> <span className="text-black">Questions</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-8 font-jakarta">
+          <p className="text-gray-600 max-w-2xl mx-auto mb-8 font-jakarta">
             Got questions? We've got answers. Check out our frequently asked questions section to find valuable insights into our processes, pricing, and more. Transparency is at the core of our client interactions.
           </p>
           <div className="relative max-w-xl mx-auto">
@@ -56,7 +57,7 @@ const FAQ = () => {
             <input
               type="text"
               placeholder="Search"
-              className="w-full py-3 px-12 rounded-lg bg-zinc-900 text-white border border-zinc-800 focus:outline-none focus:border-custom-orange font-jakarta"
+              className="w-full py-3 px-12 rounded-lg bg-gray-100 text-black border border-gray-200 focus:outline-none focus:border-custom-orange font-jakarta"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -67,19 +68,19 @@ const FAQ = () => {
           {filteredFAQs.map((item, index) => (
             <div
               key={index}
-              className="border-b border-zinc-800 last:border-b-0"
+              className="border-b border-gray-200 last:border-b-0"
             >
               <button
                 className="w-full py-6 text-left flex justify-between items-center focus:outline-none"
                 onClick={() => setExpandedItem(expandedItem === index ? null : index)}
               >
-                <span className="text-white font-syne text-lg">{item.question}</span>
+                <span className="text-black font-syne text-lg">{item.question}</span>
                 <span className="text-2xl text-custom-orange ml-4">
                   {expandedItem === index ? "−" : "+"}
                 </span>
               </button>
               {expandedItem === index && (
-                <div className="pb-6 text-gray-400 font-jakarta">
+                <div className="pb-6 text-gray-600 font-jakarta">
                   {item.answer}
                 </div>
               )}

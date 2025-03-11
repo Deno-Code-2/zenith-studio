@@ -5,6 +5,7 @@
 
 @layer base {
   :root {
+    /* Light theme variables only */
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
     --card: 0 0% 100%;
@@ -26,30 +27,7 @@
     --ring: 0 0% 0%;
     --radius: 1rem;
     --custom-orange: 24 92% 55%;
-  }
-
-  .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 13%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 13%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 24 92% 55%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 13%;
-    --input: 0 0% 13%;
-    --ring: 0 0% 100%;
-    --radius: 1rem;
-    --custom-orange: 24 92% 55%;
+    --scrollbar-track: 248 248 250;
   }
 
   body {
@@ -67,7 +45,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--scrollbar-track, hsl(var(--background)));
+  background: var(--scrollbar-track, #f8f8fa);
 }
 
 ::-webkit-scrollbar-thumb {

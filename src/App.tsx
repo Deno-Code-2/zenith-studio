@@ -1,5 +1,5 @@
 
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -23,6 +23,12 @@ const ServicesDetailsPage = lazy(() => import("@/pages/ServicesDetails"));
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 
 function App() {
+  // Force light mode on the document element
+  useEffect(() => {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+  }, []);
+
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>

@@ -1,24 +1,5 @@
 
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
-import { Button } from "@/components/ui/button";
-
+// Component removed as we're using light mode only
 export const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
-
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={toggleTheme}
-      className="rounded-full transition-colors"
-      aria-label="Toggle theme"
-    >
-      {theme === "dark" ? (
-        <Sun className="h-5 w-5 text-custom-orange transition-transform duration-300 hover:rotate-12" />
-      ) : (
-        <Moon className="h-5 w-5 transition-transform duration-300 hover:rotate-12" />
-      )}
-    </Button>
-  );
+  return null;
 };
