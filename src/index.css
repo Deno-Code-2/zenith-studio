@@ -67,7 +67,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: var(--scrollbar-track, hsl(var(--background)));
 }
 
 ::-webkit-scrollbar-thumb {
