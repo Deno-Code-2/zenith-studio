@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,7 +50,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || mobileMenuOpen ? "bg-black/95 backdrop-blur-md border-b border-neutral-800" : "bg-transparent"
+        isScrolled || mobileMenuOpen ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -69,8 +70,8 @@ const Header = () => {
                 to={item.href}
                 className={`font-jakarta relative py-1 ${
                   location.pathname === item.href
-                    ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:left-0 after:bottom-0"
-                    : "text-white hover:text-custom-orange"
+                    ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-foreground after:left-0 after:bottom-0"
+                    : "text-foreground hover:text-custom-orange"
                 } transition-colors`}
                 onClick={scrollToTop}
               >
@@ -79,8 +80,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Book A Call Button */}
-          <div className="hidden md:block">
+          {/* Theme Toggle and Book A Call Button */}
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Button
               variant="secondary"
               className="font-jakarta"
@@ -90,33 +92,36 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="md:hidden text-white p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="text-foreground p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden">
-          <div className="px-8 pt-2 pb-6 space-y-4 border-t border-neutral-800">
+          <div className="px-8 pt-2 pb-6 space-y-4 border-t border-border">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`block py-2 font-jakarta relative ${
                   location.pathname === item.href
-                    ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:left-0 after:bottom-0"
-                    : "text-white hover:text-custom-orange"
+                    ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-foreground after:left-0 after:bottom-0"
+                    : "text-foreground hover:text-custom-orange"
                 } transition-colors`}
                 onClick={scrollToTop}
               >

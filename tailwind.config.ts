@@ -1,4 +1,3 @@
-
 import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
@@ -55,11 +54,6 @@ export default {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
   			},
-  			'hunter-green': '#2F4C39',
-  			'dark-green': '#1A2721',
-  			'moss-green': '#8BA888',
-  			'fern-green': '#6B8E66',
-  			mindaro: '#E3F1A9',
   			'custom-orange': '#E46534'
   		},
   		keyframes: {
