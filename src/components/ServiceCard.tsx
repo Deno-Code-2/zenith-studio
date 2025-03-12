@@ -23,7 +23,7 @@ const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="group relative rounded-xl overflow-hidden bg-black/30 border border-custom-orange/20 hover:border-custom-orange/40 transition-all"
+      className="group relative rounded-xl overflow-hidden bg-white border border-custom-orange/20 hover:border-custom-orange/40 transition-all"
     >
       <div className="relative h-52 overflow-hidden">
         <img 
@@ -31,7 +31,7 @@ const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
           alt={service.title} 
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
         <div className="absolute bottom-4 left-6">
           <div className="bg-custom-orange/10 text-custom-orange px-3 py-1 rounded-full text-sm inline-block font-jakarta">
             {service.service_type}
@@ -40,21 +40,21 @@ const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
       </div>
       <div className="p-6 relative">
         <div className="flex justify-between items-start mb-3">
-          <h3 className="text-2xl font-bold text-white font-syne">{service.title}</h3>
+          <h3 className="text-2xl font-bold text-black font-syne">{service.title}</h3>
           <div className="text-custom-orange text-xl font-bold font-syne">
             {formatCurrency(service.price)}
           </div>
         </div>
-        <p className="text-gray-300 mb-6 font-jakarta">{service.description}</p>
+        <p className="text-gray-700 mb-6 font-jakarta">{service.description}</p>
         
         {service.features && service.features.length > 0 && (
           <div className="mb-6">
-            <div className="text-lg font-semibold text-white mb-3 font-syne">Features:</div>
+            <div className="text-lg font-semibold text-black mb-3 font-syne">Features:</div>
             <ul className="space-y-2">
               {service.features.map((feature, index) => (
                 <li key={index} className="flex items-start space-x-2">
                   <CheckCircle className="text-custom-orange h-5 w-5 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300 font-jakarta">{feature}</span>
+                  <span className="text-gray-700 font-jakarta">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -65,7 +65,7 @@ const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
           href={service.service_url || "#"} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-flex items-center text-custom-orange hover:text-white transition-colors gap-2 font-jakarta"
+          className="inline-flex items-center text-custom-orange hover:text-black transition-colors gap-2 font-jakarta"
         >
           View Details <ArrowRight size={16} />
         </a>

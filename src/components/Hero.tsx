@@ -10,17 +10,17 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden bg-gradient-to-br from-black via-black/95 to-black">
+    <div className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-12 gap-12 relative overflow-hidden bg-white">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="max-w-2xl text-left space-y-6 z-10 pl-0 lg:pl-8"
       >
-        <h2 className="text-5xl lg:text-7xl font-bold leading-tight text-white font-syne">
-          Transform Your Digital Vision Into <Cover className="text-white">Reality</Cover>
+        <h2 className="text-5xl lg:text-7xl font-bold leading-tight text-black font-syne">
+          Transform Your Digital Vision Into <Cover className="text-custom-orange">Reality</Cover>
         </h2>
-        <p className="text-xl text-gray-300 leading-relaxed font-jakarta">
+        <p className="text-xl text-gray-700 leading-relaxed font-jakarta">
           We're not just building websites – we're crafting digital experiences that drive growth and elevate your brand.
         </p>
         <div className="flex gap-4">
@@ -29,7 +29,7 @@ const Hero = () => {
           </Button>
           <Button 
             variant="outline" 
-            className="border-custom-orange/20 text-white hover:bg-custom-orange/10 font-jakarta"
+            className="border-custom-orange/20 text-black hover:bg-custom-orange/10 font-jakarta"
             onClick={() => navigate('/projects')}
           >
             View Our Work

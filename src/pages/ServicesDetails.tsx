@@ -43,7 +43,7 @@ const ServicesDetails = () => {
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-black font-syne">
               How We <span className="text-custom-orange">Work</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-jakarta">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-jakarta">
               We follow a proven process to deliver exceptional results for our clients. Our approach combines innovation, expertise, and dedication to help your business succeed.
             </p>
           </motion.div>
@@ -65,7 +65,7 @@ const ServicesDetails = () => {
                 <h3 className="text-2xl font-bold mb-4 text-black font-syne">
                   {process.title}
                 </h3>
-                <p className="text-gray-600 font-jakarta">
+                <p className="text-gray-700 font-jakarta">
                   {process.description}
                 </p>
               </motion.div>
@@ -81,7 +81,7 @@ const ServicesDetails = () => {
             <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-black font-syne">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-gray-600 mb-8 font-jakarta">
+            <p className="text-xl text-gray-700 mb-8 font-jakarta">
               Let's discuss how we can help your business grow.
             </p>
             <Button 

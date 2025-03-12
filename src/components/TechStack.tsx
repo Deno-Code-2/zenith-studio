@@ -75,14 +75,14 @@ const techStack = [
 
 const TechStack = () => {
   return (
-    <section className="w-full py-16 bg-black overflow-hidden">
+    <section className="w-full py-16 bg-white overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="container mx-auto px-8 lg:px-16"
       >
-        <h2 className="text-4xl lg:text-5xl font-bold mb-12 text-center text-white font-syne">
+        <h2 className="text-4xl lg:text-5xl font-bold mb-12 text-center text-black font-syne">
           Tech Stack We Use
         </h2>
         
@@ -95,7 +95,7 @@ const TechStack = () => {
               >
                 <img
                   src={tech.logo}
-                  className="h-10 w-auto grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className="h-10 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   alt={tech.name}
                 />
               </div>
@@ -103,12 +103,12 @@ const TechStack = () => {
           </Marquee>
           
           {/* Gradient overlays for seamless scroll effect */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/3 bg-gradient-to-r from-black to-transparent z-10"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/3 bg-gradient-to-l from-black to-transparent z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/3 bg-gradient-to-r from-white to-transparent z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/3 bg-gradient-to-l from-white to-transparent z-10"></div>
         </div>
         
         <div className="text-center mt-8">
-          <p className="text-gray-400 text-lg font-jakarta">
+          <p className="text-gray-700 text-lg font-jakarta">
             We leverage cutting-edge technologies to deliver exceptional digital solutions
           </p>
         </div>

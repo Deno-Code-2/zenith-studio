@@ -39,10 +39,10 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-20 px-8 lg:px-16">
+    <section className="py-20 px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-4 font-syne text-white flex items-center justify-center">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-4 font-syne text-black flex items-center justify-center">
             Reasons to Choose Zenith for <span className="inline-flex ml-2 items-center"><TextRotate
                 texts={[
                   "Innovation",
@@ -54,7 +54,7 @@ const Services = () => {
                 ]}
               /></span>
           </h2>
-          <p className="mt-6 text-gray-400 max-w-3xl mx-auto font-jakarta">
+          <p className="mt-6 text-gray-700 max-w-3xl mx-auto font-jakarta">
             Transform your digital presence with our comprehensive solutions. We deliver results that exceed expectations.
           </p>
         </div>
@@ -63,20 +63,20 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group p-8 rounded-2xl bg-black border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300 hover:-translate-y-2"
+              className="group p-8 rounded-2xl bg-white border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300 hover:-translate-y-2 shadow-sm"
             >
               <div className="w-16 h-16 rounded-full bg-custom-orange/10 flex items-center justify-center mb-6">
                 <div className="text-custom-orange">
                   {service.icon}
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-white font-syne">
+              <h3 className="text-xl font-bold mb-4 text-black font-syne">
                 {service.title}
               </h3>
-              <p className="text-gray-400 font-jakarta">
+              <p className="text-gray-700 font-jakarta">
                 {service.description}
               </p>
-              <Link to="/services-details" className="mt-6 text-custom-orange flex items-center gap-2 hover:gap-3 transition-all duration-300 font-jakarta">
+              <Link to="/services/how-we-work" className="mt-6 text-custom-orange flex items-center gap-2 hover:gap-3 transition-all duration-300 font-jakarta">
                 Learn More <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
