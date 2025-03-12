@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Cube3D } from "./Cube3D";
 import { Cover } from "@/components/ui/cover";
 import { useNavigate, Link } from "react-router-dom";
+import { Safari } from "./magicui/safari";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -39,15 +40,14 @@ const Hero = () => {
           </Button>
         </div>
       </motion.div>
-      
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex-1 z-10 w-full sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto lg:mx-0 -ml-8 sm:-ml-0"
-      >
-        <Cube3D />
-      </motion.div>
+
+      <div className="relative">
+      <Safari
+        url="magicui.design"
+        className="size-full"
+        videoSrc="https://videos.pexels.com/video-files/27180348/12091515_2560_1440_50fps.mp4"
+      />
+    </div>
     </div>
   );
 };
