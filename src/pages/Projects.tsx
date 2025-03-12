@@ -199,7 +199,7 @@ const Projects = () => {
   }, [activeFilter, projects]);
 
   const FeaturedProjectsBanner = () => (
-    <div className="w-full overflow-hidden bg-black/30 py-6 mb-12 border-y border-custom-orange/20">
+    <div className="w-full overflow-hidden bg-gray-50 py-6 mb-12 border-y border-custom-orange/20">
       <Marquee speed={60} pauseOnHover className="py-2">
         {filterOptions.filter(option => option !== 'All').map((category) => (
           <div 
@@ -215,7 +215,7 @@ const Projects = () => {
   );
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Header />
       <main className="max-w-7xl mx-auto px-8 lg:px-16 pt-32">
         <div className="text-center mb-16">
@@ -223,7 +223,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-7xl font-bold mb-6 font-syne"
+            className="text-5xl md:text-7xl font-bold mb-6 font-syne text-black"
           >
             Our <span className="text-custom-orange">Projects</span>
           </motion.h1>
@@ -231,7 +231,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-400 max-w-3xl mx-auto font-jakarta"
+            className="text-gray-600 max-w-3xl mx-auto font-jakarta"
           >
             Explore our portfolio of successful projects. Each project represents our commitment to excellence and innovation in digital solutions.
           </motion.p>
@@ -250,7 +250,7 @@ const Projects = () => {
                 rounded-full px-6 py-2 font-jakarta
                 ${activeFilter === option 
                   ? "bg-custom-orange hover:bg-custom-orange/90 text-white" 
-                  : "border-custom-orange/20 text-white hover:bg-custom-orange/10"}
+                  : "border-custom-orange/20 text-black hover:bg-custom-orange/10"}
               `}
             >
               {option}
@@ -259,14 +259,14 @@ const Projects = () => {
         </div>
 
         {isLoading ? (
-          <div className="text-center text-gray-400 py-20">
+          <div className="text-center text-gray-600 py-20">
             <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin mx-auto mb-4"></div>
             <p>Loading projects...</p>
           </div>
         ) : error ? (
           <div className="text-center text-red-400">Error loading projects. Please try again later.</div>
         ) : filteredProjects?.length === 0 ? (
-          <div className="text-center text-gray-400 py-20">
+          <div className="text-center text-gray-600 py-20">
             <p>No projects found for this category. Try selecting a different filter.</p>
           </div>
         ) : (
@@ -277,7 +277,7 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="project-card group relative overflow-hidden rounded-xl bg-black/50 backdrop-blur-sm border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
+                className="project-card group relative overflow-hidden rounded-xl bg-white shadow-sm border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
               >
                 <div className="aspect-video overflow-hidden max-h-[180px] flex items-center justify-center">
                   <img 
@@ -288,7 +288,7 @@ const Projects = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-white font-syne">{project.title}</h3>
+                    <h3 className="text-xl font-bold text-black font-syne">{project.title}</h3>
                     <a 
                       href={project.project_url}
                       target="_blank"
@@ -298,7 +298,7 @@ const Projects = () => {
                       <ExternalLink className="w-5 h-5" />
                     </a>
                   </div>
-                  <p className="text-gray-400 font-jakarta text-sm">{project.description}</p>
+                  <p className="text-gray-600 font-jakarta text-sm">{project.description}</p>
                   <div className="mt-3">
                     <span className="bg-custom-orange/10 text-custom-orange px-2 py-1 rounded-full text-xs">
                       {project.project_type}

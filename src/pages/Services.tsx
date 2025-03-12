@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -132,7 +133,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Header />
       <main>
         {/* Hero Section */}
@@ -146,14 +147,14 @@ const Services = () => {
             >
               Our Services
             </motion.span>
-            <h1 className="services-title text-5xl md:text-6xl font-bold text-white mb-6 font-syne">
+            <h1 className="services-title text-5xl md:text-6xl font-bold text-black mb-6 font-syne">
               Transforming Ideas Into <span className="text-custom-orange">Digital Reality</span>
             </h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-gray-300 text-lg md:text-xl font-jakarta"
+              className="text-gray-700 text-lg md:text-xl font-jakarta"
             >
               We offer comprehensive digital solutions designed to help businesses thrive in today's competitive landscape. From stunning websites to powerful mobile apps, our services are tailored to drive growth and success.
             </motion.p>
@@ -169,8 +170,8 @@ const Services = () => {
                 className={`
                   rounded-full px-6 py-2 font-jakarta
                   ${activeFilter === option 
-                    ? "bg-custom-orange hover:bg-custom-orange/90 text-white" 
-                    : "border-custom-orange/20 text-white hover:bg-custom-orange/10"}
+                    ? "bg-custom-orange hover:bg-custom-orange/90 text-black" 
+                    : "border-custom-orange/20 text-black hover:bg-custom-orange/10"}
                 `}
               >
                 {option}
@@ -185,8 +186,8 @@ const Services = () => {
             </div>
           ) : filteredServices.length === 0 ? (
             <div className="text-center py-16">
-              <h3 className="text-2xl text-white font-jakarta mb-4">No services found</h3>
-              <p className="text-gray-400">Try selecting a different category or check back later.</p>
+              <h3 className="text-2xl text-black font-jakarta mb-4">No services found</h3>
+              <p className="text-gray-600">Try selecting a different category or check back later.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -198,7 +199,7 @@ const Services = () => {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-black/30">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -214,7 +215,7 @@ const Services = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne"
+                  className="text-3xl md:text-4xl font-bold text-black mb-6 font-syne"
                 >
                   Benefits of Our <span className="text-custom-orange">Professional Services</span>
                 </motion.h2>
@@ -222,7 +223,7 @@ const Services = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-gray-300 mb-8 font-jakarta"
+                  className="text-gray-700 mb-8 font-jakarta"
                 >
                   Partner with us to experience a transformative approach to digital solutions. Our commitment to excellence ensures that your business reaps the following benefits:
                 </motion.p>
@@ -236,7 +237,7 @@ const Services = () => {
                       className="flex items-start gap-3"
                     >
                       <CheckCircle2 className="text-custom-orange mt-1 flex-shrink-0" size={18} />
-                      <p className="text-gray-300 font-jakarta">{benefit}</p>
+                      <p className="text-gray-700 font-jakarta">{benefit}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -273,7 +274,7 @@ const Services = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne"
+                className="text-3xl md:text-4xl font-bold text-black mb-6 font-syne"
               >
                 How We <span className="text-custom-orange">Work</span>
               </motion.h2>
@@ -281,7 +282,7 @@ const Services = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-gray-300 max-w-3xl mx-auto font-jakarta"
+                className="text-gray-700 max-w-3xl mx-auto font-jakarta"
               >
                 Our streamlined process ensures efficient project delivery while maintaining the highest quality standards at every stage.
               </motion.p>
@@ -289,14 +290,14 @@ const Services = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {processSteps.map((step, index) => (
-                <div key={index} className="process-item p-6 border border-custom-orange/20 rounded-lg hover:border-custom-orange/40 transition-all duration-300 bg-black/30">
+                <div key={index} className="process-item p-6 border border-custom-orange/20 rounded-lg hover:border-custom-orange/40 transition-all duration-300 bg-white shadow-sm">
                   <div className="text-4xl font-bold text-custom-orange mb-4 font-syne">
                     {step.number}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 font-syne">
+                  <h3 className="text-xl font-bold text-black mb-3 font-syne">
                     {step.title}
                   </h3>
-                  <p className="text-gray-300 font-jakarta">
+                  <p className="text-gray-700 font-jakarta">
                     {step.description}
                   </p>
                 </div>
@@ -306,14 +307,14 @@ const Services = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-black/40">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-3xl md:text-4xl font-bold text-white mb-6 font-syne"
+                className="text-3xl md:text-4xl font-bold text-black mb-6 font-syne"
               >
                 Ready to Transform Your <span className="text-custom-orange">Digital Presence</span>?
               </motion.h2>
@@ -321,7 +322,7 @@ const Services = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-gray-300 mb-8 font-jakarta"
+                className="text-gray-700 mb-8 font-jakarta"
               >
                 Let's collaborate to bring your vision to life with our comprehensive suite of digital services. Contact us today to get started!
               </motion.p>

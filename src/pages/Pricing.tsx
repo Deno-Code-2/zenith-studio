@@ -86,7 +86,6 @@ const Pricing = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-black font-syne mb-6">
               Need custom components or websites?<br />
               <span className="text-custom-orange">We've got you covered</span>
-              Simple, transparent pricing
             </h1>
             <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
               From custom components to complete website tailored to your needs. Simple pricing, no hidden fees.
