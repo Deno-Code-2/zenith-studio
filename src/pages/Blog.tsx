@@ -66,7 +66,7 @@ const Blog = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <Header />
         <div className="w-12 h-12 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin"></div>
       </div>
@@ -75,11 +75,11 @@ const Blog = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-white">
         <Header />
         <main className="container mx-auto px-4 py-20 mt-24 text-center">
-          <h1 className="text-3xl font-bold text-white">Error loading blog posts</h1>
-          <p className="text-gray-400 mt-4">Please try again later</p>
+          <h1 className="text-3xl font-bold text-black">Error loading blog posts</h1>
+          <p className="text-gray-600 mt-4">Please try again later</p>
         </main>
         <Footer />
       </div>
@@ -87,10 +87,10 @@ const Blog = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Header />
       <main className="container mx-auto px-4 py-20 mt-24">
-        <h1 className="text-5xl md:text-7xl font-bold text-center text-white mb-12 font-syne">
+        <h1 className="text-5xl md:text-7xl font-bold text-center text-black mb-12 font-syne">
           Latest <span className="text-custom-orange">Insights</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -98,7 +98,7 @@ const Blog = () => {
             <Link 
               to={`/blog/${post.id}`} 
               key={post.id}
-              className="blog-card bg-black border border-custom-orange/20 rounded-xl overflow-hidden hover:border-custom-orange/40 transition-all duration-300"
+              className="blog-card bg-white border border-custom-orange/20 rounded-xl overflow-hidden hover:border-custom-orange/40 transition-all duration-300"
             >
               <div className="aspect-video relative overflow-hidden flex items-center justify-center">
                 <img 
@@ -109,10 +109,10 @@ const Blog = () => {
               </div>
               <div className="p-6">
                 <div className="text-sm text-custom-orange mb-4">{post.category}</div>
-                <h2 className="text-xl font-bold text-white mb-4 font-syne hover:text-custom-orange transition-colors">
+                <h2 className="text-xl font-bold text-black mb-4 font-syne hover:text-custom-orange transition-colors">
                   {post.title}
                 </h2>
-                <p className="text-gray-400 mb-4 font-jakarta">{post.excerpt}</p>
+                <p className="text-gray-600 mb-4 font-jakarta">{post.excerpt}</p>
                 <div className="flex justify-between items-center">
                   <div className="text-sm text-gray-500">{formatDate(post.created_at)}</div>
                   <div className="text-sm text-gray-500">{post.reading_time} min read</div>

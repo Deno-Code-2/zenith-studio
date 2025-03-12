@@ -62,7 +62,7 @@ const BlogPost = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <Header />
         <div className="w-12 h-12 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin"></div>
       </div>
@@ -71,10 +71,10 @@ const BlogPost = () => {
 
   if (error || !post) {
     return (
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-white">
         <Header />
         <main className="container mx-auto px-4 py-20 pt-32 text-center">
-          <h1 className="text-3xl font-bold text-white">Blog post not found</h1>
+          <h1 className="text-3xl font-bold text-black">Blog post not found</h1>
           <button 
             onClick={() => navigate('/blog')}
             className="mt-8 text-custom-orange hover:text-custom-orange/80 transition-colors font-jakarta"
@@ -88,13 +88,13 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Header />
       <main className="container mx-auto px-4 py-20 pt-32">
         <div className="max-w-3xl mx-auto">
           <div className="mb-8">
             <div className="text-custom-orange mb-4">{post.category}</div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-syne">
+            <h1 className="text-4xl md:text-5xl font-bold text-black mb-6 font-syne">
               {post.title}
             </h1>
             <div className="flex justify-between items-center text-gray-500 mb-8 font-jakarta">
@@ -112,11 +112,11 @@ const BlogPost = () => {
           </div>
           
           <article 
-            className="prose prose-lg prose-invert max-w-none font-jakarta"
+            className="prose prose-lg max-w-none font-jakarta text-black"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
           
-          <div className="mt-12 pt-8 border-t border-neutral-800">
+          <div className="mt-12 pt-8 border-t border-neutral-200">
             <button 
               onClick={() => navigate('/blog')}
               className="text-custom-orange hover:text-custom-orange/80 transition-colors font-jakarta"

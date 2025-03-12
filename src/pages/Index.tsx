@@ -12,7 +12,7 @@ import FAQ from "@/components/FAQ";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background relative overflow-hidden">
+    <main className="min-h-screen bg-white relative overflow-hidden">
       <GridPattern />
       <Header />
       <div className="pt-24">

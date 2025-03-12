@@ -77,18 +77,18 @@ const Pricing = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-white">
       <Header />
 
       <section className="pt-28 pb-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-white font-syne mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-black font-syne mb-6">
               Need custom components or websites?<br />
               <span className="text-custom-orange">We've got you covered</span>
               Simple, transparent pricing
             </h1>
-            <p className="text-gray-400 max-w-2xl mx-auto font-jakarta">
+            <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
               From custom components to complete website tailored to your needs. Simple pricing, no hidden fees.
               Choose the perfect plan for your agency's needs
             </p>
@@ -106,13 +106,13 @@ const Pricing = () => {
               >
                 <div className="mb-8">
                   <h3 className="text-custom-orange mb-2 font-jakarta">{plan.title}</h3>
-                  <div className="text-3xl font-bold text-white mb-4 font-syne">{plan.subtitle}</div>
-                  <p className="text-gray-400 text-sm font-jakarta">{plan.description}</p>
+                  <div className="text-3xl font-bold text-black mb-4 font-syne">{plan.subtitle}</div>
+                  <p className="text-gray-700 text-sm font-jakarta">{plan.description}</p>
                 </div>
 
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3 text-gray-300 font-jakarta">
+                    <li key={featureIndex} className="flex items-start gap-3 text-gray-700 font-jakarta">
                       <Check className="w-5 h-5 text-custom-orange flex-shrink-0 mt-1" />
                       <span>{feature}</span>
                     </li>
@@ -124,7 +124,7 @@ const Pricing = () => {
                   className={`w-full ${
                     plan.highlighted
                       ? "bg-custom-orange hover:bg-custom-orange/90 text-black"
-                      : "bg-black border border-custom-orange/20 hover:border-custom-orange text-white"
+                      : "bg-white border border-custom-orange/20 hover:border-custom-orange text-black"
                   }`}
                 >
                   {plan.buttonText}

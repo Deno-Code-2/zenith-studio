@@ -27,6 +27,9 @@ function App() {
   useEffect(() => {
     document.documentElement.classList.remove("dark");
     document.documentElement.classList.add("light");
+    
+    // Add a class to the body to ensure light mode styles apply everywhere
+    document.body.className = "bg-white text-black";
   }, []);
 
   return (
@@ -34,7 +37,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Router>
           <Suspense fallback={
-            <div className="flex items-center justify-center h-screen bg-background">
+            <div className="flex items-center justify-center h-screen bg-white">
               <div className="w-12 h-12 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin"></div>
             </div>
           }>

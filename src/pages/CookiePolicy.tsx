@@ -1,18 +1,17 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgencyShowcase from "@/components/AgencyShowcase";
 
 const CookiePolicy = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Header />
       <div className="relative pt-32">
         <div className="container mx-auto px-8 lg:px-16 py-20">
-          <h1 className="text-4xl font-bold mb-8 text-white font-syne">
+          <h1 className="text-4xl font-bold mb-8 text-black font-syne">
             Cookie <span className="text-custom-orange">Policy</span>
           </h1>
-          <div className="prose prose-lg max-w-none text-white font-jakarta space-y-8">
+          <div className="prose prose-lg max-w-none text-black font-jakarta space-y-8">
             <section>
               <h2 className="text-2xl font-bold mb-4 text-custom-orange">1. Introduction</h2>
               <p className="text-gray-300">

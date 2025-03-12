@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -276,7 +275,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Header />
       <Toaster />
       <main className="pb-0">
@@ -297,7 +296,7 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-syne"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4 font-syne"
                 >
                   Crafting <span className="text-custom-orange">Digital</span> Experiences
                 </motion.h1>
@@ -305,7 +304,7 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-gray-300 text-lg leading-relaxed mb-6 font-jakarta"
+                  className="text-gray-700 text-lg leading-relaxed mb-6 font-jakarta"
                 >
                   Zenith Studio is a forward-thinking digital agency dedicated to transforming ideas into impactful digital experiences. With a team of creative minds and technical experts, we craft solutions that drive growth and success for our clients worldwide.
                 </motion.p>
@@ -326,7 +325,7 @@ const About = () => {
                   <Button
                     asChild
                     variant="outline"
-                    className="border-custom-orange/20 text-white hover:bg-custom-orange/10 hover:border-custom-orange/40 font-jakarta"
+                    className="border-custom-orange/20 text-black hover:bg-custom-orange/10 hover:border-custom-orange/40 font-jakarta"
                   >
                     <Link to="/contact">
                       Contact Us
@@ -346,16 +345,16 @@ const About = () => {
           </div>
         </section>
 
-        {/* Stats Section - Reduced vertical spacing */}
-        <section className="py-10 stats-section">
+        {/* Stats Section */}
+        <section className="py-10 stats-section bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
-                <div key={index} className="stat-item text-center bg-black/30 border border-custom-orange/20 rounded-lg p-4 hover:border-custom-orange/40 transition-all">
+                <div key={index} className="stat-item text-center bg-white border border-custom-orange/20 rounded-lg p-4 hover:border-custom-orange/40 transition-all">
                   <div className="text-3xl md:text-4xl font-bold text-custom-orange mb-1 font-syne">
                     {stat.value}
                   </div>
-                  <div className="text-gray-300 text-sm font-medium font-jakarta">
+                  <div className="text-gray-700 text-sm font-medium font-jakarta">
                     {stat.label}
                   </div>
                 </div>
@@ -364,8 +363,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team Section - Reduced vertical spacing */}
-        <section className="py-12">
+        {/* Team Section */}
+        <section className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-10">
               <span className="inline-block text-custom-orange font-medium mb-2 font-jakarta">
@@ -407,8 +406,8 @@ const About = () => {
           </div>
         </section>
         
-        {/* Animated Tabs Section - Reduced vertical spacing */}
-        <section className="py-12 bg-black/40">
+        {/* Animated Tabs Section */}
+        <section className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-10">
               <span className="inline-block text-custom-orange font-medium mb-2 font-jakarta">
@@ -426,8 +425,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Timeline Section - Reduced vertical spacing */}
-        <section className="py-12 timeline-section">
+        {/* Timeline Section */}
+        <section className="py-12 timeline-section bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-10">
               <span className="inline-block text-custom-orange font-medium mb-2 font-jakarta">
@@ -472,8 +471,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* CTA Section - Reduced vertical spacing */}
-        <section className="py-12 bg-black/40">
+        {/* CTA Section */}
+        <section className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-syne">
