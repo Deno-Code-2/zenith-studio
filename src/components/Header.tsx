@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -84,10 +83,17 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
             <Button
-              variant="secondary"
+              asChild
+              variant="default"
               className="font-jakarta"
             >
-              Book A Call
+              <a 
+                href="https://calendly.com/syedmoinuddin106" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Book A Call
+              </a>
             </Button>
           </div>
 
@@ -132,6 +138,11 @@ const Header = () => {
               variant="secondary"
               className="w-full mt-4 font-jakarta"
             >
+              <a 
+                href="https://calendly.com/syedmoinuddin106" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              ></a>
               Book A Call
             </Button>
           </div>
