@@ -9,7 +9,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgencyShowcase from "@/components/AgencyShowcase";
 import { Button } from "@/components/ui/button";
-import Marquee from "@/components/Marquee";
 import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -198,21 +197,7 @@ const Projects = () => {
     }
   }, [activeFilter, projects]);
 
-  const FeaturedProjectsBanner = () => (
-    <div className="w-full overflow-hidden bg-gray-50 py-6 mb-12 border-y border-custom-orange/20">
-      <Marquee speed={60} pauseOnHover className="py-2">
-        {filterOptions.filter(option => option !== 'All').map((category) => (
-          <div 
-            key={category} 
-            className="flex items-center gap-3 mx-6 text-custom-orange font-jakarta"
-          >
-            <Sparkles className="h-4 w-4" />
-            <span>{category}</span>
-          </div>
-        ))}
-      </Marquee>
-    </div>
-  );
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -236,8 +221,6 @@ const Projects = () => {
             Explore our portfolio of successful projects. Each project represents our commitment to excellence and innovation in digital solutions.
           </motion.p>
         </div>
-
-        <FeaturedProjectsBanner />
 
         {/* Filter Options */}
         <div className="flex flex-wrap justify-center gap-4 mb-16">

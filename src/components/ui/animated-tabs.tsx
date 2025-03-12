@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -43,8 +42,8 @@ export const AnimatedTabs = ({
             className={cn(
               "relative px-4 py-2 font-medium text-sm sm:text-base transition-colors font-syne",
               activeTab === tab.value
-                ? "text-white " + activeTabClassName
-                : "text-neutral-400 hover:text-neutral-200 " + tabClassName
+                ? "text-black " + activeTabClassName
+                : "text-black hover:text-black/70 " + tabClassName
             )}
           >
             {activeTab === tab.value && (

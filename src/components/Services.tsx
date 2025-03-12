@@ -45,8 +45,6 @@ const Services = () => {
           <h2 className="text-5xl lg:text-6xl font-bold mb-4 font-syne text-black flex items-center justify-center">
             Reasons to Choose Zenith for <span className="inline-flex ml-2 items-center"><TextRotate
                 texts={[
-                  "Innovation",
-                  "Excellence",
                   "Growth",
                   "Success",
                   "Results",
