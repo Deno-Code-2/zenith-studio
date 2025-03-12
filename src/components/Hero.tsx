@@ -24,7 +24,7 @@ const Hero = () => {
           We're not just building websites – we're crafting digital experiences that drive growth and elevate your brand.
         </p>
         <div className="flex gap-4">
-          <Button className="bg-custom-orange hover:bg-custom-orange/90 font-jakarta">
+          <Button className="bg-custom-orange hover:bg-custom-orange/90 font-jakarta text-white">
             Get Started <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Button 

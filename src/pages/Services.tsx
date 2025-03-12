@@ -135,9 +135,9 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main>
+      <main className="bg-white">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-32 pt-28">
+        <section className="container mx-auto px-4 py-32 pt-28 bg-white">
           <div className="max-w-4xl mx-auto mb-16 text-center">
             <motion.span
               initial={{ opacity: 0 }}
@@ -170,7 +170,7 @@ const Services = () => {
                 className={`
                   rounded-full px-6 py-2 font-jakarta
                   ${activeFilter === option 
-                    ? "bg-custom-orange hover:bg-custom-orange/90 text-black" 
+                    ? "bg-custom-orange hover:bg-custom-orange/90 text-white" 
                     : "border-custom-orange/20 text-black hover:bg-custom-orange/10"}
                 `}
               >
@@ -185,7 +185,7 @@ const Services = () => {
               <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin"></div>
             </div>
           ) : filteredServices.length === 0 ? (
-            <div className="text-center py-16">
+            <div className="text-center py-16 bg-white">
               <h3 className="text-2xl text-black font-jakarta mb-4">No services found</h3>
               <p className="text-gray-600">Try selecting a different category or check back later.</p>
             </div>
@@ -259,7 +259,7 @@ const Services = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-20 process-section">
+        <section className="py-20 process-section bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <motion.span

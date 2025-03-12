@@ -64,7 +64,7 @@ const Feature = ({
   icon: React.ReactNode;
   index: number;
 }) => {
-  return <div className={cn("flex flex-col lg:border-r py-10 relative group/feature border-gray-200", 
+  return <div className={cn("flex flex-col lg:border-r py-10 relative group/feature border-gray-200 bg-white", 
     (index === 0 || index === 4) && "lg:border-l border-gray-200", 
     index < 4 && "lg:border-b border-gray-200")}>
       {index < 4 && <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-custom-orange/20 to-transparent pointer-events-none" />}

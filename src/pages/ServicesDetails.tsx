@@ -32,7 +32,7 @@ const ServicesDetails = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main className="pt-32 px-8 lg:px-16">
+      <main className="pt-32 px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ const ServicesDetails = () => {
             </p>
             <Button 
               size="lg"
-              className="bg-custom-orange hover:bg-custom-orange/90"
+              className="bg-custom-orange hover:bg-custom-orange/90 text-white"
               onClick={() => window.open("https://calendly.com/demo/30min", "_blank")}
             >
               Schedule a Call <ArrowRight className="ml-2 h-5 w-5" />

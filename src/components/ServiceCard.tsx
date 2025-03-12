@@ -38,7 +38,7 @@ const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
           </div>
         </div>
       </div>
-      <div className="p-6 relative">
+      <div className="p-6 relative bg-white">
         <div className="flex justify-between items-start mb-3">
           <h3 className="text-2xl font-bold text-black font-syne">{service.title}</h3>
           <div className="text-custom-orange text-xl font-bold font-syne">
