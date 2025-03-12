@@ -1,10 +1,9 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Cube3D } from "./Cube3D";
 import { Cover } from "@/components/ui/cover";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -24,8 +23,13 @@ const Hero = () => {
           We're not just building websites – we're crafting digital experiences that drive growth and elevate your brand.
         </p>
         <div className="flex gap-4">
-          <Button className="bg-custom-orange hover:bg-custom-orange/90 font-jakarta text-white">
-            Get Started <ArrowRight className="ml-2 h-4 w-4" />
+          <Button
+            asChild
+            variant="default"
+          >
+            <a href="https://ui.aceternity.com/components" target="_blank" rel="noopener noreferrer">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </Button>
           <Button 
             variant="default" 
