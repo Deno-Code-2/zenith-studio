@@ -28,8 +28,7 @@ const Hero = () => {
             Get Started <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Button 
-            variant="outline" 
-            className="border-custom-orange/20 text-black hover:bg-custom-orange/10 font-jakarta"
+            variant="default" 
             onClick={() => navigate('/projects')}
           >
             View Our Work
