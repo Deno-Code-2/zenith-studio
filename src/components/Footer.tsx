@@ -188,8 +188,8 @@ const Footer = () => {
       {/* Large Text at the Bottom */}
       <div className="mt-16 mb-8 relative">
         <div className="relative z-10">
-          <h2 className="text-[8vw] font-bold text-center opacity-20 font-syne tracking-tight">
-            Building The Future.
+          <h2 className="text-[5vw] font-bold text-center text-black opacity-20 font-syne tracking-tight">
+          Let’s build your website together
           </h2>
         </div>
       </div>

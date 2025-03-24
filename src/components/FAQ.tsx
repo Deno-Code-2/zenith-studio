@@ -8,33 +8,41 @@ const FAQ = () => {
 
   const faqItems = [
     {
-      question: "How long does it take to complete a web development project?",
-      answer: "The timeline varies depending on the project's complexity and requirements. Our team strives to deliver projects on time while maintaining the highest quality standards."
+      question: "How long does it take to create a website?",
+      answer: "The timeline depends on the complexity of the project. For smaller sites, it typically takes 1-3 weeks from start to finish. Larger or more complex sites, especially those requiring custom functionality or intricate animations, may take longer. We’ll discuss a more detailed timeline during our initial call."
     },
     {
-      question: "Can you create a responsive website design that looks great on all devices?",
-      answer: "Yes, we specialize in creating fully responsive websites that provide an optimal viewing experience across all devices, from mobile phones to desktop computers."
+      question: "What kind of companies do you usually work with?",
+      answer: "We’ve worked with companies of all sizes—from early-stage startups with just 1-2 people to enterprise teams with 30-40 people on meeting calls. At the end of the day, it’s less about the size of your company and more about the project and the quality of the design."
     },
     {
-      question: "What digital marketing strategies do you employ to drive website traffic?",
-      answer: "We employ a comprehensive digital marketing approach including SEO, content marketing, social media marketing, and paid advertising to drive targeted traffic to your website."
+      question: "Will my site be responsive on all devices?",
+      answer: "Yes! Every site we build is fully responsive, ensuring it works smoothly on desktops, tablets, and mobile devices. In most cases, we can also help create the mobile layouts directly in Webflow, saving your team hours of work. With our design background, we can handle the responsive adjustments in much less time, allowing you to focus on the next page instead of preparing mobile versions in Figma."    
     },
     {
-      question: "Can you handle large-scale mobile app development projects?",
-      answer: "Yes, our experienced team has successfully delivered numerous large-scale mobile applications across various industries."
+      question: "What does your process looks like??",
+      answer: "We keep things simple—no unnecessary meetings, no endless back-and-forth. You’ll be working directly with one or two of us throughout the project, ensuring crystal-clear communication and a streamlined process. Once the design is ready (or partially ready), we’ll have a quick kick-off or handover call to align on design, animations, and expected behaviors. From there, we break it down into clear deliverables and start checking off pages one by one. The bulk of the time is spent building. As key sections take shape, we’ll share a staging link for feedback while continuing development. Most of our updates happen via Google Meet to keep things efficient—unless you prefer otherwise."
     },
     {
-      question: "Can you integrate third-party APIs into our mobile app?",
-      answer: "Yes, we have extensive experience integrating various third-party APIs to enhance app functionality and user experience."
+      question: "Do I need to have the design?",
+      answer: "Having the design ready is ideal, as it allows us to dive straight into important discussions and accurately scope the project. Seeing the full design—including interactions and details—makes it much easier to estimate the timeline and cost. The clearer the design, the smoother the process. That said, if you don’t have the design yet, we can still start initial discussions, reserve time in our schedule, and even assist during the design phase. By collaborating early, we can ensure everything is feasible and set you up for a smooth development process once the design is finalized."
     },
     {
-      question: "How do you ensure cross-platform compatibility for mobile apps?",
-      answer: "We use modern frameworks and follow best practices to ensure our apps work seamlessly across different platforms and devices."
+      question: "How much does it cost?",
+      answer: "Our projects start at 800$ - $1,000, with a standard 8-page website typically costing around $3,500–$5,000. For ongoing maintenance, we charge $100/hour, and you only pay for the time you actually use—no monthly fees unless work is done. So, if you go three months without any updates, there will be no charges during that period. We believe in keeping our pricing transparent, flexible, and straightforward.",
     },
     {
-      question: "Do you offer maintenance services for websites and apps developed by other companies?",
-      answer: "Yes, we provide comprehensive maintenance services for existing websites and applications, regardless of who developed them."
-    }
+      question: "Will you prepare our site for SEO?",
+      answer: "Yes, we make sure your site follows SEO best practices—clean code, proper structure, meta tags, and optimized images. But it’s important to note that good SEO takes time, plenty of content, and sometimes even a bit of luck. While we’ll ensure everything’s up to standard, being #1 on Google with a one-page site might be as likely as winning the lottery—possible, but don’t bank on it!",
+    },
+    {
+      question: "Do you handle migrating my old site?",
+      answer: "Yes, we handle site migrations as part of our services. Whether you’re moving from another platform or just updating an existing site, we’ll ensure a smooth transition. We’ll work closely with you to migrate your content, design, and functionality to Webflow, minimizing downtime and preserving your SEO rankings. Just let us know your current setup, and we’ll take care of the rest!",
+    },
+    {
+      question: "When can you start?",
+      answer: "We typically can start within a week of our initial discussions. While we’ve handled tight deadlines before, to ensure a smooth process, it’s best to initiate the conversation with us as early as possible—ideally alongside your design partner or agency. This way, we can adjust our schedule and be ready to kick off your project on time.",
+    },
   ];
 
   const filteredFAQs = faqItems.filter(item =>
