@@ -47,8 +47,6 @@ function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:id" element={<ServicesDetailsPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/:id" element={<BlogPostPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
