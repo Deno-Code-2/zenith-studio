@@ -4,10 +4,19 @@ import { CheckCircle2 } from "lucide-react";
 
 const AgencyShowcase = () => {
   const stats = [
-    { value: "26+", label: "Projects Delivered" },
-    { value: "2", label: "Years Experience" },
+    { value: "350+", label: "Projects Delivered" },
+    { value: "8+", label: "Years Experience" },
     { value: "98%", label: "Client Satisfaction" },
     { value: "24/7", label: "Customer Support" },
+  ];
+
+  const benefits = [
+    "Client-focused approach with dedicated project managers",
+    "Transparent pricing and clear communication throughout",
+    "Adherence to deadlines and project timelines",
+    "Post-launch support and optimization services",
+    "Continuous updates on project progress",
+    "Expert team of designers, developers, and strategists"
   ];
 
   return (
@@ -51,7 +60,33 @@ const AgencyShowcase = () => {
             ))}
           </div>
 
-          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <h3 className="text-2xl font-bold text-black mb-6 font-syne">
+                Our Commitment to <span className="text-custom-orange">Excellence</span>
+              </h3>
+
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-3"
+                >
+                  <CheckCircle2 className="h-5 w-5 text-custom-orange flex-shrink-0 mt-0.5" />
+                  <p className="text-gray-600 font-jakarta">{benefit}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -60,13 +95,14 @@ const AgencyShowcase = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img
-                src="/images/My-Logo.png"
+                src="/lovable-uploads/990fd2eb-d75f-4db6-a0cb-4fd5af08e5f3.png"
                 alt="Agency Team"
                 className="w-full h-auto"
               />
             </motion.div>
           </div>
         </div>
+      </div>
     </section>
   );
 };
