@@ -8,7 +8,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import ServicesDetails from "./ServicesDetails";
+import ServiceCard from "@/components/ServiceCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -192,7 +192,7 @@ const Services = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {filteredServices.map((service) => (
-                <ServicesDetails key={service.id} {...service} />
+                <ServiceCard key={service.id} service={service} />
               ))}
             </div>
           )}
