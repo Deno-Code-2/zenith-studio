@@ -4,36 +4,36 @@ import { IconAdjustmentsBolt, IconCloud, IconCurrencyDollar, IconEaseInOut, Icon
 
 const Features = () => {
   const features = [{
-    title: "Built for Creators",
-    description: "Designed for visionary developers, designers, and entrepreneurs who want to bring their ideas to life effortlessly.",
+    title: "Built for developers",
+    description: "Built for engineers, developers, dreamers, thinkers and doers.",
     icon: <IconTerminal2 className="w-6 h-6" />
   }, {
-    title: "User-Friendly",
-    description: "Simplicity at its best—just like your favorite tech. We focus on making complex things easy without sacrificing quality.",
+    title: "Ease of use",
+    description: "It's as easy as using an Apple, and as expensive as buying one.",
     icon: <IconEaseInOut className="w-6 h-6" />
   }, {
-    title: "Transparent Pricing",
-    description: "Clear, honest pricing with no hidden fees. You pay for what you use—nothing more, nothing less.",
+    title: "Pricing like no other",
+    description: "Our prices are best in the market. No cap, no lock, no credit card required.",
     icon: <IconCurrencyDollar className="w-6 h-6" />
   }, {
-    title: "Reliability Guaranteed",
-    description: "We ensure your site runs flawlessly, 24/7. Trust in a seamless experience that never goes down.",
+    title: "100% Uptime guarantee",
+    description: "We just cannot be taken down by anyone.",
     icon: <IconCloud className="w-6 h-6" />
   }, {
-    title: "Scalable Solutions",
-    description: "Our architecture adapts to your needs—whether you’re growing your business or managing multiple clients.",
+    title: "Multi-tenant Architecture",
+    description: "You can simply share passwords instead of buying new seats",
     icon: <IconRouteAltLeft className="w-6 h-6" />
   }, {
-    title: "Support, Always",
-    description: "We're here when you need us—whether it’s us or our AI agents, we’re always available to solve your problems.",
+    title: "24/7 Customer Support",
+    description: "We are available a 100% of the time. Atleast our AI Agents are.",
     icon: <IconHelp className="w-6 h-6" />
   }, {
-    title: "Risk-Free Satisfaction",
-    description: "Not satisfied? We'll work with you until we get it right—or we’ll offer a refund, no questions asked.",
+    title: "Money back guarantee",
+    description: "If you donot like EveryAI, we will convince you to like us.",
     icon: <IconAdjustmentsBolt className="w-6 h-6" />
   }, {
-    title: "And Beyond",
-    description: "Our commitment goes beyond just the basics. We’re here to keep innovating and delivering beyond your expectations.",
+    title: "And everything else",
+    description: "I just ran out of copy ideas. Accept my sincere apologies",
     icon: <IconHeart className="w-6 h-6" />
   }];
   return <div className="py-20 bg-white">

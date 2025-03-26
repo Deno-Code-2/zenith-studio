@@ -16,10 +16,13 @@ const Hero = () => {
         className="max-w-3xl space-y-6 z-10 mt-[-20vh]"
       >
         <h2 className="text-4xl lg:text-6xl font-bold leading-tight text-black font-syne">
-          We are Zenith Studio-
+          We are
+        </h2>
+        <h2 className="text-5xl lg:text-7xl font-bold leading-tight text-black font-syne">
+          Zenith Studio
         </h2>
         <h2 className="text-4xl lg:text-6xl font-bold leading-tight text-black font-syne">
-        Where <Cover className="text-custom-orange">Ideas</Cover>Go Live.
+          <Cover className="text-custom-orange">Vision Makers</Cover>
         </h2>
         <p className="text-xl text-gray-700 leading-relaxed font-jakarta">
           We design, build, and refine websites with precision—seamlessly blending aesthetics with functionality. No fluff, no hassle—just results. Sit back while we bring your vision to life.
@@ -30,7 +33,7 @@ const Hero = () => {
               Get Started <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <Button variant="link" onClick={() => navigate('/projects')} className="text-custom-orange">
+          <Button variant="default" onClick={() => navigate('/projects')}>
             View Our Work
           </Button>
         </div>
