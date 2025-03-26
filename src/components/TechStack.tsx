@@ -83,7 +83,7 @@ const TechStack = () => {
         className="container mx-auto px-8 lg:px-16"
       >
         <h2 className="text-4xl lg:text-5xl font-bold mb-12 text-center text-black font-syne">
-          Tech Stack We Use
+          Tech <span className="text-custom-orange">Stack</span> We Use
         </h2>
         
         <div className="relative mt-6">
