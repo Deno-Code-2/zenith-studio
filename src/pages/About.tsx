@@ -1,14 +1,18 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CheckCircle2, ChevronRight, Rocket, Lightbulb, Users, Clock } from "lucide-react";
+import { 
+  ChevronRight, 
+  Rocket, 
+  Lightbulb, 
+  Users
+ } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Cube3D } from "@/components/Cube3D";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { AnimatedTabs } from "@/components/ui/animated-tabs";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -363,51 +367,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="text-center mb-10">
-              <span className="inline-block text-custom-orange font-medium mb-2 font-jakarta">
-                Meet The Team
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 font-syne">
-                The <span className="text-custom-orange">Creative Minds</span> Behind Our Success
-              </h2>
-              <p className="text-black max-w-3xl mx-auto text-sm md:text-base font-jakarta">
-                Our team of talented professionals brings diverse expertise and a shared passion for digital excellence to every project we undertake.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { name: "Syed Moinuddin", role: "Founder & CEO", image: "/lovable-uploads/c56e51e7-ddcf-4b55-8a37-33329ec603c7.png" },
-                { name: "Sarah Chen", role: "Creative Director", image: "/lovable-uploads/53ba9584-ecb7-4e75-95ee-504dc9872b0f.png" },
-                { name: "David Kim", role: "Lead Developer", image: "/lovable-uploads/2866c035-24bd-4228-bf9f-af01f2e821da.png" },
-                { name: "Lisa Patel", role: "Marketing Strategist", image: "/lovable-uploads/cef3806d-cc75-44b0-9a49-bb61a1cf12ef.png" }
-              ].map((member, index) => (
-                <div 
-                  key={index}
-                  className="bg-black border border-black rounded-xl overflow-hidden hover:border-custom-orange/40 transition-all group"
-                >
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <h3 className="text-base md:text-lg font-bold text-white mb-0 font-syne">{member.name}</h3>
-                    <p className="text-custom-orange text-xs font-jakarta">{member.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        
         {/* Animated Tabs Section */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-10">
               <span className="inline-block text-custom-orange font-medium mb-2 font-jakarta">

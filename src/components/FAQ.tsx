@@ -58,7 +58,7 @@ const FAQ = () => {
             <span className="text-custom-orange">Asked</span> <span className="text-black">Questions</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8 font-jakarta">
-            Got questions? We've got answers. Check out our frequently asked questions section to find valuable insights into our processes, pricing, and more. Transparency is at the core of our client interactions.
+            Got questions? We've got answers.
           </p>
           <div className="relative max-w-xl mx-auto">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
