@@ -65,14 +65,14 @@ const Footer = () => {
       { name: "About", href: "/about" },
       { name: "Services", href: "/services" },
       { name: "Projects", href: "/projects" },
-      { name: "Blog", href: "/blog" },
+     // { name: "Blog", href: "/blog" },
       { name: "Pricing", href: "/pricing" },
     ],
     contact: [
       { name: "Contact Us", href: "/contact" },
       { name: "support@zenithstudio.com", href: "mailto:support@zenithstudio.com" },
       { name: "+91 9108041057", href: "tel:+919108041057" },
-      { name: "HSR Layout, Bangalore, India 560102", href: "#" },
+      { name: "Bangalore, India 560102", href: "#" },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy" },
@@ -82,9 +82,6 @@ const Footer = () => {
   };
 
   const socialIcons = [
-    { icon: Facebook, href: "https://facebook.com" },
-    { icon: Twitter, href: "https://twitter.com" },
-    { icon: Instagram, href: "https://instagram.com" },
     { icon: Linkedin, href: "https://linkedin.com" },
   ];
 
@@ -180,7 +177,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground font-jakarta">
-            &copy; {currentYear} Zenith Studio. All rights reserved.
+            &copy; {currentYear} copyright Zenith Studio. All rights reserved.
           </p>
         </div>
       </div>
