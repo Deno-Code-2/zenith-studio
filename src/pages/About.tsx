@@ -81,7 +81,7 @@ const About = () => {
       description: "Formed strategic partnerships with leading technology providers."
     },
     {
-      year: "2023",
+      year: "20232023",
       title: "Global Expansion",
       description: "Expanded our services to clients across multiple countries."
     }
