@@ -9,6 +9,7 @@ import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
 import Features from "@/components/Features";
 import FAQ from "@/components/FAQ";
+import WallOfLoveSection from "@/components/Testimonials";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
         <Services />
         <RecentProjects />
         <AgencyShowcase />
+        <WallOfLoveSection/>
         <FAQ />
         <Footer />
       </div>

@@ -1,12 +1,13 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import { Safari } from "./magicui/safari";
 
 const AgencyShowcase = () => {
   const stats = [
-    { value: "350+", label: "Projects Delivered" },
-    { value: "8+", label: "Years Experience" },
-    { value: "98%", label: "Client Satisfaction" },
+    { value: "15+", label: "Projects Delivered" },
+    { value: "2+", label: "Years Experience" },
+    { value: "88%", label: "Client Satisfaction" },
     { value: "24/7", label: "Customer Support" },
   ];
 
@@ -92,13 +93,15 @@ const AgencyShowcase = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="rounded-2xl overflow-hidden shadow-md"
+              className="overflow-hidden shadow-md size-full"
             >
-              <img
-                src="/lovable-uploads/990fd2eb-d75f-4db6-a0cb-4fd5af08e5f3.png"
-                alt="Agency Team"
-                className="w-full h-auto"
-              />
+                  <div className="relative">
+                    <Safari
+                        url="zenithstudio.xyz"
+                        className="size-full"
+                        imageSrc="/images/Zenith Studio.png"
+                      />
+                  </div>
             </motion.div>
           </div>
         </div>
