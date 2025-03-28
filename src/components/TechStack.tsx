@@ -113,14 +113,14 @@ export default function LogoCloud() {
                         <a href="https://gitlab.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
                             <img
                                 className="mx-auto h-10 w-fit"
-                                src="https://upload.wikimedia.org/wikipedia/commons/1/18/GitLab_Logo.svg"
+                                src="/images/gitlab-logo.jpg"
                                 alt="GitLab Logo"
                             />
                         </a>
 
                         <a href="https://www.postman.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
                             <img
-                                className="mx-auto h-9 w-fit"
+                                className="mx-auto h-11 w-fit"
                                 src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png"
                                 alt="Postman Logo"
                             />
@@ -172,14 +172,6 @@ export default function LogoCloud() {
                                 className="mx-auto h-9 w-fit"
                                 src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
                                 alt="PayPal Logo"
-                            />
-                        </a>
-
-                        <a href="https://wise.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                            <img
-                                className="mx-auto h-9 w-fit"
-                                src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Wise_logo.svg"
-                                alt="Wise Logo"
                             />
                         </a>
 
