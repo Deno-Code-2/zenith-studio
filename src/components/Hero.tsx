@@ -16,7 +16,7 @@ const Hero = () => {
         className="max-w-3xl space-y-6 z-10 mt-[-20vh]"
       >
         <h2 className="text-4xl lg:text-6xl font-bold leading-tight text-black font-syne text">
-          We are Zenith Studio -
+          We are Zenith Studio
         </h2>
         <h2 className="text-4xl lg:text-6xl font-bold leading-tight text-black font-syne">
         Where <Cover className="text-custom-orange">Ideas</Cover> Go Live. 
