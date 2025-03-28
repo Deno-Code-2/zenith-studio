@@ -82,7 +82,7 @@ const Footer = () => {
   };
 
   const socialIcons = [
-    { icon: Linkedin, href: "https://linkedin.com" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/zenithstudio-1/" },
   ];
 
   return (
