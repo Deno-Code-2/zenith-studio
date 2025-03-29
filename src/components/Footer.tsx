@@ -70,9 +70,8 @@ const Footer = () => {
     ],
     contact: [
       { name: "Contact Us", href: "/contact" },
-      { name: "support@zenithstudio.com", href: "mailto:support@zenithstudio.com" },
+     // { name: "support@zenithstudio.com", href: "mailto:support@zenithstudio.com" },
       { name: "+91 9108041057", href: "tel:+919108041057" },
-      { name: "Bangalore, India 560102", href: "#" },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy" },
@@ -186,7 +185,7 @@ const Footer = () => {
       <div className="mt-16 mb-8 relative">
         <div className="relative z-10">
           <h2 className="text-[5vw] font-bold text-center text-black opacity-20 font-syne tracking-tight">
-          Let’s build your website together
+          Let’s build your website together.
           </h2>
         </div>
       </div>

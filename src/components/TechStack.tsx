@@ -142,14 +142,6 @@ export default function LogoCloud() {
                             />
                         </a>
 
-                        <a href="https://redis.io" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                            <img
-                                className="mx-auto h-10 w-fit"
-                                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Redis_Logo.svg"
-                                alt="Redis Logo"
-                            />
-                        </a>
-
                         {/* AI & Payments */}
                         <a href="https://openai.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
                             <img

@@ -128,16 +128,16 @@ const Contact = () => {
                   <Phone className="w-8 h-8 text-custom-orange mb-4" />
                   <h3 className="text-xl font-bold text-black mb-2 font-syne">Call Us</h3>
                   <a href="tel:+1234567890" className="text-gray-700 hover:text-custom-orange transition-colors font-jakarta">
-                    +1 (234) 567-890
+                    +91 9108041057
                   </a>
                 </div>
-                <div className="p-6 border border-custom-orange/20 rounded-lg bg-white shadow-sm hover:border-custom-orange transition-colors">
+                {/*<div className="p-6 border border-custom-orange/20 rounded-lg bg-white shadow-sm hover:border-custom-orange transition-colors">
                   <MapPin className="w-8 h-8 text-custom-orange mb-4" />
                   <h3 className="text-xl font-bold text-black mb-2 font-syne">Visit Us</h3>
                   <p className="text-gray-700 font-jakarta">
                     123 Innovation Street, Tech Valley, CA 94025
                   </p>
-                </div>
+                </div>*/}
               </div>
             </motion.div>
 
@@ -151,7 +151,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 mb-2 font-jakarta">Name</label>
+                    <label className="block text-black mb-2 font-jakarta">Name</label>
                     <input 
                       type="text" 
                       value={formData.name}
@@ -162,7 +162,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-400 mb-2 font-jakarta">Email</label>
+                    <label className="block text-black mb-2 font-jakarta">Email</label>
                     <input 
                       type="email" 
                       value={formData.email}
@@ -174,7 +174,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-gray-400 mb-2 font-jakarta">Subject</label>
+                  <label className="block text-black mb-2 font-jakarta">Subject</label>
                   <input 
                     type="text" 
                     value={formData.subject}
@@ -186,7 +186,7 @@ const Contact = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 mb-2 font-jakarta">Price Range</label>
+                    <label className="block text-black mb-2 font-jakarta">Price Range</label>
                     <select 
                       value={formData.price_range}
                       onChange={(e) => setFormData({...formData, price_range: e.target.value})}
@@ -200,7 +200,7 @@ const Contact = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-gray-400 mb-2 font-jakarta">Service Type</label>
+                    <label className="block text-black mb-2 font-jakarta">Service Type</label>
                     <select 
                       value={formData.service_type}
                       onChange={(e) => setFormData({...formData, service_type: e.target.value})}
@@ -215,7 +215,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-gray-400 mb-2 font-jakarta">Message</label>
+                  <label className="block text-black mb-2 font-jakarta">Message</label>
                   <textarea 
                     rows={4} 
                     value={formData.message}
