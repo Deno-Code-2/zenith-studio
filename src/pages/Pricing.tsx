@@ -8,70 +8,64 @@ import AgencyShowcase from "@/components/AgencyShowcase";
 const Pricing = () => {
   const plans = [
     {
-      title: "Existing Components",
-      subtitle: "Free",
-      description: "All the components that are freely available on the website are free to use.",
+      title: "Starter Package",
+      subtitle: "$1,999",
+      description: "For solopreneurs & small businesses. Launch fast with essential features.",
       features: [
-        "A growing library of awesome components",
-        "React / Next.js / Tailwind CSS code",
-        "Serves a wide variety of audience",
-        "MIT Licence. Personal or commercial projects",
-        "Contact over chat for support"
+        "Custom Website (up to 5 pages)",
+        "Basic SaaS Setup (1-2 core features)",
+        "Mobile-App Ready (React Native base)",
+        "E-Commerce Lite (Payments + Catalog)",
+        "20 Client Revisions",
+        "API Integration (Stripe, Google, etc.)",
+        "Source Code Ownership",
+        "1-Month Social Media Management",
+        "SEO Audit Report",
+        "Logo + Brand Guide"
       ],
-      buttonText: "Browse Components",
+      buttonText: "Get Started",
       highlighted: false
     },
     {
-      title: "Custom Components",
-      subtitle: "$4995/mo",
-      description: "Standalone components tailored to your needs and easily integrated. Perfect for website elements or sections.",
+      title: "Growth Package",
+      subtitle: "$4,999",
+      description: "For scaling startups & established businesses. Our most popular plan.",
       features: [
-        "As many components as possible in a month",
-        "React / Next.js / Tailwind CSS code",
-        "Design + Development",
+        "Advanced Website (up to 10 pages)",
+        "Full SaaS Platform (User auth, dashboard)",
+        "Cross-Platform Mobile App",
+        "E-Commerce Pro (Checkout, subscriptions)",
+        "1 Year Free Maintenance",
         "Unlimited Revisions",
-        "24-hour support response time",
-        "Private communication channel",
-        "4-7 days turnaround time",
-        "Pause or cancel anytime"
+        "AI Chatbot Integration",
+        "Figma Design Files",
+        "Custom CMS (Blog, portfolios)",
+        "3-Month Social Media Ads",
+        "On-Page SEO",
+        "Monthly Analytics Reports",
+        "Complete Branding Package"
       ],
-      buttonText: "Buy Now",
-      highlighted: false
-    },
-    {
-      title: "Pages",
-      subtitle: "$6995/mo",
-      description: "Best for early-stage startups and businesses that need a marketing site and ongoing developmental work.",
-      features: [
-        "One request / page at a time",
-        "React / Next.js / Tailwind CSS code",
-        "Design + Development",
-        "Unlimited Revisions",
-        "CMS integration",
-        "Search Engine Optimization",
-        "24-hour support response time",
-        "Private communication channel",
-        "7-10 days turnaround time",
-        "Pause or cancel anytime"
-      ],
-      buttonText: "Buy Now",
+      buttonText: "Choose Plan",
       highlighted: true
     },
     {
-      title: "Multi Page Website",
-      subtitle: "$19,499",
-      description: "Best for small businesses and startups that need a performant website that looks great and converts visitors to customers.",
+      title: "Enterprise Package",
+      subtitle: "$12,999",
+      description: "For corporations & high-traffic platforms. White-glove service included.",
       features: [
-        "Multi-page landing page website",
-        "Web Apps and SaaS Development",
-        "AI Apps development",
-        "Design + Development",
-        "24-hour support response time",
-        "Private communication channel",
-        "Unlimited Revisions",
-        "Negotiable delivery time"
+        "30+ Page Website (Next.js optimized)",
+        "MVP Development (Full-stack SaaS)",
+        "App Prototype + User Testing",
+        "E-Commerce Ultra (Multi-currency, AI)",
+        "3-Month Priority Support",
+        "42 Blog Posts (SEO-optimized)",
+        "Multilingual Setup",
+        "Email Marketing System",
+        "Security Hardening",
+        "Mobile/Tablet Optimization",
+        "Dedicated Training Session"
       ],
-      buttonText: "Contact Us",
+      buttonText: "Contact Sales",
       highlighted: false
     }
   ];
@@ -133,7 +127,6 @@ const Pricing = () => {
           </div>
         </div>
       </section>
-
       <AgencyShowcase />
       <Footer />
     </main>
