@@ -8,7 +8,7 @@ export default function LogoCloud() {
                 {/* Moved heading to top center */}
                 <div className="text-center mb-10">
                     <h2 className="text-2xl md:text-3xl font-bold text-black font-syne">
-                        Tech <span className="text-custom-orange">Stack</span> We Use
+                    The Tech <span className="text-custom-orange">stack</span> We Use <span className="text-custom-orange">For You.</span>
                     </h2>
                 </div>
 

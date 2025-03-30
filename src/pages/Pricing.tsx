@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -8,62 +7,100 @@ import AgencyShowcase from "@/components/AgencyShowcase";
 const Pricing = () => {
   const plans = [
     {
-      title: "Starter Package",
-      subtitle: "$1,999",
-      description: "For solopreneurs & small businesses. Launch fast with essential features.",
+      title: "Silver Package",
+      price: "₹1,35,000",
+      billing: "one-time payment",
+      description: "Ideal for individuals and small businesses",
       features: [
-        "Custom Website (up to 5 pages)",
-        "Basic SaaS Setup (1-2 core features)",
-        "Mobile-App Ready (React Native base)",
-        "E-Commerce Lite (Payments + Catalog)",
-        "20 Client Revisions",
-        "API Integration (Stripe, Google, etc.)",
-        "Source Code Ownership",
-        "1-Month Social Media Management",
-        "SEO Audit Report",
-        "Logo + Brand Guide"
+        "Custom website design (up to 5 pages)",
+        "Basic SaaS application setup",
+        "Simple mobile application development",
+        "Basic e-commerce website setup",
+        "Up to 20 client revisions",
+        "Core API Integration",
+        "Full source code ownership",
+        "1 month social media management",
+        "Performance optimization report",
+        "SEO audit report",
+        "Logo design consultation",
+        "Basic branding guidance",
+        "2 weeks delivery time"
       ],
-      buttonText: "Get Started",
+      buttonText: "Choose Silver",
       highlighted: false
     },
     {
-      title: "Growth Package",
-      subtitle: "$4,999",
-      description: "For scaling startups & established businesses. Our most popular plan.",
+      title: "Golden Package",
+      price: "₹3,50,000",
+      billing: "one-time payment",
+      description: "Perfect for growing businesses and teams",
       features: [
-        "Advanced Website (up to 10 pages)",
-        "Full SaaS Platform (User auth, dashboard)",
-        "Cross-Platform Mobile App",
-        "E-Commerce Pro (Checkout, subscriptions)",
-        "1 Year Free Maintenance",
-        "Unlimited Revisions",
-        "AI Chatbot Integration",
-        "Figma Design Files",
-        "Custom CMS (Blog, portfolios)",
-        "3-Month Social Media Ads",
-        "On-Page SEO",
-        "Monthly Analytics Reports",
-        "Complete Branding Package"
+        "Custom website (up to 10 pages)",
+        "Complete SaaS platform development",
+        "Cross-platform mobile app",
+        "Advanced e-commerce setup",
+        "1 YEAR free maintenance",
+        "Unlimited client revisions",
+        "API + CMS integration",
+        "Source code + Figma files",
+        "AI chatbot integration",
+        "3 months social media marketing",
+        "Basic SEO implementation",
+        "Monthly performance reports",
+        "Premium brand identity package",
+        "3 weeks delivery time"
       ],
-      buttonText: "Choose Plan",
+      buttonText: "Choose Golden",
       highlighted: true
     },
     {
-      title: "Enterprise Package",
-      subtitle: "$12,999",
-      description: "For corporations & high-traffic platforms. White-glove service included.",
+      title: "Platinum Package",
+      price: "₹8,75,000",
+      billing: "one-time payment",
+      description: "For established businesses needing advanced solutions",
       features: [
-        "30+ Page Website (Next.js optimized)",
-        "MVP Development (Full-stack SaaS)",
-        "App Prototype + User Testing",
-        "E-Commerce Ultra (Multi-currency, AI)",
-        "3-Month Priority Support",
-        "42 Blog Posts (SEO-optimized)",
-        "Multilingual Setup",
-        "Email Marketing System",
-        "Security Hardening",
-        "Mobile/Tablet Optimization",
-        "Dedicated Training Session"
+        "Custom website (up to 20 pages)",
+        "MVP development (Next.js powered)",
+        "Mobile app prototype",
+        "Enterprise e-commerce solution",
+        "6 months priority maintenance",
+        "Unlimited revisions",
+        "API + CMS + database integration",
+        "Complete source code transfer",
+        "6 months social media content",
+        "Advanced SEO + analytics",
+        "20 professional blog posts",
+        "Multilingual website setup",
+        "Email marketing system",
+        "Security hardening",
+        "Dedicated training session",
+        "4 weeks delivery time"
+      ],
+      buttonText: "Choose Platinum",
+      highlighted: false
+    },
+    {
+      title: "Custom Enterprise",
+      price: "Custom Quote",
+      billing: "tailored payment plans",
+      description: "For large-scale operations and corporations",
+      features: [
+        "Unlimited pages website",
+        "Custom SaaS product development",
+        "iOS/Android mobile apps",
+        "Scalable e-commerce platform",
+        "Ongoing maintenance contracts",
+        "Unlimited revisions",
+        "Complex system integrations",
+        "White-label solutions",
+        "1 year social media management",
+        "Enterprise SEO strategy",
+        "42+ professional blog posts",
+        "Multi-language support",
+        "Advanced email marketing",
+        "Enterprise security setup",
+        "Dedicated account manager",
+        "Custom delivery timeline"
       ],
       buttonText: "Contact Sales",
       highlighted: false
@@ -77,36 +114,61 @@ const Pricing = () => {
       <section className="pt-28 pb-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-black font-syne mb-6">
-              Need custom components or websites?<br />
-              <span className="text-custom-orange">We've got you covered</span>
+            <h2 className="text-lg font-medium text-custom-orange mb-2 font-jakarta">
+              Choose the plan that suits you
+            </h2>
+            <h1 className="text-4xl md:text-5xl font-bold text-black font-syne mb-6">
+              Transparent <span className="text-custom-orange">Pricing</span>
             </h1>
             <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
-              From custom components to complete website tailored to your needs. Simple pricing, no hidden fees.
-              Choose the perfect plan for your agency's needs
+              Budget-friendly solutions with no hidden costs. Everything included as mentioned.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map((plan, index) => (
               <div
                 key={plan.title}
-                className={`relative p-8 rounded-xl border ${
-                  plan.highlighted
-                    ? "border-custom-orange bg-custom-orange/5"
-                    : "border-custom-orange/20 hover:border-custom-orange/40"
-                } transition-all duration-300`}
+                className={`relative p-6 rounded-lg border-2 transition-all duration-300 flex flex-col h-full group
+                  ${
+                    plan.highlighted 
+                      ? "border-custom-orange bg-custom-orange/5 shadow-md" 
+                      : "border-gray-200 hover:border-custom-orange"
+                  }`}
               >
-                <div className="mb-8">
-                  <h3 className="text-custom-orange mb-2 font-jakarta">{plan.title}</h3>
-                  <div className="text-3xl font-bold text-black mb-4 font-syne">{plan.subtitle}</div>
-                  <p className="text-gray-700 text-sm font-jakarta">{plan.description}</p>
+                {plan.highlighted && (
+                  <div className="absolute top-0 right-0 bg-custom-orange text-black px-3 py-1 rounded-bl-lg rounded-tr-lg text-xs font-bold">
+                    POPULAR CHOICE
+                  </div>
+                )}
+                
+                <div className="mb-6">
+                  <h3 className="text-lg font-bold text-black mb-1 font-syne">
+                    {plan.title}
+                  </h3>
+                  <div className="flex items-end gap-1 mb-2">
+                    <span className="text-3xl font-bold text-black font-syne">
+                      {plan.price}
+                    </span>
+                    {plan.price !== "Custom Quote" && (
+                      <span className="text-gray-500 text-sm mb-1">/ INR</span>
+                    )}
+                  </div>
+                  <p className="text-xs text-gray-500 uppercase mb-3 font-jakarta">
+                    {plan.billing}
+                  </p>
+                  <p className="text-gray-700 text-sm font-jakarta">
+                    {plan.description}
+                  </p>
                 </div>
 
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-3 mb-8 flex-grow">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3 text-gray-700 font-jakarta">
-                      <Check className="w-5 h-5 text-custom-orange flex-shrink-0 mt-1" />
+                    <li 
+                      key={featureIndex} 
+                      className="flex items-start gap-2 text-gray-700 text-sm font-jakarta"
+                    >
+                      <Check className="w-4 h-4 text-custom-orange flex-shrink-0 mt-1" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -114,10 +176,10 @@ const Pricing = () => {
 
                 <Button
                   variant="default"
-                  className={`w-full ${
+                  className={`w-full mt-auto font-medium group-hover:bg-black group-hover:text-white transition-all duration-300 ${
                     plan.highlighted
                       ? "bg-custom-orange hover:bg-custom-orange/90 text-black"
-                      : "bg-white border border-custom-orange/20 hover:border-custom-orange text-black"
+                      : "bg-white border border-custom-orange text-black"
                   }`}
                 >
                   {plan.buttonText}
