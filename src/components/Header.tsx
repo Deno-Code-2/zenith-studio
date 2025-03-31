@@ -8,32 +8,62 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const [logoTextIndex, setLogoTextIndex] = useState(0);
+  const [currentTime, setCurrentTime] = useState("");
+
+  const textVariations = [
+    "Zenith Studio", // Default (index 0)
+    "Definitely not SVG",
+    "Web Dev",
+    "superheroes",
+    "running out of ideas",
+    "DM for your projects now",
+    "Book A Call Now",
+    "check the projects pls",
+    "stop now",
+    "for real?",
+    "one more",
+    "maybe one more"
+  ];
+
+  // Update IST time every second
+  useEffect(() => {
+    const updateTime = () => {
+      const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      };
+      const formatter = new Intl.DateTimeFormat('en-IN', options);
+      setCurrentTime(formatter.format(new Date()));
+    };
+
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLogoClick = () => {
+    setLogoTextIndex((prev) => (prev + 1) % textVariations.length);
   };
 
   const navigation = [
@@ -42,9 +72,19 @@ const Header = () => {
     { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
     { name: "Pricing", href: "/pricing" },
-    //{ name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
+
+  const renderLogoText = () => {
+    if (logoTextIndex === 0) {
+      return (
+        <>
+          <span className="text-custom-orange">Zen</span>ith Studio
+        </>
+      );
+    }
+    return textVariations[logoTextIndex];
+  };
 
   return (
     <header
@@ -54,12 +94,12 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="flex items-center justify-between py-4">
-          {/* Agency Name instead of Logo */}
-          <Link to="/" className="shrink-0" onClick={scrollToTop}>
-            <h1 className="text-2xl font-bold font-syne">
-              <span className="text-custom-orange">Zen</span>ith Studio
-            </h1>
-          </Link>
+          <div 
+            className="text-2xl font-bold font-syne cursor-pointer"
+            onClick={handleLogoClick}
+          >
+            {renderLogoText()}
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -95,6 +135,10 @@ const Header = () => {
                 Book A Call
               </a>
             </Button>
+            <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span>IST: {currentTime}</span>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -142,8 +186,9 @@ const Header = () => {
                 href="https://calendly.com/syedmoinuddin106" 
                 target="_blank" 
                 rel="noopener noreferrer"
-              ></a>
-              Book A Call
+              >
+                Book A Call
+              </a>
             </Button>
           </div>
         </div>

@@ -129,7 +129,7 @@ export default function LogoCloud() {
                         <a href="https://www.mysql.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
                             <img
                                 className="mx-auto h-10 w-fit"
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/0a/MySQL_textlogo.svg"
+                                src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg"
                                 alt="MySQL Logo"
                             />
                         </a>
