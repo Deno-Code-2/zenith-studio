@@ -8,6 +8,14 @@ const FAQ = () => {
 
   const faqItems = [
     {
+      question: "When can you start?",
+      answer: "We typically can start within a week of our initial discussions. While we’ve handled tight deadlines before, to ensure a smooth process, it’s best to initiate the conversation with us as early as possible."
+    },
+    {
+      question: "Do you handle migrating my old site?",
+      answer: "Yes, we handle site migrations as part of our services. Whether you’re moving from another platform or just updating an existing site, we’ll ensure a smooth transition while preserving your SEO rankings."
+    },
+    {
       question: "How long does it take to complete a web development project?",
       answer: "The timeline varies depending on the project's complexity and requirements. Our team strives to deliver projects on time while maintaining the highest quality standards."
     },
@@ -63,14 +71,6 @@ const FAQ = () => {
       question: "Will you prepare our site for SEO?",
       answer: "Yes, we make sure your site follows SEO best practices—clean code, proper structure, meta tags, and optimized images. But good SEO takes time, plenty of content, and sometimes even a bit of luck."
     },
-    {
-      question: "Do you handle migrating my old site?",
-      answer: "Yes, we handle site migrations as part of our services. Whether you’re moving from another platform or just updating an existing site, we’ll ensure a smooth transition while preserving your SEO rankings."
-    },
-    {
-      question: "When can you start?",
-      answer: "We typically can start within a week of our initial discussions. While we’ve handled tight deadlines before, to ensure a smooth process, it’s best to initiate the conversation with us as early as possible."
-    }
   ];  
   const filteredFAQs = faqItems.filter(item =>
     item.question.toLowerCase().includes(searchQuery.toLowerCase())
