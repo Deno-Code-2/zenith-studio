@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Create a client
 const queryClient = new QueryClient();
@@ -56,7 +55,6 @@ function App() {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
-          <SpeedInsights/>
           <Toaster />
         </Router>
       </QueryClientProvider>
