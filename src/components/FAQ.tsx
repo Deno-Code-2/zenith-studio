@@ -1,6 +1,6 @@
-
 import { useState } from "react";
 import { Search } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FAQ = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -72,9 +72,53 @@ const FAQ = () => {
       answer: "Yes, we make sure your site follows SEO best practices—clean code, proper structure, meta tags, and optimized images. But good SEO takes time, plenty of content, and sometimes even a bit of luck."
     },
   ];  
+
   const filteredFAQs = faqItems.filter(item =>
     item.question.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const answerVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut"
+      }
+    }
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -87,7 +131,12 @@ const FAQ = () => {
           <p className="text-gray-600 max-w-2xl mx-auto mb-8 font-jakarta">
             Got questions? We've got answers. Check out our frequently asked questions section to find valuable insights into our processes, pricing, and more. Transparency is at the core of our client interactions.
           </p>
-          <div className="relative max-w-xl mx-auto">
+          <motion.div 
+            className="relative max-w-xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
               type="text"
@@ -96,32 +145,55 @@ const FAQ = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-          </div>
+          </motion.div>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <motion.div 
+          className="max-w-3xl mx-auto space-y-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {filteredFAQs.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className="border-b border-gray-200 last:border-b-0"
+              variants={itemVariants}
             >
-              <button
-                className="w-full py-6 text-left flex justify-between items-center focus:outline-none"
+              <motion.button
+                className="w-full py-6 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50 rounded-lg px-4 transition-colors"
                 onClick={() => setExpandedItem(expandedItem === index ? null : index)}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
               >
                 <span className="text-black font-syne text-lg">{item.question}</span>
-                <span className="text-2xl text-custom-orange ml-4">
-                  {expandedItem === index ? "−" : "+"}
-                </span>
-              </button>
-              {expandedItem === index && (
-                <div className="pb-6 text-gray-600 font-jakarta">
-                  {item.answer}
-                </div>
-              )}
-            </div>
+                <motion.span 
+                  className="text-2xl text-custom-orange ml-4"
+                  animate={{ rotate: expandedItem === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  +
+                </motion.span>
+              </motion.button>
+              
+              <AnimatePresence>
+                {expandedItem === index && (
+                  <motion.div
+                    className="overflow-hidden"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={answerVariants}
+                  >
+                    <div className="pb-6 text-gray-600 font-jakarta px-4">
+                      {item.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
