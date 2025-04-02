@@ -12,20 +12,24 @@ const Header = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  // All text variations with their maximum width
   const textVariations = [
-    "Zenith Studio",
-    "Definitely not SVG",
-    "Web Dev",
-    "superheroes",
-    "running out of ideas",
-    "DM for your projects now",
-    "Book A Call Now",
-    "check the projects pls",
-    "stop now",
-    "for real?",
-    "one more",
-    "maybe one more"
+    { text: (<><span className="text-custom-orange">Zen</span>ith Studio</>) }, // Default
+    { text: "Definitely not SVG" },
+    { text: "Web Dev" },
+    { text: "superheroes" },
+    { text: "running out of ideas" },
+    { text: "DM for your projects now" },
+    { text: "Book A Call Now" },
+    { text: "check the projects pls" },
+    { text: "stop now" },
+    { text: "for real?" },
+    { text: "one more" },
+    { text: "maybe one more" }
   ];
+
+  // Set fixed width based on longest text
+  const logoWidth = "180px"; // Width for "Definitely not SVG"
 
   // Handle resize and scroll events
   useEffect(() => {
@@ -90,17 +94,6 @@ const Header = () => {
     { name: "Contact", href: "/contact" },
   ];
 
-  const renderLogoText = () => {
-    if (logoTextIndex === 0) {
-      return (
-        <>
-          <span className="text-custom-orange">Zen</span>ith Studio
-        </>
-      );
-    }
-    return textVariations[logoTextIndex];
-  };
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -111,48 +104,42 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo with fixed width - prevents layout shift */}
           <div 
-            className="text-xl font-bold font-syne cursor-pointer flex-shrink-0 min-w-[120px]"
+            className={`text-xl font-bold font-syne cursor-pointer flex-shrink-0`}
+            style={{ width: logoWidth }}
             onClick={handleLogoClick}
           >
-            {renderLogoText()}
+            <div className="whitespace-nowrap">
+              {textVariations[logoTextIndex].text}
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - centered and stable */}
           {!isMobile && (
-            <nav className="flex items-center space-x-4 md:space-x-6 mx-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`font-jakarta relative py-1 px-1 text-sm sm:text-base ${
-                    location.pathname === item.href
-                      ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-foreground after:left-0 after:bottom-0"
-                      : "text-foreground hover:text-custom-orange"
-                  }`}
-                  onClick={scrollToTop}
-                >
-                  {item.name}
-                </Link>
-              ))}
+            <nav className="absolute left-1/2 transform -translate-x-1/2">
+              <div className="flex space-x-4 md:space-x-6">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`font-jakarta relative py-1 px-1 text-sm sm:text-base ${
+                      location.pathname === item.href
+                        ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-foreground after:left-0 after:bottom-0"
+                        : "text-foreground hover:text-custom-orange"
+                    }`}
+                    onClick={scrollToTop}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
             </nav>
           )}
 
           {/* Right Side Controls */}
-          <div className="flex items-center gap-2 sm:gap-4">
-            {/* Time Display - hidden on mobile when menu is open */}
-            {(!isMobile || !mobileMenuOpen) && (
-              <div className={`flex items-center gap-1 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full text-xs ${
-                isMobile ? 'hidden sm:flex' : ''
-              }`}>
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                <span>IST: {currentTime}</span>
-              </div>
-            )}
-
-            <ThemeToggle />
-
+          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+            
             {!isMobile && (
               <Button
                 asChild
@@ -169,6 +156,17 @@ const Header = () => {
                 </a>
               </Button>
             )}
+            {/* Time Display */}
+            {(!isMobile || !mobileMenuOpen) && (
+              <div className={`flex items-center gap-1 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full text-xs ${
+                isMobile ? 'hidden sm:flex' : ''
+              }`}>
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span>IST: {currentTime}</span>
+              </div>
+            )}
+
+            <ThemeToggle />
 
             {/* Mobile Menu Button */}
             {isMobile && (

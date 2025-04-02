@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin, Loader2 } from "lucide-react";
@@ -51,7 +50,6 @@ const Footer = () => {
     }
   };
 
-  // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -65,12 +63,10 @@ const Footer = () => {
       { name: "About", href: "/about" },
       { name: "Services", href: "/services" },
       { name: "Projects", href: "/projects" },
-     // { name: "Blog", href: "/blog" },
       { name: "Pricing", href: "/pricing" },
     ],
     contact: [
       { name: "Contact Us", href: "/contact" },
-     // { name: "support@zenithstudio.com", href: "mailto:support@zenithstudio.com" },
       { name: "+91 9108041057", href: "tel:+919108041057" },
     ],
     legal: [
@@ -85,30 +81,31 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background py-16 border-t border-border">
-      <div className="max-w-7xl mx-auto px-8 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-4">
-          {/* Logo and info */}
-          <div className="md:col-span-3">
-            <Link to="/" className="inline-block mb-6" onClick={scrollToTop}>
+    <footer className="bg-background border-t border-border">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-8">
+          {/* Logo and description */}
+          <div className="col-span-2 md:col-span-3">
+            <Link to="/" className="inline-block" onClick={scrollToTop}>
               <h1 className="text-2xl font-bold font-syne">
                 <span className="text-custom-orange">Zen</span>ith Studio
               </h1>
             </Link>
-            <p className="text-muted-foreground mb-8 font-jakarta">
+            <p className="text-muted-foreground mt-4 text-sm font-jakarta">
               Transforming vision into digital reality with innovation, expertise, and meticulous craftsmanship.
             </p>
           </div>
 
           {/* Pages */}
-          <div className="md:col-span-3">
-            <h3 className="text-foreground font-bold mb-4 font-syne">Pages</h3>
-            <ul className="space-y-3">
+          <div className="col-span-1 md:col-span-2">
+            <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Pages</h3>
+            <ul className="space-y-2">
               {footerLinks.pages.map((link) => (
                 <li key={link.name}>
                   <Link 
                     to={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors font-jakarta"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors font-jakarta"
                     onClick={scrollToTop}
                   >
                     {link.name}
@@ -119,14 +116,14 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="md:col-span-3">
-            <h3 className="text-foreground font-bold mb-4 font-syne">Contact</h3>
-            <ul className="space-y-3">
+          <div className="col-span-1 md:col-span-2">
+            <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Contact</h3>
+            <ul className="space-y-2">
               {footerLinks.contact.map((link) => (
                 <li key={link.name}>
                   <a 
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors font-jakarta"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors font-jakarta"
                   >
                     {link.name}
                   </a>
@@ -135,60 +132,83 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Follow Us */}
-          <div className="md:col-span-3">
-            <h3 className="text-foreground font-bold mb-4 font-syne">Follow Us</h3>
-            <div className="flex items-center space-x-4 mb-6">
-              {socialIcons.map((social, index) => (
-                <a 
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-background border border-border rounded-full flex items-center justify-center text-muted-foreground hover:text-custom-orange hover:border-custom-orange transition-colors"
-                >
-                  <social.icon size={20} />
-                </a>
+          {/* Legal */}
+          <div className="col-span-2 md:col-span-2 mt-6 md:mt-0">
+            <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Legal</h3>
+            <ul className="space-y-2">
+              {footerLinks.legal.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors font-jakarta"
+                    onClick={scrollToTop}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
 
-            <div>
-              <h4 className="text-foreground font-bold mb-3 font-syne">Subscribe to our newsletter</h4>
-              <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
-                <input
-                  type="email"
-                  placeholder="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-background/30 border border-border rounded-md px-4 py-2 text-foreground w-full font-jakarta"
-                  required
-                />
-                <Button 
-                  type="submit" 
-                  className="bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
-                  disabled={isLoading}
-                >
-                  {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Subscribe"}
-                </Button>
-              </form>
+          {/* Newsletter */}
+          <div className="col-span-2 md:col-span-3 mt-6 md:mt-0">
+            <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Newsletter</h3>
+            <p className="text-muted-foreground text-sm mb-4 font-jakarta">
+              Subscribe to our newsletter for the latest updates.
+            </p>
+            <form onSubmit={handleSubscribe} className="space-y-3">
+              <input
+                type="email"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-background border border-border rounded-md px-4 py-2 text-sm text-foreground w-full font-jakarta focus:ring-2 focus:ring-custom-orange focus:border-transparent"
+                required
+              />
+              <Button 
+                type="submit" 
+                className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+                disabled={isLoading}
+              >
+                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Subscribe"}
+              </Button>
+            </form>
+            
+            <div className="mt-4">
+              <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Follow Us</h3>
+              <div className="flex space-x-3">
+                {socialIcons.map((social, index) => (
+                  <a 
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-custom-orange transition-colors"
+                  >
+                    <social.icon size={18} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <div className="border-t border-border mt-8 pt-8 text-center">
-          <p className="text-muted-foreground font-jakarta">
-            &copy; {currentYear} copyright Zenith Studio. All rights reserved.
+
+        {/* Copyright */}
+        <div className="border-t border-border mt-12 pt-8">
+          <p className="text-muted-foreground text-sm text-center font-jakarta">
+            &copy; {currentYear} Zenith Studio. All rights reserved.
           </p>
         </div>
       </div>
-      
-      {/* Large Text at the Bottom */}
-      <div className="mt-16 mb-8 relative">
-        <div className="relative z-10">
-          <h2 className="text-[5vw] font-bold text-center text-black opacity-20 font-syne tracking-tight">
-          Let’s build your website together.
-          </h2>
-        </div>
-      </div>
+
+{/* Large Text at Bottom */}
+<div className="bg-white dark:bg-gray-900 py-16 md:py-24">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-5xl md:text-6xl lg:text-6xl font-bold text-center text-black dark:text-white font-syne tracking-tight">
+      Let's build your website together.
+    </h2>
+  </div>
+</div>
     </footer>
   );
 };
