@@ -8,7 +8,10 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 // Create a client
 const queryClient = new QueryClient();
 
-const IndexPage = lazy(() => import("@/pages/Index"));
+// Import the Index page directly to avoid dynamic import issues
+import IndexPage from "@/pages/Index";
+
+// Lazy load other pages
 const AboutPage = lazy(() => import("@/pages/About"));
 const ServicesPage = lazy(() => import("@/pages/Services"));
 const ProjectsPage = lazy(() => import("@/pages/Projects"));
