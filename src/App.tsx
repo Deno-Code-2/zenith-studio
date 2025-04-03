@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import SmoothScroll from "@/components/SmoothScroll";
+import { AnimatePresence } from "framer-motion";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const BlogPostPage = lazy(() => import("@/pages/BlogPost"));
 const PricingPage = lazy(() => import("@/pages/Pricing"));
 const ContactPage = lazy(() => import("@/pages/Contact"));
 const TermsPage = lazy(() => import("@/pages/Terms"));
+const PrivacyPage = lazy(() => import("@/pages/Privacy"));
 const CookiePolicyPage = lazy(() => import("@/pages/CookiePolicy"));
 const ServicesDetailsPage = lazy(() => import("@/pages/ServicesDetails"));
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
@@ -45,21 +47,24 @@ function App() {
               <div className="w-12 h-12 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin"></div>
             </div>
           }>
-            <Routes>
-              <Route path="/" element={<IndexPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/services/:id" element={<ServicesDetailsPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/pricing" element={<PricingPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/:id" element={<BlogPostPage />} />
-              <Route path="/terms" element={<TermsPage />} />
-              <Route path="/cookie-policy" element={<CookiePolicyPage />} />
-              <Route path="/404" element={<NotFoundPage />} />
-              <Route path="*" element={<Navigate to="/404" replace />} />
-            </Routes>
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<IndexPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/services/:id" element={<ServicesDetailsPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/pricing" element={<PricingPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/blog/:id" element={<BlogPostPage />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+                <Route path="/404" element={<NotFoundPage />} />
+                <Route path="*" element={<Navigate to="/404" replace />} />
+              </Routes>
+            </AnimatePresence>
           </Suspense>
           <Toaster />
         </Router>

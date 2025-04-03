@@ -7,7 +7,7 @@ const SmoothScroll = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Scroll to top when path changes
+    // Scroll to top when path changes with smooth animation
     window.scrollTo({
       top: 0,
       left: 0,
@@ -29,9 +29,14 @@ const SmoothScroll = () => {
         const targetElement = document.getElementById(targetId || '');
         
         if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
+          // Enhanced smooth scrolling with offset for header
+          const headerOffset = 100;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
           });
         }
       }
@@ -39,8 +44,32 @@ const SmoothScroll = () => {
 
     document.addEventListener('click', smoothScrollToAnchor);
     
-    // Enable smooth behavior for all scroll events
+    // Apply smooth behavior globally
     document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Add intersection observer for fade-in animations on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      });
+      
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    };
+    
+    // Initialize scroll animations after page load
+    setTimeout(animateOnScroll, 100);
 
     return () => {
       document.removeEventListener('click', smoothScrollToAnchor);

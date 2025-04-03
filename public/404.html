@@ -6,14 +6,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found</title>
   <script>
-    // Store the requested URL for use in the main app
-    sessionStorage.redirect = location.href;
+    // This script handles redirecting the user to the appropriate page
+    // when they try to access a direct URL in a single-page application
     
-    // Redirect to the homepage where our SPA will handle the route
-    window.location.replace("/");
+    // Get the current pathname
+    const path = window.location.pathname;
+    
+    // Store the path in sessionStorage
+    sessionStorage.redirect = window.location.href;
+    
+    // Specify routes that your app should handle
+    const routes = [
+      '/',
+      '/about',
+      '/services',
+      '/projects',
+      '/pricing',
+      '/contact',
+      '/blog',
+      '/terms',
+      '/privacy',
+      '/cookie-policy',
+      '/404'
+    ];
+    
+    // Check if this is a direct route we should handle
+    const shouldRedirect = routes.some(route => 
+      path === route || 
+      path.startsWith('/services/') ||
+      path.startsWith('/blog/')
+    );
+    
+    if (shouldRedirect) {
+      // Redirect to the homepage but tell the SPA to navigate to the original URL
+      window.location.replace("/");
+    } else {
+      // For truly non-existent routes, go to the 404 page
+      window.location.replace("/404");
+    }
   </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    .loader {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(228, 101, 52, 0.2);
+      border-radius: 50%;
+      border-top-color: #E46534;
+      animation: spin 1s ease-in-out infinite;
+      margin-bottom: 1rem;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <div class="container">
+    <div class="loader"></div>
+    <p>Redirecting you...</p>
+  </div>
 </body>
 </html>

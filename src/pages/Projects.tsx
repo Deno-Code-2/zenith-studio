@@ -3,17 +3,18 @@ import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useQuery } from "@tanstack/react-query";
-import { ExternalLink, Sparkles } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgencyShowcase from "@/components/AgencyShowcase";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import PageTransition from "@/components/PageTransition";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type ProjectType = 'All' | 'Landing Page' | 'SaaS Website' | 'Startup Website' | 'E-commerce Website';
+type ProjectType = 'All' | 'Landing Page' | 'SaaS Website' | 'Startup Website' | 'E-commerce Website' | 'AI Website';
 
 interface Project {
   id: string;
@@ -24,107 +25,91 @@ interface Project {
   project_type: string;
 }
 
-// Sample projects for each category when no data is returned from Supabase
+// Updated projects list with the new projects requested by the client
 const sampleProjects: Project[] = [
-  // Landing Page samples
+  // AI Websites
   {
-    id: "lp-1",
-    title: "Fashion Brand Landing Page",
-    description: "Elegant landing page for a high-end fashion brand with interactive elements and smooth animations.",
-    image_url: "https://placehold.co/600x400/e4a841/ffffff?text=Fashion+Landing",
+    id: "ai-1",
+    title: "QuantumDock AI",
+    description: "A sophisticated platform for AI model training and deployment, featuring an intuitive interface for data scientists and researchers.",
+    image_url: "https://placehold.co/600x400/6141e4/ffffff?text=QuantumDock+AI",
     project_url: "#",
-    project_type: "Landing Page"
+    project_type: "AI Website"
   },
   {
-    id: "lp-2",
-    title: "Mobile App Showcase",
-    description: "Captivating landing page to showcase a mobile application with features highlight and conversion-focused design.",
-    image_url: "https://placehold.co/600x400/41a4e4/ffffff?text=App+Showcase",
+    id: "ai-2",
+    title: "Synthetix-AI",
+    description: "Built specifically for AI startups, this website helps them present their offerings and get noticed with a modern, tech-forward design.",
+    image_url: "https://placehold.co/600x400/41a4e4/ffffff?text=Synthetix-AI",
     project_url: "#",
-    project_type: "Landing Page"
+    project_type: "AI Website"
   },
   {
-    id: "lp-3",
-    title: "Event Registration Page",
-    description: "Clean and effective landing page designed for an event with integrated registration form and countdown timer.",
-    image_url: "https://placehold.co/600x400/41e48c/ffffff?text=Event+Page",
+    id: "ai-3",
+    title: "Code Yeti",
+    description: "AI-Powered Code Reviews platform offering faster, smarter, and better code analysis for development teams of all sizes.",
+    image_url: "https://placehold.co/600x400/41e48c/ffffff?text=Code+Yeti",
     project_url: "#",
-    project_type: "Landing Page"
+    project_type: "AI Website"
   },
-  // SaaS Website samples
+  {
+    id: "ai-4",
+    title: "Signals HQ",
+    description: "Website redesign for an AI Audit solution, focusing on user experience and clear presentation of complex AI compliance tools.",
+    image_url: "https://placehold.co/600x400/e44182/ffffff?text=Signals+HQ",
+    project_url: "#",
+    project_type: "AI Website"
+  },
+  // E-commerce Websites
+  {
+    id: "ecom-1",
+    title: "The Cloth Village",
+    description: "A premium e-commerce platform for a clothing brand with advanced product filtering and a seamless checkout experience.",
+    image_url: "https://placehold.co/600x400/a141e4/ffffff?text=Cloth+Village",
+    project_url: "#",
+    project_type: "E-commerce Website"
+  },
+  // SaaS & Service Websites
   {
     id: "saas-1",
-    title: "CRM Tool Dashboard",
-    description: "Modern SaaS platform for customer relationship management with intuitive UI and data visualization.",
-    image_url: "https://placehold.co/600x400/6141e4/ffffff?text=CRM+Dashboard",
+    title: "Social Card",
+    description: "An innovative SaaS platform for creating and managing digital business cards with social media integration and analytics.",
+    image_url: "https://placehold.co/600x400/e47e41/ffffff?text=Social+Card",
     project_url: "#",
     project_type: "SaaS Website"
   },
   {
     id: "saas-2",
-    title: "Project Management System",
-    description: "Comprehensive project management SaaS with task tracking, team collaboration, and reporting features.",
-    image_url: "https://placehold.co/600x400/e44182/ffffff?text=Project+Management",
+    title: "Hireme Dev",
+    description: "A talent marketplace for developers with a focus on project-based hiring and skill verification through practical assessments.",
+    image_url: "https://placehold.co/600x400/4156e4/ffffff?text=Hireme+Dev",
     project_url: "#",
     project_type: "SaaS Website"
   },
   {
     id: "saas-3",
-    title: "Marketing Analytics Platform",
-    description: "Data-driven marketing SaaS that offers advanced analytics, campaign tracking, and ROI visualization.",
-    image_url: "https://placehold.co/600x400/41e4b7/ffffff?text=Marketing+Analytics",
+    title: "Job Waala Dost",
+    description: "New custom website for a client focused on job matching and career guidance, with a user-friendly interface and powerful search capabilities.",
+    image_url: "https://placehold.co/600x400/41e463/ffffff?text=Job+Waala+Dost",
     project_url: "#",
     project_type: "SaaS Website"
   },
-  // Startup Website samples
+  // Redesign Projects
   {
-    id: "startup-1",
-    title: "Tech Startup Homepage",
-    description: "Dynamic website for a tech startup showcasing their innovative product and company culture.",
-    image_url: "https://placehold.co/600x400/e47e41/ffffff?text=Tech+Startup",
+    id: "redesign-1",
+    title: "DevCreations",
+    description: "A comprehensive redesign for a development agency, showcasing their portfolio and services with improved visual hierarchy and conversion paths.",
+    image_url: "https://placehold.co/600x400/e44141/ffffff?text=DevCreations",
     project_url: "#",
     project_type: "Startup Website"
   },
   {
-    id: "startup-2",
-    title: "Fintech Company Website",
-    description: "Professional website for a fintech startup featuring their services, team, and investor relations.",
-    image_url: "https://placehold.co/600x400/4156e4/ffffff?text=Fintech",
+    id: "redesign-2",
+    title: "CropNow",
+    description: "Website redesign to a modern look for an agricultural technology company, emphasizing ease of use and clear information architecture.",
+    image_url: "https://placehold.co/600x400/41e4d9/ffffff?text=CropNow",
     project_url: "#",
     project_type: "Startup Website"
-  },
-  {
-    id: "startup-3",
-    title: "Health Tech Platform",
-    description: "Accessible website for a health technology startup with patient testimonials and product information.",
-    image_url: "https://placehold.co/600x400/41e463/ffffff?text=Health+Tech",
-    project_url: "#",
-    project_type: "Startup Website"
-  },
-  // E-commerce Website samples
-  {
-    id: "ecom-1",
-    title: "Fashion E-commerce Store",
-    description: "Stylish e-commerce platform for a clothing brand with advanced filtering and a seamless checkout experience.",
-    image_url: "https://placehold.co/600x400/a141e4/ffffff?text=Fashion+Store",
-    project_url: "#",
-    project_type: "E-commerce Website"
-  },
-  {
-    id: "ecom-2",
-    title: "Electronics Marketplace",
-    description: "Feature-rich e-commerce website for electronics with product comparisons and user reviews integration.",
-    image_url: "https://placehold.co/600x400/e44141/ffffff?text=Electronics+Shop",
-    project_url: "#",
-    project_type: "E-commerce Website"
-  },
-  {
-    id: "ecom-3",
-    title: "Artisanal Food Shop",
-    description: "Boutique e-commerce solution for specialty food products with subscription options and gift features.",
-    image_url: "https://placehold.co/600x400/41e4d9/ffffff?text=Food+Shop",
-    project_url: "#",
-    project_type: "E-commerce Website"
   }
 ];
 
@@ -156,13 +141,14 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState<ProjectType>('All');
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
 
-  // Filter options
+  // Updated filter options to include AI Website category
   const filterOptions: ProjectType[] = [
     'All', 
-    'Landing Page', 
+    'AI Website',
     'SaaS Website', 
-    'Startup Website', 
-    'E-commerce Website'
+    'E-commerce Website',
+    'Startup Website',
+    'Landing Page'
   ];
 
   useEffect(() => {
@@ -197,102 +183,113 @@ const Projects = () => {
     }
   }, [activeFilter, projects]);
 
-
-
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main className="max-w-7xl mx-auto px-8 lg:px-16 pt-32">
-        <div className="text-center mb-16">
-          <motion.h1 
+      <PageTransition>
+        <main className="max-w-7xl mx-auto px-8 lg:px-16 pt-32">
+          <div className="text-center mb-16">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-5xl md:text-7xl font-bold mb-6 font-syne text-black"
+            >
+              Our <span className="text-custom-orange">Projects</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-gray-600 max-w-3xl mx-auto font-jakarta"
+            >
+              Explore our portfolio of successful projects. Each project represents our commitment to excellence and innovation in digital solutions.
+            </motion.p>
+          </div>
+
+          {/* Filter Options with Animation */}
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-5xl md:text-7xl font-bold mb-6 font-syne text-black"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-wrap justify-center gap-4 mb-16"
           >
-            Our <span className="text-custom-orange">Projects</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-600 max-w-3xl mx-auto font-jakarta"
-          >
-            Explore our portfolio of successful projects. Each project represents our commitment to excellence and innovation in digital solutions.
-          </motion.p>
-        </div>
-
-{/* Filter Options */}
-<div className="flex flex-wrap justify-center gap-4 mb-16">
-  {filterOptions.map((option) => (
-    <Button
-      key={option}
-      onClick={() => setActiveFilter(option)}
-      variant="ghost"
-      className={`
-        rounded-full px-6 py-2 font-jakarta
-        ${activeFilter === option 
-          ? "bg-custom-orange text-white" 
-          : "bg-transparent text-black border border-gray-200"}
-      `}
-    >
-      {option}
-    </Button>
-  ))}
-</div>
-
-        {isLoading ? (
-          <div className="text-center text-gray-600 py-20">
-            <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin mx-auto mb-4"></div>
-            <p>Loading projects...</p>
-          </div>
-        ) : error ? (
-          <div className="text-center text-red-400">Error loading projects. Please try again later.</div>
-        ) : filteredProjects?.length === 0 ? (
-          <div className="text-center text-gray-600 py-20">
-            <p>No projects found for this category. Try selecting a different filter.</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {filteredProjects?.map((project) => (
+            {filterOptions.map((option, index) => (
               <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="project-card group relative overflow-hidden rounded-xl bg-white shadow-sm border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300"
+                key={option}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.1 * index }}
               >
-                <div className="aspect-video overflow-hidden max-h-[180px] flex items-center justify-center">
-                  <img 
-                    src={project.image_url} 
-                    alt={project.title}
-                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-black font-syne">{project.title}</h3>
-                    <a 
-                      href={project.project_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-custom-orange hover:text-custom-orange/80 transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                  </div>
-                  <p className="text-gray-600 font-jakarta text-sm">{project.description}</p>
-                  <div className="mt-3">
-                    <span className="bg-custom-orange/10 text-custom-orange px-2 py-1 rounded-full text-xs">
-                      {project.project_type}
-                    </span>
-                  </div>
-                </div>
+                <Button
+                  onClick={() => setActiveFilter(option)}
+                  variant="ghost"
+                  className={`
+                    rounded-full px-6 py-2 font-jakarta transition-all duration-300
+                    ${activeFilter === option 
+                      ? "bg-custom-orange text-white shadow-md" 
+                      : "bg-transparent text-black border border-gray-200 hover:bg-gray-100"}
+                  `}
+                >
+                  {option}
+                </Button>
               </motion.div>
             ))}
-          </div>
-        )}
-      </main>
+          </motion.div>
+
+          {isLoading ? (
+            <div className="text-center text-gray-600 py-20">
+              <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin mx-auto mb-4"></div>
+              <p>Loading projects...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center text-red-400">Error loading projects. Please try again later.</div>
+          ) : filteredProjects?.length === 0 ? (
+            <div className="text-center text-gray-600 py-20">
+              <p>No projects found for this category. Try selecting a different filter.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {filteredProjects?.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className="project-card group relative overflow-hidden rounded-xl bg-white shadow-md border border-custom-orange/10 hover:border-custom-orange/40 transition-all duration-300 hover:shadow-lg"
+                >
+                  <div className="aspect-video overflow-hidden max-h-[200px] flex items-center justify-center">
+                    <img 
+                      src={project.image_url} 
+                      alt={project.title}
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-xl font-bold text-black font-syne">{project.title}</h3>
+                      <a 
+                        href={project.project_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-custom-orange hover:text-custom-orange/80 transition-colors"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    </div>
+                    <p className="text-gray-600 font-jakarta text-sm mb-4">{project.description}</p>
+                    <div className="mt-3">
+                      <span className="bg-custom-orange/10 text-custom-orange px-3 py-1 rounded-full text-xs font-medium">
+                        {project.project_type}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </main>
+      </PageTransition>
       <AgencyShowcase />
       <Footer />
     </div>
