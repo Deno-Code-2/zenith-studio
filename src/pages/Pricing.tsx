@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -25,7 +26,9 @@ const Pricing = () => {
         "2 weeks delivery time"
       ],
       buttonText: "Choose Silver",
-      highlighted: false
+      highlighted: false,
+      emailSubject: "Inquiry about Silver Package",
+      emailBody: "Hi Zenith Studio,\n\nI'm interested in the Silver Package (₹35,999). I'd like to discuss how this package can meet my requirements.\n\nLooking forward to hearing from you!"
     },
     {
       title: "Golden Package",
@@ -47,7 +50,9 @@ const Pricing = () => {
         "3 weeks delivery time"
       ],
       buttonText: "Choose Golden",
-      highlighted: true
+      highlighted: true,
+      emailSubject: "Inquiry about Golden Package",
+      emailBody: "Hi Zenith Studio,\n\nI'm interested in the Golden Package (₹75,999). I'd like to discuss how this package can meet my business requirements.\n\nLooking forward to hearing from you!"
     },
     {
       title: "Platinum Package",
@@ -71,7 +76,9 @@ const Pricing = () => {
         "4 weeks delivery time"
       ],
       buttonText: "Choose Platinum",
-      highlighted: false
+      highlighted: false,
+      emailSubject: "Inquiry about Platinum Package",
+      emailBody: "Hi Zenith Studio,\n\nI'm interested in the Platinum Package (₹1,99,000). I'd like to discuss how this premium package can meet my business requirements.\n\nLooking forward to hearing from you!"
     },
     {
       title: "Custom Enterprise",
@@ -95,9 +102,16 @@ const Pricing = () => {
         "Custom payment plans available"
       ],
       buttonText: "Contact Sales",
-      highlighted: false
+      highlighted: false,
+      emailSubject: "Inquiry about Custom Enterprise Solution",
+      emailBody: "Hi Zenith Studio,\n\nI'm interested in discussing a Custom Enterprise solution for my business. I'd like to explore how your services can meet our specific requirements.\n\nLooking forward to hearing from you!"
     }
   ];
+
+  // Create mailto links with pre-filled subject and body
+  const createMailtoLink = (subject: string, body: string) => {
+    return `mailto:syedmoinuddin106@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   return (
     <main className="min-h-screen bg-white">
@@ -148,8 +162,11 @@ const Pricing = () => {
                 <Button
                   variant="default"
                   className={`w-full mt-auto font-medium group-hover:bg-black group-hover:text-white transition-all duration-300 ${plan.highlighted ? "bg-custom-orange hover:bg-custom-orange/90 text-black" : "bg-white border border-custom-orange text-black"}`}
+                  asChild
                 >
-                  {plan.buttonText}
+                  <a href={createMailtoLink(plan.emailSubject, plan.emailBody)}>
+                    {plan.buttonText}
+                  </a>
                 </Button>
               </div>
             ))}

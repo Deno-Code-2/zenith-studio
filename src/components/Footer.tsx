@@ -99,6 +99,24 @@ const Footer = () => {
             <p className="text-muted-foreground mt-4 text-sm font-jakarta">
               Transforming digital visions into exceptional experiences with innovative design and flawless execution.
             </p>
+            
+            {/* Social Media Links - Moved to top */}
+            <div className="mt-6">
+              <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Follow Us</h3>
+              <div className="flex space-x-4">
+                {socialIcons.map((social, index) => (
+                  <a 
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-custom-orange transition-colors"
+                  >
+                    <social.icon size={20} />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Pages */}
@@ -154,7 +172,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter - Moved to after social media */}
           <div className="col-span-1 md:col-span-3">
             <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Newsletter</h3>
             <p className="text-muted-foreground text-sm mb-4 font-jakarta">
@@ -177,23 +195,6 @@ const Footer = () => {
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Subscribe"}
               </Button>
             </form>
-            
-            <div className="mt-6">
-              <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Follow Us</h3>
-              <div className="flex space-x-4">
-                {socialIcons.map((social, index) => (
-                  <a 
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-custom-orange transition-colors"
-                  >
-                    <social.icon size={20} />
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 

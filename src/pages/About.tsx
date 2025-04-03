@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Target, Compass, TrendingUp, Award, Users, MessageSquareQuote } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -43,6 +43,19 @@ const About = () => {
       duration: 0.7,
       ease: "power2.out"
     });
+
+    // Mission and Vision animation
+    gsap.from(".mission-vision-section", {
+      scrollTrigger: {
+        trigger: ".mission-vision-section",
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.7,
+      ease: "power2.out"
+    });
   }, []);
 
   return (
@@ -72,6 +85,42 @@ const About = () => {
                   We transform digital visions into exceptional online experiences through innovative design, 
                   seamless development, and strategic digital solutions.
                 </motion.p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mission & Vision Section - NEW */}
+        <section className="py-12 bg-gray-50 mission-vision-section">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Mission */}
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-custom-orange/5 rounded-full -mt-16 -mr-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <Target className="w-12 h-12 text-custom-orange mb-6" />
+                <h2 className="text-2xl font-bold text-black mb-4 font-syne relative z-10">Our Mission</h2>
+                <p className="text-gray-700 leading-relaxed mb-4 font-jakarta relative z-10">
+                  At Zenith Studio, our mission is to empower businesses with exceptional digital solutions that drive growth and success. 
+                  We're committed to delivering innovative websites and applications that not only look stunning but also perform flawlessly.
+                </p>
+                <p className="text-gray-700 leading-relaxed font-jakarta relative z-10">
+                  We believe in creating digital experiences that are accessible, user-friendly, and aligned with our clients' business objectives. 
+                  Through a perfect blend of creativity and technical expertise, we strive to be the catalyst for our clients' digital transformation.
+                </p>
+              </div>
+
+              {/* Vision */}
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-custom-orange/5 rounded-full -mt-16 -mr-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <Compass className="w-12 h-12 text-custom-orange mb-6" />
+                <h2 className="text-2xl font-bold text-black mb-4 font-syne relative z-10">Our Vision</h2>
+                <p className="text-gray-700 leading-relaxed mb-4 font-jakarta relative z-10">
+                  We envision a future where every business, regardless of size, has access to world-class digital solutions that enable them to thrive in an increasingly digital world.
+                </p>
+                <p className="text-gray-700 leading-relaxed font-jakarta relative z-10">
+                  Our vision is to be recognized globally as a leading digital agency that consistently pushes boundaries, embraces emerging technologies, and sets new standards for excellence in web design and development.
+                  We aim to build long-lasting partnerships with our clients and contribute positively to their growth journey.
+                </p>
               </div>
             </div>
           </div>
@@ -110,8 +159,53 @@ const About = () => {
           </div>
         </section>
 
+        {/* Core Values Section - NEW */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 font-syne">
+                Our <span className="text-custom-orange">Core Values</span>
+              </h2>
+              <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
+                These fundamental principles guide our work and define who we are as a company.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  icon: <Award className="w-10 h-10 text-custom-orange" />,
+                  title: "Excellence",
+                  description: "We strive for excellence in everything we do, from design and development to client communication."
+                },
+                {
+                  icon: <Users className="w-10 h-10 text-custom-orange" />,
+                  title: "Collaboration",
+                  description: "We believe in the power of collaboration—both within our team and with our clients."
+                },
+                {
+                  icon: <TrendingUp className="w-10 h-10 text-custom-orange" />,
+                  title: "Innovation",
+                  description: "We constantly explore new technologies and approaches to deliver cutting-edge solutions."
+                },
+                {
+                  icon: <MessageSquareQuote className="w-10 h-10 text-custom-orange" />,
+                  title: "Integrity",
+                  description: "We operate with complete transparency and honesty in all our business dealings."
+                }
+              ].map((value, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-custom-orange/30 transition-colors">
+                  <div className="mb-4">{value.icon}</div>
+                  <h3 className="text-xl font-bold mb-3 text-black font-syne">{value.title}</h3>
+                  <p className="text-gray-700 text-sm font-jakarta">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Philosophy Section */}
-        <section className="py-12 bg-gray-50 content-section">
+        <section className="py-12 content-section">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <h2 className="text-2xl md:text-3xl font-bold text-black mb-12 text-center font-syne">
               <span className="text-custom-orange">OUR PHILOSOPHY</span>
@@ -141,7 +235,7 @@ const About = () => {
         </section>
 
         {/* Our Approach Section */}
-        <section className="py-12 content-section">
+        <section className="py-12 bg-gray-50 content-section">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1 bg-gray-100 rounded-lg h-64 md:h-80 w-full flex items-center justify-center overflow-hidden">
@@ -171,7 +265,7 @@ const About = () => {
         </section>
 
         {/* Team Section */}
-        <section className="py-12 bg-gray-50 team-section">
+        <section className="py-12 team-section">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-black font-syne">

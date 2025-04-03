@@ -65,7 +65,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40"> 
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32"> 
         <div className="flex flex-col items-center justify-center text-center">
           {/* Text Content - Centered */}
           <motion.div 
