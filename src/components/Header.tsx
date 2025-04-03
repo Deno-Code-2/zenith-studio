@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -56,7 +57,7 @@ const Header = () => {
   // Update IST time
   useEffect(() => {
     const updateTime = () => {
-      const options = {
+      const options: Intl.DateTimeFormatOptions = {
         timeZone: 'Asia/Kolkata',
         hour12: true,
         hour: '2-digit',

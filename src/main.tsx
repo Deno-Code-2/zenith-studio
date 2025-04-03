@@ -14,6 +14,15 @@ if (redirect && redirect !== location.href) {
   history.replaceState(null, '', cleanUrl);
 }
 
+// Error handling for module loading
+window.addEventListener('error', (event) => {
+  if (event.message && event.message.includes('Failed to fetch dynamically imported module')) {
+    console.error('Module loading error:', event);
+    // Force a full page reload if dynamic imports fail
+    window.location.reload();
+  }
+});
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
