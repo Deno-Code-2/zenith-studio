@@ -1,7 +1,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Send, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ArrowRight, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -105,7 +105,7 @@ const Contact = () => {
               Get in <span className="text-custom-orange">Touch</span> with Us Today!
             </h1>
             <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
-              Let's discuss your project and see how we can help you achieve your digital goals.
+            Let's discuss your project and see how we can help you achieve your digital goals. Fill out the form below and we'll get back to you within 24hr.
             </p>
           </motion.div>
 
