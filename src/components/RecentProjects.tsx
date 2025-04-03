@@ -111,9 +111,8 @@ const RecentProjects = () => {
         </div>
         <div className="text-center">
           <Button 
-            variant="outline" 
             onClick={() => navigate('/projects')}
-            className="font-jakarta border-custom-orange/20 text-white hover:bg-custom-orange/10 hover:border-custom-orange/40"
+            className="font-jakarta text-white bg-custom-orange hover:bg-custom-orange"
           >
             View All Projects
           </Button>

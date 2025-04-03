@@ -64,44 +64,45 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32"> 
+        {/* Increased vertical padding */}
         <div className="flex flex-col items-center justify-center text-center">
           {/* Text Content - Centered */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full max-w-3xl space-y-4 md:space-y-6"
+            className="w-full max-w-4xl space-y-6 md:space-y-8" 
           >
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
+              className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight text-black font-syne" 
             >
               We are Zenith Studio,
             </motion.h1>
             
             <motion.h2 
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
+              className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight text-black font-syne"
             >
               Where <Cover className="text-custom-orange">Ideas</Cover> Go Live.
             </motion.h2>
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg sm:text-xl md:text-2xl text-gray-700 font-jakarta"
+              className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-jakarta"
             >
               We design, build, and refine websites with precision—seamlessly blending aesthetics with functionality.
             </motion.p>
 
             <motion.div 
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center pt-2"
+              className="flex flex-col sm:flex-row gap-5 justify-center pt-4" 
             >
               <Button 
                 asChild 
                 variant="default"
-                className="w-full sm:w-auto hover:scale-105 transition-transform"
+                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg"
                 size="lg"
               >
                 <motion.a 
@@ -117,7 +118,7 @@ const Hero = () => {
               <Button 
                 variant="link" 
                 onClick={() => navigate('/projects')} 
-                className="w-full sm:w-auto text-custom-orange hover:scale-105 transition-transform"
+                className="w-full sm:w-auto text-custom-orange hover:scale-105 transition-transform text-lg"
                 size="lg"
               >
                 View Our Work
