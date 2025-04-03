@@ -1,9 +1,10 @@
 
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import SmoothScroll from "@/components/SmoothScroll";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ function App() {
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <Router>
+          <SmoothScroll />
           <Suspense fallback={
             <div className="flex items-center justify-center h-screen bg-white">
               <div className="w-12 h-12 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin"></div>
@@ -51,9 +53,12 @@ function App() {
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:id" element={<BlogPostPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/cookie-policy" element={<CookiePolicyPage />} />
-              <Route path="*" element={<NotFoundPage />} />
+              <Route path="/404" element={<NotFoundPage />} />
+              <Route path="*" element={<Navigate to="/404" replace />} />
             </Routes>
           </Suspense>
           <Toaster />

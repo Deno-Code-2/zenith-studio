@@ -65,8 +65,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32"> 
-        {/* Increased vertical padding */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40"> 
         <div className="flex flex-col items-center justify-center text-center">
           {/* Text Content - Centered */}
           <motion.div 
@@ -103,7 +102,7 @@ const Hero = () => {
               <Button 
                 asChild 
                 variant="default"
-                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg"
+                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg bg-custom-orange hover:bg-custom-orange/90"
                 size="lg"
               >
                 <motion.a 

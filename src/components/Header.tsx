@@ -11,7 +11,7 @@ const Header = () => {
   const location = useLocation();
   const [logoTextIndex, setLogoTextIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState("");
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
   // All text variations with their maximum width
   const textVariations = [
@@ -29,14 +29,11 @@ const Header = () => {
     { text: "maybe one more" }
   ];
 
-  // Set fixed width based on longest text
-  const logoWidth = "180px"; // Width for "Definitely not SVG"
-
   // Handle resize and scroll events
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
+      setIsMobile(window.innerWidth < 1024);
+      if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false);
       }
     };
@@ -105,29 +102,32 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo with fixed width - prevents layout shift */}
-          <div 
-            className={`text-xl font-bold font-syne cursor-pointer flex-shrink-0`}
-            style={{ width: logoWidth }}
-            onClick={handleLogoClick}
+          {/* Logo */}
+          <Link 
+            to="/"
+            className="text-xl font-bold font-syne cursor-pointer flex-shrink-0"
+            onClick={() => {
+              handleLogoClick();
+              scrollToTop();
+            }}
           >
             <div className="whitespace-nowrap">
               {textVariations[logoTextIndex].text}
             </div>
-          </div>
+          </Link>
 
-          {/* Desktop Navigation - centered and stable */}
+          {/* Desktop Navigation */}
           {!isMobile && (
-            <nav className="absolute left-1/2 transform -translate-x-1/2">
-              <div className="flex space-x-4 md:space-x-6">
+            <nav className="mx-auto">
+              <div className="flex space-x-1 md:space-x-2 lg:space-x-6">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`font-jakarta relative py-1 px-1 text-sm sm:text-base ${
+                    className={`font-jakarta relative py-1 px-2 text-sm sm:text-base rounded-md transition-colors ${
                       location.pathname === item.href
-                        ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-foreground after:left-0 after:bottom-0"
-                        : "text-foreground hover:text-custom-orange"
+                        ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-custom-orange after:left-0 after:bottom-0"
+                        : "text-foreground hover:text-custom-orange hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
                     }`}
                     onClick={scrollToTop}
                   >
@@ -145,11 +145,11 @@ const Header = () => {
               <Button
                 asChild
                 variant="default"
-                className="font-jakarta text-sm sm:text-base"
+                className="font-jakarta text-sm"
                 size="sm"
               >
                 <a 
-                  href="https://calendly.com/syedmoinuddin106" 
+                  href="https://cal.com/zenith-studio/30min" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
@@ -157,11 +157,10 @@ const Header = () => {
                 </a>
               </Button>
             )}
+            
             {/* Time Display */}
             {(!isMobile || !mobileMenuOpen) && (
-              <div className={`flex items-center gap-1 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full text-xs ${
-                isMobile ? 'hidden sm:flex' : ''
-              }`}>
+              <div className="hidden md:flex items-center gap-1 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full text-xs">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                 <span>IST: {currentTime}</span>
               </div>
@@ -211,7 +210,7 @@ const Header = () => {
                 size="sm"
               >
                 <a 
-                  href="https://calendly.com/syedmoinuddin106" 
+                  href="https://cal.com/zenith-studio/30min" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

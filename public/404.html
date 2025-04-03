@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found</title>
+  <script>
+    // Store the requested URL for use in the main app
+    sessionStorage.redirect = location.href;
+    
+    // Redirect to the homepage where our SPA will handle the route
+    window.location.replace("/");
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

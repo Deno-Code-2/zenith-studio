@@ -1,154 +1,65 @@
 
-"use client";
-import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
-import { encode } from "qss";
-import React, { useState, useEffect } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-type LinkPreviewProps = {
-  children: React.ReactNode;
-  url: string;
-  className?: string;
-  width?: number;
-  height?: number;
-  quality?: number;
-  layout?: string;
-} & (
-  | { isStatic: true; imageSrc: string }
-  | { isStatic?: false; imageSrc?: never }
-);
-
-export const LinkPreview = ({
+export function LinkPreview({
   children,
   url,
-  className,
-  width = 200,
-  height = 125,
-  quality = 50,
-  layout = "fixed",
-  isStatic = false,
-  imageSrc = "",
-}: LinkPreviewProps) => {
-  let src;
-  if (!isStatic) {
-    const params = encode({
-      url,
-      screenshot: true,
-      meta: false,
-      embed: "screenshot.url",
-      colorScheme: "dark",
-      "viewport.isMobile": true,
-      "viewport.deviceScaleFactor": 1,
-      "viewport.width": width * 3,
-      "viewport.height": height * 3,
-    });
-    src = `https://api.microlink.io/?${params}`;
-  } else {
-    src = imageSrc;
-  }
-
-  const [isOpen, setOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const springConfig = { stiffness: 100, damping: 15 };
-  const x = useMotionValue(0);
-
-  const translateX = useSpring(x, springConfig);
-
-  const handleMouseMove = (event: React.MouseEvent) => {
-    const targetRect = event.currentTarget.getBoundingClientRect();
-    const eventOffsetX = event.clientX - targetRect.left;
-    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2; // Reduce the effect to make it subtle
-    x.set(offsetFromCenter);
-  };
+  imageUrl,
+  title,
+  description,
+  previewClassName,
+  wrapperClassName
+}: {
+  children: React.ReactNode;
+  url: string;
+  imageUrl: string;
+  title: string;
+  description: string;
+  previewClassName?: string;
+  wrapperClassName?: string;
+}) {
+  const [isMouseOver, setIsMouseOver] = useState(false);
 
   return (
-    <>
-      {isMounted ? (
-        <div className="hidden">
-          <img
-            src={src}
-            width={width}
-            height={height}
-            alt="hidden image"
-            style={{ display: 'none' }}
-          />
-        </div>
-      ) : null}
-
-      <HoverCardPrimitive.Root
-        openDelay={50}
-        closeDelay={100}
-        onOpenChange={(open) => {
-          setOpen(open);
-        }}
-      >
-        <HoverCardPrimitive.Trigger
-          onMouseMove={handleMouseMove}
-          className={cn("text-black dark:text-white", className)}
-          asChild
-        >
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {children}
-          </a>
-        </HoverCardPrimitive.Trigger>
-
-        <HoverCardPrimitive.Content
-          className="[transform-origin:var(--radix-hover-card-content-transform-origin)]"
-          side="top"
-          align="center"
-          sideOffset={10}
-        >
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 20, scale: 0.6 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  transition: {
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 20,
-                  },
-                }}
-                exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                className="shadow-xl rounded-xl"
-                style={{
-                  x: translateX,
-                }}
-              >
-                <a
-                  href={url}
-                  className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
-                  style={{ fontSize: 0 }}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={isStatic ? imageSrc : src}
-                    width={width}
-                    height={height}
-                    className="rounded-lg"
-                    alt="preview image"
-                  />
-                </a>
-              </motion.div>
+    <div
+      className={cn("relative group cursor-pointer", wrapperClassName)}
+      onMouseOver={() => setIsMouseOver(true)}
+      onMouseLeave={() => setIsMouseOver(false)}
+    >
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+      <AnimatePresence>
+        {isMouseOver && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className={cn(
+              "absolute top-full left-1/2 transform -translate-x-1/2 z-50 w-64 md:w-72 lg:w-80 bg-white dark:bg-gray-950 shadow-md border border-border rounded-lg overflow-hidden",
+              previewClassName
             )}
-          </AnimatePresence>
-        </HoverCardPrimitive.Content>
-      </HoverCardPrimitive.Root>
-    </>
+          >
+            <div className="w-full h-32 relative overflow-hidden">
+              <img 
+                src={imageUrl} 
+                alt={title} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-3">
+              <h3 className="font-medium text-sm text-gray-900 dark:text-gray-100 mb-1 line-clamp-1">
+                {title}
+              </h3>
+              <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+                {description}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
-};
+}
