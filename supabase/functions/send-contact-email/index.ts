@@ -36,7 +36,7 @@ const handler = async (req: Request): Promise<Response> => {
     let emailSubject = '';
 
     if (isAdminEmail) {
-      // Enhanced Email to the site owner/admin
+      // Enhanced Email to the site owner/admin with more modern SaaS appearance
       emailSubject = `New Project Inquiry: ${subject}`;
       emailContent = `
         <!DOCTYPE html>
@@ -47,83 +47,174 @@ const handler = async (req: Request): Promise<Response> => {
           <title>New Project Inquiry</title>
           <style>
             body {
-              font-family: 'Arial', sans-serif;
+              font-family: 'Inter', 'Segoe UI', sans-serif;
               line-height: 1.6;
               color: #333;
               max-width: 600px;
               margin: 0 auto;
-              padding: 20px;
+              padding: 0;
+              background-color: #f5f5f5;
+            }
+            .container {
+              background-color: #ffffff;
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             }
             .header {
-              background-color: #E46534;
-              padding: 20px;
+              background: linear-gradient(to right, #E46534, #F97F51);
+              padding: 30px 20px;
               text-align: center;
+            }
+            .logo {
+              margin-bottom: 15px;
+            }
+            .header h1 {
               color: white;
-              border-radius: 5px 5px 0 0;
+              margin: 0;
+              font-size: 24px;
+              font-weight: 700;
             }
             .content {
-              padding: 20px;
-              background-color: #f9f9f9;
-              border: 1px solid #ddd;
-              border-top: none;
-              border-radius: 0 0 5px 5px;
-            }
-            .label {
-              font-weight: bold;
-              color: #E46534;
+              padding: 30px 25px;
+              background-color: #ffffff;
             }
             .info-box {
-              background-color: #fff;
-              border: 1px solid #ddd;
-              padding: 15px;
-              margin-bottom: 15px;
-              border-radius: 5px;
+              background-color: #fafafa;
+              border-radius: 8px;
+              padding: 20px;
+              margin-bottom: 25px;
+              border-left: 4px solid #E46534;
+            }
+            .project-details {
+              margin-top: 10px;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 15px;
+            }
+            .detail-item {
+              background-color: #ffffff;
+              border-radius: 6px;
+              padding: 12px 15px;
+              border: 1px solid #eee;
+            }
+            .label {
+              font-weight: 600;
+              color: #E46534;
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              margin-bottom: 5px;
+              display: block;
+            }
+            .value {
+              font-size: 15px;
+              color: #444;
+              word-break: break-word;
             }
             .message-box {
-              background-color: #fff;
-              border: 1px solid #ddd;
-              padding: 15px;
+              background-color: #ffffff;
+              border: 1px solid #eee;
+              padding: 20px;
               margin-top: 20px;
-              border-radius: 5px;
+              border-radius: 8px;
+            }
+            .message-content {
+              white-space: pre-line;
+              line-height: 1.6;
+              color: #333;
             }
             .footer {
               text-align: center;
-              margin-top: 20px;
-              font-size: 12px;
+              padding: 20px;
+              background-color: #fafafa;
+              font-size: 13px;
               color: #777;
+              border-top: 1px solid #eee;
+            }
+            .cta-button {
+              display: inline-block;
+              background: linear-gradient(to right, #E46534, #F97F51);
+              color: white;
+              text-decoration: none;
+              padding: 12px 25px;
+              border-radius: 6px;
+              font-weight: 600;
+              margin-top: 15px;
+              text-align: center;
+            }
+            .priority-badge {
+              display: inline-block;
+              background-color: #E46534;
+              color: white;
+              font-size: 11px;
+              font-weight: 600;
+              padding: 4px 10px;
+              border-radius: 20px;
+              margin-top: 10px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
             }
           </style>
         </head>
         <body>
-          <div class="header">
-            <h1>New Project Inquiry</h1>
-          </div>
-          <div class="content">
-            <p>You've received a new inquiry from your website contact form:</p>
-            
-            <div class="info-box">
-              <p><span class="label">Name:</span> ${name}</p>
-              <p><span class="label">Email:</span> <a href="mailto:${email}">${email}</a></p>
-              <p><span class="label">Subject:</span> ${subject}</p>
-              <p><span class="label">Budget Range:</span> ${price_range}</p>
-              <p><span class="label">Service Type:</span> ${service_type}</p>
+          <div class="container">
+            <div class="header">
+              <div class="logo">
+                <img src="https://i.ibb.co/gjbL3xQ/Zenith-Studio.png" alt="Zenith Studio" width="120" height="auto" />
+              </div>
+              <h1>New Project Inquiry</h1>
             </div>
             
-            <div class="message-box">
-              <h3>Client Message:</h3>
-              <p>${message.replace(/\n/g, '<br>')}</p>
+            <div class="content">
+              <p>You've received a new inquiry from your website contact form:</p>
+              
+              <div class="info-box">
+                <div class="label">Client Name</div>
+                <div class="value">${name}</div>
+                <div style="margin-top:15px;">
+                  <div class="label">Email</div>
+                  <div class="value"><a href="mailto:${email}" style="color:#E46534; text-decoration:none;">${email}</a></div>
+                </div>
+                <div style="margin-top:15px;">
+                  <div class="label">Subject</div>
+                  <div class="value">${subject}</div>
+                </div>
+                
+                <div class="project-details">
+                  <div class="detail-item">
+                    <div class="label">Budget Range</div>
+                    <div class="value">${price_range}</div>
+                  </div>
+                  <div class="detail-item">
+                    <div class="label">Service Type</div>
+                    <div class="value">${service_type}</div>
+                  </div>
+                </div>
+                
+                <div class="priority-badge">New Lead</div>
+              </div>
+              
+              <div class="message-box">
+                <h3 style="margin-top:0; color:#333; font-size:18px;">Client Message:</h3>
+                <div class="message-content">${message.replace(/\n/g, '<br>')}</div>
+              </div>
+              
+              <p style="margin-top:25px;">We recommend responding to this inquiry within 24 hours for the best conversion rates.</p>
+              
+              <a href="mailto:${email}?subject=Re: ${subject}" class="cta-button">Reply Now</a>
             </div>
             
-            <p>We recommend responding to this inquiry within 24 hours.</p>
-          </div>
-          <div class="footer">
-            <p>This is an automated message from your Zenith Studio website.</p>
+            <div class="footer">
+              <p>This is an automated message from your <strong>Zenith Studio</strong> website.</p>
+              <p style="margin:5px 0 0;">© 2025 Zenith Studio. All rights reserved.</p>
+            </div>
           </div>
         </body>
         </html>
       `;
     } else {
-      // Enhanced Confirmation email to the user
+      // Enhanced Confirmation email to the user with more modern SaaS appearance
       emailSubject = `Thank you for contacting Zenith Studio!`;
       emailContent = `
         <!DOCTYPE html>
@@ -134,101 +225,203 @@ const handler = async (req: Request): Promise<Response> => {
           <title>Thank You for Contacting Zenith Studio</title>
           <style>
             body {
-              font-family: 'Arial', sans-serif;
+              font-family: 'Inter', 'Segoe UI', sans-serif;
               line-height: 1.6;
               color: #333;
               max-width: 600px;
               margin: 0 auto;
               padding: 0;
+              background-color: #f5f5f5;
             }
             .container {
               background-color: #ffffff;
               border-radius: 8px;
               overflow: hidden;
-              box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+              box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             }
             .header {
-              background-color: #E46534;
+              background: linear-gradient(to right, #E46534, #F97F51);
               padding: 30px 20px;
               text-align: center;
+            }
+            .logo {
+              margin-bottom: 15px;
             }
             .header h1 {
               color: white;
               margin: 0;
-              font-size: 28px;
+              font-size: 24px;
+              font-weight: 700;
+            }
+            .header p {
+              color: rgba(255,255,255,0.9);
+              margin: 10px 0 0;
+              font-size: 16px;
             }
             .content {
-              padding: 30px 20px;
+              padding: 30px 25px;
+              background-color: #ffffff;
             }
-            .detail-box {
-              background-color: #f9f9f9;
-              border-radius: 6px;
-              padding: 15px;
-              margin: 20px 0;
+            .message {
+              background-color: #fafafa;
+              border-radius: 8px;
+              padding: 25px;
+              margin-bottom: 25px;
+              border-left: 4px solid #E46534;
+            }
+            .project-details {
+              margin-top: 20px;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 15px;
             }
             .detail-item {
-              margin-bottom: 8px;
+              background-color: #ffffff;
+              border-radius: 6px;
+              padding: 15px;
+              border: 1px solid #eee;
             }
             .detail-label {
-              font-weight: bold;
-              display: inline-block;
-              min-width: 120px;
+              font-weight: 600;
+              color: #E46534;
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              margin-bottom: 5px;
+              display: block;
+            }
+            .detail-value {
+              font-size: 15px;
+              color: #444;
+            }
+            .footer {
+              text-align: center;
+              padding: 25px 20px;
+              background-color: #fafafa;
+              font-size: 13px;
+              color: #777;
+              border-top: 1px solid #eee;
             }
             .cta-button {
               display: inline-block;
-              background-color: #E46534;
+              background: linear-gradient(to right, #E46534, #F97F51);
               color: white;
               text-decoration: none;
               padding: 12px 25px;
-              border-radius: 4px;
-              margin-top: 20px;
-              font-weight: bold;
-            }
-            .footer {
-              background-color: #f7f7f7;
-              padding: 20px;
+              border-radius: 6px;
+              font-weight: 600;
+              margin-top: 15px;
               text-align: center;
-              font-size: 12px;
-              color: #777;
+            }
+            .steps {
+              margin: 25px 0;
+              padding: 0;
+            }
+            .step {
+              display: flex;
+              align-items: flex-start;
+              margin-bottom: 15px;
+            }
+            .step-number {
+              background-color: #E46534;
+              color: white;
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: bold;
+              flex-shrink: 0;
+              margin-right: 15px;
+              margin-top: 2px;
+            }
+            .step-content {
+              flex: 1;
+            }
+            .step-title {
+              font-weight: 600;
+              color: #333;
+              margin-bottom: 5px;
             }
             .social-links {
-              margin: 15px 0;
+              margin: 20px 0 10px;
             }
             .social-link {
               display: inline-block;
               margin: 0 8px;
+              color: #777;
+              text-decoration: none;
+              font-weight: 600;
+            }
+            .social-link:hover {
+              color: #E46534;
+            }
+            .divider {
+              height: 1px;
+              background-color: #eee;
+              margin: 25px 0;
             }
           </style>
         </head>
         <body>
           <div class="container">
             <div class="header">
-              <h1>Thank You for Contacting Us!</h1>
+              <div class="logo">
+                <img src="https://i.ibb.co/gjbL3xQ/Zenith-Studio.png" alt="Zenith Studio" width="120" height="auto" />
+              </div>
+              <h1>Thanks for reaching out!</h1>
+              <p>We've received your inquiry</p>
             </div>
             
             <div class="content">
-              <p>Hello ${name},</p>
+              <div class="message">
+                <p>Hello ${name},</p>
+                <p>Thank you for getting in touch with Zenith Studio. We've received your project inquiry about <strong>${subject}</strong>.</p>
+                <p><strong>Our team will respond within 48 hours</strong> to discuss your project in detail.</p>
+              </div>
               
-              <p>Thank you for reaching out to Zenith Studio. We've received your inquiry regarding "${subject}" and a member of our team will get back to you as soon as possible.</p>
+              <h3 style="margin-top:30px; color:#333; font-size:18px;">What happens next?</h3>
               
-              <div class="detail-box">
-                <p>Here's a summary of your inquiry:</p>
+              <ol class="steps">
+                <li class="step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <div class="step-title">Initial Review</div>
+                    <p style="margin:0; color:#666;">Our team will review your project requirements.</p>
+                  </div>
+                </li>
+                <li class="step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <div class="step-title">Consultation Call</div>
+                    <p style="margin:0; color:#666;">We'll schedule a call to discuss your project in detail.</p>
+                  </div>
+                </li>
+                <li class="step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <div class="step-title">Proposal & Planning</div>
+                    <p style="margin:0; color:#666;">We'll create a customized proposal based on your needs.</p>
+                  </div>
+                </li>
+              </ol>
+              
+              <div class="divider"></div>
+              
+              <h3 style="margin-top:0; color:#333; font-size:18px;">Your Project Details</h3>
+              <div class="project-details">
                 <div class="detail-item">
-                  <span class="detail-label">Service of Interest:</span> ${service_type}
+                  <span class="detail-label">Service Type</span>
+                  <span class="detail-value">${service_type}</span>
                 </div>
                 <div class="detail-item">
-                  <span class="detail-label">Budget Range:</span> ${price_range}
+                  <span class="detail-label">Budget Range</span>
+                  <span class="detail-value">${price_range}</span>
                 </div>
               </div>
               
-              <p>If you have any additional information to share or questions in the meantime, please feel free to reply to this email.</p>
-              
-              <p>We look forward to exploring how we can help with your project!</p>
-              
-              <a href="https://zenithstudio.com" class="cta-button">Visit Our Website</a>
-              
-              <p style="margin-top: 30px;">Warm regards,<br>
-              The Zenith Studio Team</p>
+              <a href="https://zenithstudio.com/portfolio" class="cta-button">View Our Portfolio</a>
             </div>
             
             <div class="footer">
@@ -237,7 +430,8 @@ const handler = async (req: Request): Promise<Response> => {
                 <a href="https://instagram.com/zenithstudio" class="social-link">Instagram</a>
                 <a href="https://linkedin.com/company/zenithstudio" class="social-link">LinkedIn</a>
               </div>
-              <p>&copy; 2025 Zenith Studio. All rights reserved.</p>
+              <p style="margin:15px 0 5px;">© 2025 Zenith Studio. All rights reserved.</p>
+              <p style="margin:5px 0 0; font-size:12px; color:#999;">If you didn't submit this request, please ignore this email.</p>
             </div>
           </div>
         </body>
