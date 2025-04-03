@@ -25,7 +25,7 @@ interface Project {
   project_type: string;
 }
 
-// Updated projects list with the new projects requested by the client
+// Comprehensive projects list with all the requested projects
 const sampleProjects: Project[] = [
   // AI Websites
   {
@@ -60,6 +60,7 @@ const sampleProjects: Project[] = [
     project_url: "#",
     project_type: "AI Website"
   },
+  
   // E-commerce Websites
   {
     id: "ecom-1",
@@ -69,6 +70,7 @@ const sampleProjects: Project[] = [
     project_url: "#",
     project_type: "E-commerce Website"
   },
+  
   // SaaS & Service Websites
   {
     id: "saas-1",
@@ -94,6 +96,7 @@ const sampleProjects: Project[] = [
     project_url: "#",
     project_type: "SaaS Website"
   },
+  
   // Redesign Projects
   {
     id: "redesign-1",
@@ -237,6 +240,7 @@ const Projects = () => {
             ))}
           </motion.div>
 
+          {/* Project listing section */}
           {isLoading ? (
             <div className="text-center text-gray-600 py-20">
               <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin mx-auto mb-4"></div>
