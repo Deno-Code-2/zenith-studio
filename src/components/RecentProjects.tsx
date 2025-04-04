@@ -1,11 +1,10 @@
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { ExternalLink } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 
 interface Project {
   id: string;
@@ -13,7 +12,7 @@ interface Project {
   description: string;
   image_url: string;
   project_url: string;
-  project_type: string;
+  project_type: string; // Added project_type to match the updated schema
 }
 
 const fetchProjects = async () => {
@@ -21,13 +20,13 @@ const fetchProjects = async () => {
     .from('projects')
     .select('*')
     .order('created_at', { ascending: false })
-    .limit(6);
+    .limit(6); // Increased to get 6 projects
 
   if (error) {
     console.error('Error fetching projects:', error);
     throw error;
   }
-  return data || [];
+  return data;
 };
 
 const RecentProjects = () => {
@@ -38,28 +37,23 @@ const RecentProjects = () => {
   });
 
   if (isLoading) {
-    return (
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-8 lg:px-16">
-          <div className="text-center">
-            <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-gray-600 font-jakarta">Loading projects...</p>
-          </div>
+    return <section className="py-20 bg-black">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        <div className="text-center">
+          <p className="text-gray-300 font-jakarta">Loading projects...</p>
         </div>
-      </section>
-    );
+      </div>
+    </section>;
   }
 
   if (error) {
-    return (
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-8 lg:px-16">
-          <div className="text-center">
-            <p className="text-red-400 font-jakarta">Error loading projects. Please try again later.</p>
-          </div>
+    return <section className="py-20 bg-black">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        <div className="text-center">
+          <p className="text-red-400 font-jakarta">Error loading projects. Please try again later.</p>
         </div>
-      </section>
-    );
+      </div>
+    </section>;
   }
 
   return (
@@ -74,12 +68,9 @@ const RecentProjects = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {projects?.map((project, index) => (
-            <motion.div 
+          {projects?.map(project => (
+            <div 
               key={project.id} 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative overflow-hidden rounded-xl bg-black backdrop-blur-sm border border-black transition-all duration-300 hover:border-custom-orange/40"
             >
               <div className="relative">
@@ -115,13 +106,13 @@ const RecentProjects = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
         <div className="text-center">
           <Button 
             onClick={() => navigate('/projects')}
-            className="font-jakarta text-white bg-custom-orange hover:bg-custom-orange/90 hover:text-white"
+            className="font-jakarta text-white bg-custom-orange hover:bg-custom-orange"
           >
             View All Projects
           </Button>
