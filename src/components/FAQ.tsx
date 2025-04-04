@@ -131,65 +131,61 @@ const FAQ = () => {
           </motion.div>
         </div>
 
-        <motion.div 
-          className="max-w-3xl mx-auto space-y-4"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {filteredFAQs.map((item, index) => (
-            <motion.div
-              key={index}
-              className="border border-gray-200 rounded-xl overflow-hidden mb-4 last:mb-0"
-              variants={itemVariants}
-              whileHover={{ 
-                boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
-                borderColor: expandedItem === index ? "rgba(228, 101, 52, 0.5)" : "rgba(200,200,200,0.8)"
-              }}
-              transition={{ duration: 0.2 }}
-            >
-              <motion.button
-                className="w-full py-6 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50 px-6 transition-colors"
-                onClick={() => setExpandedItem(expandedItem === index ? null : index)}
-                whileHover={{ backgroundColor: "rgba(0,0,0,0.02)" }}
-                whileTap={{ scale: 0.995 }}
-              >
-                <span className="text-black font-syne text-lg font-semibold pr-4">{item.question}</span>
-                <motion.div 
-                  className="flex-shrink-0 w-6 h-6 rounded-full bg-custom-orange/10 flex items-center justify-center"
-                  animate={{ 
-                    rotate: expandedItem === index ? 45 : 0,
-                    backgroundColor: expandedItem === index ? "rgba(228, 101, 52, 0.2)" : "rgba(228, 101, 52, 0.1)" 
-                  }}
-                  transition={{ duration: 0.3 }}
+        <div className="max-w-3xl mx-auto">
+          {defaultValue && (
+            <Accordion type="single" collapsible defaultValue={defaultValue} className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={`item-${index}`} 
+                  value={`item-${index}`}
+                  className="border border-neutral-800 rounded-lg overflow-hidden bg-black"
                 >
-                  <span className="text-custom-orange text-xl font-medium leading-none">+</span>
-                </motion.div>
-              </motion.button>
-              
-              <AnimatePresence initial={false}>
-                {expandedItem === index && (
-                  <motion.div
-                    className="overflow-hidden bg-gray-50/50"
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={answerVariants}
-                  >
-                    <motion.div 
-                      className="p-6 pt-0 text-gray-600 font-jakarta"
-                      initial={{ y: 10, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
-                    >
-                      {item.answer}
-                    </motion.div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </motion.div>
+                  <AccordionTrigger className="px-6 py-4 text-white hover:text-custom-orange hover:no-underline font-jakarta flex items-center justify-between">
+                    <span className="text-left font-medium">{faq.question}</span>
+                    <div className="flex-shrink-0 ml-4 text-custom-orange">
+                      <motion.div
+                        variants={{
+                          open: { rotate: 45 },
+                          closed: { rotate: 0 }
+                        }}
+                        transition={{ duration: 0.3 }}
+                        className="h-6 w-6 flex items-center justify-center"
+                      >
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="24" 
+                          height="24" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
+                          <line x1="12" y1="5" x2="12" y2="19"></line>
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                      </motion.div>
+                    </div>
+                  </AccordionTrigger>
+                  <AnimatePresence>
+                    <AccordionContent className="px-6 pb-6">
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="text-neutral-400 font-jakarta"
+                      >
+                        {faq.answer}
+                      </motion.div>
+                    </AccordionContent>
+                  </AnimatePresence>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          )}
+        </div>
       </div>
     </section>
   );
