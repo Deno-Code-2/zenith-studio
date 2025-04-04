@@ -21,7 +21,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
-      className="project-card group relative overflow-hidden rounded-xl bg-white shadow-md border border-custom-orange/10 hover:border-custom-orange/40 transition-all duration-300 hover:shadow-lg"
+      className="project-card group relative overflow-hidden rounded-xl bg-white shadow-md border border-custom-orange/10 hover:border-custom-orange/40 transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px]"
     >
       <div className="aspect-video overflow-hidden max-h-[200px] flex items-center justify-center">
         <img 
@@ -44,7 +44,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         </div>
         <p className="text-gray-600 font-jakarta text-sm mb-4">{project.description}</p>
         <div className="mt-3">
-          <span className="bg-custom-orange/10 text-custom-orange px-3 py-1 rounded-full text-xs font-medium">
+          <span className="bg-custom-orange/10 text-custom-orange px-3 py-1.5 rounded-full text-xs font-medium">
             {project.project_type}
           </span>
         </div>

@@ -24,7 +24,7 @@ const TimeDisplay = () => {
   }, []);
 
   return (
-    <div className="text-sm font-medium text-gray-700 font-jakarta">
+    <div className="text-sm font-medium text-gray-200 font-jakarta">
       Local Time: <span className="text-custom-orange">{time} IST</span>
     </div>
   );

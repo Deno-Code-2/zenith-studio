@@ -31,7 +31,7 @@ const fetchServices = async () => {
   const { data, error } = await supabase
     .from('services')
     .select('*')
-    .order('created_at', { ascending: false });
+    .order('price', { ascending: true });
 
   if (error) {
     console.error('Error fetching services:', error);
