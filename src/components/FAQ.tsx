@@ -73,44 +73,28 @@ const FAQ = () => {
                   <AccordionTrigger className="px-6 py-4 text-white hover:text-custom-orange hover:no-underline font-jakarta flex items-center justify-between">
                     <span className="text-left font-medium">{faq.question}</span>
                     <div className="flex-shrink-0 ml-4 text-custom-orange">
-                      <motion.div
-                        variants={{
-                          open: { rotate: 45 },
-                          closed: { rotate: 0 }
-                        }}
-                        transition={{ duration: 0.3 }}
-                        className="h-6 w-6 flex items-center justify-center"
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        width="24" 
+                        height="24" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                        className="transition-transform duration-300 group-data-[state=open]:rotate-45"
                       >
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          width="24" 
-                          height="24" 
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="2" 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round"
-                        >
-                          <line x1="12" y1="5" x2="12" y2="19"></line>
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                      </motion.div>
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
                     </div>
                   </AccordionTrigger>
-                  <AnimatePresence>
-                    <AccordionContent className="px-6 pb-6">
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="text-neutral-400 font-jakarta"
-                      >
-                        {faq.answer}
-                      </motion.div>
-                    </AccordionContent>
-                  </AnimatePresence>
+                  <AccordionContent className="px-6 pb-6">
+                    <div className="text-neutral-400 font-jakarta">
+                      {faq.answer}
+                    </div>
+                  </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
