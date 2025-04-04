@@ -1,112 +1,254 @@
-
-import { useState } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import TimeDisplay from '@/components/TimeDisplay';
+import { Menu, X, Clock } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
+  const [logoTextIndex, setLogoTextIndex] = useState(0);
+  const [currentTime, setCurrentTime] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
-  const navItems = [
-    { label: 'Home', to: '/' },
-    { label: 'Services', to: '/services' },
-    { label: 'Projects', to: '/projects' },
-    { label: 'About', to: '/about' },
-    { label: 'Contact', to: '/contact' },
+  // All text variations with their maximum width
+  const textVariations = [
+    { text: (<><span className="text-custom-orange">Zen</span>ith Studio</>) }, // Default
+    { text: "Definitely not SVG" },
+    { text: "Web Dev" },
+    { text: "superheroes" },
+    { text: "running out of ideas" },
+    { text: "DM for your projects now" },
+    { text: "Book A Call Now" },
+    { text: "check the projects pls" },
+    { text: "stop now" },
+    { text: "for real?" },
+    { text: "one more" },
+    { text: "maybe one more" }
   ];
 
-  const isActive = (path: string) => {
-    return location.pathname === path;
+  // Handle resize and scroll events
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Update IST time
+  useEffect(() => {
+    const updateTime = () => {
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: !isMobile ? '2-digit' : undefined
+      };
+      const formatter = new Intl.DateTimeFormat('en-IN', options);
+      setCurrentTime(formatter.format(new Date()));
+    };
+
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, [isMobile]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const handleLogoClick = () => {
+    setLogoTextIndex((prev) => (prev + 1) % textVariations.length);
+  };
+
+  const navigation = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Projects", href: "/projects" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Contact", href: "/contact" },
+  ];
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      className="bg-white sticky top-0 z-50 shadow-sm"
+      initial={{ height: 80 }}
+      animate={{ 
+        height: isScrolled ? 64 : 80,
+        backgroundColor: isScrolled || mobileMenuOpen ? "rgba(var(--background-rgb), 0.95)" : "rgba(var(--background-rgb), 0.80)"
+      }}
+      transition={{ duration: 0.3 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md ${
+        isScrolled || mobileMenuOpen ? "border-b border-border" : ""
+      }`}
     >
-      <div className="container flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
-        {/* Logo Section */}
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center space-x-2">
-            <img src="/zenith-studio-logo.svg" alt="Zenith Studio Logo" className="h-8 w-auto" />
-            <span className="font-bold text-xl font-syne text-black">Zenith Studio</span>
+      <div className="container mx-auto px-4 sm:px-6 h-full">
+        <div className="flex items-center justify-between h-full">
+          {/* Logo */}
+          <Link 
+            to="/"
+            className={`text-xl font-bold font-syne cursor-pointer flex-shrink-0 transition-all duration-300 ${
+              isScrolled ? "scale-90" : "scale-100"
+            }`}
+            onClick={() => {
+              handleLogoClick();
+              scrollToTop();
+            }}
+          >
+            <div className="whitespace-nowrap">
+              {textVariations[logoTextIndex].text}
+            </div>
           </Link>
-        </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-6">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.label}
-              to={item.to}
-              className={`font-jakarta text-black hover:text-custom-orange transition-colors duration-200 ${
-                isActive(item.to) ? 'text-custom-orange font-semibold' : ''
-              }`}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        {/* CTA Button and Time Display */}
-        <div className="hidden lg:flex items-center space-x-5">
-          <TimeDisplay />
-          <Button onClick={() => navigate('/contact')} variant="outline" className="font-jakarta">
-            Get in Touch
-          </Button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
-                <Menu className="h-6 w-6 text-black" aria-label="Toggle Menu" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-white w-64">
-              <div className="flex justify-end mb-4">
-                <Button variant="ghost" size="icon" onClick={closeMobileMenu}>
-                  <X className="h-6 w-6" />
-                </Button>
-              </div>
-              <nav className="flex flex-col space-y-4">
-                {navItems.map((item) => (
-                  <NavLink
-                    key={item.label}
-                    to={item.to}
-                    className={`font-jakarta text-black hover:text-custom-orange transition-colors duration-200 ${
-                      isActive(item.to) ? 'text-custom-orange font-semibold' : ''
+          {/* Desktop Navigation */}
+          {!isMobile && (
+            <nav className="mx-auto">
+              <motion.div 
+                className="flex space-x-1 md:space-x-2 lg:space-x-6"
+                animate={{
+                  scale: isScrolled ? 0.95 : 1
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`font-jakarta relative py-1 px-2 text-sm sm:text-base rounded-md transition-colors ${
+                      location.pathname === item.href
+                        ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-custom-orange after:left-0 after:bottom-0"
+                        : "text-foreground hover:text-custom-orange hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
                     }`}
-                    onClick={closeMobileMenu}
+                    onClick={scrollToTop}
                   >
-                    {item.label}
-                  </NavLink>
+                    {item.name}
+                  </Link>
                 ))}
-              </nav>
-              <div className="mt-6">
-                <Button onClick={() => navigate('/contact')} className="w-full font-jakarta">
-                  Get in Touch
+              </motion.div>
+            </nav>
+          )}
+
+          <div className="flex items-center gap-2">
+            {!isMobile && (
+              <Button
+                asChild
+                variant="default"
+                size="sm"
+                className="font-jakarta"
+              >
+                <a 
+                  href="https://cal.com/zenith-studio/30min" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Book A Call
+                </a>
+              </Button>
+            )}
+
+            {/* Updated Time Display */}
+            {(!isMobile || !mobileMenuOpen) && (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="hidden md:flex items-center gap-2 bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-full text-xs shadow-sm border border-black/10 dark:border-white/10"
+              >
+                <Clock className="h-3 w-3 text-green-500" />
+                <span className="font-medium">Local Time: {currentTime} IST</span>
+              </motion.div>
+            )}
+
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            {isMobile && (
+              <button
+                type="button"
+                className="p-2 rounded-md text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Mobile Menu with Animation */}
+        <AnimatePresence>
+          {isMobile && mobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden pb-4 border-t border-border"
+            >
+              <div className="flex flex-col space-y-2 mt-2">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`px-3 py-2 rounded-md font-jakarta ${
+                      location.pathname === item.href
+                        ? "bg-gray-100 dark:bg-gray-800 text-custom-orange"
+                        : "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+                    }`}
+                    onClick={scrollToTop}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+
+                {/* IST Time in Mobile Menu */}
+                <div className="flex items-center gap-2 px-3 py-2 text-sm">
+                  <Clock className="h-4 w-4 text-green-500" />
+                  <span className="text-muted-foreground">Local Time: {currentTime} IST</span>
+                </div>
+
+                <Button
+                  asChild
+                  variant="default"
+                  className="w-full mt-2 font-jakarta"
+                  size="sm"
+                >
+                  <a 
+                    href="https://cal.com/zenith-studio/30min" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Book A Call
+                  </a>
                 </Button>
               </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );
