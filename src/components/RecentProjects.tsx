@@ -20,7 +20,7 @@ const fetchProjects = async () => {
     .from('projects')
     .select('*')
     .order('created_at', { ascending: false })
-    .limit(6); // Increased to get 6 projects
+    .limit(3); // Increased to get 6 projects
 
   if (error) {
     console.error('Error fetching projects:', error);
@@ -71,7 +71,7 @@ const RecentProjects = () => {
           {projects?.map(project => (
             <div 
               key={project.id} 
-              className="group relative overflow-hidden rounded-xl bg-black backdrop-blur-sm border border-black transition-all duration-300 hover:border-custom-orange/40"
+              className="group relative overflow-hidden rounded-xl bg-white backdrop-blur-sm border border-black transition-all duration-300 hover:border-custom-orange/40"
             >
               <div className="relative">
                 <div className="aspect-video overflow-hidden max-h-[200px] flex items-center justify-center">
@@ -83,19 +83,19 @@ const RecentProjects = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-bold text-white font-syne">
+                    <h3 className="text-xl font-bold text-black font-syne">
                       {project.title}
                     </h3>
                     <a 
                       href={project.project_url} 
-                      className="text-neutral-400 hover:text-custom-orange transition-colors"
+                      className="text-black hover:text-custom-orange transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="w-5 h-5" />
                     </a>
                   </div>
-                  <p className="text-gray-300 font-jakarta text-sm">
+                  <p className="text-black font-jakarta text-sm">
                     {project.description}
                   </p>
                   {/* Display project type as a badge */}

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FAQ = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [expandedItem, setExpandedItem] = useState<number | null>(null);
+  const [expandedItem, setExpandedItem] = useState<number | null>(0);
 
   const faqItems = [
     {
@@ -101,25 +101,52 @@ const FAQ = () => {
   };
 
   const answerVariants = {
-    hidden: { opacity: 0, height: 0 },
+    hidden: { opacity: 0, height: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       height: "auto",
+      scale: 1,
       transition: {
-        duration: 0.3,
-        ease: "easeInOut"
+        height: {
+          duration: 0.4,
+          ease: [0.04, 0.62, 0.23, 0.98]
+        },
+        opacity: {
+          duration: 0.25,
+          delay: 0.1
+        },
+        scale: {
+          duration: 0.3,
+          delay: 0.05
+        }
       }
     },
     exit: {
       opacity: 0,
       height: 0,
       transition: {
-        duration: 0.2,
-        ease: "easeInOut"
+        height: {
+          duration: 0.3,
+          ease: [0.04, 0.62, 0.23, 0.98]
+        },
+        opacity: {
+          duration: 0.2
+        },
+        scale: {
+          duration: 0.2
+        }
       }
     }
   };
 
+  useEffect(() => {
+    if (searchQuery === "") {
+      setExpandedItem(0);
+    } else {
+      setExpandedItem(null);
+    }
+  }, [searchQuery]);
+  
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
