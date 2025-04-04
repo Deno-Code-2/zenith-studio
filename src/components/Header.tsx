@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Clock } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -94,19 +94,25 @@ const Header = () => {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || mobileMenuOpen 
-          ? "bg-background/95 backdrop-blur-md border-b border-border" 
-          : "bg-background/80"
+    <motion.header
+      initial={{ height: 80 }}
+      animate={{ 
+        height: isScrolled ? 64 : 80,
+        backgroundColor: isScrolled || mobileMenuOpen ? "rgba(var(--background-rgb), 0.95)" : "rgba(var(--background-rgb), 0.80)"
+      }}
+      transition={{ duration: 0.3 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md ${
+        isScrolled || mobileMenuOpen ? "border-b border-border" : ""
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 sm:px-6 h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link 
             to="/"
-            className="text-xl font-bold font-syne cursor-pointer flex-shrink-0"
+            className={`text-xl font-bold font-syne cursor-pointer flex-shrink-0 transition-all duration-300 ${
+              isScrolled ? "scale-90" : "scale-100"
+            }`}
             onClick={() => {
               handleLogoClick();
               scrollToTop();
@@ -120,7 +126,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           {!isMobile && (
             <nav className="mx-auto">
-              <div className="flex space-x-1 md:space-x-2 lg:space-x-6">
+              <motion.div 
+                className="flex space-x-1 md:space-x-2 lg:space-x-6"
+                animate={{
+                  scale: isScrolled ? 0.95 : 1
+                }}
+                transition={{ duration: 0.3 }}
+              >
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -135,7 +147,7 @@ const Header = () => {
                     {item.name}
                   </Link>
                 ))}
-              </div>
+              </motion.div>
             </nav>
           )}
 
@@ -159,20 +171,14 @@ const Header = () => {
               </Button>
             )}
             
-            {/* Enhanced Time Display */}
+            {/* Updated Time Display */}
             {(!isMobile || !mobileMenuOpen) && (
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="hidden md:flex items-center gap-2 bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-full text-xs shadow-sm border border-black/10 dark:border-white/10"
               >
-                <div className="relative">
-                  <span className="absolute top-0 left-0 w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                  <span className="absolute top-0 left-0 w-2.5 h-2.5 rounded-full bg-green-500 animate-ping opacity-75"></span>
-                  <span className="w-2.5 h-2.5 inline-block"></span>
-                </div>
-                <Clock className="h-3 w-3 text-green-500" />
-                <span className="font-medium">IST: {currentTime}</span>
+                <span className="font-medium">Local Time: {currentTime} IST</span>
               </motion.div>
             )}
 
@@ -223,12 +229,7 @@ const Header = () => {
                 
                 {/* IST Time in Mobile Menu */}
                 <div className="flex items-center gap-2 px-3 py-2 text-sm">
-                  <div className="relative">
-                    <span className="absolute top-1/2 left-0 transform -translate-y-1/2 w-2 h-2 rounded-full bg-green-500"></span>
-                    <span className="absolute top-1/2 left-0 transform -translate-y-1/2 w-2 h-2 rounded-full bg-green-500 animate-ping opacity-75"></span>
-                    <span className="w-2 h-2 inline-block"></span>
-                  </div>
-                  <span className="pl-3 text-muted-foreground">IST: {currentTime}</span>
+                  <span className="text-muted-foreground">Local Time: {currentTime} IST</span>
                 </div>
                 
                 <Button
@@ -250,7 +251,7 @@ const Header = () => {
           )}
         </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

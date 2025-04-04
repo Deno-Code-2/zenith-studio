@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useQuery } from "@tanstack/react-query";
@@ -25,95 +25,13 @@ interface Project {
   project_type: string;
 }
 
-// Comprehensive projects list with all the requested projects
-const sampleProjects: Project[] = [
-  // AI Websites
-  {
-    id: "ai-1",
-    title: "QuantumDock AI",
-    description: "A sophisticated platform for AI model training and deployment, featuring an intuitive interface for data scientists and researchers.",
-    image_url: "https://placehold.co/600x400/6141e4/ffffff?text=QuantumDock+AI",
-    project_url: "#",
-    project_type: "AI Website"
-  },
-  {
-    id: "ai-2",
-    title: "Synthetix-AI",
-    description: "Built specifically for AI startups, this website helps them present their offerings and get noticed with a modern, tech-forward design.",
-    image_url: "https://placehold.co/600x400/41a4e4/ffffff?text=Synthetix-AI",
-    project_url: "#",
-    project_type: "AI Website"
-  },
-  {
-    id: "ai-3",
-    title: "Code Yeti",
-    description: "AI-Powered Code Reviews platform offering faster, smarter, and better code analysis for development teams of all sizes.",
-    image_url: "https://placehold.co/600x400/41e48c/ffffff?text=Code+Yeti",
-    project_url: "#",
-    project_type: "AI Website"
-  },
-  {
-    id: "ai-4",
-    title: "Signals HQ",
-    description: "Website redesign for an AI Audit solution, focusing on user experience and clear presentation of complex AI compliance tools.",
-    image_url: "https://placehold.co/600x400/e44182/ffffff?text=Signals+HQ",
-    project_url: "#",
-    project_type: "AI Website"
-  },
-  
-  // E-commerce Websites
-  {
-    id: "ecom-1",
-    title: "The Cloth Village",
-    description: "A premium e-commerce platform for a clothing brand with advanced product filtering and a seamless checkout experience.",
-    image_url: "https://placehold.co/600x400/a141e4/ffffff?text=Cloth+Village",
-    project_url: "#",
-    project_type: "E-commerce Website"
-  },
-  
-  // SaaS & Service Websites
-  {
-    id: "saas-1",
-    title: "Social Card",
-    description: "An innovative SaaS platform for creating and managing digital business cards with social media integration and analytics.",
-    image_url: "https://placehold.co/600x400/e47e41/ffffff?text=Social+Card",
-    project_url: "#",
-    project_type: "SaaS Website"
-  },
-  {
-    id: "saas-2",
-    title: "Hireme Dev",
-    description: "A talent marketplace for developers with a focus on project-based hiring and skill verification through practical assessments.",
-    image_url: "https://placehold.co/600x400/4156e4/ffffff?text=Hireme+Dev",
-    project_url: "#",
-    project_type: "SaaS Website"
-  },
-  {
-    id: "saas-3",
-    title: "Job Waala Dost",
-    description: "New custom website for a client focused on job matching and career guidance, with a user-friendly interface and powerful search capabilities.",
-    image_url: "https://placehold.co/600x400/41e463/ffffff?text=Job+Waala+Dost",
-    project_url: "#",
-    project_type: "SaaS Website"
-  },
-  
-  // Redesign Projects
-  {
-    id: "redesign-1",
-    title: "DevCreations",
-    description: "A comprehensive redesign for a development agency, showcasing their portfolio and services with improved visual hierarchy and conversion paths.",
-    image_url: "https://placehold.co/600x400/e44141/ffffff?text=DevCreations",
-    project_url: "#",
-    project_type: "Startup Website"
-  },
-  {
-    id: "redesign-2",
-    title: "CropNow",
-    description: "Website redesign to a modern look for an agricultural technology company, emphasizing ease of use and clear information architecture.",
-    image_url: "https://placehold.co/600x400/41e4d9/ffffff?text=CropNow",
-    project_url: "#",
-    project_type: "Startup Website"
-  }
+const filterOptions: ProjectType[] = [
+  'All', 
+  'AI Website',
+  'SaaS Website', 
+  'E-commerce Website',
+  'Startup Website',
+  'Landing Page'
 ];
 
 const fetchProjects = async () => {
@@ -127,12 +45,7 @@ const fetchProjects = async () => {
     throw error;
   }
 
-  // If no projects in database, return sample projects
-  if (!data || data.length === 0) {
-    return sampleProjects;
-  }
-
-  return data;
+  return data || [];
 };
 
 const Projects = () => {
@@ -143,16 +56,6 @@ const Projects = () => {
 
   const [activeFilter, setActiveFilter] = useState<ProjectType>('All');
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
-
-  // Updated filter options to include AI Website category
-  const filterOptions: ProjectType[] = [
-    'All', 
-    'AI Website',
-    'SaaS Website', 
-    'E-commerce Website',
-    'Startup Website',
-    'Landing Page'
-  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -230,8 +133,8 @@ const Projects = () => {
                   className={`
                     rounded-full px-6 py-2 font-jakarta transition-all duration-300
                     ${activeFilter === option 
-                      ? "bg-custom-orange text-white shadow-md" 
-                      : "bg-transparent text-black border border-gray-200 hover:bg-gray-100"}
+                      ? "bg-custom-orange text-white shadow-md hover:bg-custom-orange/90 hover:text-white" 
+                      : "bg-transparent text-black border border-gray-200 hover:bg-gray-100 hover:text-black"}
                   `}
                 >
                   {option}

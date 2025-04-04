@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -66,7 +65,7 @@ const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
           href={service.service_url || "#"} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-flex items-center text-custom-orange hover:text-black transition-colors gap-2 font-jakarta"
+          className="inline-flex items-center text-custom-orange hover:text-custom-orange/80 dark:hover:text-custom-orange transition-colors gap-2 font-jakarta"
         >
           View Details <ArrowRight size={16} />
         </a>

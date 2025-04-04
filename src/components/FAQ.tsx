@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FAQ = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [expandedItem, setExpandedItem] = useState<number | null>(null);
+  const [expandedItem, setExpandedItem] = useState<number | null>(0);
 
   const faqItems = [
     {
       question: "When can you start?",
-      answer: "We typically can start within a week of our initial discussions. While we’ve handled tight deadlines before, to ensure a smooth process, it’s best to initiate the conversation with us as early as possible."
+      answer: "We typically can start within a week of our initial discussions. While we've handled tight deadlines before, to ensure a smooth process, it's best to initiate the conversation with us as early as possible."
     },
     {
       question: "Do you handle migrating my old site?",
-      answer: "Yes, we handle site migrations as part of our services. Whether you’re moving from another platform or just updating an existing site, we’ll ensure a smooth transition while preserving your SEO rankings."
+      answer: "Yes, we handle site migrations as part of our services. Whether you're moving from another platform or just updating an existing site, we'll ensure a smooth transition while preserving your SEO rankings."
     },
     {
       question: "How long does it take to complete a web development project?",
@@ -21,7 +21,7 @@ const FAQ = () => {
     },
     {
       question: "How long does it take to create a website?",
-      answer: "The timeline depends on the complexity of the project. For smaller sites, it typically takes 1-3 weeks from start to finish. Larger or more complex sites, especially those requiring custom functionality or intricate animations, may take longer. We’ll discuss a more detailed timeline during our initial call."
+      answer: "The timeline depends on the complexity of the project. For smaller sites, it typically takes 1-3 weeks from start to finish. Larger or more complex sites, especially those requiring custom functionality or intricate animations, may take longer. We'll discuss a more detailed timeline during our initial call."
     },
     {
       question: "Can you create a responsive website design that looks great on all devices?",
@@ -77,7 +77,6 @@ const FAQ = () => {
     item.question.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -101,24 +100,52 @@ const FAQ = () => {
   };
 
   const answerVariants = {
-    hidden: { opacity: 0, height: 0 },
+    hidden: { opacity: 0, height: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       height: "auto",
+      scale: 1,
       transition: {
-        duration: 0.3,
-        ease: "easeInOut"
+        height: {
+          duration: 0.4,
+          ease: [0.04, 0.62, 0.23, 0.98]
+        },
+        opacity: {
+          duration: 0.25,
+          delay: 0.1
+        },
+        scale: {
+          duration: 0.3,
+          delay: 0.05
+        }
       }
     },
     exit: {
       opacity: 0,
       height: 0,
+      scale: 0.95,
       transition: {
-        duration: 0.2,
-        ease: "easeInOut"
+        height: {
+          duration: 0.3,
+          ease: [0.04, 0.62, 0.23, 0.98]
+        },
+        opacity: {
+          duration: 0.2
+        },
+        scale: {
+          duration: 0.2
+        }
       }
     }
   };
+
+  useEffect(() => {
+    if (searchQuery === "") {
+      setExpandedItem(0);
+    } else {
+      setExpandedItem(null);
+    }
+  }, [searchQuery]);
 
   return (
     <section className="py-20 bg-white">
@@ -157,37 +184,50 @@ const FAQ = () => {
           {filteredFAQs.map((item, index) => (
             <motion.div
               key={index}
-              className="border-b border-gray-200 last:border-b-0"
+              className="border border-gray-200 rounded-xl overflow-hidden mb-4 last:mb-0"
               variants={itemVariants}
+              whileHover={{ 
+                boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                borderColor: expandedItem === index ? "rgba(228, 101, 52, 0.5)" : "rgba(200,200,200,0.8)"
+              }}
+              transition={{ duration: 0.2 }}
             >
               <motion.button
-                className="w-full py-6 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50 rounded-lg px-4 transition-colors"
+                className="w-full py-6 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50 px-6 transition-colors"
                 onClick={() => setExpandedItem(expandedItem === index ? null : index)}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ backgroundColor: "rgba(0,0,0,0.02)" }}
+                whileTap={{ scale: 0.995 }}
               >
-                <span className="text-black font-syne text-lg">{item.question}</span>
-                <motion.span 
-                  className="text-2xl text-custom-orange ml-4"
-                  animate={{ rotate: expandedItem === index ? 180 : 0 }}
+                <span className="text-black font-syne text-lg font-semibold pr-4">{item.question}</span>
+                <motion.div 
+                  className="flex-shrink-0 w-6 h-6 rounded-full bg-custom-orange/10 flex items-center justify-center text-custom-orange"
+                  animate={{ 
+                    rotate: expandedItem === index ? 45 : 0,
+                    backgroundColor: expandedItem === index ? "rgba(228, 101, 52, 0.2)" : "rgba(228, 101, 52, 0.1)" 
+                  }}
                   transition={{ duration: 0.3 }}
                 >
-                  +
-                </motion.span>
+                  <span className="text-custom-orange text-xl font-medium">+</span>
+                </motion.div>
               </motion.button>
               
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {expandedItem === index && (
                   <motion.div
-                    className="overflow-hidden"
+                    className="overflow-hidden bg-gray-50/50"
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                     variants={answerVariants}
                   >
-                    <div className="pb-6 text-gray-600 font-jakarta px-4">
+                    <motion.div 
+                      className="p-6 pt-0 text-gray-600 font-jakarta"
+                      initial={{ y: 10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                    >
                       {item.answer}
-                    </div>
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
