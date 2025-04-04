@@ -3,29 +3,22 @@ import { motion } from "framer-motion";
 import { ChevronRight, Check } from "lucide-react";
 import { formatCurrency } from "@/utils/formatCurrency";
 
-interface Service {
-  id: string;
-  title: string;
-  description: string | null;
-  image_url: string | null;
-  service_url: string | null;
-  service_type: string;
-  price: number;
-  features: string[];
-}
-
-interface ServiceCardProps {
-  service: Service;
-}
-
-const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
+const ServiceCard = ({ service }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="service-card overflow-hidden h-full flex flex-col group rounded-xl bg-white shadow-md border border-gray-200 hover:border-custom-orange/40 transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px]"
+      className="service-card overflow-hidden h-full flex flex-col group rounded-xl bg-white shadow-md border border-custom-orange/10 hover:border-custom-orange/40 transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px]"
     >
+      <div className="aspect-video overflow-hidden flex items-center justify-center">
+        <img 
+          src={service.image_url || "/placeholder.svg"} 
+          alt={service.title}
+          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-black font-syne mb-2">{service.title}</h3>
         <p className="text-gray-600 font-jakarta text-sm mb-4">{service.description}</p>
