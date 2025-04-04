@@ -1,5 +1,4 @@
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useQuery } from "@tanstack/react-query";
@@ -113,7 +112,6 @@ const Projects = () => {
             </motion.p>
           </div>
 
-          {/* Filter Options with Animation */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -143,7 +141,6 @@ const Projects = () => {
             ))}
           </motion.div>
 
-          {/* Project listing section */}
           {isLoading ? (
             <div className="text-center text-gray-600 py-20">
               <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin mx-auto mb-4"></div>
