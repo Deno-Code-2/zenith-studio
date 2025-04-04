@@ -60,7 +60,6 @@ const Header = () => {
         hour12: true,
         hour: '2-digit',
         minute: '2-digit',
-        second: !isMobile ? '2-digit' : undefined
       };
       const formatter = new Intl.DateTimeFormat('en-IN', options);
       setCurrentTime(formatter.format(new Date()));
