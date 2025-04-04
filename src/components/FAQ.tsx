@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
 
 const FAQ = () => {
   const [searchQuery, setSearchQuery] = useState("");
