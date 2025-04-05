@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 type ServiceType = 'All' | 'Landing Page' | 'SaaS Website' | 'Startup Website' | 'E-commerce Website';
 
@@ -19,23 +20,34 @@ const ServiceFilter = ({ activeFilter, setActiveFilter }: ServiceFilterProps) =>
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 mb-16">
-      {filterOptions.map((option) => (
-        <Button
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="flex flex-wrap justify-center gap-4 mb-16"
+    >
+      {filterOptions.map((option, index) => (
+        <motion.div
           key={option}
-          onClick={() => setActiveFilter(option)}
-          variant={activeFilter === option ? "default" : "outline"}
-          className={`
-            rounded-full px-6 py-2 font-jakarta
-            ${activeFilter === option 
-              ? "bg-custom-orange hover:bg-custom-orange/90 text-white" 
-              : "border-custom-orange/20 text-black hover:bg-custom-orange/10"}
-          `}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: index * 0.1 }}
         >
-          {option}
-        </Button>
+          <Button
+            onClick={() => setActiveFilter(option)}
+            variant={activeFilter === option ? "default" : "outline"}
+            className={`
+              rounded-full px-6 py-2 font-jakarta
+              ${activeFilter === option 
+                ? "bg-custom-orange hover:bg-custom-orange/90 text-white" 
+                : "border-custom-orange/20 text-black hover:bg-custom-orange/10"}
+            `}
+          >
+            {option}
+          </Button>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

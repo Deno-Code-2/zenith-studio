@@ -1,11 +1,12 @@
 
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import SmoothScroll from "@/components/SmoothScroll";
 import { AnimatePresence } from "framer-motion";
+import PreloaderScreen from "@/components/PreloaderScreen";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -29,6 +30,8 @@ const ServicesDetailsPage = lazy(() => import("@/pages/ServicesDetails"));
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   // Force light mode on the document element
   useEffect(() => {
     document.documentElement.classList.remove("dark");
@@ -41,6 +44,10 @@ function App() {
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
+        <AnimatePresence mode="wait">
+          {loading && <PreloaderScreen onComplete={() => setLoading(false)} />}
+        </AnimatePresence>
+        
         <Router>
           <SmoothScroll />
           <Suspense fallback={
