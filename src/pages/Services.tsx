@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
-import AgencyShowcase from "@/components/AgencyShowcase";
 import ServiceHero from "@/components/services/ServiceHero";
 import ServiceFilter from "@/components/services/ServiceFilter";
 import ServiceGrid from "@/components/services/ServiceGrid";
@@ -101,7 +100,6 @@ const Services = () => {
         <ProcessSection />
         <ServiceCTA />
       </main>
-      <AgencyShowcase />
       <Footer />
     </div>
   );
