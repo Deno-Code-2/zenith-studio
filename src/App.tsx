@@ -16,6 +16,7 @@ import IndexPage from "@/pages/Index";
 // Lazy load other pages
 const AboutPage = lazy(() => import("@/pages/About"));
 const ServicesPage = lazy(() => import("@/pages/Services"));
+const ServiceDetailsPage = lazy(() => import("@/pages/ServiceDetails"));
 const ProjectsPage = lazy(() => import("@/pages/Projects"));
 const BlogPage = lazy(() => import("@/pages/Blog"));
 const BlogPostPage = lazy(() => import("@/pages/BlogPost"));
@@ -53,6 +54,12 @@ function App() {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/services" element={<ServicesPage />} />
                 <Route path="/services/:id" element={<ServicesDetailsPage />} />
+                <Route path="/services/strategic-business-solutions" element={<ServiceDetailsPage />} />
+                <Route path="/services/precision-marketing-branding" element={<ServiceDetailsPage />} />
+                <Route path="/services/web-design" element={<ServiceDetailsPage />} />
+                <Route path="/services/mobile-app-development" element={<ServiceDetailsPage />} />
+                <Route path="/services/seo-optimization" element={<ServiceDetailsPage />} />
+                <Route path="/services/digital-transformation" element={<ServiceDetailsPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/contact" element={<ContactPage />} />

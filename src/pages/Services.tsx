@@ -34,125 +34,57 @@ const Services = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Rather than fetch from Supabase, we'll use hardcoded data for now
-    const servicesData: ServiceItem[] = [
-      {
-        id: "1",
-        title: "Landing Page Pro",
-        description: "Capture leads with a high-converting landing page optimized for your business goals.",
-        price: 35999,
-        service_type: "Landing Page",
-        features: [
-          "Responsive design that works on all devices",
-          "Custom animations and interactions",
-          "Lead capture form integration",
-          "SEO optimization",
-          "Analytics setup",
-          "2 weeks delivery time"
-        ],
-        timeline: "2 weeks",
-        recommended_for: "Small businesses and startups looking to establish online presence"
-      },
-      {
-        id: "2",
-        title: "SaaS Website Package",
-        description: "Present your software product with clarity and convert visitors into trial users.",
-        price: 75999,
-        service_type: "SaaS Website",
-        features: [
-          "Up to 10 custom pages",
-          "User dashboard integration",
-          "Pricing table design",
-          "Feature showcase sections",
-          "Blog setup",
-          "Interactive demo capability",
-          "3 weeks delivery time"
-        ],
-        timeline: "3 weeks",
-        recommended_for: "SaaS founders and product companies"
-      },
-      {
-        id: "3",
-        title: "E-Commerce Complete",
-        description: "Sell products online with a fully-featured e-commerce website designed to maximize conversions.",
-        price: 125000,
-        service_type: "E-commerce Website",
-        features: [
-          "Product catalog with filters",
-          "Shopping cart and checkout",
-          "Payment gateway integration",
-          "Inventory management",
-          "Customer accounts",
-          "Order tracking",
-          "Mobile app integration",
-          "4 weeks delivery time"
-        ],
-        timeline: "4 weeks",
-        recommended_for: "Retailers and product-based businesses"
-      },
-      {
-        id: "4",
-        title: "Startup Growth Suite",
-        description: "A complete digital presence for startups looking to make an impact in their industry.",
-        price: 95000,
-        service_type: "Startup Website",
-        features: [
-          "Brand identity development",
-          "Up to 15 pages website",
-          "Custom illustrations",
-          "Investor relations section",
-          "Team showcase",
-          "Integration with CRM",
-          "SEO optimization",
-          "Social media setup",
-          "3-4 weeks delivery time"
-        ],
-        timeline: "3-4 weeks",
-        recommended_for: "Early-stage startups and growth-phase companies"
-      },
-      {
-        id: "5",
-        title: "Enterprise Portal",
-        description: "Enterprise-grade web solution with advanced functionality and scalable architecture.",
-        price: 199000,
-        service_type: "SaaS Website",
-        features: [
-          "Custom user roles and permissions",
-          "Advanced analytics dashboard",
-          "Third-party API integrations",
-          "Scalable cloud architecture",
-          "Security compliance setup",
-          "Custom admin panel",
-          "Employee portal",
-          "6 weeks delivery time"
-        ],
-        timeline: "6 weeks",
-        recommended_for: "Large businesses with complex requirements"
-      },
-      {
-        id: "6",
-        title: "Multi-vendor Marketplace",
-        description: "Build your own marketplace platform connecting vendors and customers.",
-        price: 250000,
-        service_type: "E-commerce Website",
-        features: [
-          "Multi-vendor capability",
-          "Vendor and customer dashboards",
-          "Commission system",
-          "Review and rating system",
-          "Chat functionality",
-          "Advanced search with filters",
-          "Payment splitting",
-          "8 weeks delivery time"
-        ],
-        timeline: "8 weeks",
-        recommended_for: "Entrepreneurs building marketplace platforms"
+    // Fetch services from Supabase
+    const fetchServices = async () => {
+      setIsLoading(true);
+      try {
+        const { data, error } = await supabase
+          .from('services')
+          .select('*');
+        
+        if (error) {
+          throw error;
+        }
+        
+        // Transform the data to include timeline and recommended_for fields
+        const transformedData = data.map(service => {
+          // Extract timeline from features if available
+          let timeline = "2-3 weeks";
+          let recommendedFor = "Small to medium businesses";
+          
+          if (service.features) {
+            const timelineFeature = service.features.find(f => f.includes('Delivery in'));
+            if (timelineFeature) {
+              timeline = timelineFeature.replace('Delivery in ', '');
+            }
+            
+            // Simple logic to determine recommended for
+            if (service.price < 40000) {
+              recommendedFor = "Small businesses and startups";
+            } else if (service.price < 90000) {
+              recommendedFor = "Growing businesses";
+            } else {
+              recommendedFor = "Enterprise organizations";
+            }
+          }
+          
+          return {
+            ...service,
+            timeline,
+            recommended_for: recommendedFor
+          };
+        });
+        
+        setServices(transformedData);
+        setFilteredServices(transformedData);
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
+        setIsLoading(false);
       }
-    ];
-    
-    setServices(servicesData);
-    setFilteredServices(servicesData);
-    setIsLoading(false);
+    };
+
+    fetchServices();
   }, []);
 
   useEffect(() => {
@@ -220,29 +152,45 @@ const Services = () => {
       <Header />
       <main className="bg-white">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-32 pt-28 bg-white">
-          <div className="max-w-4xl mx-auto mb-16 text-center">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block text-custom-orange font-medium mb-4 font-jakarta"
-            >
-              Our Services
-            </motion.span>
-            <h1 className="text-5xl md:text-6xl font-bold text-black mb-6 font-syne">
-              Crafting <span className="text-custom-orange">Digital Excellence</span>
-            </h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+        <section className="relative h-[60vh] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20 z-10"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+            alt="Zenith Studio services" 
+            className="w-full h-full object-cover" 
+          />
+          
+          <div className="container mx-auto px-4 relative z-20 h-full flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-gray-700 text-lg md:text-xl font-jakarta"
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl"
             >
-              From concept to deployment, we design and develop digital experiences that elevate your brand, engage your audience, and drive business growth.
-            </motion.p>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="inline-block text-custom-orange font-medium mb-4 font-jakarta"
+              >
+                Our Services
+              </motion.span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-syne">
+                Crafting <span className="text-custom-orange">Digital Excellence</span>
+              </h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-white/90 text-lg md:text-xl font-jakarta"
+              >
+                From concept to deployment, we design and develop digital experiences that elevate your brand, engage your audience, and drive business growth.
+              </motion.p>
+            </motion.div>
           </div>
+        </section>
 
+        <section className="container mx-auto px-4 py-20">
           {/* Filter Options */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
             {filterOptions.map((option) => (
@@ -273,11 +221,28 @@ const Services = () => {
               <p className="text-gray-600">Try selecting a different category or check back later.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredServices.map((service) => (
-                <div 
+            <motion.div 
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1
+                  }
+                }
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {filteredServices.map((service, index) => (
+                <motion.div 
                   key={service.id}
-                  className="relative group overflow-hidden rounded-xl border border-gray-200 hover:border-custom-orange/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg bg-white flex flex-col"
+                  variants={{
+                    hidden: { y: 20, opacity: 0 },
+                    show: { y: 0, opacity: 1 }
+                  }}
+                  className="relative group overflow-hidden rounded-xl border border-gray-200 hover:border-custom-orange/40 transition-all duration-300 hover:shadow-lg bg-white flex flex-col"
                 >
                   {/* Service Type Badge */}
                   <div className="absolute top-4 left-4 bg-custom-orange/10 text-custom-orange text-xs font-medium py-1 px-3 rounded-full">
@@ -337,9 +302,9 @@ const Services = () => {
                       </a>
                     </Button>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           )}
         </section>
 
@@ -349,7 +314,8 @@ const Services = () => {
             <div className="text-center mb-16">
               <motion.span
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
                 className="inline-block text-custom-orange font-medium mb-4 font-jakarta"
               >
@@ -357,7 +323,8 @@ const Services = () => {
               </motion.span>
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-3xl md:text-4xl font-bold text-black mb-6 font-syne"
               >
@@ -365,7 +332,8 @@ const Services = () => {
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-gray-700 max-w-3xl mx-auto font-jakarta"
               >
@@ -375,9 +343,13 @@ const Services = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {processSteps.map((step, index) => (
-                <div 
+                <motion.div 
                   key={index} 
-                  className="process-item p-8 border border-custom-orange/20 rounded-xl hover:border-custom-orange/40 transition-all duration-300 bg-white shadow-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="process-item p-8 border border-custom-orange/20 rounded-xl hover:border-custom-orange/40 transition-all duration-300 bg-white shadow-sm hover:-translate-y-2"
                 >
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-custom-orange/10 text-custom-orange font-bold mb-5 font-syne text-xl">
                     {step.number}
@@ -388,7 +360,7 @@ const Services = () => {
                   <p className="text-gray-700 font-jakarta">
                     {step.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -397,10 +369,17 @@ const Services = () => {
         {/* CTA Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center bg-custom-orange/10 p-10 rounded-2xl border border-custom-orange/20">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto text-center bg-custom-orange/10 p-10 rounded-2xl border border-custom-orange/20 shadow-lg"
+            >
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 className="text-3xl md:text-4xl font-bold text-black mb-6 font-syne"
               >
@@ -408,7 +387,8 @@ const Services = () => {
               </motion.h2>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-gray-700 mb-8 font-jakarta max-w-2xl mx-auto"
               >
@@ -435,7 +415,7 @@ const Services = () => {
                   </Link>
                 </Button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
