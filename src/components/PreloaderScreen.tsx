@@ -34,6 +34,26 @@ const PreloaderScreen = ({ onComplete }: PreloaderScreenProps) => {
         transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
       }}
     >
+      {/* Left image */}
+      <motion.img 
+        src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+        alt="Code"
+        className="absolute left-6 top-1/2 -translate-y-1/2 w-32 h-32 md:w-44 md:h-44 lg:w-56 lg:h-56 object-cover rounded-full opacity-20"
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      />
+      
+      {/* Right image */}
+      <motion.img 
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+        alt="Circuit"
+        className="absolute right-6 top-1/2 -translate-y-1/2 w-32 h-32 md:w-44 md:h-44 lg:w-56 lg:h-56 object-cover rounded-full opacity-20"
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      />
+      
       <AnimatePresence mode="wait">
         <motion.div
           key={currentText}
