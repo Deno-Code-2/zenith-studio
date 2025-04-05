@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { formatCurrency } from '@/utils/formatCurrency';
@@ -18,6 +18,14 @@ interface ServiceProps {
 }
 
 const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
+  const [showAllFeatures, setShowAllFeatures] = useState(false);
+  
+  const toggleFeatures = () => {
+    setShowAllFeatures(!showAllFeatures);
+  };
+  
+  const displayFeatures = showAllFeatures ? service.features : service.features.slice(0, 3);
+  
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -54,7 +62,7 @@ const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
           <div className="mb-6">
             <div className="text-lg font-semibold text-black mb-3 font-syne">Features:</div>
             <ul className="space-y-2">
-              {service.features.slice(0, 3).map((feature, index) => (
+              {displayFeatures.map((feature, index) => (
                 <motion.li 
                   key={index} 
                   className="flex items-start space-x-2"
@@ -66,12 +74,16 @@ const ServiceCard: React.FC<ServiceProps> = ({ service }) => {
                   <span className="text-gray-700 font-jakarta">{feature}</span>
                 </motion.li>
               ))}
-              {service.features.length > 3 && (
-                <li className="text-custom-orange text-sm font-jakarta">
-                  + {service.features.length - 3} more features
-                </li>
-              )}
             </ul>
+            
+            {service.features.length > 3 && (
+              <button 
+                onClick={toggleFeatures}
+                className="mt-3 text-custom-orange text-sm font-jakarta hover:text-black transition-colors"
+              >
+                {showAllFeatures ? "Show less" : `+ ${service.features.length - 3} more features`}
+              </button>
+            )}
           </div>
         )}
         
