@@ -31,7 +31,8 @@ const ServicesDetailsPage = lazy(() => import("@/pages/ServicesDetails"));
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  // Only show preloader on the first visit to the homepage
+  const [loading, setLoading] = useState(window.location.pathname === '/' && sessionStorage.getItem('initialLoadComplete') !== 'true');
 
   // Force light mode on the document element
   useEffect(() => {
@@ -40,7 +41,12 @@ function App() {
     
     // Add a class to the body to ensure light mode styles apply everywhere
     document.body.className = "bg-white text-black";
-  }, []);
+    
+    // Mark that initial load is complete
+    if (loading && window.location.pathname === '/') {
+      sessionStorage.setItem('initialLoadComplete', 'true');
+    }
+  }, [loading]);
 
   return (
     <HelmetProvider>

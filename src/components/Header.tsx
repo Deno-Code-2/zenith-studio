@@ -140,13 +140,6 @@ const Header = () => {
                     onClick={scrollToTop}
                   >
                     {item.name}
-                    {isActive(item.href) && (
-                      <motion.span
-                        layoutId="navbar-indicator"
-                        className="absolute inset-0 z-[-1] rounded-md bg-custom-orange/10"
-                        transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
-                      />
-                    )}
                   </Link>
                 ))}
               </div>
@@ -175,13 +168,9 @@ const Header = () => {
             
             {/* Enhanced Time Display */}
             {(!isMobile || !mobileMenuOpen) && (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="hidden md:flex items-center gap-2 bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-full text-xs shadow-sm border border-black/10 dark:border-white/10"
-              >
-               <span className="font-medium">Local Time: {currentTime} IST</span>
-              </motion.div>
+              <div className="hidden md:flex items-center gap-2 bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-full text-xs shadow-sm border border-black/10 dark:border-white/10">
+                <span className="font-medium">Local Time: {currentTime} IST</span>
+              </div>
             )}
 
             <ThemeToggle />
@@ -226,12 +215,6 @@ const Header = () => {
                     onClick={scrollToTop}
                   >
                     {item.name}
-                    {isActive(item.href) && (
-                      <motion.span
-                        layoutId="navbar-indicator-mobile"
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 h-2 w-2 rounded-full bg-custom-orange"
-                      />
-                    )}
                   </Link>
                 ))}
                 
