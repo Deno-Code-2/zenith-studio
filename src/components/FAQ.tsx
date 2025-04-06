@@ -100,7 +100,7 @@ const FAQ = () => {
           </div>
 
           <div ref={accordionRef} className="space-y-4">
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible defaultValue="faq-0" className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={`faq-${index}`}

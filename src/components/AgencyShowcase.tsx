@@ -21,31 +21,31 @@ const AgencyShowcase = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container px-8 mx-auto">
+    <section className="py-16 bg-gray-50">
+      <div className="container px-6 mx-auto">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-black mb-6 font-syne"
-            >
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 font-syne">
               Why Work With Our <span className="text-custom-orange">Agency</span>
-            </motion.h2>
+            </h2>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-lg text-gray-600 max-w-3xl mx-auto font-jakarta"
+              className="text-base text-gray-600 max-w-2xl mx-auto font-jakarta"
             >
               We combine creativity, technical expertise, and strategic thinking to deliver exceptional digital experiences that drive results for your business.
             </motion.p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -53,23 +53,23 @@ const AgencyShowcase = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-6 rounded-xl border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300 bg-white shadow-sm"
+                className="text-center p-5 rounded-xl border border-custom-orange/20 hover:border-custom-orange/40 transition-all duration-300 bg-white shadow-sm"
               >
-                <h3 className="text-4xl font-bold text-custom-orange mb-2">{stat.value}</h3>
-                <p className="text-gray-600 font-jakarta">{stat.label}</p>
+                <h3 className="text-3xl font-bold text-custom-orange mb-1">{stat.value}</h3>
+                <p className="text-gray-600 font-jakarta text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="space-y-4"
+              className="space-y-3"
             >
-              <h3 className="text-2xl font-bold text-black mb-6 font-syne">
+              <h3 className="text-2xl font-bold text-black mb-5 font-syne">
                 Our Commitment to <span className="text-custom-orange">Excellence</span>
               </h3>
 
@@ -93,15 +93,15 @@ const AgencyShowcase = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="overflow-hidden shadow-md size-full"
+              className="overflow-hidden shadow-md w-full h-full"
             >
-                  <div className="relative">
-                    <Safari
-                        url="zenithstudio.xyz"
-                        className="size-full"
-                        imageSrc="/images/Zenith Studio.png"
-                      />
-                  </div>
+              <div className="relative">
+                <Safari
+                  url="zenithstudio.xyz"
+                  className="w-full h-full"
+                  imageSrc="/images/Zenith Studio.png"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
