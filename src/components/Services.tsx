@@ -101,12 +101,17 @@ const Services = () => {
               <p className="text-gray-700 text-xs sm:text-sm md:text-base font-jakarta">
                 {service.description}
               </p>
-              <Link 
-                to={service.link} 
-                className="mt-3 sm:mt-4 md:mt-6 text-custom-orange flex items-center gap-1 sm:gap-2 hover:gap-3 transition-all duration-300 font-jakarta text-xs sm:text-sm md:text-base"
+              <motion.div 
+                whileHover={{ x: 8 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                Learn More <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
-              </Link>
+                <Link 
+                  to={service.link} 
+                  className="mt-3 sm:mt-4 md:mt-6 text-custom-orange flex items-center gap-1 sm:gap-2 transition-all duration-300 font-jakarta text-xs sm:text-sm md:text-base"
+                >
+                  Learn More <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                </Link>
+              </motion.div>
             </motion.div>
           ))}
         </div>

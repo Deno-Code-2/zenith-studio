@@ -19,34 +19,44 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What services does Zenith Studio offer?",
+      question: "What is Zenith Studio?",
       answer:
-        "Zenith Studio offers a comprehensive suite of digital services including web design, web development, mobile app development, UI/UX design, branding, digital marketing, SEO optimization, and e-commerce solutions. We work with businesses of all sizes to create custom digital experiences that drive growth.",
+        "Zenith Studio is a premium digital agency that specializes in creating high-quality websites, applications, and digital solutions without the need for complex coding. While we leverage modern tools and platforms to accelerate development, our team has deep technical expertise to handle customizations and advanced functionality when needed.",
     },
     {
-      question: "How long does it take to complete a project?",
+      question: "How long does it take to create a website?",
       answer:
-        "Project timelines vary depending on the scope and complexity. A simple landing page might take 1-2 weeks, while a complex web application or e-commerce platform could take 2-3 months. During our initial consultation, we'll provide you with a detailed timeline based on your specific requirements.",
+        "The timeline depends on the complexity of your project. For smaller sites, it typically takes 1-3 weeks from start to finish. Larger or more complex sites may take 4-8 weeks or longer. We also offer expedited services for time-sensitive projects—if you've got a pressing deadline, we're happy to step in and get your website live on short notice.",
     },
     {
-      question: "What is your design process?",
+      question: "What kind of companies do you usually work with?",
       answer:
-        "Our design process begins with understanding your business goals and target audience. We then create wireframes and mockups for your approval. After refinements, we proceed with development, testing, and deployment. We maintain clear communication throughout to ensure your vision is realized.",
+        "We've worked with businesses of all sizes—from early-stage startups to established enterprises. Our focus is on the quality of the project rather than the size of the company. We're particularly passionate about projects that allow us to showcase our creativity with engaging animations and compelling visual experiences.",
     },
     {
-      question: "Do you provide ongoing support after launch?",
+      question: "Will my site be responsive on all devices?",
       answer:
-        "Yes, we offer various maintenance and support packages to keep your digital assets performing optimally. These include regular updates, security patches, content updates, and technical support. We can tailor a support package that fits your specific needs and budget.",
+        "Absolutely! Every site we build is fully responsive, ensuring it works flawlessly on desktops, tablets, and mobile devices. Our team handles all the responsive design considerations, saving you time and ensuring a consistent experience for your users across all platforms.",
     },
     {
-      question: "How do you price your services?",
+      question: "What does your process look like?",
       answer:
-        "We offer transparent pricing based on the scope of work, complexity, and required timeline. We provide detailed proposals that break down costs for each aspect of your project. We also offer flexible payment options including milestone-based payments for larger projects.",
+        "We keep our process straightforward and efficient. You'll work with a dedicated point of contact throughout the project. We typically begin with a kickoff call to review designs and requirements, then create a detailed plan of deliverables. During development, we provide regular updates and a staging link for feedback. Once all elements are approved, we handle the final technical setup before launching your site.",
     },
     {
-      question: "Can you help improve my existing website?",
+      question: "Do I need to have the design ready?",
       answer:
-        "Absolutely! We offer website audits and redesign services to improve the performance, aesthetics, and functionality of your existing site. We can enhance user experience, optimize for mobile devices, improve loading speeds, and implement SEO best practices to boost your online presence.",
+        "Having a design ready is ideal as it allows us to provide accurate timelines and cost estimates. However, we're flexible and can collaborate at any stage. If you don't have designs yet, we can discuss your vision, reserve time in our schedule, and provide guidance during the design phase to ensure everything will work well technically once development begins.",
+    },
+    {
+      question: "How much does it cost?",
+      answer:
+        "Our projects start at ₹50,000, with most website projects typically ranging between ₹1,00,000-₹5,00,000 depending on complexity and features. For ongoing maintenance and updates, we charge based on the actual time spent on your project—there are no mandatory monthly fees unless work is being done. We believe in transparent pricing with no surprises.",
+    },
+    {
+      question: "Will you prepare my site for SEO?",
+      answer:
+        "Yes, we implement SEO best practices in all our projects—including clean code, proper structure, meta tags, and optimized images. While this provides a solid foundation for your digital presence, achieving top search rankings typically requires ongoing content creation and SEO efforts beyond the initial website development.",
     },
   ];
 
