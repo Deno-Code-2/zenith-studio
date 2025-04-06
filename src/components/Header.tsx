@@ -83,6 +83,14 @@ const Header = () => {
     setLogoTextIndex((prev) => (prev + 1) % textVariations.length);
   };
 
+  // Check if a path is active (exact match or starts with for nested routes)
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
+  };
+
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -125,13 +133,20 @@ const Header = () => {
                     key={item.name}
                     to={item.href}
                     className={`font-jakarta relative py-1 px-2 text-sm sm:text-base rounded-md transition-colors ${
-                      location.pathname === item.href
+                      isActive(item.href)
                         ? "text-custom-orange after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-custom-orange after:left-0 after:bottom-0"
                         : "text-foreground hover:text-custom-orange hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
                     }`}
                     onClick={scrollToTop}
                   >
                     {item.name}
+                    {isActive(item.href) && (
+                      <motion.span
+                        layoutId="navbar-indicator"
+                        className="absolute inset-0 z-[-1] rounded-md bg-custom-orange/10"
+                        transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                      />
+                    )}
                   </Link>
                 ))}
               </div>
@@ -204,13 +219,19 @@ const Header = () => {
                     key={item.name}
                     to={item.href}
                     className={`px-3 py-2 rounded-md font-jakarta ${
-                      location.pathname === item.href
+                      isActive(item.href)
                         ? "bg-gray-100 dark:bg-gray-800 text-custom-orange"
                         : "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
                     }`}
                     onClick={scrollToTop}
                   >
                     {item.name}
+                    {isActive(item.href) && (
+                      <motion.span
+                        layoutId="navbar-indicator-mobile"
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 h-2 w-2 rounded-full bg-custom-orange"
+                      />
+                    )}
                   </Link>
                 ))}
                 

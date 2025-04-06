@@ -1,0 +1,7 @@
+
+# Robots.txt file for Zenith Studio
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://zenithstudio.xyz/sitemap.xml
