@@ -1,4 +1,3 @@
-
 import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
@@ -78,6 +77,7 @@ function App() {
                     <Route path="/services/seo-optimization" element={<ServiceDetailsPage />} />
                     <Route path="/services/digital-transformation" element={<ServiceDetailsPage />} />
                     <Route path="/projects" element={<ProjectsPage />} />
+                    {/* Keep pricing route but remove from navigation */}
                     <Route path="/pricing" element={<PricingPage />} />
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/blog" element={<BlogPage />} />

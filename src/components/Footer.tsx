@@ -64,7 +64,7 @@ const Footer = () => {
       { name: "About", href: "/about" },
       { name: "Services", href: "/services" },
       { name: "Projects", href: "/projects" },
-      { name: "Pricing", href: "/pricing" },
+      // Removed Pricing link as requested
     ],
     contact: [
       { name: "Contact Us", href: "/contact" },
