@@ -8,7 +8,8 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import AgencyShowcase from "@/components/AgencyShowcase";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
 
 const SERVICE_TYPES = [
   "Web Development",
@@ -139,8 +140,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-black mb-1 font-syne">Email Us</h3>
-                        <a href="mailto:syedmoinuddin106@gmail.com" className="text-gray-700 hover:text-custom-orange transition-colors font-jakarta block">
-                          syedmoinuddin106@gmail.com
+                        <a href="mailto:support@zenith-studio.dev" className="text-gray-700 hover:text-custom-orange transition-colors font-jakarta block">
+                        support@zenith-studio.dev
                         </a>
                         <p className="text-gray-500 text-sm mt-1 font-jakarta">
                           We'll respond within 48 hours

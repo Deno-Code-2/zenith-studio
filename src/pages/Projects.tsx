@@ -11,6 +11,7 @@ import AgencyShowcase from "@/components/AgencyShowcase";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
+import { Helmet } from "react-helmet-async";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -188,6 +189,16 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-white">
+        <Helmet>
+        <title>Our Projects | Zenith Studio</title>
+        <meta name="description" content="Get in touch with Zenith Studio for your next digital project. We're here to help transform your ideas into reality." />
+        <meta property="og:title" content="Our Projects | Zenith Studio" />
+        <meta property="og:description" content="Get in touch with Zenith Studio for your next digital project. We're here to help transform your ideas into reality." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://zenith-s.vercel.app/projects" />
+        <link rel="canonical" href="https://zenith-s.vercel.app/projects" />
+      </Helmet>
+
       <Header />
       <PageTransition>
         <main className="max-w-7xl mx-auto px-8 lg:px-16 pt-32">
