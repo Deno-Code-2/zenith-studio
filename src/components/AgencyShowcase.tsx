@@ -90,20 +90,20 @@ const AgencyShowcase = () => {
 
   const stats = [
     { 
-      value: "97%", 
+      value: "75%", 
       label: "Client Satisfaction",
       icon: <Users className="h-6 w-6 text-white" />
     },
     { 
-      value: "48+", 
+      value: "15+", 
       label: "Projects Delivered",
       icon: <Zap className="h-6 w-6 text-white" />
     },
-    { 
-      value: "12+", 
-      label: "Industry Awards",
-      icon: <Award className="h-6 w-6 text-white" />
-    },
+   // { 
+     // value: "12+", 
+     // label: "Industry Awards",
+     // icon: <Award className="h-6 w-6 text-white" />
+    //},
     { 
       value: "24/7", 
       label: "Support Available",
