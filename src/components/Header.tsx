@@ -74,11 +74,11 @@ const Header = () => {
           {/* Logo */}
           <HeaderLogo scrollToTop={scrollToTop} />
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           {!isMobile && (
-            <nav className="mx-auto">
+            <div className="flex-grow flex justify-center">
               <NavigationItems isActive={isActive} scrollToTop={scrollToTop} />
-            </nav>
+            </div>
           )}
 
           {/* Right Side Controls */}
