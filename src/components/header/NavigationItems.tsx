@@ -18,7 +18,7 @@ const NavigationItems = ({ isActive, scrollToTop, className }: NavigationItemsPr
   ];
 
   return (
-    <div className={`flex ${className || "space-x-1 md:space-x-2 lg:space-x-6"}`}>
+    <div className={`flex justify-center ${className || "space-x-1 md:space-x-2 lg:space-x-6"}`}>
       {navigation.map((item) => (
         <Link
           key={item.name}
