@@ -58,14 +58,17 @@ const Footer = () => {
     });
   };
 
-  // Footer links grouped by section
   const footerLinks = {
     pages: [
       { name: "Home", href: "/" },
       { name: "About", href: "/about" },
       { name: "Services", href: "/services" },
       { name: "Projects", href: "/projects" },
-      { name: "Contact", href: "/contact" },
+      // Removed Pricing link as requested
+    ],
+    contact: [
+      { name: "Contact Us", href: "/contact" },
+      { name: "+91 9108041057", href: "tel:+919108041057" },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy" },
@@ -73,21 +76,21 @@ const Footer = () => {
       { name: "Cookie Policy", href: "/cookie-policy" },
     ],
   };
-  
-  // Social media links
-  const socialLinks = [
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+
+  const socialIcons = [
+    { icon: Linkedin, href: "https://linkedin.com" },
+    { icon: Twitter, href: "https://twitter.com" },
+    { icon: Facebook, href: "https://facebook.com" },
+    { icon: Instagram, href: "https://instagram.com" },
   ];
 
   return (
     <footer className="bg-background border-t border-border">
+      {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Logo and description */}
-          <div className="col-span-1 md:col-span-4">
+          <div className="col-span-1 md:col-span-3">
             <Link to="/" className="inline-block" onClick={scrollToTop}>
               <h1 className="text-2xl font-bold font-syne">
                 <span className="text-custom-orange">Zen</span>ith Studio
@@ -97,24 +100,26 @@ const Footer = () => {
               Transforming digital visions into exceptional experiences with innovative design and flawless execution.
             </p>
             
-            {/* Social Media Links */}
-            <div className="mt-6 flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <a 
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="text-muted-foreground hover:text-custom-orange transition-colors"
-                >
-                  <social.icon size={20} />
-                </a>
-              ))}
+            {/* Social Media Links - Moved to top */}
+            <div className="mt-6">
+              <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Follow Us</h3>
+              <div className="flex space-x-4">
+                {socialIcons.map((social, index) => (
+                  <a 
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-custom-orange transition-colors"
+                  >
+                    <social.icon size={20} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Pages */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Pages</h3>
             <ul className="space-y-2">
@@ -132,27 +137,20 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Contact</h3>
             <ul className="space-y-2">
-              <li>
-                <Link 
-                  to="/contact"
-                  className="text-muted-foreground hover:text-custom-orange text-sm transition-colors font-jakarta"
-                  onClick={scrollToTop}
-                >
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <a 
-                  href="tel:+919108041057"
-                  className="text-muted-foreground hover:text-custom-orange text-sm transition-colors font-jakarta"
-                >
-                  +91 9108041057
-                </a>
-              </li>
+              {footerLinks.contact.map((link) => (
+                <li key={link.name}>
+                  <a 
+                    href={link.href}
+                    className="text-muted-foreground hover:text-custom-orange text-sm transition-colors font-jakarta"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -174,8 +172,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div className="col-span-1 md:col-span-2">
+          {/* Newsletter - Moved to after social media */}
+          <div className="col-span-1 md:col-span-3">
             <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Newsletter</h3>
             <p className="text-muted-foreground text-sm mb-4 font-jakarta">
               Subscribe to our newsletter for the latest updates.
