@@ -230,8 +230,8 @@ const Projects = () => {
                   className={`
                     rounded-full px-6 py-2 font-jakarta transition-all duration-300
                     ${activeFilter === option 
-                      ? "bg-custom-orange text-white shadow-md" 
-                      : "bg-transparent text-black border border-gray-200 hover:bg-gray-100"}
+                      ? "bg-custom-orange text-white" 
+                      : "bg-transparent text-black border border-gray-200 hover:custom-orange"}
                   `}
                 >
                   {option}

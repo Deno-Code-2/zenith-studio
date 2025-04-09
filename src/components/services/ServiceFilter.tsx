@@ -40,7 +40,7 @@ const ServiceFilter = ({ activeFilter, setActiveFilter }: ServiceFilterProps) =>
               rounded-full px-6 py-2 font-jakarta
               ${activeFilter === option 
                 ? "bg-custom-orange hover:bg-custom-orange/90 text-white" 
-                : "border-custom-orange/20 text-black hover:bg-custom-orange/10"}
+                : "border-custom-orange/20 text-black hover:bg-custom-orange"}
             `}
           >
             {option}
