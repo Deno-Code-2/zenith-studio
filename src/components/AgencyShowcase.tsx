@@ -225,7 +225,7 @@ const AgencyShowcase = () => {
                 <Safari
                   url="zenithstudio.xyz"
                   className="w-full h-full"
-                  imageSrc="/images/Zenith Studio.png"
+                  imageSrc="/images/Logo.png"
                 />
               </motion.div>
             </div>
