@@ -21,7 +21,7 @@ const OurStory = () => {
               has grown into a full-service digital agency with a global client base.
             </p>
             <p className="text-gray-700 mb-6 font-jakarta">
-              Our journey began in 2015 with crafting simple websites, but quickly evolved into developing complex web applications 
+              Our journey began in 2024 with crafting simple websites, but quickly evolved into developing complex web applications 
               and comprehensive digital strategies. Today, we blend creativity with cutting-edge technology to deliver 
               solutions that help our clients stand out in the digital landscape.
             </p>
@@ -47,7 +47,7 @@ const OurStory = () => {
             </div>
             
             <div className="absolute -bottom-8 -right-8 md:bottom-12 md:-right-12 bg-white p-4 md:p-6 rounded-xl shadow-lg max-w-[200px]">
-              <p className="text-custom-orange font-bold text-3xl font-syne">7+</p>
+              <p className="text-custom-orange font-bold text-3xl font-syne">2+</p>
               <p className="text-gray-700 font-jakarta text-sm">Years of excellence in digital solutions</p>
             </div>
           </motion.div>
