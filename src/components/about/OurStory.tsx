@@ -40,15 +40,15 @@ const OurStory = () => {
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                src="/images/Logo.png" 
                 alt="Zenith team collaborating" 
                 className="w-full h-full object-cover"
               />
             </div>
             
-            <div className="absolute -bottom-8 -right-8 md:bottom-12 md:-right-12 bg-white p-4 md:p-6 rounded-xl shadow-lg max-w-[200px]">
+            <div className="absolute -bottom-8 -right-8 md:bottom-52 md:-right-12 bg-black p-4 md:p-6 rounded-xl shadow-lg max-w-[200px]">
               <p className="text-custom-orange font-bold text-3xl font-syne">2+</p>
-              <p className="text-gray-700 font-jakarta text-sm">Years of excellence in digital solutions</p>
+              <p className="text-white font-jakarta text-sm">Years of excellence in digital solutions</p>
             </div>
           </motion.div>
         </div>
