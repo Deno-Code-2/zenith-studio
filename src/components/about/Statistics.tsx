@@ -7,10 +7,10 @@ const Statistics = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { number: "200+", label: "Projects Completed" },
-            { number: "95%", label: "Client Satisfaction" },
-            { number: "15+", label: "Industry Awards" },
-            { number: "30+", label: "Team Members" }
+            { number: "15+", label: "Projects Completed" },
+            { number: "75%", label: "Client Satisfaction" },
+           // { number: "15+", label: "Industry Awards" },
+            { number: "2", label: "Team Members" }
           ].map((stat, index) => (
             <motion.div
               key={index}
