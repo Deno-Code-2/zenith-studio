@@ -9,24 +9,6 @@ const teamMembers = [
     image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
     bio: "With expertise in full-stack development and digital strategy, Syed leads Zenith Studio in creating innovative digital solutions for clients worldwide."
   },
-  {
-    name: "Alex Rodriguez",
-    role: "Founder & CTO",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
-    bio: "With over 15 years of experience in digital strategy and entrepreneurship, Alex founded Zenith Studio to help businesses transform their digital presence."
-  },
-  {
-    name: "Sarah Johnson",
-    role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
-    bio: "Sarah brings 12 years of design excellence to Zenith, leading our creative team to deliver stunning visual experiences that elevate brands."
-  },
-  {
-    name: "David Chen",
-    role: "Technical Lead",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
-    bio: "David's expertise in full-stack development and system architecture ensures our technical implementations are robust, scalable, and future-proof."
-  }
 ];
 
 const TeamSection = () => {
