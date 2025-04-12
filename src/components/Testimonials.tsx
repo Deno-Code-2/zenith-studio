@@ -10,76 +10,22 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
     {
-        name: 'Jonathan Yombo',
-        role: 'Software Engineer',
-        image: 'https://randomuser.me/api/portraits/men/1.jpg',
-        quote: 'Tailus is really extraordinary and very practical, no need to break your head. A real gold mine.',
+        name: 'Abhinav Singh',
+        role: 'CallKaro AI - CEO',
+        image: '/images/callkaro_ai_logo.jpeg',
+        quote: 'One thing that truly stood out while working with Syed is his incredible speed. He has a rare ability to spin up clean, functional landing pages in no time. Whether it’s a quick iteration or a fresh build, you can always count on Zenith Studio to deliver with speed and precision.',
     },
     {
-        name: 'Yves Kalume',
-        role: 'GDE - Android',
-        image: 'https://randomuser.me/api/portraits/men/6.jpg',
-        quote: 'With no experience in webdesign I just redesigned my entire website in a few minutes with tailwindcss thanks to Tailus.',
+        name: 'Ayo Remi',
+        role: 'Software Developer',
+        image: '/images/blacklogo.svg',
+        quote: 'Working with Syed was an incredible experience. I approached him with the idea for Cloth Village, but without a fixed design or detailed plan. I simply told him to trust his instincts—and I’m glad I did. He took full ownership of the project, from UI/UX to development, and delivered a sleek, functional, and fast eCommerce platform that exceeded my expectations. His ability to understand the brand, make design decisions independently, and still keep me in the loop was impressive. Highly recommend him and full zenith studio team if you are looking for someone who can bring your vision to life—even when it is not fully defined.',
     },
     {
-        name: 'Yucel Faruksahan',
-        role: 'Tailkits Creator',
-        image: 'https://randomuser.me/api/portraits/men/7.jpg',
-        quote: 'Great work on tailfolio template. This is one of the best personal website that I have seen so far :)',
-    },
-    {
-        name: 'Anonymous author',
-        role: 'Doing something',
-        image: 'https://randomuser.me/api/portraits/men/8.jpg',
-        quote: 'I am really new to Tailwind and I want to give a go to make some page on my own. I searched a lot of hero pages and blocks online. However, most of them are not giving me a clear view or needed some HTML/CSS coding background to make some changes from the original or too expensive to have. I downloaded the one of Tailus template which is very clear to understand at the start and you could modify the codes/blocks to fit perfectly on your purpose of the page.',
-    },
-    {
-        name: 'Shekinah Tshiokufila',
-        role: 'Senior Software Engineer',
-        image: 'https://randomuser.me/api/portraits/men/4.jpg',
-        quote: 'Tailus is redefining the standard of web design, with these blocks it provides an easy and efficient way for those who love beauty but may lack the time to implement it. I can only recommend this incredible wonder.',
-    },
-    {
-        name: 'Oketa Fred',
-        role: 'Fullstack Developer',
-        image: 'https://randomuser.me/api/portraits/men/2.jpg',
-        quote: 'I absolutely love Tailus! The component blocks are beautifully designed and easy to use, which makes creating a great-looking website a breeze.',
-    },
-    {
-        name: 'Zeki',
-        role: 'Founder of ChatExtend',
-        image: 'https://randomuser.me/api/portraits/men/5.jpg',
-        quote: "Using TailsUI has been like unlocking a secret design superpower. It's the perfect fusion of simplicity and versatility, enabling us to create UIs that are as stunning as they are user-friendly.",
-    },
-    {
-        name: 'Joseph Kitheka',
-        role: 'Fullstack Developer',
-        image: 'https://randomuser.me/api/portraits/men/9.jpg',
-        quote: 'Tailus has transformed the way I develop web applications. Their extensive collection of UI components, blocks, and templates has significantly accelerated my workflow. The flexibility to customize every aspect allows me to create unique user experiences. Tailus is a game-changer for modern web development!',
-    },
-    {
-        name: 'Khatab Wedaa',
-        role: 'MerakiUI Creator',
-        image: 'https://randomuser.me/api/portraits/men/10.jpg',
-        quote: "Tailus is an elegant, clean, and responsive tailwind css components it's very helpful to start fast with your project.",
-    },
-    {
-        name: 'Rodrigo Aguilar',
-        role: 'TailwindAwesome Creator',
-        image: 'https://randomuser.me/api/portraits/men/11.jpg',
-        quote: 'I love Tailus ❤️. The component blocks are well-structured, simple to use, and beautifully designed. It makes it really easy to have a good-looking website in no time.',
-    },
-    {
-        name: 'Eric Ampire',
-        role: 'Mobile Engineer at @BRPNews • @GoogleDevExpert for Android',
-        image: 'https://randomuser.me/api/portraits/men/12.jpg',
-        quote: 'Tailus templates are the perfect solution for anyone who wants to create a beautiful and functional website without any web design experience. The templates are easy to use, customizable, and responsive, and the support team is always available to help. I highly recommend Tailus templates to anyone who is looking to create a website.',
-    },
-    {
-        name: 'Roland Tubonge',
-        role: 'Software Engineer',
-        image: 'https://randomuser.me/api/portraits/men/13.jpg',
-        quote: 'Tailus is so well designed that even with a very poor knowledge of web design you can do miracles. Let yourself be seduced!',
+        name: 'Syed Ifranulla',
+        role: '',
+        image: '',
+        quote: 'I wanted a platform to represent my journey, services, and dedication to promoting Urdu across India. Syed understood this vision deeply and created a portfolio that beautifully reflects my work and values. The design feels personal yet professional, and it allows me to connect with students and communities in a meaningful way. He made the entire process smooth and respectful of the language and culture I cherish. I’m truly grateful for the care and creativity he brought into building this site',
     },
 ]
 
@@ -100,7 +46,7 @@ export default function WallOfLoveSection() {
                 <div className="mx-auto max-w-6xl px-6">
                     <div className="text-center">
                         <h2 className="text-title text-3xl font-semibold">Loved by the Community</h2>
-                        <p className="text-body mt-6">Harum quae dolore orrupti aut temporibus ariatur.</p>
+                        {/*<p className="text-body mt-6">Harum quae dolore orrupti aut temporibus ariatur.</p>*/}
                     </div>
                     <div className="mt-8 grid gap-3 [--color-card:var(--color-muted)] sm:grid-cols-2 md:mt-12 lg:grid-cols-3 dark:[--color-muted:var(--color-zinc-900)]">
                         {testimonialChunks.map((chunk, chunkIndex) => (
