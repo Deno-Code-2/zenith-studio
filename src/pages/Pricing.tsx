@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import AgencyShowcase from "@/components/AgencyShowcase";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
@@ -204,7 +203,6 @@ const Pricing = () => {
           </div>
         </div>
       </section>
-      <AgencyShowcase />
       <Footer />
     </main>
   );

@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AgencyShowcase from "@/components/AgencyShowcase";
 
 const CookiePolicy = () => {
   return (
@@ -117,7 +116,6 @@ const CookiePolicy = () => {
           </div>
         </div>
       </div>
-      <AgencyShowcase />
       <Footer />
     </div>
   );

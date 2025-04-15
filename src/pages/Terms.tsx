@@ -1,7 +1,6 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AgencyShowcase from "@/components/AgencyShowcase";
 
 const Terms = () => {
   return (
@@ -139,7 +138,6 @@ const Terms = () => {
           </div>
         </div>
       </div>
-      <AgencyShowcase />
       <Footer />
     </div>
   );
