@@ -92,7 +92,7 @@ const Header = () => {
                 size="sm"
               >
                 <a 
-                  href="https://cal.com/zenith-studio/30min" 
+                  href="https://cal.com/zenithstudio/30min" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

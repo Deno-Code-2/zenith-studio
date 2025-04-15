@@ -77,7 +77,6 @@ const Footer = () => {
   const socialLinks = [
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   ];
 
@@ -93,7 +92,10 @@ const Footer = () => {
               </h1>
             </Link>
             <p className="text-muted-foreground mt-4 text-sm font-jakarta">
-              Transforming digital visions into exceptional experiences with innovative design and flawless execution.
+            Your dream, our code — launched in days.®
+            </p>
+            <p className="text-muted-foreground mt-4 text-sm font-jakarta">
+            AI-powered studio helping founders launch MVPs and scale their startups in under 5 weeks.
             </p>
             
             {/* Social Media Links */}
