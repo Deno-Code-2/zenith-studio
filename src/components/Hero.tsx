@@ -106,7 +106,7 @@ const Hero = () => {
                 size="lg"
               >
                 <motion.a 
-                  href="https://cal.com/zenith-studio/30min" 
+                  href="https://cal.com/zenithstudio/30min" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}

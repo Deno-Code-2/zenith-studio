@@ -5,7 +5,6 @@ import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import Services from "@/components/Services";
 import RecentProjects from "@/components/RecentProjects";
-import AgencyShowcase from "@/components/AgencyShowcase";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
 import Features from "@/components/Features";
@@ -19,12 +18,12 @@ const Index = () => {
         <title>Zenith Studio | Web Development & Digital Solutions Agency</title>
         <meta name="description" content="Zenith Studio offers premium web development, mobile app development, SEO optimization, and digital transformation services for businesses of all sizes." />
         <meta name="keywords" content="web development, mobile app, digital agency, SEO services, web design, digital transformation" />
-        <link rel="canonical" href="https://zenithstudio.xyz/" />
+        <link rel="canonical" href="https://www.zenith-studio.dev/" />
         <meta property="og:title" content="Zenith Studio | Web Development & Digital Solutions" />
         <meta property="og:description" content="Transform your digital presence with our comprehensive web development and digital marketing solutions." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://zenithstudio.xyz/" />
-        <meta property="og:image" content="https://zenithstudio.xyz/images/Zenith Studio.png" />
+        <meta property="og:url" content="https://www.zenith-studio.dev/" />
+        <meta property="og:image" content="https://www.zenith-studio.dev/images/Zenith Studio.png" />
       </Helmet>
       <GridPattern />
       <Header />
@@ -35,7 +34,6 @@ const Index = () => {
         <Services />
         <RecentProjects />
         <WallOfLoveSection/>
-        <AgencyShowcase />
         <FAQ />
         <Footer />
       </div>
