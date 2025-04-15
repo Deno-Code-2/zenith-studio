@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import AgencyShowcase from "@/components/AgencyShowcase";
 import { Helmet } from "react-helmet-async";
 
 
@@ -61,7 +60,7 @@ const Contact = () => {
       const { error: adminEmailError } = await supabase.functions.invoke('send-contact-email', {
         body: { 
           ...formData, 
-          recipient: "syedmoinuddin106@gmail.com",
+          recipient: "support@zenith-studio.dev",
           isAdminEmail: true
         },
       });
@@ -99,8 +98,8 @@ const Contact = () => {
         <meta property="og:title" content="Contact Us | Zenith Studio" />
         <meta property="og:description" content="Get in touch with Zenith Studio for your next digital project. We're here to help transform your ideas into reality." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://zenith-s.vercel.app/contact" />
-        <link rel="canonical" href="https://zenith-s.vercel.app/contact" />
+        <meta property="og:url" content="https://www.zenith-studio.dev/contact" />
+        <link rel="canonical" href="https://www.zenith-studio.dev/contact" />
       </Helmet>
       
       <main className="min-h-screen bg-white">
@@ -174,10 +173,7 @@ const Contact = () => {
                       <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
                         <Twitter className="w-5 h-5 text-custom-orange" />
                       </a>
-                      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
-                        <Facebook className="w-5 h-5 text-custom-orange" />
-                      </a>
-                      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
+                      <a href="https://www.instagram.com/zen.ithstudio?igsh=ZDg2N3JrdmllYzF1" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
                         <Instagram className="w-5 h-5 text-custom-orange" />
                       </a>
                     </div>
@@ -193,7 +189,7 @@ const Contact = () => {
                     asChild
                     className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
                   >
-                    <a href="https://cal.com/zenith-studio/30min" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                    <a href="https://cal.com/zenithstudio/30min" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                       Schedule a Call <ArrowRight className="h-4 w-4" />
                     </a>
                   </Button>
@@ -306,7 +302,6 @@ const Contact = () => {
           </div>
         </section>
         
-        <AgencyShowcase />
         <Footer />
       </main>
     </div>
