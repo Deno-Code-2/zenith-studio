@@ -1,10 +1,38 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
+
+// Declare the dataLayer property on the window object
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
 
 const Terms = () => {
+  useEffect(() => {
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-4771BVNJVP');
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Terms and Conditions | Zenith Studio</title>
+        <meta name="description" content="Read our terms and conditions to understand the legal framework of our services and your rights as a client." />
+        <meta property="og:title" content="Terms and Conditions | Zenith Studio" />
+        <meta property="og:description" content="Legal terms and conditions for using Zenith Studio's services." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://zenithstudio.xyz/terms" />
+        <link rel="canonical" href="https://zenithstudio.xyz/terms" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
+      </Helmet>
       <Header />
       <div className="relative pt-32">
         <div className="container mx-auto px-8 lg:px-16 py-20">

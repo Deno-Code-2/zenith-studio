@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -10,8 +9,19 @@ import Footer from "@/components/Footer";
 import Features from "@/components/Features";
 import FAQ from "@/components/FAQ";
 import WallOfLoveSection from "@/components/Testimonials";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-4771BVNJVP');
+  }, []);
+
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
       <Helmet>
@@ -24,6 +34,7 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.zenith-studio.dev/" />
         <meta property="og:image" content="https://www.zenith-studio.dev/images/Zenith Studio.png" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
       <GridPattern />
       <Header />

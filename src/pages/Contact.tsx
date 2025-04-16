@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin, Send, ArrowRight, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
@@ -9,6 +8,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 
+// Declare the dataLayer property on the window object
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
 
 const SERVICE_TYPES = [
   "Web Development",
@@ -44,6 +49,16 @@ const Contact = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-4771BVNJVP');
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -100,6 +115,7 @@ const Contact = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.zenith-studio.dev/contact" />
         <link rel="canonical" href="https://www.zenith-studio.dev/contact" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
       
       <main className="min-h-screen bg-white">

@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -6,6 +5,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+
+// Declare the dataLayer property on the window object
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
 
 const serviceData = {
   "strategic-business-solutions": {
@@ -150,6 +157,16 @@ const ServiceDetails = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
+  useEffect(() => {
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-4771BVNJVP');
+  }, []);
+
   if (!service) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -160,6 +177,16 @@ const ServiceDetails = () => {
 
   return (
     <div className="bg-white min-h-screen">
+      <Helmet>
+        <title>{service.title} | Zenith Studio</title>
+        <meta name="description" content={service.description} />
+        <meta property="og:title" content={`${service.title} | Zenith Studio`} />
+        <meta property="og:description" content={service.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://zenithstudio.xyz/services/${id}`} />
+        <link rel="canonical" href={`https://zenithstudio.xyz/services/${id}`} />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
+      </Helmet>
       <Header />
       <main className="pt-24">
         {/* Hero Section */}

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,6 +10,13 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { Helmet } from "react-helmet-async";
+
+// Declare the dataLayer property on the window object
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -157,6 +163,14 @@ const Projects = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-4771BVNJVP');
+    
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach((project, index) => {
       gsap.from(project, {
@@ -196,6 +210,7 @@ const Projects = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://zenith-s.vercel.app/projects" />
         <link rel="canonical" href="https://zenith-s.vercel.app/projects" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
 
       <Header />

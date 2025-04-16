@@ -14,11 +14,28 @@ import { gsap } from "gsap";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
+// Declare the dataLayer property on the window object
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
  gsap.registerPlugin(ScrollTrigger);
  
  const About = () => {
    useEffect(() => {
      window.scrollTo(0, 0);
+   }, []);
+
+   useEffect(() => {
+     // Initialize Google Analytics
+     window.dataLayer = window.dataLayer || [];
+     function gtag(...args: any[]) {
+       window.dataLayer.push(args);
+     }
+     gtag('js', new Date());
+     gtag('config', 'G-4771BVNJVP');
    }, []);
  
    return (
@@ -34,6 +51,7 @@ import { motion } from "framer-motion";
          <link rel="canonical" href="https://zenithstudio.xyz/about" />
          <meta property="og:url" content="https://zenith-s.vercel.app/about" />
          <link rel="canonical" href="https://zenith-s.vercel.app/about" />
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
        </Helmet>
  
        <Header />

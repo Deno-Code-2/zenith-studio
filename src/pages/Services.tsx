@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,6 +12,13 @@ import ServiceCTA from "@/components/services/ServiceCTA";
 import { ServiceItem } from "@/components/services/ServiceCard";
 import { Helmet } from "react-helmet-async";
 
+// Declare the dataLayer property on the window object
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 type ServiceType = 'All' | 'Landing Page' | 'SaaS Website' | 'Startup Website' | 'E-commerce Website';
@@ -25,6 +31,14 @@ const Services = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-4771BVNJVP');
     
     // Fetch services from Supabase
     const fetchServices = async () => {
@@ -100,6 +114,7 @@ const Services = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://zenithstudio.xyz/services" />
         <link rel="canonical" href="https://zenithstudio.xyz/services" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
       
       <Header />
