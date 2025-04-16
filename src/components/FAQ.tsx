@@ -35,7 +35,7 @@ const faqItems = [
   },
   {
     question: "How much does it cost?",
-    answer: "Our projects start at $5,000, with a standard 8-page website typically costing around $10,000-12,000. For ongoing maintenance, we charge $180/hour, and you only pay for the time you actually use—there are no monthly fees unless work is done. So, if you go three months without any updates, you won't have any charges during that time. We believe in keeping pricing transparent and straightforward."
+    answer: "Our projects start at $500, with a standard 8-page website typically costing around $5000-8,000. For ongoing maintenance, we charge $180/hour, and you only pay for the time you actually use—there are no monthly fees unless work is done. So, if you go three months without any updates, you won't have any charges during that time. We believe in keeping pricing transparent and straightforward."
   },
   {
     question: "Will you prepare our site for SEO?",
