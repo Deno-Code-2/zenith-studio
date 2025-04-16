@@ -19,13 +19,13 @@ const testimonials: Testimonial[] = [
         name: 'Ayo Remi',
         role: 'Software Developer',
         image: '/images/blacklogo.svg',
-        quote: 'Working with Syed was an incredible experience. I approached him with the idea for Cloth Village, but without a fixed design or detailed plan. I simply told him to trust his instincts—and I’m glad I did. He took full ownership of the project, from UI/UX to development, and delivered a sleek, functional, and fast eCommerce platform that exceeded my expectations. His ability to understand the brand, make design decisions independently, and still keep me in the loop was impressive. Highly recommend him and full zenith studio team if you are looking for someone who can bring your vision to life—even when it is not fully defined.',
+        quote: 'Working with Syed was seamless. I came with just an idea, and he turned it into a sleek, high-performing eCommerce site. He handled everything—from design to development—while keeping me in the loop. Highly recommend him and the Zenith Studio team for turning vague visions into real products.',
     },
     {
         name: 'Syed Ifranulla',
         role: '',
         image: '',
-        quote: 'I wanted a platform to represent my journey, services, and dedication to promoting Urdu across India. Syed understood this vision deeply and created a portfolio that beautifully reflects my work and values. The design feels personal yet professional, and it allows me to connect with students and communities in a meaningful way. He made the entire process smooth and respectful of the language and culture I cherish. I’m truly grateful for the care and creativity he brought into building this site',
+        quote: 'I wanted a platform that captured my journey and love for Urdu — Syed delivered exactly that. The portfolio feels personal, professional, and culturally respectful. Grateful for the care and creativity he brought to the entire process.',
     },
 ]
 
