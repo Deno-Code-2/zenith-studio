@@ -183,8 +183,8 @@ const ServiceDetails = () => {
         <meta property="og:title" content={`${service.title} | Zenith Studio`} />
         <meta property="og:description" content={service.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://zenithstudio.xyz/services/${id}`} />
-        <link rel="canonical" href={`https://zenithstudio.xyz/services/${id}`} />
+        <meta property="og:url" content={`https://www.zenith-studio.dev/services/${id}`} />
+        <link rel="canonical" href={`https://www.zenith-studio.dev/services/${id}`} />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
       <Header />

@@ -112,8 +112,8 @@ const Services = () => {
         <meta property="og:title" content="Digital Services | Zenith Studio" />
         <meta property="og:description" content="Professional web design, development and digital marketing services for businesses of all sizes." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://zenithstudio.xyz/services" />
-        <link rel="canonical" href="https://zenithstudio.xyz/services" />
+        <meta property="og:url" content="https://www.zenith-studio.dev/services" />
+        <link rel="canonical" href="https://www.zenith-studio.dev/services" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
       
