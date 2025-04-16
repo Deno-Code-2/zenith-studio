@@ -46,7 +46,7 @@ const ServiceCTA = () => {
             <Button 
               asChild
               variant="outline" 
-              className="border-custom-orange text-custom-orange hover:bg-custom-orange/10 font-jakarta"
+              className="border-custom-orange text-custom-orang font-jakarta"
               size="lg"
             >
               <Link to="/pricing">
