@@ -7,7 +7,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import AgencyShowcase from "@/components/AgencyShowcase";
 
 const SERVICE_TYPES = [
   "Web Development",
@@ -241,8 +240,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
-      <AgencyShowcase />
       <Footer />
     </main>
   );

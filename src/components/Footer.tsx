@@ -75,8 +75,7 @@ const Footer = () => {
   // Social media links
   const socialLinks = [
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/zen.ithstudio?igsh=ZDg2N3JrdmllYzF1", label: "Instagram" },
   ];
 
   return (

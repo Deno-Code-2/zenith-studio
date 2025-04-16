@@ -186,9 +186,6 @@ const Contact = () => {
                       <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
                         <Linkedin className="w-5 h-5 text-custom-orange" />
                       </a>
-                      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
-                        <Twitter className="w-5 h-5 text-custom-orange" />
-                      </a>
                       <a href="https://www.instagram.com/zen.ithstudio?igsh=ZDg2N3JrdmllYzF1" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
                         <Instagram className="w-5 h-5 text-custom-orange" />
                       </a>
@@ -230,7 +227,7 @@ const Contact = () => {
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
                           className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-custom-orange focus:ring-1 focus:ring-custom-orange transition-colors font-jakarta"
-                          placeholder="John Doe"
+                          placeholder="Your Full Name"
                           required
                         />
                       </div>
@@ -241,7 +238,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={(e) => setFormData({...formData, email: e.target.value})}
                           className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-custom-orange focus:ring-1 focus:ring-custom-orange transition-colors font-jakarta"
-                          placeholder="john@example.com"
+                          placeholder="Your Email"
                           required
                         />
                       </div>
