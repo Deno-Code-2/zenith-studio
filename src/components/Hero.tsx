@@ -92,7 +92,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-jakarta"
             >
-              We design, build, and refine websites with precision—seamlessly blending aesthetics with functionality.
+             A cutting-edge startup studio leveraging AI to help visionary founders build MVPs and accelerate growth — all in under 5 weeks.
             </motion.p>
 
             <motion.div 
@@ -102,7 +102,7 @@ const Hero = () => {
               <Button 
                 asChild 
                 variant="default"
-                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg bg-custom-orange hover:bg-custom-orange/90"
+                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg"
                 size="lg"
               >
                 <motion.a 
@@ -112,7 +112,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  Book a Call <ArrowRight className="ml-2 h-4 w-4" />
                 </motion.a>
               </Button>
               <Button 

@@ -17,7 +17,6 @@ const MobileMenu = ({ isActive, scrollToTop, currentTime }: MobileMenuProps) => 
   // Navigation items - removed Pricing as requested
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
     { name: "Contact", href: "/contact" },

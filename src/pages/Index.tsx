@@ -11,6 +11,7 @@ import FAQ from "@/components/FAQ";
 import WallOfLoveSection from "@/components/Testimonials";
 import { useEffect } from "react";
 
+
 const Index = () => {
   useEffect(() => {
     // Initialize Google Analytics
