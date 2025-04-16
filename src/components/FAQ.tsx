@@ -18,6 +18,10 @@ const faqItems = [
     answer: "The timeline depends on the complexity of the project. For smaller sites, it typically takes 1-3 weeks from start to finish. Larger or more complex sites, especially those requiring custom functionality or intricate animations, may take longer. We'll discuss a more detailed timeline during our initial call. We also play \"Firefighters\" from time to time—while it's not something we actively seek, we're in this for the long run. If you've got a press release coming out and previously hired agency didn't deliver, we're happy to step in, put out the fire, and get your website live on short notice."
   },
   {
+    question: "When can you start?",
+    answer: "We typically can start within a week of our initial discussions. While we’ve handled tight deadlines before, to ensure a smooth process, it’s best to initiate the conversation with us as early as possible—ideally alongside your design partner or agency. This way, we can adjust our schedule and be ready to kick off your project on time."
+  },
+  {
     question: "What kind of companies do you usually work with?",
     answer: "We've worked with companies of all sizes—from early-stage startups with just 1-2 people to enterprise teams with 30-40 people on meeting calls. At the end of the day, it's less about the size of your company and more about the project and the quality of the design. And between us—psst—we're always excited to take on a fun one-pager with cool animations and imagery!"
   },
@@ -40,7 +44,7 @@ const faqItems = [
   {
     question: "Do you handle migrating my old site?",
     answer: "Yes, we handle site migrations as part of our services. Whether you're moving from another platform or just updating an existing site, we'll ensure a smooth transition. We'll work closely with you to migrate your content, design, and functionality, minimizing downtime and preserving your SEO rankings. Just let us know your current setup, and we'll take care of the rest!"
-  }
+  },
 ];
 
 const FAQ = () => {
