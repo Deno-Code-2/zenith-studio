@@ -45,7 +45,7 @@ const Features = () => {
             The Arsenal
           </h2>
           <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto font-jakarta">
-            We don't follow standards. We set them.
+            Your website is your first impression. We make sure it’s unforgettable, high-converting, and built to dominate.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">

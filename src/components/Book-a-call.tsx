@@ -20,8 +20,24 @@ export default function Bookacall() {
       margin: "20px 0",
       padding: "20px",
       backgroundColor: "#f5f5f5",
-      borderRadius: "8px"
+      borderRadius: "8px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "20px"
     }}>
+      <div style={{ textAlign: "center" }}>
+        <h1 className="text-2xl md:text-3xl font-bold text-black font-syne">Partner With Us. <span className="font-jakarta text-custom-orange">Launch Fast.</span>
+        </h1>
+        <p style={{ 
+          fontSize: "1.2rem",
+          color: "#666",
+          fontWeight: "500"
+        }}>
+          We’re gifting 4 months of post-launch support to the first 10 signups.
+        </p>
+      </div>
+      
       <Cal
         namespace="30min"
         calLink="zenithstudio/30min"

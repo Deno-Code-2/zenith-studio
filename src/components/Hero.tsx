@@ -1,9 +1,10 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Cover } from "@/components/ui/cover";
 import { useNavigate } from "react-router-dom";
+import { AnimatedShinyText } from "./magicui/animated-shiny-text";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Hero = () => {
   };
 
   return (
+    
     <div className="relative w-full overflow-hidden bg-white">
       {/* Grid Background with Animation */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -74,18 +76,23 @@ const Hero = () => {
             animate="visible"
             className="w-full max-w-4xl space-y-6 md:space-y-8" 
           >
+                      <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center rounded-full bg-zenith-orange/10 px-3 py-1 text-sm font-medium text-zenith-orange">
+            <AnimatedShinyText className="text-orange-600">Welcome to Zenith Studio</AnimatedShinyText>
+            </div>
+          </div>
             <motion.h1 
               variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight text-black font-syne" 
+              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne" 
             >
-              We are Zenith Studio,
+              We don’t build websites,
             </motion.h1>
             
             <motion.h2 
               variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight text-black font-syne"
+              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              Where <Cover className="text-custom-orange">Ideas</Cover> Go Live.
+              We <Cover className="text-custom-orange">build startup</Cover>  empires
             </motion.h2>
             
             <motion.p 
