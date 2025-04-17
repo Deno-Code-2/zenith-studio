@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
-import Services from "@/components/Services";
 import RecentProjects from "@/components/RecentProjects";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
@@ -10,6 +9,7 @@ import Features from "@/components/Features";
 import FAQ from "@/components/FAQ";
 import WallOfLoveSection from "@/components/Testimonials";
 import { useEffect } from "react";
+import Bookacall from "@/components/Book-a-call";
 
 
 const Index = () => {
@@ -43,8 +43,8 @@ const Index = () => {
         <Hero />
         <TechStack />
         <Features />
-        <Services />
         <RecentProjects />
+        <Bookacall/>
         <WallOfLoveSection/>
         <FAQ />
         <Footer />
