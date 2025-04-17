@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Send, ArrowRight, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ArrowRight, Linkedin, Twitter, Facebook, Instagram, MessageSquareShare, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
@@ -189,6 +189,9 @@ const Contact = () => {
                       <a href="https://www.instagram.com/zen.ithstudio?igsh=ZDg2N3JrdmllYzF1" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
                         <Instagram className="w-5 h-5 text-custom-orange" />
                       </a>
+                      <a href="https://wa.me/919108041057" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
+                        <MessageCircle className="w-5 h-5 text-custom-orange" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -200,7 +203,8 @@ const Contact = () => {
                   </p>
                   <Button
                     asChild
-                    className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+                    variant="default"
+                    className="w-full text-white font-jakarta"
                   >
                     <a href="https://cal.com/zenithstudio/30min" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                       Schedule a Call <ArrowRight className="h-4 w-4" />

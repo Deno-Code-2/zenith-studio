@@ -17,6 +17,7 @@ import Header from "@/components/Header";
 import ProcessSection from "@/components/about/ProcessSection";
 import ServiceCTA from "@/components/services/ServiceCTA";
 import { FeaturesSectionWithBentoGrid } from "@/components/feature-section-with-bento-grid";
+import DatabaseWithRestApi from "@/components/ui/database-with-rest-api";
 
 export default function FullServicesPage() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -113,7 +114,7 @@ export default function FullServicesPage() {
             </p>
           </div>
           </div>
-          <FeaturesSectionWithBentoGrid/>
+          
 
       </section>
       <ProcessSection />
