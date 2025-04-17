@@ -123,7 +123,7 @@ export function Connect() {
                     <div className="flex flex-col items-center">
                       <h3 className="mt-6   pb-1 font-bold ">
                         <span className="text-2xl md:text-4xl">
-                          Any questions about Design?
+                          Any questions about Design and Web Developemt?
                         </span>
                       </h3>
                     </div>
@@ -132,14 +132,14 @@ export function Connect() {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <a
-                        href={"https://cal.com/aliimam/designali"}
+                        href={"https://cal.com/zenithstudio/30min"}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <Button>Book a call</Button>
                       </a>
                       <a
-                        href="mailto:contact@designali.in"
+                        href="mailto:support@zenith-studio.dev"
                         target="_blank"
                         className={cn(
                           buttonVariants({
@@ -153,7 +153,7 @@ export function Connect() {
                         </span>
                       </a>
                       <a
-                        href="https://wa.me/917678432186"
+                        href="https://wa.me/919108041057"
                         target="_blank"
                         className={cn(
                           buttonVariants({
