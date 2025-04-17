@@ -1,4 +1,4 @@
-import { Connect } from "../ui/connect";
+import { Connect } from "@/components/ui/connect";
 
 const ServiceCTA = () => {
   return (
