@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { Helmet } from "react-helmet-async";
+import ServiceCTA from "@/components/services/ServiceCTA";
 
 // Declare the dataLayer property on the window object
 declare global {
@@ -319,6 +320,7 @@ const Projects = () => {
           )}
         </main>
       </PageTransition>
+      <ServiceCTA />
       <Footer />
     </div>
   );
