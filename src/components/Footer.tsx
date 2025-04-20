@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin, Loader2 } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Loader2, MessageCircle, MessageSquare, AtSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -65,17 +65,14 @@ const Footer = () => {
       { name: "Projects", href: "/projects" },
       { name: "Contact", href: "/contact" },
     ],
-    legal: [
-      { name: "Privacy Policy", href: "/privacy" },
-      { name: "Terms of Service", href: "/terms" },
-      { name: "Cookie Policy", href: "/cookie-policy" },
-    ],
   };
   
   // Social media links
   const socialLinks = [
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Instagram, href: "https://www.instagram.com/zen.ithstudio?igsh=ZDg2N3JrdmllYzF1", label: "Instagram" },
+    { icon: AtSign, href: "mailto:support@zenith-studio.dev", label: "Email" },
+    { icon: MessageSquare, href: "https://wa.me/919108041057", label: "WhatsApp" }
   ];
 
   return (
@@ -118,48 +115,6 @@ const Footer = () => {
             <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Pages</h3>
             <ul className="space-y-2">
               {footerLinks.pages.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.href}
-                    className="text-muted-foreground hover:text-custom-orange text-sm transition-colors font-jakarta"
-                    onClick={scrollToTop}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Contact</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link 
-                  to="/contact"
-                  className="text-muted-foreground hover:text-custom-orange text-sm transition-colors font-jakarta"
-                  onClick={scrollToTop}
-                >
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <a 
-                  href="tel:+919108041057"
-                  className="text-muted-foreground hover:text-custom-orange text-sm transition-colors font-jakarta"
-                >
-                  +91 9108041057
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Legal</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link 
                     to={link.href}
