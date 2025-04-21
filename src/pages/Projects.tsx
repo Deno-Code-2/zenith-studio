@@ -10,12 +10,11 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { Helmet } from "react-helmet-async";
-import ServiceCTA from "@/components/services/ServiceCTA";
 
 // Declare the dataLayer property on the window object
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer: unknown[];
   }
 }
 
@@ -166,7 +165,7 @@ const Projects = () => {
     
     // Initialize Google Analytics
     window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
+    function gtag(...args: unknown[]) {
       window.dataLayer.push(args);
     }
     gtag('js', new Date());
@@ -320,7 +319,6 @@ const Projects = () => {
           )}
         </main>
       </PageTransition>
-      <ServiceCTA />
       <Footer />
     </div>
   );
