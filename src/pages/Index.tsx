@@ -10,6 +10,9 @@ import FAQ from "@/components/FAQ";
 import WallOfLoveSection from "@/components/Testimonials";
 import { useEffect } from "react";
 import Bookacall from "@/components/Book-a-call";
+import ServicesSection from "@/components/service";
+import PricingPage from "@/components/pricing";
+
 
 
 const Index = () => {
@@ -43,8 +46,10 @@ const Index = () => {
         <Hero />
         <TechStack />
         <Features />
+        <ServicesSection/>
         <RecentProjects />
         <Bookacall/>
+        <PricingPage/>
         <WallOfLoveSection/>
         <FAQ />
         <Footer />

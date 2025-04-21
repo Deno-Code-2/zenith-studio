@@ -57,12 +57,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E46534;
+  background: #2D6A4F; /* Deep emerald green */
   border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d55a2b;
+  background: #40916C; /* Brighter on hover */
 }
 
 /* Hide scrollbar for the tech stack section */

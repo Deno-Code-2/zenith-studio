@@ -54,7 +54,7 @@ const Hero = () => {
             repeatDelay: 2,
             ease: "linear"
           }}
-          className="absolute top-1/2 h-[1px] w-full bg-gradient-to-r from-transparent via-custom-orange/90 to-transparent"
+          className="absolute top-1/2 h-[1px] w-full bg-gradient-to-r from-transparent via-custom-green/90 to-transparent"
           style={{
             boxShadow: '0 0 10px 2px rgba(255, 107, 53, 0.5)'
           }}
@@ -70,8 +70,8 @@ const Hero = () => {
             className="w-full max-w-4xl space-y-6 md:space-y-8"
           >
             <div className="flex justify-center mb-6">
-              <div className="inline-flex items-center rounded-full bg-zenith-orange/10 px-4 py-2 text-sm font-medium text-zenith-orange shadow-md">
-                <AnimatedShinyText className="text-orange-600">
+              <div className="inline-flex items-center rounded-full bg-zenith-green/10 px-4 py-2 text-sm font-medium text-zenith-green shadow-md">
+                <AnimatedShinyText className="text-green-600">
                   Welcome to Zenith Studio
                 </AnimatedShinyText>
               </div>
@@ -88,7 +88,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              We <Cover className="text-custom-orange">build startup</Cover> empires
+              We <Cover className="text-custom-green">build startup</Cover> empires
             </motion.h2>
 
             <motion.p
@@ -122,7 +122,7 @@ const Hero = () => {
               <Button
                 variant="link"
                 onClick={() => navigate('/projects')}
-                className="w-full sm:w-auto text-custom-orange hover:scale-105 transition-transform text-lg"
+                className="w-full sm:w-auto text-custom-green hover:scale-105 transition-transform text-lg"
                 size="lg"
               >
                 View Our Work

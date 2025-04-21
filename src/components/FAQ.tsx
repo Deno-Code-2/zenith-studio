@@ -70,7 +70,7 @@ const FAQ = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-black font-syne mb-4">
-            Frequently Asked <span className="text-custom-orange">Questions</span>
+            Frequently Asked <span className="text-green-600">Questions</span>
           </h2>
           <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
             Find answers to common questions about our services, process, and expertise.

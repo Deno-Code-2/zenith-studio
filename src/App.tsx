@@ -16,17 +16,9 @@ import IndexPage from "@/pages/Index";
 
 // Lazy load other pages
 const AboutPage = lazy(() => import("@/pages/About"));
-const ServicesPage = lazy(() => import("@/pages/Services"));
-const ServiceDetailsPage = lazy(() => import("@/pages/ServiceDetails"));
 const ProjectsPage = lazy(() => import("@/pages/Projects"));
-const BlogPage = lazy(() => import("@/pages/Blog"));
-const BlogPostPage = lazy(() => import("@/pages/BlogPost"));
 const PricingPage = lazy(() => import("@/pages/Pricing"));
 const ContactPage = lazy(() => import("@/pages/Contact"));
-const TermsPage = lazy(() => import("@/pages/Terms"));
-const PrivacyPage = lazy(() => import("@/pages/Privacy"));
-const CookiePolicyPage = lazy(() => import("@/pages/CookiePolicy"));
-const ServicesDetailsPage = lazy(() => import("@/pages/ServicesDetails"));
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 
 function App() {
@@ -68,23 +60,10 @@ function App() {
                   <Routes>
                     <Route path="/" element={<IndexPage />} />
                     <Route path="/about" element={<AboutPage />} />
-                    <Route path="/services" element={<ServicesPage />} />
-                    <Route path="/services/:id" element={<ServicesDetailsPage />} />
-                    <Route path="/services/strategic-business-solutions" element={<ServiceDetailsPage />} />
-                    <Route path="/services/precision-marketing-branding" element={<ServiceDetailsPage />} />
-                    <Route path="/services/web-design" element={<ServiceDetailsPage />} />
-                    <Route path="/services/mobile-app-development" element={<ServiceDetailsPage />} />
-                    <Route path="/services/seo-optimization" element={<ServiceDetailsPage />} />
-                    <Route path="/services/digital-transformation" element={<ServiceDetailsPage />} />
                     <Route path="/projects" element={<ProjectsPage />} />
                     {/* Keep pricing route but remove from navigation */}
                     <Route path="/pricing" element={<PricingPage />} />
                     <Route path="/contact" element={<ContactPage />} />
-                    <Route path="/blog" element={<BlogPage />} />
-                    <Route path="/blog/:id" element={<BlogPostPage />} />
-                    <Route path="/terms" element={<TermsPage />} />
-                    <Route path="/privacy" element={<PrivacyPage />} />
-                    <Route path="/cookie-policy" element={<CookiePolicyPage />} />
                     <Route path="/404" element={<NotFoundPage />} />
                     <Route path="*" element={<Navigate to="/404" replace />} />
                   </Routes>

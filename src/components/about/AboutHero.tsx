@@ -15,13 +15,13 @@ const AboutHero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="inline-block text-custom-orange font-medium mb-4 font-jakarta"
+            className="inline-block text-green-500 font-medium mb-4 font-jakarta"
           >
             About Us
           </motion.span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 font-syne">
-            About <span className="text-custom-orange">Zenith Studio</span>
+            About <span className="text-green-500">Zenith Studio</span>
           </h1>
           
           <motion.p 
@@ -40,7 +40,7 @@ const AboutHero = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="mt-8 flex justify-center"
           >
-            <div className="h-1 w-20 bg-custom-orange rounded-full"></div>
+            <div className="h-1 w-20 bg-green-500 rounded-full"></div>
           </motion.div>
         </motion.div>
       </div>
@@ -50,7 +50,7 @@ const AboutHero = () => {
         <div className="absolute inset-0 grid grid-cols-6 gap-4">
           {Array.from({ length: 12 }).map((_, i) => (
             <div key={i} className="h-full w-full">
-              <div className="h-full w-full rounded-full bg-custom-orange/80 filter blur-3xl"></div>
+              <div className="h-full w-full rounded-full bg-green-500/80 filter blur-3xl"></div>
             </div>
           ))}
         </div>

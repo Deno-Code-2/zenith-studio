@@ -52,7 +52,7 @@ const MobileMenu = ({ isActive, scrollToTop, currentTime }: MobileMenuProps) => 
                   to={item.href}
                   className={`px-3 py-2 rounded-md font-jakarta ${
                     isActive(item.href)
-                      ? "bg-gray-100 dark:bg-gray-800 text-custom-orange"
+                      ? "bg-gray-100 dark:bg-gray-800 text-green-500"
                       : "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
                   onClick={() => {

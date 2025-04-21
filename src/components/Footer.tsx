@@ -61,7 +61,6 @@ const Footer = () => {
   const footerLinks = {
     pages: [
       { name: "Home", href: "/" },
-      { name: "Services", href: "/services" },
       { name: "Projects", href: "/projects" },
       { name: "Contact", href: "/contact" },
     ],
@@ -83,7 +82,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-4">
             <Link to="/" className="inline-block" onClick={scrollToTop}>
               <h1 className="text-2xl font-bold font-syne">
-                <span className="text-custom-orange">Zen</span>ith Studio
+                <span className="text-green-500">Zen</span>ith Studio
               </h1>
             </Link>
             <p className="text-muted-foreground mt-4 text-sm font-jakarta">
@@ -102,7 +101,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="text-muted-foreground hover:text-custom-orange transition-colors"
+                  className="text-muted-foreground hover:text-green-500 transition-colors"
                 >
                   <social.icon size={20} />
                 </a>
@@ -118,7 +117,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link 
                     to={link.href}
-                    className="text-muted-foreground hover:text-custom-orange text-sm transition-colors font-jakarta"
+                    className="text-muted-foreground hover:text-green-500 text-sm transition-colors font-jakarta"
                     onClick={scrollToTop}
                   >
                     {link.name}
@@ -140,12 +139,12 @@ const Footer = () => {
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-background border border-border rounded-md px-4 py-2 text-sm text-foreground w-full font-jakarta focus:ring-2 focus:ring-custom-orange focus:border-transparent"
+                className="bg-background border border-border rounded-md px-4 py-2 text-sm text-foreground w-full font-jakarta focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 required
               />
               <Button 
                 type="submit" 
-                className="w-full bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta"
+                className="w-full bg-black hover:bg-green-500 text-white font-jakarta"
                 disabled={isLoading}
               >
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Subscribe"}
@@ -166,7 +165,7 @@ const Footer = () => {
       <div className="bg-white dark:bg-gray-900 py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-black dark:text-white font-syne tracking-tight">
-            Let's build something <span className="text-custom-orange">amazing</span> together.
+            Let's build something <span className="text-green-500">amazing</span> together.
           </h2>
         </div>
       </div>

@@ -130,7 +130,7 @@ const Contact = () => {
               className="text-center mb-16"
             >
               <h1 className="text-4xl md:text-6xl font-bold text-black font-syne mb-6">
-                Get in <span className="text-custom-orange">Touch</span> with Us Today!
+                Get in <span className="text-green-500">Touch</span> with Us Today!
               </h1>
               <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
               Let's discuss your project and see how we can help you achieve your digital goals. Fill out the form below and we'll get back to you within 24hr.
@@ -150,12 +150,12 @@ const Contact = () => {
                   
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                      <div className="bg-custom-orange/10 p-3 rounded-full">
-                        <Mail className="w-6 h-6 text-custom-orange" />
+                      <div className="bg-green-500/10 p-3 rounded-full">
+                        <Mail className="w-6 h-6 text-green-500" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-black mb-1 font-syne">Email Us</h3>
-                        <a href="mailto:support@zenith-studio.dev" className="text-gray-700 hover:text-custom-orange transition-colors font-jakarta block">
+                        <a href="mailto:support@zenith-studio.dev" className="text-gray-700 hover:text-green-500 transition-colors font-jakarta block">
                         support@zenith-studio.dev
                         </a>
                         <p className="text-gray-500 text-sm mt-1 font-jakarta">
@@ -165,12 +165,12 @@ const Contact = () => {
                     </div>
                     
                     <div className="flex items-start gap-4">
-                      <div className="bg-custom-orange/10 p-3 rounded-full">
-                        <Phone className="w-6 h-6 text-custom-orange" />
+                      <div className="bg-green-500/10 p-3 rounded-full">
+                        <Phone className="w-6 h-6 text-green-500" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-black mb-1 font-syne">Call Us</h3>
-                        <a href="tel:+919108041057" className="text-gray-700 hover:text-custom-orange transition-colors font-jakarta block">
+                        <a href="tel:+919108041057" className="text-gray-700 hover:text-green-500 transition-colors font-jakarta block">
                           +91 9108041057
                         </a>
                         <p className="text-gray-500 text-sm mt-1 font-jakarta">
@@ -183,20 +183,20 @@ const Contact = () => {
                   <div className="mt-10">
                     <h3 className="text-lg font-semibold text-black mb-4 font-syne">Follow Us</h3>
                     <div className="flex space-x-4">
-                      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
-                        <Linkedin className="w-5 h-5 text-custom-orange" />
+                      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-green-500/10 p-3 rounded-full hover:bg-green-500/20 transition-colors">
+                        <Linkedin className="w-5 h-5 text-green-500" />
                       </a>
-                      <a href="https://www.instagram.com/zen.ithstudio?igsh=ZDg2N3JrdmllYzF1" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
-                        <Instagram className="w-5 h-5 text-custom-orange" />
+                      <a href="https://www.instagram.com/zen.ithstudio?igsh=ZDg2N3JrdmllYzF1" target="_blank" rel="noopener noreferrer" className="bg-green-500/10 p-3 rounded-full hover:bg-green-500/20 transition-colors">
+                        <Instagram className="w-5 h-5 text-green-500" />
                       </a>
-                      <a href="https://wa.me/919108041057" target="_blank" rel="noopener noreferrer" className="bg-custom-orange/10 p-3 rounded-full hover:bg-custom-orange/20 transition-colors">
-                        <MessageCircle className="w-5 h-5 text-custom-orange" />
+                      <a href="https://wa.me/919108041057" target="_blank" rel="noopener noreferrer" className="bg-green-500/10 p-3 rounded-full hover:bg-green-500/20 transition-colors">
+                        <MessageCircle className="w-5 h-5 text-green-500" />
                       </a>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-custom-orange/5 rounded-2xl p-8 border border-custom-orange/10">
+                <div className="bg-green-500/5 rounded-2xl p-8 border border-green-500/10">
                   <h3 className="text-xl font-bold text-black mb-4 font-syne">Ready to start your project?</h3>
                   <p className="text-gray-700 mb-6 font-jakarta">
                     Book a free 30-minute consultation call to discuss your requirements.
@@ -230,7 +230,7 @@ const Contact = () => {
                           type="text" 
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-custom-orange focus:ring-1 focus:ring-custom-orange transition-colors font-jakarta"
+                          className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors font-jakarta"
                           placeholder="Your Full Name"
                           required
                         />
@@ -241,7 +241,7 @@ const Contact = () => {
                           type="email" 
                           value={formData.email}
                           onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-custom-orange focus:ring-1 focus:ring-custom-orange transition-colors font-jakarta"
+                          className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors font-jakarta"
                           placeholder="Your Email"
                           required
                         />
@@ -254,7 +254,7 @@ const Contact = () => {
                         type="text" 
                         value={formData.subject}
                         onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                        className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-custom-orange focus:ring-1 focus:ring-custom-orange transition-colors font-jakarta"
+                        className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors font-jakarta"
                         placeholder="How can we help you?"
                         required
                       />
@@ -266,7 +266,7 @@ const Contact = () => {
                         <select 
                           value={formData.price_range}
                           onChange={(e) => setFormData({...formData, price_range: e.target.value})}
-                          className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-custom-orange focus:ring-1 focus:ring-custom-orange transition-colors font-jakarta"
+                          className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors font-jakarta"
                           required
                         >
                           <option value="">Select a range</option>
@@ -280,7 +280,7 @@ const Contact = () => {
                         <select 
                           value={formData.service_type}
                           onChange={(e) => setFormData({...formData, service_type: e.target.value})}
-                          className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-custom-orange focus:ring-1 focus:ring-custom-orange transition-colors font-jakarta"
+                          className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors font-jakarta"
                           required
                         >
                           <option value="">Select a service</option>
@@ -297,7 +297,7 @@ const Contact = () => {
                         rows={5} 
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
-                        className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-custom-orange focus:ring-1 focus:ring-custom-orange transition-colors font-jakarta"
+                        className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors font-jakarta"
                         placeholder="Tell us about your project requirements..."
                         required
                       ></textarea>
@@ -305,7 +305,7 @@ const Contact = () => {
                     
                     <Button 
                       type="submit" 
-                      className="w-full py-3 bg-custom-orange hover:bg-custom-orange/90 text-white font-jakarta flex items-center justify-center gap-2 text-lg"
+                      className="w-full py-3 bg-green-500 hover:bg-green-500/90 text-white font-jakarta flex items-center justify-center gap-2 text-lg"
                       disabled={isSubmitting}
                       size="lg"
                     >

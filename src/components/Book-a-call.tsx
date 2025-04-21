@@ -27,7 +27,7 @@ export default function Bookacall() {
       gap: "20px"
     }}>
       <div style={{ textAlign: "center" }}>
-        <h1 className="text-2xl md:text-3xl font-bold text-black font-syne">Partner With Us. <span className="font-jakarta text-custom-orange">Launch Fast.</span>
+        <h1 className="text-2xl md:text-3xl font-bold text-black font-syne">Partner With Us. <span className="font-jakarta text-green-500">Launch Fast.</span>
         </h1>
         <p style={{ 
           fontSize: "1.2rem",

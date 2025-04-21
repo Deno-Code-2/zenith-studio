@@ -11,7 +11,7 @@ const HeaderLogo = ({ scrollToTop }: HeaderLogoProps) => {
 
   // All text variations with their maximum width
   const textVariations = [
-    { text: (<><span className="text-custom-orange">Zen</span>ith Studio</>) }, // Default
+    { text: (<><span className="text-green-500">Zen</span>ith Studio</>) }, // Default
     { text: "Definitely not SVG" },
     { text: "Web Dev" },
     { text: "superheroes" },
