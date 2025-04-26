@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { Helmet } from "react-helmet-async";
+import Bookacall from "@/components/Book-a-call";
 
 // Declare the dataLayer property on the window object
 declare global {
@@ -223,7 +224,7 @@ const Projects = () => {
               transition={{ duration: 0.5 }}
               className="text-5xl md:text-7xl font-bold mb-6 font-syne text-black"
             >
-              Our <span className="text-custom-orange">Projects</span>
+              Our <span className="text-green-500">Projects</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -255,8 +256,8 @@ const Projects = () => {
                   className={`
                     rounded-full px-6 py-2 font-jakarta transition-all duration-300
                     ${activeFilter === option 
-                      ? "bg-custom-orange text-white" 
-                      : "bg-transparent text-black border border-gray-200 hover:custom-orange"}
+                      ? "bg-green-500 text-white" 
+                      : "bg-transparent text-black border border-gray-200 hover:green-500"}
                   `}
                 >
                   {option}
@@ -268,7 +269,7 @@ const Projects = () => {
           {/* Project listing section */}
           {isLoading ? (
             <div className="text-center text-gray-600 py-20">
-              <div className="w-10 h-10 border-4 border-custom-orange/20 border-t-custom-orange rounded-full animate-spin mx-auto mb-4"></div>
+              <div className="w-10 h-10 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin mx-auto mb-4"></div>
               <p>Loading projects...</p>
             </div>
           ) : error ? (
@@ -285,7 +286,7 @@ const Projects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
-                  className="project-card group relative overflow-hidden rounded-xl bg-white shadow-md border border-custom-orange/10 hover:border-custom-orange/40 transition-all duration-300 hover:shadow-lg"
+                  className="project-card group relative overflow-hidden rounded-xl bg-white shadow-md border border-green-500/10 hover:border-green-500/40 transition-all duration-300 hover:shadow-lg"
                 >
                   <div className="aspect-video overflow-hidden max-h-[200px] flex items-center justify-center">
                     <img 
@@ -301,14 +302,14 @@ const Projects = () => {
                         href={project.project_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-custom-orange hover:text-custom-orange/80 transition-colors"
+                        className="text-green-500 hover:text-green-500/80 transition-colors"
                       >
                         <ExternalLink className="w-5 h-5" />
                       </a>
                     </div>
                     <p className="text-gray-600 font-jakarta text-sm mb-4">{project.description}</p>
                     <div className="mt-3">
-                      <span className="bg-custom-orange/10 text-custom-orange px-3 py-1 rounded-full text-xs font-medium">
+                      <span className="bg-green-500/10 text-green-500 px-3 py-1 rounded-full text-xs font-medium">
                         {project.project_type}
                       </span>
                     </div>
@@ -319,6 +320,7 @@ const Projects = () => {
           )}
         </main>
       </PageTransition>
+      <Bookacall/>
       <Footer />
     </div>
   );
