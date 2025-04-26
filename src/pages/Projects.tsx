@@ -209,8 +209,8 @@ const Projects = () => {
         <meta property="og:title" content="Our Projects | Zenith Studio" />
         <meta property="og:description" content="Get in touch with Zenith Studio for your next digital project. We're here to help transform your ideas into reality." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://zenith-s.vercel.app/projects" />
-        <link rel="canonical" href="https://zenith-s.vercel.app/projects" />
+        <meta property="og:url" content="https://www.zenith-studio.dev/projects" />
+        <link rel="canonical" href="https://www.zenith-studio.dev/projects" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
 
@@ -251,17 +251,18 @@ const Projects = () => {
                 transition={{ duration: 0.3, delay: 0.1 * index }}
               >
                 <Button
-                  onClick={() => setActiveFilter(option)}
-                  variant="ghost"
-                  className={`
-                    rounded-full px-6 py-2 font-jakarta transition-all duration-300
-                    ${activeFilter === option 
-                      ? "bg-green-500 text-white" 
-                      : "bg-transparent text-black border border-gray-200 hover:green-500"}
-                  `}
-                >
-                  {option}
-                </Button>
+  onClick={() => setActiveFilter(option)}
+  variant="ghost"
+  className={`
+    rounded-full px-6 py-2 font-jakarta transition-all duration-300
+    ${activeFilter === option 
+      ? "bg-green-500 text-white hover:bg-green-500 hover:text-white"
+      : "bg-transparent text-black border border-gray-200 hover:bg-green-500 hover:text-white"}
+  `}
+>
+  {option}
+</Button>
+
               </motion.div>
             ))}
           </motion.div>
@@ -269,7 +270,7 @@ const Projects = () => {
           {/* Project listing section */}
           {isLoading ? (
             <div className="text-center text-gray-600 py-20">
-              <div className="w-10 h-10 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin mx-auto mb-4"></div>
+              <div className="w-10 h-10 border-4 border-green-500 border-t-green-500 rounded-full animate-spin mx-auto mb-4"></div>
               <p>Loading projects...</p>
             </div>
           ) : error ? (
@@ -286,7 +287,7 @@ const Projects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
-                  className="project-card group relative overflow-hidden rounded-xl bg-white shadow-md border border-green-500/10 hover:border-green-500/40 transition-all duration-300 hover:shadow-lg"
+                  className="project-card group relative overflow-hidden rounded-xl bg-white shadow-md border border-green-500/10 hover:border-green-500 transition-all duration-300 hover:shadow-lg"
                 >
                   <div className="aspect-video overflow-hidden max-h-[200px] flex items-center justify-center">
                     <img 
