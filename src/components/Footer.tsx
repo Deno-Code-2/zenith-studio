@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin, Loader2, MessageCircle, MessageSquare, AtSign } from "lucide-react";
@@ -127,6 +128,20 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Our Presence */}
+          <div className="col-span-1 md:col-span-2">
+            <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Our Presence</h3>
+            <p className="text-muted-foreground text-sm mb-1 font-jakarta">
+              USA
+            </p>
+            <p className="text-muted-foreground text-sm mb-1 font-jakarta">
+              Dubai
+            </p>
+            <p className="text-muted-foreground text-sm mb-4 font-jakarta">
+              India
+            </p>
+          </div>
+
           {/* Newsletter */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Newsletter</h3>
@@ -144,7 +159,7 @@ const Footer = () => {
               />
               <Button 
                 type="submit" 
-                className="w-full bg-black hover:bg-green-500 text-white font-jakarta"
+                className="w-full bg-green-500 hover:bg-green-600 text-white font-jakarta"
                 disabled={isLoading}
               >
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Subscribe"}

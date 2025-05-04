@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -12,6 +13,7 @@ import { useEffect } from "react";
 import Bookacall from "@/components/Book-a-call";
 import ServicesSection from "@/components/service";
 import PricingPage from "@/components/pricing";
+import GlobalPresence from "@/components/GlobalPresence";
 
 
 
@@ -52,6 +54,7 @@ const Index = () => {
         <PricingPage/>
         <WallOfLoveSection/>
         <FAQ />
+        <GlobalPresence />
         <Footer />
       </div>
     </main>
