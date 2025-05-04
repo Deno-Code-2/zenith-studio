@@ -55,6 +55,21 @@ const Header = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // New function to scroll to a specific section
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const headerOffset = 100;
+      const sectionPosition = section.getBoundingClientRect().top;
+      const offsetPosition = sectionPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   // Check if a path is active (exact match or starts with for nested routes)
   const isActive = (path: string) => {
     if (path === '/') {
@@ -77,7 +92,11 @@ const Header = () => {
           {/* Desktop Navigation - Centered */}
           {!isMobile && (
             <div className="flex-grow flex justify-center">
-              <NavigationItems isActive={isActive} scrollToTop={scrollToTop} />
+              <NavigationItems 
+                isActive={isActive} 
+                scrollToTop={scrollToTop} 
+                scrollToSection={scrollToSection} 
+              />
             </div>
           )}
 
@@ -107,7 +126,12 @@ const Header = () => {
             <ThemeToggle />
 
             {/* Mobile Menu */}
-            {isMobile && <MobileMenu isActive={isActive} scrollToTop={scrollToTop} currentTime={currentTime} />}
+            {isMobile && <MobileMenu 
+              isActive={isActive} 
+              scrollToTop={scrollToTop} 
+              currentTime={currentTime} 
+              scrollToSection={scrollToSection}
+            />}
           </div>
         </div>
       </div>

@@ -8,17 +8,35 @@ import { Button } from "@/components/ui/button";
 interface MobileMenuProps {
   isActive: (path: string) => boolean;
   scrollToTop: () => void;
+  scrollToSection?: (sectionId: string) => void;
   currentTime: string;
 }
 
-const MobileMenu = ({ isActive, scrollToTop, currentTime }: MobileMenuProps) => {
+const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: MobileMenuProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Navigation items - removed Pricing as requested
+  // Navigation items
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Contact", href: "/contact" },
   ];
+  
+  // Section navigation for the landing page
+  const sectionNavigation = [
+    { name: "Features", id: "features" },
+    { name: "Services", id: "services" },
+    { name: "Recent Work", id: "recent-work" },
+    { name: "Pricing", id: "pricing" },
+    { name: "Testimonials", id: "testimonials" },
+    { name: "FAQ", id: "faq" },
+  ];
+
+  const handleSectionClick = (sectionId: string) => {
+    if (scrollToSection) {
+      scrollToSection(sectionId);
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <>
@@ -63,6 +81,22 @@ const MobileMenu = ({ isActive, scrollToTop, currentTime }: MobileMenuProps) => 
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Section navigation - only on homepage */}
+              {isActive("/") && scrollToSection && (
+                <>
+                  <div className="px-3 py-2 text-sm font-semibold text-gray-500">Sections</div>
+                  {sectionNavigation.map((item) => (
+                    <button
+                      key={item.id}
+                      className="px-3 py-2 rounded-md font-jakarta text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 text-left"
+                      onClick={() => handleSectionClick(item.id)}
+                    >
+                      {item.name}
+                    </button>
+                  ))}
+                </>
+              )}
               
               {/* IST Time in Mobile Menu */}
               <div className="flex items-center gap-2 px-3 py-2 text-sm">

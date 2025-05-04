@@ -4,15 +4,36 @@ import { useLocation } from 'react-router-dom';
 
 // This component enables smooth scrolling across the site
 const SmoothScroll = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
+  // Handle initial hash navigation when component mounts or route changes
   useEffect(() => {
-    // Scroll to top when path changes with smooth animation
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
+    // If there's a hash, scroll to the element
+    if (hash) {
+      // Wait a bit for the DOM to be fully loaded
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          // Enhanced smooth scrolling with offset for header
+          const headerOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      // Scroll to top when path changes with smooth animation
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
 
     // Enable smooth scrolling for all anchor links
     const smoothScrollToAnchor = (e: MouseEvent) => {
@@ -75,7 +96,7 @@ const SmoothScroll = () => {
       document.removeEventListener('click', smoothScrollToAnchor);
       document.documentElement.style.scrollBehavior = '';
     };
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 };

@@ -15,8 +15,6 @@ import ServicesSection from "@/components/service";
 import PricingPage from "@/components/pricing";
 import GlobalPresence from "@/components/GlobalPresence";
 
-
-
 const Index = () => {
   useEffect(() => {
     // Initialize Google Analytics
@@ -47,13 +45,25 @@ const Index = () => {
       <div className="pt-24">
         <Hero />
         <TechStack />
-        <Features />
-        <ServicesSection/>
-        <RecentProjects />
+        <section id="features">
+          <Features />
+        </section>
+        <section id="services">
+          <ServicesSection/>
+        </section>
+        <section id="recent-work">
+          <RecentProjects />
+        </section>
         <Bookacall/>
-        <PricingPage/>
-        <WallOfLoveSection/>
-        <FAQ />
+        <section id="pricing">
+          <PricingPage/>
+        </section>
+        <section id="testimonials">
+          <WallOfLoveSection/>
+        </section>
+        <section id="faq">
+          <FAQ />
+        </section>
         <GlobalPresence />
         <Footer />
       </div>
