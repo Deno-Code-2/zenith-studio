@@ -1,135 +1,81 @@
-import React, { useState } from 'react';
-import { Container } from './ui/container';
-import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
-import { Button } from './ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Card, CardContent } from '@/components/ui/card'
 
-const Testimonials = () => {
-    const testimonials = [
-        {
-            name: 'Alex Johnson',
-            title: 'CEO, Tech Innovations Inc.',
-            quote: 'Zenith Studio transformed our vision into a stunning reality. Their AI-powered solutions and beautiful design exceeded our expectations.',
-            rating: 5,
-            image: '/images/08b48e64-0210-4f80-b81b-942a339622a9.png',
-        },
-        {
-            name: 'Sarah Williams',
-            title: 'Founder, EcoLife Organics',
-            quote: 'The MVP developed by Zenith Studio helped us validate our idea quickly and efficiently. Their team is incredibly talented and dedicated.',
-            rating: 4,
-            image: '/images/109e990b-ee2c-458e-8383-158a22aa6437.png',
-        },
-        {
-            name: 'Michael Brown',
-            title: 'CTO, FutureTech Solutions',
-            quote: 'Zenith Studio delivered an exceptional product with a focus on user experience and cutting-edge technology. Highly recommended!',
-            rating: 5,
-            image: '/images/08b48e64-0210-4f80-b81b-942a339622a9.png',
-        },
-    ];
+type Testimonial = {
+    name: string
+    role: string
+    image: string
+    quote: string
+}
 
-    const [currentTestimonial, setCurrentTestimonial] = useState(0);
+const testimonials: Testimonial[] = [
+    {
+        name: 'Abhinav Singh',
+        role: 'CallKaro AI - CEO',
+        image: '/images/callkaro_ai_logo.jpeg',
+        quote: 'One thing that truly stood out while working with Syed is his incredible speed. He has a rare ability to spin up clean, functional landing pages in no time. Whether it’s a quick iteration or a fresh build, you can always count on Zenith Studio to deliver with speed and precision.',
+    },
+    {
+        name: 'Ayo Remi',
+        role: 'Software Developer',
+        image: '/images/blacklogo.svg',
+        quote: 'Working with Syed was seamless. I came with just an idea, and he turned it into a sleek, high-performing eCommerce site. He handled everything—from design to development—while keeping me in the loop. Highly recommend him and the Zenith Studio team for turning vague visions into real products.',
+    },
+    {
+        name: 'Syed Ifranulla',
+        role: '',
+        image: '',
+        quote: 'I wanted a platform that captured my journey and love for Urdu — Syed delivered exactly that. The portfolio feels personal, professional, and culturally respectful. Grateful for the care and creativity he brought to the entire process.',
+    },
+]
 
-    const nextTestimonial = () => {
-        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    };
+const chunkArray = (array: Testimonial[], chunkSize: number): Testimonial[][] => {
+    const result: Testimonial[][] = []
+    for (let i = 0; i < array.length; i += chunkSize) {
+        result.push(array.slice(i, i + chunkSize))
+    }
+    return result
+}
 
-    const prevTestimonial = () => {
-        setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    };
-    
+const testimonialChunks = chunkArray(testimonials, Math.ceil(testimonials.length / 3))
+
+export default function WallOfLoveSection() {
     return (
-        <div id="testimonials" className="py-24 bg-gray-50 dark:bg-gray-900">
-            <Container>
-                <div className="text-center max-w-3xl mx-auto">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl"
-                    >
-                        What our clients are saying
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-400"
-                    >
-                        We pride ourselves on delivering exceptional results and building long-lasting relationships with our clients.
-                    </motion.p>
-                </div>
+        <section>
+            <div className="py-16 md:py-32">
+                <div className="mx-auto max-w-6xl px-6">
+                    <div className="text-center">
+                        <h2 className="text-title text-3xl font-semibold">Loved by the <span className="text-green-600">Community</span></h2>
+                        {/*<p className="text-body mt-6">Harum quae dolore orrupti aut temporibus ariatur.</p>*/}
+                    </div>
+                    <div className="mt-8 grid gap-3 [--color-card:var(--color-muted)] sm:grid-cols-2 md:mt-12 lg:grid-cols-3 dark:[--color-muted:var(--color-zinc-900)]">
+                        {testimonialChunks.map((chunk, chunkIndex) => (
+                            <div key={chunkIndex} className="space-y-3 *:border-none *:shadow-none">
+                                {chunk.map(({ name, role, quote, image }, index) => (
+                                    <Card key={index}>
+                                        <CardContent className="grid grid-cols-[auto_1fr] gap-3 pt-6">
+                                            <Avatar className="size-9">
+                                                <AvatarImage alt={name} src={image} loading="lazy" width="120" height="120" />
+                                                <AvatarFallback>ST</AvatarFallback>
+                                            </Avatar>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="mt-12 relative"
-                >
-                    <div className="relative overflow-hidden rounded-2xl">
-                        <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-700 opacity-20 rounded-2xl blur-lg"></div>
-                        <div className="px-8 py-12 bg-white dark:bg-gray-800 rounded-2xl shadow-lg relative">
-                            <div className="flex items-center justify-center mb-6">
-                                {[...Array(testimonials[currentTestimonial].rating)].map((_, index) => (
-                                    <Star key={index} className="h-5 w-5 text-yellow-500" />
+                                            <div>
+                                                <h3 className="font-medium">{name}</h3>
+
+                                                <span className="text-muted-foreground block text-sm tracking-wide">{role}</span>
+
+                                                <blockquote className="mt-3">
+                                                    <p className="text-gray-700 dark:text-gray-300">{quote}</p>
+                                                </blockquote>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
                                 ))}
                             </div>
-                            <p className="text-xl italic text-gray-700 dark:text-gray-300 text-center">
-                                "{testimonials[currentTestimonial].quote}"
-                            </p>
-                            <div className="mt-6 text-center">
-                                <p className="text-lg font-semibold text-gray-900 dark:text-white">
-                                    {testimonials[currentTestimonial].name}
-                                </p>
-                                <p className="text-gray-600 dark:text-gray-400">
-                                    {testimonials[currentTestimonial].title}
-                                </p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
-
-                    <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4">
-                        <Button variant="ghost" size="icon" onClick={prevTestimonial}>
-                            <svg
-                                className="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M15 19l-7-7 7-7"
-                                />
-                            </svg>
-                        </Button>
-                        <Button variant="ghost" size="icon" onClick={nextTestimonial}>
-                            <svg
-                                className="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 5l7 7-7 7"
-                                />
-                            </svg>
-                        </Button>
-                    </div>
-                </motion.div>
-            </Container>
-        </div>
-    );
-};
-
-export default Testimonials;
+                </div>
+            </div>
+        </section>
+    )
+}

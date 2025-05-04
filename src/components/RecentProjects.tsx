@@ -1,120 +1,150 @@
 
-import React from 'react';
-import { Container } from '@/components/ui/container';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Button } from './ui/button';
-import { Link } from 'react-router-dom';
+import { useEffect } from "react";
+import { ExternalLink } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useQuery } from "@tanstack/react-query";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image_url: string;
+  project_url: string;
+  project_type: string;
+}
+
+const fetchProjects = async () => {
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(3);
+
+  if (error) {
+    console.error('Error fetching projects:', error);
+    throw error;
+  }
+  return data;
+};
 
 const RecentProjects = () => {
-    const projects = [
-        {
-            title: 'AI-Driven Healthcare Platform',
-            description: 'Revolutionizing patient care with AI-powered diagnostics and personalized treatment plans.',
-            image: '/images/08b48e64-0210-4f80-b81b-942a339622a9.png',
-            link: '/projects/healthcare-ai',
-        },
-        {
-            title: 'Sustainable Energy Solutions',
-            description: 'Developing innovative solutions for renewable energy generation and distribution.',
-            image: '/images/109e990b-ee2c-458e-8383-158a22aa6437.png',
-            link: '/projects/sustainable-energy',
-        },
-    ];
+  const navigate = useNavigate();
+  const { data: projects, isLoading, error } = useQuery({
+    queryKey: ['recent-projects'],
+    queryFn: fetchProjects
+  });
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.3,
-            },
-        },
-    };
-
-    const projectVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.7,
-                ease: 'easeInOut',
-            },
-        },
-    };
-
-    return (
-        <div id="projects" className="py-24">
-            <Container>
-                <div className="text-center max-w-3xl mx-auto">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl"
-                    >
-                        Our Recent Projects
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-400"
-                    >
-                        We partner with forward-thinking organizations to develop innovative solutions that drive meaningful impact.
-                    </motion.p>
-                </div>
-
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
-                    className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2"
-                >
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            variants={projectVariants}
-                            className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-64 object-cover rounded-lg"
-                            />
-                            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/80 transition-colors duration-300 flex items-center justify-center">
-                                <div className="p-4 text-center">
-                                    <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                                    <p className="text-gray-300">{project.description}</p>
-                                    <Button asChild variant="outline" size="sm" className="mt-4">
-                                        <Link to={project.link}>
-                                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                                        </Link>
-                                    </Button>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="mt-16 text-center"
-                >
-                    <Button asChild size="lg" className="px-8 py-6 text-base">
-                        <Link to="/projects">View All Projects</Link>
-                    </Button>
-                </motion.div>
-            </Container>
+  if (isLoading) {
+    return <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        <div className="text-center">
+          <p className="text-gray-600 font-jakarta">Loading projects...</p>
         </div>
-    );
+      </div>
+    </section>;
+  }
+
+  if (error) {
+    return <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        <div className="text-center">
+          <p className="text-red-400 font-jakarta">Error loading projects. Please try again later.</p>
+        </div>
+      </div>
+    </section>;
+  }
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold mb-4 font-syne">
+            Tech <span className="text-green-500">MEETS</span> Precision
+          </h2>
+          <p className="text-center text-black font-jakarta max-w-2xl mx-auto">
+            Zenith Studio's recent projects feature cutting-edge design, user-friendly interfaces, and tailored solutions for clients.
+          </p>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {projects?.map((project, index) => (
+            <motion.div 
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className="group relative overflow-hidden rounded-xl bg-white backdrop-blur-sm border border-black transition-all duration-300 hover:border-green/40"
+            >
+              <div className="relative">
+                <div className="aspect-video overflow-hidden">
+                  <motion.img 
+                    src={project.image_url} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover object-center"
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-bold text-black font-syne">
+                      {project.title}
+                    </h3>
+                    <motion.a 
+                      href={project.project_url} 
+                      className="text-black hover:text-custom-green transition-colors"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      whileHover={{ rotate: 15, scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </motion.a>
+                  </div>
+                  <p className="text-black font-jakarta text-sm">
+                    {project.description}
+                  </p>
+                  <motion.div 
+                    className="mt-3"
+                    initial={{ opacity: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <span className="bg-green-500 text-custom-green px-2 py-1 rounded-full text-xs">
+                      {project.project_type}
+                    </span>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <div className="text-center">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <Button 
+              onClick={() => navigate('/projects')}
+              className="font-jakarta text-white bg-green-500 hover:bg-custom-green/90"
+            >
+              View All Projects
+            </Button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default RecentProjects;
