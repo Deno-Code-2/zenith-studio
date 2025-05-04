@@ -1,138 +1,92 @@
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { Cover } from "@/components/ui/cover";
-import { useNavigate } from "react-router-dom";
-import { AnimatedShinyText } from "./magicui/animated-shiny-text";
+
+import React, { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Container } from './ui/container';
+import { Button } from './ui/button';
+import { CalendarDays, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Marquee from './Marquee';
+import { useToast } from './ui/use-toast';
+import TextRotate from './TextRotate';
 
 const Hero = () => {
-  const navigate = useNavigate();
+    const ref = useRef<HTMLDivElement>(null);
+    const { toast } = useToast();
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
-
-  return (
-    <div className="relative w-full overflow-hidden bg-white">
-      {/* Grid Background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px'
-          }}
-        />
-        <motion.div
-          initial={{ x: '-100%', opacity: 0 }}
-          animate={{ x: '100%', opacity: [0, 0.6, 0] }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatDelay: 2,
-            ease: "linear"
-          }}
-          className="absolute top-1/2 h-[1px] w-full bg-gradient-to-r from-transparent via-custom-green/90 to-transparent"
-          style={{
-            boxShadow: '0 0 10px 2px rgba(255, 107, 53, 0.5)'
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
-        <div className="flex flex-col items-center justify-center text-center mt-[-83px]">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="w-full max-w-4xl space-y-6 md:space-y-8"
-          >
-            <div className="flex justify-center mb-6">
-              <div className="inline-flex items-center rounded-full bg-zenith-green/10 px-4 py-2 text-sm font-medium text-zenith-green shadow-md">
-                <AnimatedShinyText className="text-green-600">
-                  Welcome to Zenith Studio
-                </AnimatedShinyText>
-              </div>
+    return (
+        <div id="hero" className="relative pt-28 md:pt-32 lg:pt-36 overflow-hidden">
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white dark:from-gray-950 to-transparent"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
             </div>
+            
+            <Container>
+                <div className="flex flex-col items-center text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-400 ring-1 ring-gray-900/10 dark:ring-white/10 hover:ring-gray-900/20"
+                    >
+                        Announcing our new company's projects{' '}
+                        <a href="#projects" className="font-semibold text-green-600 dark:text-green-500">
+                            <span className="absolute inset-0" aria-hidden="true" />
+                            See projects <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </motion.div>
 
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
-            >
-              We don’t build websites,
-            </motion.h1>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="mt-8 text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl lg:text-7xl"
+                    >
+                        We help founders{' '}
+                        <span className="relative inline-flex">
+                            <span className="text-green-600 hover:text-green-700 transition-colors">build startup</span>
+                            <span className="absolute -bottom-1 left-0 w-full h-1 bg-green-600 rounded-sm"></span>
+                        </span>
+                        <br />
+                        ideas efficiently
+                    </motion.h1>
 
-            <motion.h2
-              variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
-            >
-              We <Cover className="text-custom-green">build startup</Cover> empires
-            </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
+                    >
+                        We help founders bring ideas to life—AI-powered, beautifully designed MVPs delivered in weeks, not months. Get early validation and traction with minimum resources.
+                    </motion.p>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-jakarta"
-            >
-              A cutting-edge startup studio leveraging AI to help visionary founders build MVPs and accelerate growth — all in under 5 weeks.
-            </motion.p>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-5 justify-center pt-4"
-            >
-              <Button
-                asChild
-                variant="default"
-                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg"
-                size="lg"
-              >
-                <motion.a
-                  href="https://cal.com/zenithstudio/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Book a Call <ArrowRight className="ml-2 h-4 w-4" />
-                </motion.a>
-              </Button>
-
-              <Button
-                variant="link"
-                onClick={() => navigate('/projects')}
-                className="w-full sm:w-auto text-custom-green hover:scale-105 transition-transform text-lg"
-                size="lg"
-              >
-                View Our Work
-              </Button>
-            </motion.div>
-          </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                        className="mt-10 flex items-center justify-center gap-x-6"
+                    >
+                        <Button asChild size="lg" className="px-8 py-6 text-base">
+                            <a href="#contact">Contact Us</a>
+                        </Button>
+                        <Button asChild variant="outline" size="lg" className="px-8 py-6 text-base">
+                            <Link to="/about">
+                                Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                        </Button>
+                    </motion.div>
+                    
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.8 }}
+                        className="mt-24 sm:mt-32 lg:mt-40"
+                    >
+                        <Marquee />
+                    </motion.div>
+                </div>
+            </Container>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Hero;
