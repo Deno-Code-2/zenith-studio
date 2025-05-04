@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,7 +16,7 @@ import Bookacall from "@/components/Book-a-call";
 // Declare the dataLayer property on the window object
 declare global {
   interface Window {
-    dataLayer: unknown[];
+    dataLayer: any[]; // Changed from unknown[] to any[]
   }
 }
 

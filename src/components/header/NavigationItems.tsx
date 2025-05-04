@@ -10,6 +10,7 @@ interface NavigationItemsProps {
 const NavigationItems = ({ isActive, scrollToTop, className }: NavigationItemsProps) => {
   const navigation = [
     { name: "Home", href: "/" },
+    { name: "Projects", href: "/projects" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -32,6 +33,5 @@ const NavigationItems = ({ isActive, scrollToTop, className }: NavigationItemsPr
     </div>
   );
 };
-
 
 export default NavigationItems;
