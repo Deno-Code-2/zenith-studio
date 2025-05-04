@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { navigationItems } from './NavigationItems';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui/button';
 import { X } from 'lucide-react';
@@ -15,6 +14,11 @@ interface MobileMenuProps {
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, sectionNavItems = [] }) => {
   const handleClose = () => setIsOpen(false);
+
+  const navigation = [
+    { name: "Home", href: "/" },
+    { name: "Contact", href: "/contact" },
+  ];
 
   // Animation variants for the menu
   const menuVariants = {
@@ -101,9 +105,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, sectionNavIt
                     Main Navigation
                   </h3>
                   <div className="flex flex-col space-y-3">
-                    {navigationItems.map((item, i) => (
+                    {navigation.map((item, i) => (
                       <motion.div
-                        key={item.label}
+                        key={item.name}
                         custom={i}
                         variants={itemVariants}
                         initial="hidden"
@@ -114,7 +118,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, sectionNavIt
                           className="text-xl font-medium text-gray-800 dark:text-white hover:text-green-600 dark:hover:text-green-500"
                           onClick={handleClose}
                         >
-                          {item.label}
+                          {item.name}
                         </Link>
                       </motion.div>
                     ))}
@@ -130,7 +134,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, sectionNavIt
                       {sectionNavItems.map((item, i) => (
                         <motion.div
                           key={item.href}
-                          custom={i + navigationItems.length}
+                          custom={i + navigation.length}
                           variants={itemVariants}
                           initial="hidden"
                           animate="visible"

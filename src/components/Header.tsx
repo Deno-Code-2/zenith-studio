@@ -4,7 +4,7 @@ import HeaderLogo from './header/HeaderLogo';
 import NavigationItems from './header/NavigationItems';
 import MobileMenu from './header/MobileMenu';
 import TimeDisplay from './header/TimeDisplay';
-import { Container } from './ui/container';
+import { Container } from '@/components/ui/container';
 import { useLocation } from 'react-router-dom';
 
 const Header = () => {
@@ -28,6 +28,17 @@ const Header = () => {
         };
     }, []);
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    const isActive = (path: string) => {
+        return location.pathname === path;
+    };
+
     const sectionNavItems = isHomePage ? [
         { label: 'Hero', href: '#hero' },
         { label: 'Features', href: '#features' },
@@ -48,11 +59,11 @@ const Header = () => {
             <Container>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                        <HeaderLogo />
+                        <HeaderLogo scrollToTop={scrollToTop} />
                     </div>
 
                     <div className="hidden lg:flex items-center space-x-8">
-                        <NavigationItems />
+                        <NavigationItems isActive={isActive} scrollToTop={scrollToTop} />
                         
                         {isHomePage && (
                             <div className="flex items-center space-x-4 ml-8">

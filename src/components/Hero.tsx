@@ -1,7 +1,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Container } from './ui/container';
+import { Container } from '@/components/ui/container';
 import { Button } from './ui/button';
 import { CalendarDays, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -81,7 +81,15 @@ const Hero = () => {
                         transition={{ duration: 0.5, delay: 0.8 }}
                         className="mt-24 sm:mt-32 lg:mt-40"
                     >
-                        <Marquee />
+                        <Marquee>
+                            <div className="flex items-center space-x-8">
+                                {[1, 2, 3, 4, 5].map((item) => (
+                                    <div key={item} className="flex items-center space-x-2 bg-white dark:bg-gray-800 px-3 py-2 rounded-md shadow-sm">
+                                        <span className="text-gray-900 dark:text-white font-medium">Technology {item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </Marquee>
                     </motion.div>
                 </div>
             </Container>

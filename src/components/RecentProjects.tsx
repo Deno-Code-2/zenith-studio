@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Container } from './ui/container';
+import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';

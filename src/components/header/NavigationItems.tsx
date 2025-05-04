@@ -1,23 +1,24 @@
 
 import { Link } from "react-router-dom";
 
-interface NavigationItemsProps {
+export interface NavigationItemsProps {
   isActive: (path: string) => boolean;
   scrollToTop: () => void;
   className?: string;
 }
 
-const NavigationItems = ({ isActive, scrollToTop, className }: NavigationItemsProps) => {
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Contact", href: "/contact" },
-  ];
+// Export the navigation items for use in MobileMenu
+export const navigationItems = [
+  { label: "Home", href: "/" },
+  { label: "Contact", href: "/contact" },
+];
 
+const NavigationItems = ({ isActive, scrollToTop, className }: NavigationItemsProps) => {
   return (
     <div className={`flex items-center justify-center ${className || "space-x-1 md:space-x-4 lg:space-x-6"}`}>
-      {navigation.map((item) => (
+      {navigationItems.map((item) => (
         <Link
-          key={item.name}
+          key={item.label}
           to={item.href}
           className={`font-jakarta relative py-1 px-2 text-sm sm:text-base rounded-md transition-colors ${
             isActive(item.href)
@@ -26,12 +27,11 @@ const NavigationItems = ({ isActive, scrollToTop, className }: NavigationItemsPr
           }`}
           onClick={scrollToTop}
         >
-          {item.name}
+          {item.label}
         </Link>
       ))}
     </div>
   );
 };
-
 
 export default NavigationItems;

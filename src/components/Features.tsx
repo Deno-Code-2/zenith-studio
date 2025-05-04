@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Container } from './ui/container';
+import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { Card, CardContent } from './ui/card';

@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Container } from './ui/container';
+import { Container } from '@/components/ui/container';
 import { Button } from './ui/button';
 import { useToast } from './ui/use-toast';
 import { Input } from './ui/input';
