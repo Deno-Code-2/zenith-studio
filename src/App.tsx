@@ -18,10 +18,8 @@ import IndexPage from "@/pages/Index";
 // Lazy load other pages
 const AboutPage = lazy(() => import("@/pages/About"));
 const ProjectsPage = lazy(() => import("@/pages/Projects"));
-const PricingPage = lazy(() => import("@/pages/Pricing"));
 const ContactPage = lazy(() => import("@/pages/Contact"));
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
-const FAQPage = lazy(() => import("@/pages/FAQ"));
 
 // Separate component to handle the preloader logic
 const AppWithPreloader = () => {
@@ -69,8 +67,6 @@ const AppWithPreloader = () => {
                 <Route path="/" element={<IndexPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="/pricing" element={<PricingPage />} />
-                <Route path="/faq" element={<FAQPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/404" element={<NotFoundPage />} />
                 <Route path="*" element={<Navigate to="/404" replace />} />

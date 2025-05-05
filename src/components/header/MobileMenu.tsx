@@ -19,8 +19,6 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Contact", href: "/contact" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "FAQ", href: "/faq" },
   ];
   
   // Section navigation for the landing page
@@ -28,7 +26,9 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
     { name: "Features", id: "features" },
     { name: "Services", id: "services" },
     { name: "Recent Work", id: "recent-work" },
+    { name: "Pricing", id: "pricing" },
     { name: "Testimonials", id: "testimonials" },
+    { name: "FAQ", id: "faq" },
   ];
 
   const handleSectionClick = (sectionId: string) => {

@@ -12,6 +12,8 @@ import { useEffect } from "react";
 import Bookacall from "@/components/Book-a-call";
 import ServicesSection from "@/components/service";
 import GlobalPresence from "@/components/GlobalPresence";
+import FAQ from "@/components/FAQ";
+import PricingPage from "@/components/pricing";
 
 const Index = () => {
   useEffect(() => {
@@ -52,9 +54,15 @@ const Index = () => {
         <section id="recent-work">
           <RecentProjects />
         </section>
+        <section id="pricing">
+          <PricingPage />
+        </section>
         <Bookacall/>
         <section id="testimonials">
           <WallOfLoveSection/>
+        </section>
+        <section id="faq">
+          <FAQ />
         </section>
         <GlobalPresence />
         <Footer />
