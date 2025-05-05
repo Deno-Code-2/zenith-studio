@@ -7,12 +7,10 @@ import RecentProjects from "@/components/RecentProjects";
 import GridPattern from "@/components/GridPattern";
 import Footer from "@/components/Footer";
 import Features from "@/components/Features";
-import FAQ from "@/components/FAQ";
 import WallOfLoveSection from "@/components/Testimonials";
 import { useEffect } from "react";
 import Bookacall from "@/components/Book-a-call";
 import ServicesSection from "@/components/service";
-import PricingPage from "@/components/pricing";
 import GlobalPresence from "@/components/GlobalPresence";
 
 const Index = () => {
@@ -55,14 +53,8 @@ const Index = () => {
           <RecentProjects />
         </section>
         <Bookacall/>
-        <section id="pricing">
-          <PricingPage/>
-        </section>
         <section id="testimonials">
           <WallOfLoveSection/>
-        </section>
-        <section id="faq">
-          <FAQ />
         </section>
         <GlobalPresence />
         <Footer />

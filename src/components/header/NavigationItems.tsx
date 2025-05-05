@@ -11,7 +11,6 @@ interface NavigationItemsProps {
 const NavigationItems = ({ isActive, scrollToTop, scrollToSection, className }: NavigationItemsProps) => {
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
     { name: "Contact", href: "/contact" },
   ];
   
@@ -20,9 +19,7 @@ const NavigationItems = ({ isActive, scrollToTop, scrollToSection, className }: 
     { name: "Features", id: "features" },
     { name: "Services", id: "services" },
     { name: "Recent Work", id: "recent-work" },
-    { name: "Pricing", id: "pricing" },
     { name: "Testimonials", id: "testimonials" },
-    { name: "FAQ", id: "faq" },
   ];
 
   return (

@@ -49,7 +49,7 @@ const PreloaderScreen = ({ onComplete }: PreloaderScreenProps) => {
           }}
         >
           {texts[currentText]}
-          {currentText === 2 && <span className="text-custom-orange">.</span>}
+          {currentText === 2 && <span className="text-green-500">.</span>}
         </motion.div>
       </AnimatePresence>
     </motion.div>

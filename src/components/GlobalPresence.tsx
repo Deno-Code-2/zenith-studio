@@ -21,18 +21,36 @@ export default function GlobalPresence() {
           dots={[
             // USA to Dubai
             {
-              start: { lat: 37.7749, lng: -122.4194 }, // San Francisco
-              end: { lat: 25.2048, lng: 55.2708 }, // Dubai
+              start: {
+                lat: 37.7749,
+                lng: -122.4194
+              }, // San Francisco
+              end: {
+                lat: 25.2048, 
+                lng: 55.2708
+              }, // Dubai
             },
             // Dubai to India
             {
-              start: { lat: 25.2048, lng: 55.2708 }, // Dubai
-              end: { lat: 20.5937, lng: 78.9629 }, // India
+              start: {
+                lat: 25.2048,
+                lng: 55.2708
+              }, // Dubai
+              end: {
+                lat: 20.5937,
+                lng: 78.9629
+              }, // India
             },
             // India to USA
             {
-              start: { lat: 20.5937, lng: 78.9629 }, // India
-              end: { lat: 37.7749, lng: -122.4194 }, // San Francisco
+              start: {
+                lat: 20.5937,
+                lng: 78.9629
+              }, // India
+              end: {
+                lat: 37.7749,
+                lng: -122.4194
+              }, // San Francisco
             },
           ]}
         />

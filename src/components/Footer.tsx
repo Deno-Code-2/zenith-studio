@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin, Loader2, MessageCircle, MessageSquare, AtSign } from "lucide-react";
+import { Loader2, AtSign, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -62,15 +62,12 @@ const Footer = () => {
   const footerLinks = {
     pages: [
       { name: "Home", href: "/" },
-      { name: "Projects", href: "/projects" },
       { name: "Contact", href: "/contact" },
     ],
   };
   
   // Social media links
   const socialLinks = [
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/zen.ithstudio?igsh=ZDg2N3JrdmllYzF1", label: "Instagram" },
     { icon: AtSign, href: "mailto:support@zenith-studio.dev", label: "Email" },
     { icon: MessageSquare, href: "https://wa.me/919108041057", label: "WhatsApp" }
   ];
@@ -87,10 +84,10 @@ const Footer = () => {
               </h1>
             </Link>
             <p className="text-muted-foreground mt-4 text-sm font-jakarta">
-            Your dream, our code — launched in days.®
+              Your dream, our code — launched in days.®
             </p>
             <p className="text-muted-foreground mt-4 text-sm font-jakarta">
-            AI-powered studio helping founders launch MVPs and scale their startups in under 5 weeks.
+              AI-powered studio helping founders launch MVPs and scale their startups in under 5 weeks.
             </p>
             
             {/* Social Media Links */}
@@ -143,7 +140,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 md:col-span-4">
             <h3 className="text-foreground text-sm font-semibold uppercase tracking-wider mb-4 font-syne">Newsletter</h3>
             <p className="text-muted-foreground text-sm mb-4 font-jakarta">
               Subscribe to our newsletter for the latest updates.
@@ -173,15 +170,6 @@ const Footer = () => {
           <p className="text-muted-foreground text-sm text-center font-jakarta">
             &copy; {currentYear} Zenith Studio. All rights reserved.
           </p>
-        </div>
-      </div>
-
-      {/* Large Text at Bottom */}
-      <div className="bg-white dark:bg-gray-900 py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-black dark:text-white font-syne tracking-tight">
-            Let's build something <span className="text-green-500">amazing</span> together.
-          </h2>
         </div>
       </div>
     </footer>

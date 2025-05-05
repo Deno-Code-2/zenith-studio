@@ -26,9 +26,7 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
     { name: "Features", id: "features" },
     { name: "Services", id: "services" },
     { name: "Recent Work", id: "recent-work" },
-    { name: "Pricing", id: "pricing" },
     { name: "Testimonials", id: "testimonials" },
-    { name: "FAQ", id: "faq" },
   ];
 
   const handleSectionClick = (sectionId: string) => {
@@ -106,7 +104,7 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
               <Button
                 asChild
                 variant="default"
-                className="w-full mt-2 font-jakarta"
+                className="w-full mt-2 font-jakarta bg-green-500 hover:bg-green-600"
                 size="sm"
               >
                 <a 
