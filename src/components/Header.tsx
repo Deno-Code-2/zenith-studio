@@ -95,7 +95,8 @@ const Header = () => {
               <NavigationItems 
                 isActive={isActive} 
                 scrollToTop={scrollToTop} 
-                scrollToSection={scrollToSection} 
+                scrollToSection={scrollToSection}
+                className="mx-auto" 
               />
             </div>
           )}

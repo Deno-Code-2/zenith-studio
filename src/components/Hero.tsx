@@ -1,9 +1,9 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Cover } from "@/components/ui/cover";
 import { useNavigate } from "react-router-dom";
-import { AnimatedShinyText } from "./magicui/animated-shiny-text";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -62,26 +62,18 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
-        <div className="flex flex-col items-center justify-center text-center mt-[-83px]">
+        <div className="flex flex-col items-center justify-center text-center mt-0 md:mt-[-83px]">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="w-full max-w-4xl space-y-6 md:space-y-8"
           >
-            <div className="flex justify-center mb-6">
-              <div className="inline-flex items-center rounded-full bg-zenith-green/10 px-4 py-2 text-sm font-medium text-zenith-green shadow-md">
-                <AnimatedShinyText className="text-green-600">
-                  Welcome to Zenith Studio
-                </AnimatedShinyText>
-              </div>
-            </div>
-
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
+              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne mt-10 sm:mt-0"
             >
-              We don’t build websites,
+              We don't build websites,
             </motion.h1>
 
             <motion.h2

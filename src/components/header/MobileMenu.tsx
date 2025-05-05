@@ -83,11 +83,10 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
               {/* Section navigation - only on homepage */}
               {isActive("/") && scrollToSection && (
                 <>
-                  <div className="px-3 py-2 text-sm font-semibold text-gray-500">Sections</div>
                   {sectionNavigation.map((item) => (
                     <button
                       key={item.id}
-                      className="px-3 py-2 rounded-md font-jakarta text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 text-left"
+                      className="px-3 py-2 rounded-md font-jakarta text-left text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
                       onClick={() => handleSectionClick(item.id)}
                     >
                       {item.name}
