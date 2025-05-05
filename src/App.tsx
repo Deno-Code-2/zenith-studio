@@ -1,4 +1,3 @@
-
 import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
@@ -64,10 +63,12 @@ const AppWithPreloader = () => {
             </div>
           }>
             <AnimatePresence mode="wait">
-              <Routes location={location} key={location.pathname}>
+              <Routes>
                 <Route path="/" element={<IndexPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
+                {/* Keep pricing route but remove from navigation */}
+                <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/404" element={<NotFoundPage />} />
                 <Route path="*" element={<Navigate to="/404" replace />} />

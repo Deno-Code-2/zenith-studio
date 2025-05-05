@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -55,15 +54,15 @@ const Hero = () => {
             repeatDelay: 2,
             ease: "linear"
           }}
-          className="absolute top-1/2 h-[1px] w-full bg-gradient-to-r from-transparent via-green-500/90 to-transparent"
+          className="absolute top-1/2 h-[1px] w-full bg-gradient-to-r from-transparent via-custom-green/90 to-transparent"
           style={{
-            boxShadow: '0 0 10px 2px rgba(34, 197, 94, 0.5)'
+            boxShadow: '0 0 10px 2px rgba(255, 107, 53, 0.5)'
           }}
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
-        <div className="flex flex-col items-center justify-center text-center mt-12 md:mt-0 pt-12 md:pt-0">
+        <div className="flex flex-col items-center justify-center text-center mt-[-83px]">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -71,33 +70,30 @@ const Hero = () => {
             className="w-full max-w-4xl space-y-6 md:space-y-8"
           >
             <div className="flex justify-center mb-6">
-              <motion.div 
-                variants={itemVariants}
-                className="inline-flex items-center rounded-full bg-green-500/10 px-4 py-2 text-sm md:text-base font-medium text-green-600 shadow-md"
-              >
+              <div className="inline-flex items-center rounded-full bg-zenith-green/10 px-4 py-2 text-sm font-medium text-zenith-green shadow-md">
                 <AnimatedShinyText className="text-green-600">
                   Welcome to Zenith Studio
                 </AnimatedShinyText>
-              </motion.div>
+              </div>
             </div>
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
+              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              We don't build websites,
+              We don’t build websites,
             </motion.h1>
 
             <motion.h2
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
+              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              We <Cover className="text-green-500">build startup</Cover> empires
+              We <Cover className="text-custom-green">build startup</Cover> empires
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl md:text-3xl text-gray-700 font-jakarta px-2"
+              className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-jakarta"
             >
               A cutting-edge startup studio leveraging AI to help visionary founders build MVPs and accelerate growth — all in under 5 weeks.
             </motion.p>
@@ -109,7 +105,7 @@ const Hero = () => {
               <Button
                 asChild
                 variant="default"
-                className="w-full sm:w-auto bg-green-500 hover:bg-green-600 hover:scale-105 transition-transform text-lg"
+                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg"
                 size="lg"
               >
                 <motion.a
@@ -126,7 +122,7 @@ const Hero = () => {
               <Button
                 variant="link"
                 onClick={() => navigate('/projects')}
-                className="w-full sm:w-auto text-green-500 hover:scale-105 transition-transform text-lg"
+                className="w-full sm:w-auto text-custom-green hover:scale-105 transition-transform text-lg"
                 size="lg"
               >
                 View Our Work
