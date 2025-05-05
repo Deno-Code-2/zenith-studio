@@ -55,7 +55,7 @@ const Header = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // New function to scroll to a specific section
+  // Function to scroll to a specific section
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -108,11 +108,11 @@ const Header = () => {
               <Button
                 asChild
                 variant="default"
-                className="font-jakarta text-sm"
+                className="font-jakarta text-sm bg-green-500 hover:bg-green-600"
                 size="sm"
               >
                 <a 
-                  href="https://cal.com/zenithstudio/30min" 
+                  href="https://cal.com/zenith-studio/30min" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

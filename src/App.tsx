@@ -1,3 +1,4 @@
+
 import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
@@ -20,6 +21,7 @@ const ProjectsPage = lazy(() => import("@/pages/Projects"));
 const PricingPage = lazy(() => import("@/pages/Pricing"));
 const ContactPage = lazy(() => import("@/pages/Contact"));
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
+const FAQPage = lazy(() => import("@/pages/FAQ"));
 
 // Separate component to handle the preloader logic
 const AppWithPreloader = () => {
@@ -67,8 +69,8 @@ const AppWithPreloader = () => {
                 <Route path="/" element={<IndexPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
-                {/* Keep pricing route but remove from navigation */}
                 <Route path="/pricing" element={<PricingPage />} />
+                <Route path="/faq" element={<FAQPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/404" element={<NotFoundPage />} />
                 <Route path="*" element={<Navigate to="/404" replace />} />

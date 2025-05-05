@@ -63,6 +63,8 @@ const Footer = () => {
     pages: [
       { name: "Home", href: "/" },
       { name: "Projects", href: "/projects" },
+      { name: "Pricing", href: "/pricing" },
+      { name: "FAQ", href: "/faq" },
       { name: "Contact", href: "/contact" },
     ],
   };

@@ -15,10 +15,12 @@ interface MobileMenuProps {
 const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: MobileMenuProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Navigation items
+  // Navigation items in the same order as desktop
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Contact", href: "/contact" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "FAQ", href: "/faq" },
   ];
   
   // Section navigation for the landing page
