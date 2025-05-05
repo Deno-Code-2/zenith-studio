@@ -55,18 +55,24 @@ const Header = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // New function to scroll to a specific section
+  // Function to scroll to a specific section (only for homepage)
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const headerOffset = 100;
-      const sectionPosition = section.getBoundingClientRect().top;
-      const offsetPosition = sectionPosition + window.pageYOffset - headerOffset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+    // Only scroll if we're on the home page
+    if (location.pathname === '/') {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const headerOffset = 100;
+        const sectionPosition = section.getBoundingClientRect().top;
+        const offsetPosition = sectionPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If not on homepage, navigate to homepage with hash
+      window.location.href = `/#${sectionId}`;
     }
   };
 
@@ -107,7 +113,7 @@ const Header = () => {
               <Button
                 asChild
                 variant="default"
-                className="font-jakarta text-sm"
+                className="font-jakarta bg-green-500 hover:bg-green-600 text-sm"
                 size="sm"
               >
                 <a 

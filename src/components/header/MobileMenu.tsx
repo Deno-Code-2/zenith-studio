@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -14,6 +14,8 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: MobileMenuProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   // Navigation items
   const navigation = [
@@ -80,21 +82,28 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
                 </Link>
               ))}
               
-              {/* Section navigation - only on homepage */}
-              {isActive("/") && scrollToSection && (
-                <>
-                  <div className="px-3 py-2 text-sm font-semibold text-gray-500">Sections</div>
-                  {sectionNavigation.map((item) => (
-                    <button
-                      key={item.id}
-                      className="px-3 py-2 rounded-md font-jakarta text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 text-left"
-                      onClick={() => handleSectionClick(item.id)}
-                    >
-                      {item.name}
-                    </button>
-                  ))}
-                </>
-              )}
+              {/* Section navigation */}
+              <div className="px-3 py-2 text-sm font-semibold text-gray-500">Sections</div>
+              {sectionNavigation.map((item) => (
+                <button
+                  key={item.id}
+                  className={`px-3 py-2 rounded-md font-jakarta text-left ${
+                    isHomePage
+                      ? "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+                      : "text-gray-500"
+                  }`}
+                  onClick={() => {
+                    if (isHomePage) {
+                      handleSectionClick(item.id);
+                    } else {
+                      window.location.href = `/#${item.id}`;
+                      setMobileMenuOpen(false);
+                    }
+                  }}
+                >
+                  {item.name}
+                </button>
+              ))}
               
               {/* IST Time in Mobile Menu */}
               <div className="flex items-center gap-2 px-3 py-2 text-sm">
