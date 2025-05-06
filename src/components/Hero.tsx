@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-white">
+    <div className="relative w-full overflow-hidden bg-white pt-16 md:pt-20">
       {/* Grid Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
@@ -62,7 +62,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
-        <div className="flex flex-col items-center justify-center text-center mt-0 md:mt-[-83px]">
+        <div className="flex flex-col items-center justify-center text-center mt-0 md:mt-0">
           <motion.div
             variants={containerVariants}
             initial="hidden"

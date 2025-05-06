@@ -55,7 +55,8 @@ export default {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
   			},
-  			'custom-orange': '#E46534'
+  			'custom-orange': '#E46534',
+            'custom-green': '#2D6A4F'
   		},
   		keyframes: {
   			'accordion-down': {

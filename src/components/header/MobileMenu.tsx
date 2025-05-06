@@ -18,13 +18,13 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
   // Navigation items in the same order as desktop
   const navigation = [
     { name: "Home", href: "/" },
+    { name: "Services", href: "#services" },
+    { name: "Features", href: "#features" },
     { name: "Contact", href: "/contact" },
   ];
   
   // Section navigation for the landing page
   const sectionNavigation = [
-    { name: "Features", id: "features" },
-    { name: "Services", id: "services" },
     { name: "Recent Work", id: "recent-work" },
     { name: "Pricing", id: "pricing" },
     { name: "Testimonials", id: "testimonials" },
@@ -34,6 +34,15 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
   const handleSectionClick = (sectionId: string) => {
     if (scrollToSection) {
       scrollToSection(sectionId);
+      setMobileMenuOpen(false);
+    }
+  };
+
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('#') && isActive('/') && scrollToSection) {
+      handleSectionClick(href.substring(1));
+    } else {
+      scrollToTop();
       setMobileMenuOpen(false);
     }
   };
@@ -64,23 +73,36 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
             className="overflow-hidden pb-4 border-t border-border absolute top-16 left-0 right-0 bg-background z-50"
           >
             <div className="flex flex-col space-y-2 mt-2 px-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`px-3 py-2 rounded-md font-jakarta ${
-                    isActive(item.href)
-                      ? "bg-gray-100 dark:bg-gray-800 text-green-500"
-                      : "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
-                  }`}
-                  onClick={() => {
-                    scrollToTop();
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                // If it's a section link (starts with #) and we're on the homepage
+                if (item.href.startsWith('#') && isActive('/')) {
+                  return (
+                    <button
+                      key={item.name}
+                      className="px-3 py-2 rounded-md font-jakarta text-left text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+                      onClick={() => handleNavClick(item.href)}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                }
+                
+                // For regular page navigation
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`px-3 py-2 rounded-md font-jakarta ${
+                      isActive(item.href)
+                        ? "bg-gray-100 dark:bg-gray-800 text-green-500"
+                        : "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+                    }`}
+                    onClick={() => handleNavClick(item.href)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               
               {/* Section navigation - only on homepage */}
               {isActive("/") && scrollToSection && (
