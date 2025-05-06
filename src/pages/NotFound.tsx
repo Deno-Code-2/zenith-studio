@@ -26,7 +26,7 @@ const NotFound = () => {
           className="text-center max-w-md"
         >
           <motion.h1 
-            className="text-8xl font-bold mb-4 text-custom-orange font-syne"
+            className="text-8xl font-bold mb-4 text-custom-green font-syne"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -42,7 +42,7 @@ const NotFound = () => {
             <p className="text-gray-600 mb-8 font-jakarta">
               The page you're looking for doesn't exist or has been moved.
             </p>
-            <Button asChild className="bg-custom-orange hover:bg-custom-orange/90">
+            <Button asChild className="bg-custom-green hover:bg-custom-green/90">
               <Link to="/" className="inline-flex items-center">
                 <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
               </Link>

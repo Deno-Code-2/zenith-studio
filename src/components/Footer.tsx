@@ -58,13 +58,35 @@ const Footer = () => {
     });
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const isHomePage = window.location.pathname === '/';
+    
+    if (isHomePage) {
+      // If we're on homepage, scroll directly
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const headerOffset = 100;
+        const sectionPosition = section.getBoundingClientRect().top;
+        const offsetPosition = sectionPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If on another page, navigate to homepage with hash
+      window.location.href = `/#${sectionId}`;
+    }
+  };
+
   // Footer links grouped by section
   const footerLinks = {
     pages: [
       { name: "Home", href: "/" },
       { name: "Projects", href: "/projects" },
-      { name: "Pricing", href: "/pricing" },
-      { name: "FAQ", href: "/faq" },
+      { name: "Pricing", href: "#", onClick: () => scrollToSection("pricing") },
+      { name: "FAQ", href: "#", onClick: () => scrollToSection("faq") },
       { name: "Contact", href: "/contact" },
     ],
   };
@@ -116,13 +138,22 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.pages.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    to={link.href}
-                    className="text-muted-foreground hover:text-green-500 text-sm transition-colors font-jakarta"
-                    onClick={scrollToTop}
-                  >
-                    {link.name}
-                  </Link>
+                  {link.onClick ? (
+                    <button 
+                      className="text-muted-foreground hover:text-green-500 text-sm transition-colors font-jakarta text-left"
+                      onClick={link.onClick}
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link 
+                      to={link.href}
+                      className="text-muted-foreground hover:text-green-500 text-sm transition-colors font-jakarta"
+                      onClick={scrollToTop}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
