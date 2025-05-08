@@ -17,14 +17,6 @@ const NavigationItems = ({ isActive, scrollToTop, scrollToSection, className }: 
     { name: "Contact", href: "/contact" },
   ];
   
-  // Section navigation for the landing page - we won't use these directly in the main navigation
-  const sectionNavigation = [
-    { name: "Recent Work", id: "recent-work" },
-    { name: "Pricing", id: "pricing" },
-    { name: "Testimonials", id: "testimonials" },
-    { name: "FAQ", id: "faq" },
-  ];
-
   return (
     <div className={`flex items-center justify-center ${className || "space-x-1 md:space-x-4 lg:space-x-6"}`}>
       {navigation.map((item) => {

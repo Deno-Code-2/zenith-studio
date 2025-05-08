@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-white pt-8 md:pt-12">
+    <div className="relative w-full overflow-hidden bg-white pt-4 md:pt-8">
       {/* Grid Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
@@ -61,8 +61,21 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10 lg:py-12">
         <div className="flex flex-col items-center justify-center text-center mt-0">
+          {/* Announcement Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-green-50 text-custom-green px-4 py-2 rounded-full text-sm font-medium mb-6 border border-green-200 inline-flex items-center"
+          >
+            <span className="bg-custom-green text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 text-xs">
+              🔥
+            </span>
+            New! We've launched our AI-powered development services
+          </motion.div>
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
