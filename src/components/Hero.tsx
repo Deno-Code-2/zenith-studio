@@ -14,7 +14,7 @@ const Hero = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        delayChildren: 0.3
+        delayChildren: 0.2
       }
     }
   };
@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-white pt-4 md:pt-8">
+    <div className="relative w-full overflow-hidden bg-white py-6">
       {/* Grid Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
@@ -61,14 +61,14 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10 lg:py-12">
-        <div className="flex flex-col items-center justify-center text-center mt-0">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center text-center">
           {/* Announcement Banner */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-green-50 text-custom-green px-4 py-2 rounded-full text-sm font-medium mb-6 border border-green-200 inline-flex items-center"
+            className="bg-green-50 text-custom-green px-4 py-2 rounded-full text-sm font-medium mb-5 border border-green-200 inline-flex items-center"
           >
             <span className="bg-custom-green text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 text-xs">
               🔥
@@ -80,11 +80,11 @@ const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full max-w-4xl space-y-6 md:space-y-8"
+            className="w-full max-w-4xl space-y-4"
           >
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne mt-0"
+              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
               We don't build websites,
             </motion.h1>
@@ -98,14 +98,14 @@ const Hero = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-jakarta"
+              className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-jakarta pt-1"
             >
               A cutting-edge startup studio leveraging AI to help visionary founders build MVPs and accelerate growth — all in under 5 weeks.
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-5 justify-center pt-4"
+              className="flex flex-col sm:flex-row gap-5 justify-center pt-6"
             >
               <Button
                 asChild

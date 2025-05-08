@@ -14,7 +14,6 @@ import ServicesSection from "@/components/service";
 import GlobalPresence from "@/components/GlobalPresence";
 import FAQ from "@/components/FAQ";
 import PricingPage from "@/components/pricing";
-import ClientStats from "@/components/ClientStats";
 
 const Index = () => {
   useEffect(() => {
@@ -42,9 +41,8 @@ const Index = () => {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
       <GridPattern />
-      <ClientStats />
       <Header />
-      <div className="pt-16">
+      <div className="pt-12">
         <Hero />
         <TechStack />
         <section id="features">

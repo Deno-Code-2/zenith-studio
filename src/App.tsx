@@ -8,7 +8,6 @@ import { HelmetProvider } from "react-helmet-async";
 import SmoothScroll from "@/components/SmoothScroll";
 import { AnimatePresence } from "framer-motion";
 import PreloaderScreen from "@/components/PreloaderScreen";
-import ClientStats from "@/components/ClientStats";
 
 // Create a client
 const queryClient = new QueryClient();
