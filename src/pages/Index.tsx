@@ -42,7 +42,7 @@ const Index = () => {
       </Helmet>
       <GridPattern />
       <Header />
-      <div className="pt-12">
+      <div className="pt-6">
         <Hero />
         <TechStack />
         <section id="features">

@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-white py-6">
+    <div className="relative w-full overflow-hidden bg-white py-12 md:py-16">
       {/* Grid Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
@@ -68,7 +68,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-green-50 text-custom-green px-4 py-2 rounded-full text-sm font-medium mb-5 border border-green-200 inline-flex items-center"
+            className="bg-green-50 text-custom-green px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-green-200 inline-flex items-center"
           >
             <span className="bg-custom-green text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 text-xs">
               🔥
@@ -80,32 +80,32 @@ const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full max-w-4xl space-y-4"
+            className="w-full max-w-4xl space-y-3 md:space-y-4"
           >
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
               We don't build websites,
             </motion.h1>
 
             <motion.h2
               variants={itemVariants}
-              className="text-5xl sm:text-6xl md:text-6xl font-bold leading-tight text-black font-syne"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
               We <Cover className="text-custom-green">build startup</Cover> empires
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
-              className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-jakarta pt-1"
+              className="text-lg sm:text-xl md:text-2xl text-gray-700 font-jakarta pt-1"
             >
               A cutting-edge startup studio leveraging AI to help visionary founders build MVPs and accelerate growth — all in under 5 weeks.
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-5 justify-center pt-6"
+              className="flex flex-col sm:flex-row gap-5 justify-center pt-5"
             >
               <Button
                 asChild

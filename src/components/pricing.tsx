@@ -1,3 +1,4 @@
+
 import { Check, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -7,7 +8,8 @@ interface Plan {
   price: string;
   features: string[];
   cta: string;
-  link: string;
+  emailSubject: string;
+  emailBody: string;
   isPopular?: boolean;
 }
 
@@ -26,7 +28,9 @@ const plans: Plan[] = [
       "Align with your timeline",
     ],
     cta: "Get Started Today",
-    link: "/contact",
+    emailSubject: "Inquiry about Landing Revamp Package",
+    emailBody: "Hi Zenith Studio,\n\nI'm interested in the Landing Revamp package (starting at $375). I'd like to discuss how this package can meet my requirements.\n\nLooking forward to hearing from you!",
+    isPopular: false,
   },
   {
     title: "MVP Launchpad",
@@ -42,7 +46,8 @@ const plans: Plan[] = [
       "Private Slack Channel",
     ],
     cta: "Get Started Today",
-    link: "/contact",
+    emailSubject: "Inquiry about MVP Launchpad Package",
+    emailBody: "Hi Zenith Studio,\n\nI'm interested in the MVP Launchpad package (starting at $1,799). I'd like to discuss how this package can meet my business requirements.\n\nLooking forward to hearing from you!",
     isPopular: true,
   },
   {
@@ -59,11 +64,18 @@ const plans: Plan[] = [
       "And More...",
     ],
     cta: "Contact Us",
-    link: "/contact",
+    emailSubject: "Inquiry about Custom Enterprise Solution",
+    emailBody: "Hi Zenith Studio,\n\nI'm interested in discussing a Custom Enterprise solution for my business. I'd like to explore how your services can meet our specific requirements.\n\nLooking forward to hearing from you!",
+    isPopular: false,
   },
 ];
 
 export default function PricingPage() {
+  // Create mailto links with pre-filled subject and body
+  const createMailtoLink = (subject: string, body: string) => {
+    return `mailto:support@zenith-studio.dev?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <div className="bg-white text-black py-20 px-4">
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -112,7 +124,7 @@ export default function PricingPage() {
             </ul>
 
             <a
-              href={plan.link}
+              href={createMailtoLink(plan.emailSubject, plan.emailBody)}
               className={`mt-6 inline-block w-full text-center py-2 px-4 rounded-md font-semibold transition-all ${
                 plan.isPopular
                   ? "bg-green-600 text-white hover:bg-green-700"

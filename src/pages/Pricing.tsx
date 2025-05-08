@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import GlobalPresence from "@/components/GlobalPresence";
+import Bookacall from "@/components/Book-a-call";
 
 const Pricing = () => {
   // Scroll to top on page load
@@ -116,7 +118,7 @@ const Pricing = () => {
 
   // Create mailto links with pre-filled subject and body
   const createMailtoLink = (subject: string, body: string) => {
-    return `mailto:syedmoinuddin106@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:support@zenith-studio.dev?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -203,6 +205,8 @@ const Pricing = () => {
           </div>
         </div>
       </section>
+      <GlobalPresence />
+      <Bookacall />
       <Footer />
     </main>
   );

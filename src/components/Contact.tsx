@@ -35,8 +35,8 @@ const Contact = () => {
             </div>
             <h3 className="font-bold text-lg mb-2 font-syne">Email Us</h3>
             <p className="text-gray-600 mb-3 font-jakarta">For any inquiries or questions</p>
-            <a href="mailto:contact@zenith-studio.dev" className="text-green-500 hover:text-green-600 font-medium">
-              contact@zenith-studio.dev
+            <a href="mailto:support@zenith-studio.dev" className="text-green-500 hover:text-green-600 font-medium">
+              support@zenith-studio.dev
             </a>
           </motion.div>
           
