@@ -22,10 +22,19 @@ const QuoteForm = () => {
     setIsLoading(true);
 
     try {
-      // Store the quote request in the database
+      // Use contact_submissions table instead of quote_requests since it's not in the types
+      // Map the form data to match the structure of the contact_submissions table
       const { error: dbError } = await supabase
-        .from('quote_requests')
-        .insert([formData]);
+        .from('contact_submissions')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          service_type: formData.projectType, // Map to existing field
+          price_range: formData.budget,       // Map to existing field
+          subject: `Quick Quote Request - ${formData.projectType}`,
+          message: `Timeline: ${formData.timeline}\nProject: ${formData.projectType}\nBudget: ${formData.budget}`,
+          status: 'new'
+        }]);
 
       if (dbError) throw dbError;
 

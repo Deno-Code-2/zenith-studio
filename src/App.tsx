@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import SmoothScroll from "@/components/SmoothScroll";
 import { AnimatePresence } from "framer-motion";
 import PreloaderScreen from "@/components/PreloaderScreen";
+import MicrosoftClarity from "@/components/MicrosoftClarity";
 
 // Create a client with optimized settings for performance
 const queryClient = new QueryClient({
@@ -62,11 +63,8 @@ const AppWithPreloader = () => {
     if (!loading) {
       // Preload other routes after a delay
       const timer = setTimeout(() => {
-        const routes = [AboutPage, ProjectsPage, ContactPage, PricingPage];
-        routes.forEach(route => {
-          // This will trigger the dynamic import
-          route.preload?.();
-        });
+        // This section was causing the error - removed .preload() calls
+        // No need to explicitly preload lazy components, React handles this
       }, 3000);
 
       return () => clearTimeout(timer);
@@ -115,6 +113,7 @@ function App() {
           <Router>
             <AppWithPreloader />
             <Toaster />
+            <MicrosoftClarity />
           </Router>
         </QueryClientProvider>
       </ThemeProvider>

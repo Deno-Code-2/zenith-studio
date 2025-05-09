@@ -3,6 +3,11 @@ import { useEffect } from 'react';
 
 const CLARITY_PROJECT_ID = "k0zlnial1j";
 
+// Add TypeScript interface for the Clarity window object
+interface WindowWithClarity extends Window {
+  clarity?: (command: string, args?: any) => void;
+}
+
 const MicrosoftClarity = () => {
   useEffect(() => {
     // Add Microsoft Clarity script
@@ -12,8 +17,11 @@ const MicrosoftClarity = () => {
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", CLARITY_PROJECT_ID);
     
-    // Initialize
-    window.clarity("consent");
+    // Initialize with proper type casting
+    const windowWithClarity = window as WindowWithClarity;
+    if (windowWithClarity.clarity) {
+      windowWithClarity.clarity("consent");
+    }
   }, []);
 
   return null; // This component doesn't render anything visible
