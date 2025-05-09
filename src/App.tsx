@@ -8,17 +8,9 @@ import { HelmetProvider } from "react-helmet-async";
 import SmoothScroll from "@/components/SmoothScroll";
 import { AnimatePresence } from "framer-motion";
 import PreloaderScreen from "@/components/PreloaderScreen";
-import MicrosoftClarity from "@/components/MicrosoftClarity";
 
-// Create a client with optimized settings for performance
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      staleTime: 60 * 1000, // 1 minute
-    },
-  },
-});
+// Create a client
+const queryClient = new QueryClient();
 
 // Import the Index page directly to avoid dynamic import issues
 import IndexPage from "@/pages/Index";
@@ -29,13 +21,6 @@ const ProjectsPage = lazy(() => import("@/pages/Projects"));
 const ContactPage = lazy(() => import("@/pages/Contact"));
 const PricingPage = lazy(() => import("@/pages/Pricing")); 
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
-
-// Loading component with better user experience
-const LoadingFallback = () => (
-  <div className="flex items-center justify-center h-screen bg-white">
-    <div className="w-12 h-12 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin"></div>
-  </div>
-);
 
 // Separate component to handle the preloader logic
 const AppWithPreloader = () => {
@@ -58,19 +43,6 @@ const AppWithPreloader = () => {
     document.body.className = "bg-white text-black";
   }, [loading, isHomePage]);
 
-  // Optimize by preloading other routes after main content loads
-  useEffect(() => {
-    if (!loading) {
-      // Preload other routes after a delay
-      const timer = setTimeout(() => {
-        // This section was causing the error - removed .preload() calls
-        // No need to explicitly preload lazy components, React handles this
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [loading]);
-
   const handlePreloaderComplete = () => {
     setLoading(false);
     sessionStorage.setItem('initialLoadComplete', 'true');
@@ -86,7 +58,11 @@ const AppWithPreloader = () => {
       {(!loading || !isHomePage) && (
         <>
           <SmoothScroll />
-          <Suspense fallback={<LoadingFallback />}>
+          <Suspense fallback={
+            <div className="flex items-center justify-center h-screen bg-white">
+              <div className="w-12 h-12 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin"></div>
+            </div>
+          }>
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<IndexPage />} />
@@ -113,7 +89,6 @@ function App() {
           <Router>
             <AppWithPreloader />
             <Toaster />
-            <MicrosoftClarity />
           </Router>
         </QueryClientProvider>
       </ThemeProvider>
