@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-white py-12 md:py-16">
+    <div className="relative w-full overflow-hidden bg-white py-20 md:py-24">
       {/* Grid Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
@@ -62,7 +62,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col items-center justify-center text-center mt-10">
           {/* Announcement Banner */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}

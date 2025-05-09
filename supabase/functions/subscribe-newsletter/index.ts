@@ -64,7 +64,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Email to the admin
     const adminEmailResponse = await resend.emails.send({
       from: "Zenith Studio <onboarding@resend.dev>",
-      to: ["syedmoinuddin106@gmail.com"],
+      to: ["support@zenith-studio.dev"],
       subject: "New Newsletter Subscription",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">

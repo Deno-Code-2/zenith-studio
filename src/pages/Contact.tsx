@@ -133,7 +133,7 @@ const Contact = () => {
                 Get in <span className="text-green-500">Touch</span> with Us Today!
               </h1>
               <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
-              Let's discuss your project and see how we can help you achieve your digital goals. Fill out the form below and we'll get back to you within 24hr.
+                Let's discuss your project and see how we can help you achieve your digital goals. Fill out the form below and we'll get back to you within 24hr.
               </p>
             </motion.div>
 
@@ -156,7 +156,7 @@ const Contact = () => {
                       <div>
                         <h3 className="text-lg font-semibold text-black mb-1 font-syne">Email Us</h3>
                         <a href="mailto:support@zenith-studio.dev" className="text-gray-700 hover:text-green-500 transition-colors font-jakarta block">
-                        support@zenith-studio.dev
+                          support@zenith-studio.dev
                         </a>
                         <p className="text-gray-500 text-sm mt-1 font-jakarta">
                           We'll respond within 48 hours

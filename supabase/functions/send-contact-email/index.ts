@@ -1,4 +1,3 @@
-
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
@@ -36,8 +35,9 @@ const handler = async (req: Request): Promise<Response> => {
     let emailSubject = '';
 
     if (isAdminEmail) {
-      // Enhanced Email to the site owner/admin with more modern SaaS appearance
+      // Email to the site owner/admin
       emailSubject = `New Project Inquiry: ${subject}`;
+      
       emailContent = `
         <!DOCTYPE html>
         <html lang="en">
@@ -214,8 +214,9 @@ const handler = async (req: Request): Promise<Response> => {
         </html>
       `;
     } else {
-      // Enhanced Confirmation email to the user with more modern SaaS appearance
+      // Confirmation email to the user
       emailSubject = `Thank you for contacting Zenith Studio!`;
+      
       emailContent = `
         <!DOCTYPE html>
         <html lang="en">
