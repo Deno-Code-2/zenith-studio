@@ -14,6 +14,10 @@ import ServicesSection from "@/components/service";
 import GlobalPresence from "@/components/GlobalPresence";
 import FAQ from "@/components/FAQ";
 import PricingPage from "@/components/pricing";
+import ClientLogos from "@/components/ClientLogos";
+import CountryBanner from "@/components/CountryBanner";
+import QuoteForm from "@/components/QuoteForm";
+import MicrosoftClarity from "@/components/MicrosoftClarity";
 
 const Index = () => {
   useEffect(() => {
@@ -39,11 +43,19 @@ const Index = () => {
         <meta property="og:url" content="https://www.zenith-studio.dev/" />
         <meta property="og:image" content="https://www.zenith-studio.dev/images/Zenith Studio.png" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* Add DNS prefetch for performance optimization */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
       </Helmet>
       <GridPattern />
       <Header />
+      <MicrosoftClarity />
+      <CountryBanner />
       <div className="pt-6">
         <Hero />
+        <ClientLogos />
         <TechStack />
         <section id="features">
           <Features />
@@ -54,8 +66,19 @@ const Index = () => {
         <section id="recent-work">
           <RecentProjects />
         </section>
-        <section id="pricing">
-          <PricingPage />
+        <section id="pricing" className="bg-white py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="lg:col-span-2">
+                  <PricingPage />
+                </div>
+                <div className="lg:col-span-1">
+                  <QuoteForm />
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <Bookacall/>
         <section id="testimonials">
