@@ -18,7 +18,7 @@ const testimonials: Testimonial[] = [
         name: 'Abhinav Singh',
         role: 'CallKaro AI - CEO',
         image: '/images/callkaro_ai_logo.jpeg',
-        quote: 'One thing that truly stood out while working with Syed is his incredible speed. He has a rare ability to spin up clean, functional landing pages in no time. Whether it's a quick iteration or a fresh build, you can always count on Zenith Studio to deliver with speed and precision.',
+        quote: "One thing that truly stood out while working with Syed is his incredible speed. He has a rare ability to spin up clean, functional landing pages in no time. Whether it's a quick iteration or a fresh build, you can always count on Zenith Studio to deliver with speed and precision.",
         location: 'Bangalore, India',
         results: 'Reduced development time by 40% and increased user engagement by 25%'
     },
@@ -26,7 +26,7 @@ const testimonials: Testimonial[] = [
         name: 'Ayo Remi',
         role: 'Software Developer',
         image: '/images/blacklogo.svg',
-        quote: 'Working with Syed was seamless. I came with just an idea, and he turned it into a sleek, high-performing eCommerce site. He handled everything—from design to development—while keeping me in the loop. Highly recommend him and the Zenith Studio team for turning vague visions into real products.',
+        quote: "Working with Syed was seamless. I came with just an idea, and he turned it into a sleek, high-performing eCommerce site. He handled everything—from design to development—while keeping me in the loop. Highly recommend him and the Zenith Studio team for turning vague visions into real products.",
         location: 'California, USA',
         results: 'Launched MVP in just 3 weeks with 95% positive user feedback'
     },
@@ -34,7 +34,7 @@ const testimonials: Testimonial[] = [
         name: 'Syed Ifranulla',
         role: 'Content Creator',
         image: '',
-        quote: 'I wanted a platform that captured my journey and love for Urdu — Syed delivered exactly that. The portfolio feels personal, professional, and culturally respectful. Grateful for the care and creativity he brought to the entire process.',
+        quote: "I wanted a platform that captured my journey and love for Urdu — Syed delivered exactly that. The portfolio feels personal, professional, and culturally respectful. Grateful for the care and creativity he brought to the entire process.",
         location: 'Dubai, UAE',
         results: 'Audience growth of 35% since website launch'
     },
