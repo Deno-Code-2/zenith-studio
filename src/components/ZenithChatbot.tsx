@@ -81,7 +81,7 @@ const ZenithChatbot = () => {
           const formattedMessages = data.map(msg => ({
             id: msg.id,
             content: msg.message,
-            sender: msg.is_user ? "user" : "ai",
+            sender: msg.is_user ? "user" as const : "ai" as const,
             timestamp: new Date(msg.created_at)
           }));
           
@@ -96,7 +96,7 @@ const ZenithChatbot = () => {
           }
         } else {
           // Add welcome message if no previous messages
-          const welcomeMessage = {
+          const welcomeMessage: Message = {
             id: uuidv4(),
             content: "Hi there! I'm Zenith's AI assistant. How can I help you today?",
             sender: "ai",
@@ -137,7 +137,7 @@ const ZenithChatbot = () => {
     setIsCollectingInfo(true);
     setCurrentInfoField("name");
     
-    const infoMessage = {
+    const infoMessage: Message = {
       id: uuidv4(),
       content: "Could you share your name so I can assist you better?",
       sender: "ai",
@@ -164,7 +164,7 @@ const ZenithChatbot = () => {
       [currentInfoField]: input.trim()
     }));
     
-    const userMessage = {
+    const userMessage: Message = {
       id: uuidv4(),
       content: input.trim(),
       sender: "user",
@@ -188,7 +188,7 @@ const ZenithChatbot = () => {
     switch(currentInfoField) {
       case "name":
         nextField = "email";
-        responseMessage = `Thanks ${userInfo.name}! Could you share your email address?`;
+        responseMessage = `Thanks ${input.trim()}! Could you share your email address?`;
         break;
       case "email":
         nextField = "phone";
@@ -225,7 +225,7 @@ const ZenithChatbot = () => {
     
     setCurrentInfoField(nextField);
     
-    const aiMessage = {
+    const aiMessage: Message = {
       id: uuidv4(),
       content: responseMessage,
       sender: "ai",
@@ -255,7 +255,7 @@ const ZenithChatbot = () => {
       return;
     }
     
-    const userMessage = {
+    const userMessage: Message = {
       id: uuidv4(),
       content: input.trim(),
       sender: "user",
@@ -296,7 +296,7 @@ const ZenithChatbot = () => {
         throw new Error(data.error);
       }
       
-      const aiMessage = {
+      const aiMessage: Message = {
         id: uuidv4(),
         content: data.response,
         sender: "ai",
