@@ -69,6 +69,45 @@ export type Database = {
         }
         Relationships: []
       }
+      chatbot_interactions: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          is_user: boolean
+          location: string | null
+          message: string
+          name: string | null
+          phone: string | null
+          response: string | null
+          session_id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          is_user?: boolean
+          location?: string | null
+          message: string
+          name?: string | null
+          phone?: string | null
+          response?: string | null
+          session_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          is_user?: boolean
+          location?: string | null
+          message?: string
+          name?: string | null
+          phone?: string | null
+          response?: string | null
+          session_id?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           created_at: string
