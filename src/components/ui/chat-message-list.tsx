@@ -56,7 +56,7 @@ const ChatMessageList = React.forwardRef<HTMLDivElement, ChatMessageListProps>(
             onClick={scrollToBottom}
             size="icon"
             variant="outline"
-            className="absolute bottom-2 right-2 inline-flex rounded-full shadow-md bg-custom-orange text-white hover:bg-custom-orange/90 border-none"
+            className="absolute bottom-2 right-2 inline-flex rounded-full shadow-md bg-custom-green text-white hover:bg-custom-green/90 border-none"
             aria-label="Scroll to bottom"
           >
             <ArrowDown className="h-4 w-4" />

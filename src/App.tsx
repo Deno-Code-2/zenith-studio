@@ -23,6 +23,16 @@ const ContactPage = lazy(() => import("@/pages/Contact"));
 const PricingPage = lazy(() => import("@/pages/Pricing")); 
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 
+// Microsoft Clarity initialization
+const initClarity = () => {
+  // @ts-ignore
+  window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments) };
+  // @ts-ignore
+  window.clarity("consent");
+  // @ts-ignore
+  window.clarity("identify", "anonymous");
+};
+
 // Separate component to handle the preloader logic
 const AppWithPreloader = () => {
   const location = useLocation();
@@ -42,6 +52,9 @@ const AppWithPreloader = () => {
     
     // Add a class to the body to ensure light mode styles apply everywhere
     document.body.className = "bg-white text-black";
+    
+    // Initialize Microsoft Clarity
+    initClarity();
   }, [loading, isHomePage]);
 
   const handlePreloaderComplete = () => {

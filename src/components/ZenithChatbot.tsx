@@ -49,9 +49,11 @@ const ZenithChatbot = () => {
     location: "",
   });
   const [currentInfoField, setCurrentInfoField] = useState<keyof UserInfo | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [userCountry, setUserCountry] = useState<string>("unknown");
   const { toast } = useToast();
 
-  // Initialize session ID
+  // Initialize session ID and detect country
   useEffect(() => {
     const storedSessionId = localStorage.getItem("chatSessionId");
     if (storedSessionId) {
@@ -61,6 +63,28 @@ const ZenithChatbot = () => {
       localStorage.setItem("chatSessionId", newSessionId);
       setSessionId(newSessionId);
     }
+
+    // Simple country detection based on timezone
+    // This is a very basic approach - for production use a proper geolocation API
+    const detectCountry = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        if (response.ok) {
+          const data = await response.json();
+          setUserCountry(data.country_code || "unknown");
+          setUserInfo(prev => ({...prev, location: data.country_name || ""}));
+        }
+      } catch (error) {
+        console.error("Country detection failed:", error);
+        // Fallback timezone-based detection
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        if (timezone.includes("America")) {
+          setUserCountry("US");
+        }
+      }
+    };
+    
+    detectCountry();
   }, []);
 
   // Fetch previous messages for this session
@@ -96,12 +120,23 @@ const ZenithChatbot = () => {
           }
         } else {
           // Add welcome message if no previous messages
-          const welcomeMessage: Message = {
-            id: uuidv4(),
-            content: "Hi there! I'm Zenith's AI assistant. How can I help you today?",
-            sender: "ai",
-            timestamp: new Date()
-          };
+          let welcomeMessage: Message;
+          
+          if (userCountry === "US") {
+            welcomeMessage = {
+              id: uuidv4(),
+              content: "Hi there from Zenith's US team! How can I help you today with our digital services?",
+              sender: "ai",
+              timestamp: new Date()
+            };
+          } else {
+            welcomeMessage = {
+              id: uuidv4(),
+              content: "Hi there! I'm Zenith's AI assistant. How can I help you today?",
+              sender: "ai",
+              timestamp: new Date()
+            };
+          }
           
           setMessages([welcomeMessage]);
           
@@ -109,7 +144,8 @@ const ZenithChatbot = () => {
           await supabase.from('chatbot_interactions').insert({
             session_id: sessionId,
             message: welcomeMessage.content,
-            is_user: false
+            is_user: false,
+            location: userCountry
           });
           
           // Ask for user info after a short delay
@@ -130,7 +166,7 @@ const ZenithChatbot = () => {
     if (sessionId) {
       fetchMessages();
     }
-  }, [sessionId, toast]);
+  }, [sessionId, userCountry, toast]);
 
   // Ask for user information
   const askForUserInfo = async () => {
@@ -196,6 +232,32 @@ const ZenithChatbot = () => {
         break;
       case "phone":
         nextField = "location";
+        // If we already detected the location, skip asking for it
+        if (userInfo.location) {
+          nextField = null;
+          responseMessage = `Thank you for sharing your information! I see you're from ${userInfo.location}. How can I help you today?`;
+          setIsCollectingInfo(false);
+          
+          // Store complete user info in database
+          const completeUserInfo = {
+            ...userInfo,
+            phone: input.trim(),
+            location: userInfo.location
+          };
+          
+          await supabase.from('chatbot_interactions').upsert([{
+            session_id: sessionId,
+            name: completeUserInfo.name,
+            email: completeUserInfo.email,
+            phone: completeUserInfo.phone,
+            location: completeUserInfo.location,
+            message: "User information collected",
+            is_user: false,
+            response: JSON.stringify(completeUserInfo)
+          }]);
+          
+          break;
+        }
         responseMessage = "Almost done! Where are you accessing our website from?";
         break;
       case "location":
@@ -278,11 +340,13 @@ const ZenithChatbot = () => {
         is_user: true
       });
       
-      const response = await fetch(`https://xkkuuckikhoavbkiaogd.functions.supabase.co/ai-chatbot`, {
+      // Use our new Groq function endpoint instead of the old OpenAI one
+      const response = await fetch(`https://xkkuuckikhoavbkiaogd.functions.supabase.co/groq-chatbot`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhra3V1Y2tpa2hvYXZia2lhb2dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0NjUwNzcsImV4cCI6MjA1NjA0MTA3N30.qtkmz0NatTwAjTP6QChqiHaxRtY9Ub4HjtpQGEd3e78`
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhra3V1Y2tpa2hvYXZia2lhb2dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0NjUwNzcsImV4cCI6MjA1NjA0MTA3N30.qtkmz0NatTwAjTP6QChqiHaxRtY9Ub4HjtpQGEd3e78`,
+          'x-country': userCountry  // Pass the user's country to the function
         },
         body: JSON.stringify({
           message: userMessage.content,
@@ -339,89 +403,103 @@ const ZenithChatbot = () => {
   };
 
   return (
-    <ExpandableChat
-      size="md"
-      position="bottom-right"
-      icon={<Bot className="h-6 w-6" />}
-    >
-      <ExpandableChatHeader className="flex-col text-center justify-center">
-        <div className="flex items-center justify-center space-x-2">
-          <img src="/images/Logo.png" alt="Zenith Studio" className="h-8 w-8" />
-          <h1 className="text-xl font-semibold text-white font-syne">Zenith Assistant</h1>
-        </div>
-        <p className="text-sm text-gray-400">
-          Ask me anything about our services and solutions
-        </p>
-      </ExpandableChatHeader>
-
-      <ExpandableChatBody>
-        <ChatMessageList>
-          {messages.map((message) => (
-            <ChatBubble
-              key={message.id}
-              variant={message.sender === "user" ? "sent" : "received"}
-            >
-              <ChatBubbleAvatar
-                className="h-8 w-8"
-                fallback={message.sender === "user" ? "You" : "Z"}
-                src={message.sender === "user" ? undefined : "/images/Logo.png"}
-              />
-              <ChatBubbleMessage
-                variant={message.sender === "user" ? "sent" : "received"}
-              >
-                {message.content}
-              </ChatBubbleMessage>
-            </ChatBubble>
-          ))}
-
-          {isLoading && (
-            <ChatBubble variant="received">
-              <ChatBubbleAvatar
-                className="h-8 w-8"
-                src="/images/Logo.png"
-                fallback="Z"
-              />
-              <ChatBubbleMessage isLoading />
-            </ChatBubble>
-          )}
-        </ChatMessageList>
-      </ExpandableChatBody>
-
-      <ExpandableChatFooter>
-        <form
-          onSubmit={handleSendMessage}
-          className="relative rounded-lg bg-background focus-within:ring-1 focus-within:ring-custom-orange/40"
-        >
-          <ChatInput
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyPress}
-            placeholder={isCollectingInfo 
-              ? currentInfoField === "name"
-                ? "Enter your name..."
-                : currentInfoField === "email"
-                ? "Enter your email address..."
-                : currentInfoField === "phone"
-                ? "Enter your phone number..."
-                : "Enter your location..."
-              : "Type your message..."
-            }
-            className="min-h-12 resize-none rounded-lg bg-gray-800 border-0 p-3 shadow-none focus-visible:ring-0"
-            rows={1}
-          />
-          <div className="absolute right-2 bottom-2">
-            <Button
-              type="submit"
-              size="icon"
-              disabled={isLoading || !input.trim()}
-              className="bg-custom-orange hover:bg-custom-orange/90 text-white rounded-full w-8 h-8 p-1"
-            >
-              <Send className="h-4 w-4" />
-            </Button>
+    <AnimatePresence>
+      <ExpandableChat
+        size="md"
+        position="bottom-right"
+        icon={<Bot className="h-6 w-6" />}
+      >
+        <ExpandableChatHeader className="flex-col text-center justify-center">
+          <div className="flex items-center justify-center space-x-2">
+            <img src="/images/Logo.png" alt="Zenith Studio" className="h-8 w-8" />
+            <h1 className="text-xl font-semibold text-white font-syne">Zenith Assistant</h1>
           </div>
-        </form>
-      </ExpandableChatFooter>
-    </ExpandableChat>
+          <p className="text-sm text-gray-400">
+            Ask me anything about our services and solutions
+          </p>
+        </ExpandableChatHeader>
+
+        <ExpandableChatBody>
+          <ChatMessageList>
+            {messages.map((message) => (
+              <motion.div
+                key={message.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ChatBubble
+                  variant={message.sender === "user" ? "sent" : "received"}
+                >
+                  <ChatBubbleAvatar
+                    className="h-8 w-8"
+                    fallback={message.sender === "user" ? "You" : "Z"}
+                    src={message.sender === "user" ? undefined : "/images/Logo.png"}
+                  />
+                  <ChatBubbleMessage
+                    variant={message.sender === "user" ? "sent" : "received"}
+                  >
+                    {message.content}
+                  </ChatBubbleMessage>
+                </ChatBubble>
+              </motion.div>
+            ))}
+
+            {isLoading && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ChatBubble variant="received">
+                  <ChatBubbleAvatar
+                    className="h-8 w-8"
+                    src="/images/Logo.png"
+                    fallback="Z"
+                  />
+                  <ChatBubbleMessage isLoading />
+                </ChatBubble>
+              </motion.div>
+            )}
+          </ChatMessageList>
+        </ExpandableChatBody>
+
+        <ExpandableChatFooter>
+          <form
+            onSubmit={handleSendMessage}
+            className="relative rounded-lg bg-background focus-within:ring-1 focus-within:ring-custom-green/40"
+          >
+            <ChatInput
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyPress}
+              placeholder={isCollectingInfo 
+                ? currentInfoField === "name"
+                  ? "Enter your name..."
+                  : currentInfoField === "email"
+                  ? "Enter your email address..."
+                  : currentInfoField === "phone"
+                  ? "Enter your phone number..."
+                  : "Enter your location..."
+                : "Type your message..."
+              }
+              className="min-h-12 resize-none rounded-lg bg-gray-800 border-0 p-3 shadow-none focus-visible:ring-0"
+              rows={1}
+            />
+            <div className="absolute right-2 bottom-2">
+              <Button
+                type="submit"
+                size="icon"
+                disabled={isLoading || !input.trim()}
+                className="bg-custom-green hover:bg-custom-green/90 text-white rounded-full w-8 h-8 p-1"
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+          </form>
+        </ExpandableChatFooter>
+      </ExpandableChat>
+    </AnimatePresence>
   );
 };
 
