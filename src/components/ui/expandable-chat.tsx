@@ -59,7 +59,7 @@ const ExpandableChat: React.FC<ExpandableChatProps> = ({
       <div
         ref={chatRef}
         className={cn(
-          "flex flex-col bg-black border border-custom-orange/30 sm:rounded-lg shadow-md overflow-hidden transition-all duration-250 ease-out sm:absolute sm:w-[90vw] sm:h-[80vh] fixed inset-0 w-full h-full sm:inset-auto",
+          "flex flex-col bg-black border border-custom-green/30 sm:rounded-lg shadow-md overflow-hidden transition-all duration-250 ease-out sm:absolute sm:w-[90vw] sm:h-[80vh] fixed inset-0 w-full h-full sm:inset-auto",
           chatConfig.chatPositions[position],
           chatConfig.dimensions[size],
           isOpen ? chatConfig.states.open : chatConfig.states.closed,
@@ -92,7 +92,7 @@ const ExpandableChatHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => (
   <div
-    className={cn("flex items-center justify-between p-4 border-b border-custom-orange/20", className)}
+    className={cn("flex items-center justify-between p-4 border-b border-custom-green/20", className)}
     {...props}
   />
 );
@@ -109,7 +109,7 @@ ExpandableChatBody.displayName = "ExpandableChatBody";
 const ExpandableChatFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
   ...props
-}) => <div className={cn("border-t border-custom-orange/20 p-4", className)} {...props} />;
+}) => <div className={cn("border-t border-custom-green/20 p-4", className)} {...props} />;
 
 ExpandableChatFooter.displayName = "ExpandableChatFooter";
 
@@ -130,7 +130,7 @@ const ExpandableChatToggle: React.FC<ExpandableChatToggleProps> = ({
   <Button
     onClick={toggleChat}
     className={cn(
-      "w-14 h-14 rounded-full shadow-md flex items-center justify-center hover:shadow-lg hover:shadow-black/30 transition-all duration-300 bg-custom-orange hover:bg-custom-orange/90 text-white",
+      "w-14 h-14 rounded-full shadow-md flex items-center justify-center hover:shadow-lg hover:shadow-black/30 transition-all duration-300 bg-custom-green hover:bg-custom-green/90 text-white",
       className,
     )}
     {...props}
