@@ -14,6 +14,7 @@ import ServicesSection from "@/components/service";
 import GlobalPresence from "@/components/GlobalPresence";
 import FAQ from "@/components/FAQ";
 import PricingPage from "@/components/pricing";
+import ZenithChatbot from "@/components/ZenithChatbot";
 
 const Index = () => {
   useEffect(() => {
@@ -27,7 +28,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden">
       <Helmet>
         <title>Zenith Studio | Web Development & Digital Solutions Agency</title>
         <meta name="description" content="Zenith Studio offers premium web development, mobile app development, SEO optimization, and digital transformation services for businesses of all sizes." />
@@ -77,6 +78,7 @@ const Index = () => {
         <GlobalPresence />
         <Footer />
       </div>
+      <ZenithChatbot />
     </main>
   );
 };
