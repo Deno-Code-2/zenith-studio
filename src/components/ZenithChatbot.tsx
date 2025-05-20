@@ -22,9 +22,6 @@ import {
   MessageLoading 
 } from "@/components/ui/chat-bubble";
 
-// Import the Q&A dataset
-import qaData from "@/data/chatbot-qa.json";
-
 interface Message {
   id: string;
   content: string;
@@ -307,25 +304,6 @@ const ZenithChatbot = () => {
     });
   };
 
-  // Find answer in the Q&A dataset
-  const findAnswer = (question: string): string | null => {
-    // Convert question to lowercase for case-insensitive matching
-    const normalizedQuestion = question.toLowerCase();
-    
-    // Find the most relevant Q&A pair
-    const relevantPair = qaData.qa_pairs.find(pair => {
-      const pairQuestion = pair.question.toLowerCase();
-      // Check if the question contains key phrases from our dataset
-      return normalizedQuestion.includes(pairQuestion) || 
-             pairQuestion.includes(normalizedQuestion) ||
-             // Check for keywords
-             (pairQuestion.split(" ").some(word => 
-                word.length > 3 && normalizedQuestion.includes(word)));
-    });
-    
-    return relevantPair ? relevantPair.answer : null;
-  };
-
   // Handle sending a message
   const handleSendMessage = async (e?: FormEvent) => {
     if (e) {
@@ -362,101 +340,46 @@ const ZenithChatbot = () => {
         is_user: true
       });
       
-      // First try to find an answer in our local dataset
-      const localAnswer = findAnswer(userMessage.content);
+      // Use our new Groq function endpoint instead of the old OpenAI one
+      const response = await fetch(`https://xkkuuckikhoavbkiaogd.functions.supabase.co/groq-chatbot`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhra3V1Y2tpa2hvYXZia2lhb2dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0NjUwNzcsImV4cCI6MjA1NjA0MTA3N30.qtkmz0NatTwAjTP6QChqiHaxRtY9Ub4HjtpQGEd3e78`,
+          'x-country': userCountry  // Pass the user's country to the function
+        },
+        body: JSON.stringify({
+          message: userMessage.content,
+          sessionId
+        })
+      });
       
-      if (localAnswer) {
-        // Use the local answer if found
-        const aiMessage: Message = {
-          id: uuidv4(),
-          content: localAnswer,
-          sender: "ai",
-          timestamp: new Date()
-        };
-        
-        setTimeout(() => {
-          setMessages(prev => [...prev, aiMessage]);
-          setIsLoading(false);
-          
-          // Store AI response in database
-          supabase.from('chatbot_interactions').insert({
-            session_id: sessionId,
-            name: userInfo.name || null,
-            email: userInfo.email || null,
-            phone: userInfo.phone || null,
-            location: userInfo.location || null,
-            message: aiMessage.content,
-            is_user: false,
-            response: localAnswer
-          });
-        }, 1000); // Add a small delay to simulate thinking
-      } else {
-        // If no local answer, try to use the Groq API
-        try {
-          const response = await fetch(`https://xkkuuckikhoavbkiaogd.functions.supabase.co/groq-chatbot`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhra3V1Y2tpa2hvYXZia2lhb2dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0NjUwNzcsImV4cCI6MjA1NjA0MTA3N30.qtkmz0NatTwAjTP6QChqiHaxRtY9Ub4HjtpQGEd3e78`,
-              'x-country': userCountry  // Pass the user's country to the function
-            },
-            body: JSON.stringify({
-              message: userMessage.content,
-              sessionId
-            })
-          });
-          
-          const data = await response.json();
-          
-          if (data.error) {
-            throw new Error(data.error);
-          }
-          
-          const aiMessage: Message = {
-            id: uuidv4(),
-            content: data.response,
-            sender: "ai",
-            timestamp: new Date()
-          };
-          
-          setMessages(prev => [...prev, aiMessage]);
-          
-          // Store AI response in database
-          await supabase.from('chatbot_interactions').insert({
-            session_id: sessionId,
-            name: userInfo.name || null,
-            email: userInfo.email || null,
-            phone: userInfo.phone || null,
-            location: userInfo.location || null,
-            message: aiMessage.content,
-            is_user: false,
-            response: data.response
-          });
-        } catch (apiError) {
-          console.error('API Error:', apiError);
-          // Fallback to a generic response if API fails
-          const fallbackMessage: Message = {
-            id: uuidv4(),
-            content: "I'm sorry, I couldn't process your request right now. Please try asking a different question or contact our team directly for assistance.",
-            sender: "ai",
-            timestamp: new Date()
-          };
-          
-          setMessages(prev => [...prev, fallbackMessage]);
-          
-          // Store fallback response
-          await supabase.from('chatbot_interactions').insert({
-            session_id: sessionId,
-            name: userInfo.name || null,
-            email: userInfo.email || null,
-            phone: userInfo.phone || null,
-            location: userInfo.location || null,
-            message: fallbackMessage.content,
-            is_user: false,
-            error: String(apiError)
-          });
-        }
+      const data = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
       }
+      
+      const aiMessage: Message = {
+        id: uuidv4(),
+        content: data.response,
+        sender: "ai",
+        timestamp: new Date()
+      };
+      
+      setMessages(prev => [...prev, aiMessage]);
+      
+      // Store AI response in database
+      await supabase.from('chatbot_interactions').insert({
+        session_id: sessionId,
+        name: userInfo.name || null,
+        email: userInfo.email || null,
+        phone: userInfo.phone || null,
+        location: userInfo.location || null,
+        message: aiMessage.content,
+        is_user: false,
+        response: data.response
+      });
       
     } catch (error) {
       console.error('Error sending message:', error);

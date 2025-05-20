@@ -37,6 +37,7 @@
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     @apply transition-colors duration-200;
+    background: linear-gradient(135deg, #f8fff8 0%, #e6f5e6 100%);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -181,53 +182,6 @@
 
 /* Main page background gradient */
 #root {
-  background: linear-gradient(135deg, rgba(235, 250, 235, 0.95) 0%, rgba(206, 240, 216, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(242, 252, 242, 0.8) 0%, rgba(230, 245, 230, 0.9) 100%);
   min-height: 100vh;
-}
-
-/* Circle decorations for header */
-.circle-decoration {
-  position: absolute;
-  border-radius: 50%;
-  z-index: -1;
-}
-
-.circle-decoration-1 {
-  width: 160px;
-  height: 160px;
-  left: -40px;
-  top: -20px;
-  background: rgba(45, 106, 79, 0.1);
-  filter: blur(15px);
-}
-
-.circle-decoration-2 {
-  width: 100px;
-  height: 100px;
-  right: 10%;
-  top: 20px;
-  background: rgba(45, 106, 79, 0.07);
-  filter: blur(10px);
-}
-
-.circle-decoration-3 {
-  width: 60px;
-  height: 60px;
-  left: 20%;
-  bottom: -10px;
-  background: rgba(45, 106, 79, 0.05);
-  filter: blur(8px);
-}
-
-/* Update button styles to match green theme */
-.btn-custom-green {
-  background-color: #2D6A4F;
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.btn-custom-green:hover {
-  background-color: #1B4332;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(27, 67, 50, 0.2);
 }
