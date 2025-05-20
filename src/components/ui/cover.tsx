@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useId, useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import { SparklesCore } from "@/components/ui/sparkles";
 
@@ -23,7 +22,7 @@ export const Cover = ({
       setContainerWidth(ref.current?.clientWidth ?? 0);
 
       const height = ref.current?.clientHeight ?? 0;
-      const numberOfBeams = Math.floor(height / 10); // Adjust beam spacing
+      const numberOfBeams = Math.floor(height / 10);
       const positions = Array.from(
         { length: numberOfBeams },
         (_, i) => (i + 1) * (height / (numberOfBeams + 1))
@@ -56,7 +55,7 @@ export const Cover = ({
               }}
               transition={{
                 translateX: {
-                  duration: 6, // Faster movement
+                  duration: 6,
                   ease: "linear",
                   repeat: Infinity,
                 },
@@ -88,7 +87,7 @@ export const Cover = ({
         <Beam
           key={index}
           hovered={hovered}
-          duration={Math.random() * 1 + 0.5} // Faster beams
+          duration={Math.random() * 1 + 0.5}
           delay={Math.random() * 1 + 0.5}
           width={containerWidth}
           style={{
@@ -182,16 +181,18 @@ export const Beam = ({
             y2: 0,
           }}
           transition={{
-            duration: hovered ? 0.2 : duration ?? 1, // Faster beams
+            duration: hovered ? 0.2 : duration ?? 1,
             ease: "linear",
             repeat: Infinity,
             delay: hovered ? Math.random() * (0.5 - 0.1) + 0.1 : 0,
-            repeatDelay: hovered ? Math.random() * (1 - 0.5) + 0.5 : delay ?? 0.5,
+            repeatDelay: hovered
+              ? Math.random() * (1 - 0.5) + 0.5
+              : delay ?? 0.5,
           }}
         >
-          <stop stopColor="#FFA500" stopOpacity="0" />
-          <stop stopColor="#FF6A00" />
-          <stop offset="1" stopColor="#FF6A00" stopOpacity="0" />
+          <stop stopColor="#00FF00" stopOpacity="0" />
+          <stop stopColor="#00CC00" />
+          <stop offset="1" stopColor="#00CC00" stopOpacity="0" />
         </motion.linearGradient>
       </defs>
     </motion.svg>
