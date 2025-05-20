@@ -86,14 +86,14 @@ const Hero = () => {
               variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              We don't build websites,
+              Fueling Startup Dreams with Purpose, 
             </motion.h1>
 
             <motion.h2
               variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              We <Cover className="text-custom-green">build startup</Cover> empires
+              <Cover className="text-custom-green">Precision, Unlimited Speed.</Cover>
             </motion.h2>
 
             <motion.p
