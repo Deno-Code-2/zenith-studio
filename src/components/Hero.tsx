@@ -120,7 +120,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Book a Call <ArrowRight className="ml-2 h-4 w-4" />
+                  Request Quote <ArrowRight className="ml-2 h-4 w-4" />
                 </motion.a>
               </Button>
 
