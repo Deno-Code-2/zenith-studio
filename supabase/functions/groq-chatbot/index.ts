@@ -63,10 +63,21 @@ serve(async (req) => {
     - Keep responses concise but informative
     - If you don't know the answer to a specific question, suggest contacting us directly through our "Request Quote" form
     - Don't make up information that isn't included here
+    - Always try to answer the user's question directly and completely - provide as much relevant information as possible
     
     The user is visiting from country: ${countryHeader}
     If the user is from the USA, emphasize our US-based support team and mention our offices in major US tech hubs.
     `;
+
+    // Store user's message in the database
+    await supabase
+      .from('chatbot_interactions')
+      .insert({
+        session_id: sessionId,
+        message: message,
+        is_user: true,
+        location: countryHeader,
+      });
 
     // Use Groq API to generate a response
     const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {

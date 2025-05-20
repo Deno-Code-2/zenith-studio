@@ -1,17 +1,13 @@
 
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import HeaderLogo from "./header/HeaderLogo";
-import NavigationItems from "./header/NavigationItems";
-import TimeDisplay from "./header/TimeDisplay";
 import MobileMenu from "./header/MobileMenu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const [currentTime, setCurrentTime] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
   // Handle resize and scroll events
@@ -31,24 +27,6 @@ const Header = () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
-
-  // Update IST time
-  useEffect(() => {
-    const updateTime = () => {
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata',
-        hour12: true,
-        hour: '2-digit',
-        minute: '2-digit',
-      };
-      const formatter = new Intl.DateTimeFormat('en-IN', options);
-      setCurrentTime(formatter.format(new Date()));
-    };
-
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
   }, []);
 
   const scrollToTop = () => {
@@ -78,6 +56,14 @@ const Header = () => {
     return location.pathname === path || location.pathname.startsWith(`${path}/`);
   };
 
+  // Navigation items
+  const navItems = [
+    { name: "Showcase", href: "#recent-work" },
+    { name: "Services", href: "#services" },
+    { name: "Process", href: "#features" },
+    { name: "Guarantees", href: "#testimonials" },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -87,51 +73,63 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <HeaderLogo scrollToTop={scrollToTop} />
+          <Link 
+            to="/"
+            className="text-xl font-bold font-syne cursor-pointer flex-shrink-0"
+            onClick={scrollToTop}
+          >
+            <div className="flex items-center">
+              <span className="text-3xl font-bold">ZS</span>
+            </div>
+          </Link>
 
           {/* Desktop Navigation - Centered */}
           {!isMobile && (
             <div className="flex-grow flex justify-center">
-              <NavigationItems 
-                isActive={isActive} 
-                scrollToTop={scrollToTop} 
-                scrollToSection={scrollToSection}
-                className="mx-auto" 
-              />
+              <nav className="flex space-x-8">
+                {navItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-lg font-medium text-gray-900 hover:text-custom-green transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (item.href.startsWith('#')) {
+                        scrollToSection(item.href.substring(1));
+                      }
+                    }}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </nav>
             </div>
           )}
 
           {/* Right Side Controls */}
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-            
-            {!isMobile && (
-              <Button
-                asChild
-                variant="default"
-                className="font-jakarta text-sm bg-green-500 hover:bg-green-600"
-                size="sm"
+            <Button
+              asChild
+              variant="default"
+              className="font-medium text-sm bg-black hover:bg-black/80 text-white rounded-full px-6"
+              size="sm"
+            >
+              <a 
+                href="https://cal.com/zenithstudio/30min" 
+                target="_blank" 
+                rel="noopener noreferrer"
               >
-                <a 
-                  href="https://cal.com/zenith-studio/30min" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  Book A Call
-                </a>
-              </Button>
-            )}
-            
-            {/* Time Display */}
-            {(!isMobile) && <TimeDisplay />}
-
-            <ThemeToggle />
+                Book a call
+              </a>
+            </Button>
 
             {/* Mobile Menu */}
             {isMobile && <MobileMenu 
               isActive={isActive} 
-              scrollToTop={scrollToTop} 
-              currentTime={currentTime} 
+              scrollToTop={scrollToTop}
               scrollToSection={scrollToSection}
+              currentTime=""
+              navItems={navItems}
             />}
           </div>
         </div>

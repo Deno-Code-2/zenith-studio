@@ -10,26 +10,11 @@ interface MobileMenuProps {
   scrollToTop: () => void;
   scrollToSection?: (sectionId: string) => void;
   currentTime: string;
+  navItems: Array<{name: string; href: string;}>;
 }
 
-const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: MobileMenuProps) => {
+const MobileMenu = ({ isActive, scrollToTop, scrollToSection, navItems }: MobileMenuProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Navigation items in the same order as desktop
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "#services" },
-    { name: "Features", href: "#features" },
-    { name: "Contact", href: "/contact" },
-  ];
-  
-  // Section navigation for the landing page
-  const sectionNavigation = [
-    { name: "Recent Work", id: "recent-work" },
-    { name: "Pricing", id: "pricing" },
-    { name: "Testimonials", id: "testimonials" },
-    { name: "FAQ", id: "faq" },
-  ];
 
   const handleSectionClick = (sectionId: string) => {
     if (scrollToSection) {
@@ -79,54 +64,32 @@ const MobileMenu = ({ isActive, scrollToTop, scrollToSection, currentTime }: Mob
             className="overflow-hidden pb-4 border-t border-border absolute top-16 left-0 right-0 bg-background z-50"
           >
             <div className="flex flex-col space-y-2 mt-2 px-4">
-              {navigation.map((item) => {
-                // If it's a section link (starts with #)
-                if (item.href.startsWith('#')) {
-                  return (
-                    <button
-                      key={item.name}
-                      className="px-3 py-2 rounded-md font-jakarta text-left text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
-                      onClick={() => handleNavClick(item.href)}
-                    >
-                      {item.name}
-                    </button>
-                  );
-                }
-                
-                // For regular page navigation
-                return (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`px-3 py-2 rounded-md font-jakarta ${
-                      isActive(item.href)
-                        ? "bg-gray-100 dark:bg-gray-800 text-green-500"
-                        : "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
-                    }`}
-                    onClick={() => handleNavClick(item.href)}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
-              
-              {/* IST Time in Mobile Menu */}
-              <div className="flex items-center gap-2 px-3 py-2 text-sm">
-                <span className="pl-3 text-muted-foreground">IST: {currentTime}</span>
-              </div>
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="px-3 py-2 rounded-md font-medium text-left text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.href);
+                  }}
+                >
+                  {item.name}
+                </a>
+              ))}
               
               <Button
                 asChild
                 variant="default"
-                className="w-full mt-2 font-jakarta bg-green-500 hover:bg-green-600"
+                className="w-full mt-2 font-medium bg-black hover:bg-black/80 text-white rounded-full"
                 size="sm"
               >
                 <a 
-                  href="https://cal.com/zenith-studio/30min" 
+                  href="https://cal.com/zenithstudio/30min" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  Book A Call
+                  Book a call
                 </a>
               </Button>
             </div>

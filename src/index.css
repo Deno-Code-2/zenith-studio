@@ -37,6 +37,7 @@
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     @apply transition-colors duration-200;
+    background: linear-gradient(135deg, #f8fff8 0%, #e6f5e6 100%);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -177,4 +178,10 @@
     background-position: calc(100% + var(--shiny-width)) 0;
     }
   }
+}
+
+/* Main page background gradient */
+#root {
+  background: linear-gradient(135deg, rgba(242, 252, 242, 0.8) 0%, rgba(230, 245, 230, 0.9) 100%);
+  min-height: 100vh;
 }

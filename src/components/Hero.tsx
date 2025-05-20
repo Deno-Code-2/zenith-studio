@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-white py-20 md:py-24">
+    <div className="relative w-full overflow-hidden py-20 md:py-24">
       {/* Grid Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
@@ -86,15 +86,8 @@ const Hero = () => {
               variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              Fueling Startup Dreams with Purpose, 
+              Fueling Startup Dreams with Purpose, <Cover className="text-custom-green">Precision, Unlimited Speed.</Cover>
             </motion.h1>
-
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
-            >
-              <Cover className="text-custom-green">Precision, Unlimited Speed.</Cover>
-            </motion.h2>
 
             <motion.p
               variants={itemVariants}

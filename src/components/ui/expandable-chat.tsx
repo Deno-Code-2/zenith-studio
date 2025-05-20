@@ -150,4 +150,3 @@ export {
   ExpandableChatBody,
   ExpandableChatFooter,
 };
-
