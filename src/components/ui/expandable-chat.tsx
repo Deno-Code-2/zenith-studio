@@ -27,8 +27,7 @@ const chatConfig = {
   },
   states: {
     open: "pointer-events-auto opacity-100 visible scale-100 translate-y-0",
-    closed":
-      "pointer-events-none opacity-0 invisible scale-100 sm:translate-y-5",
+    closed: "pointer-events-none opacity-0 invisible scale-100 sm:translate-y-5",
   },
 };
 
@@ -151,3 +150,4 @@ export {
   ExpandableChatBody,
   ExpandableChatFooter,
 };
+
