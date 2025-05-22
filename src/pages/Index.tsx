@@ -67,7 +67,6 @@ const Index = () => {
         <section id="pricing">
           <PricingPage />
         </section>
-        <NewCTA />
         <section id="testimonials">
           <WallOfLoveSection/>
         </section>
@@ -75,6 +74,7 @@ const Index = () => {
           <FAQ />
         </section>
         <GlobalPresence />
+        <NewCTA />
         <NewFooter />
       </div>
     </main>
