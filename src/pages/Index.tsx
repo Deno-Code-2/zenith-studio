@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -13,8 +14,6 @@ import ServicesSection from "@/components/service";
 import GlobalPresence from "@/components/GlobalPresence";
 import FAQ from "@/components/FAQ";
 import PricingPage from "@/components/pricing";
-import CTA from "@/components/CTA";
-import { Connect } from "@/components/CAT";
 
 const Index = () => {
   useEffect(() => {
@@ -28,7 +27,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen relative overflow-hidden bg-gradient-to-br from-green-50 via-green-50/50 to-white">
+    <main className="min-h-screen bg-white relative overflow-hidden">
       <Helmet>
         <title>Zenith Studio | Web Development & Digital Solutions Agency</title>
         <meta name="description" content="Zenith Studio offers premium web development, mobile app development, SEO optimization, and digital transformation services for businesses of all sizes." />
@@ -76,8 +75,6 @@ const Index = () => {
           <FAQ />
         </section>
         <GlobalPresence />
-        <Connect />
-        <CTA />
         <Footer />
       </div>
     </main>

@@ -86,7 +86,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              <Cover className="text-custom-green">Fueling Startup Dreams with Purpose, Precision, Unlimited Speed.</Cover>
+              Fueling Startup Dreams with Purpose, <Cover className="text-custom-green">Precision, Unlimited Speed.</Cover>
             </motion.h1>
 
             <motion.p
