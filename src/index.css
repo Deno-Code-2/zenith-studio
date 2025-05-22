@@ -180,8 +180,8 @@
   }
 }
 
-/* Main page background gradient */
+/* Main page background gradient - Updated to be more green */
 #root {
-  background: linear-gradient(135deg, rgba(242, 252, 242, 0.8) 0%, rgba(230, 245, 230, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(242, 252, 242, 0.8) 0%, rgba(218, 242, 218, 0.9) 50%, rgba(199, 232, 199, 0.9) 100%);
   min-height: 100vh;
 }

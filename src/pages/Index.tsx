@@ -1,15 +1,15 @@
 
 import { Helmet } from "react-helmet-async";
-import Header from "@/components/Header";
+import NewNavbar from "@/components/header/NewNavbar";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import RecentProjects from "@/components/RecentProjects";
 import GridPattern from "@/components/GridPattern";
-import Footer from "@/components/Footer";
+import NewFooter from "@/components/NewFooter";
 import Features from "@/components/Features";
 import WallOfLoveSection from "@/components/Testimonials";
 import { useEffect } from "react";
-import Bookacall from "@/components/Book-a-call";
+import NewCTA from "@/components/NewCTA";
 import ServicesSection from "@/components/service";
 import GlobalPresence from "@/components/GlobalPresence";
 import FAQ from "@/components/FAQ";
@@ -27,7 +27,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#f8fff8] via-[#e6f5e6] to-[#d4ecd4]">
       <Helmet>
         <title>Zenith Studio | Web Development & Digital Solutions Agency</title>
         <meta name="description" content="Zenith Studio offers premium web development, mobile app development, SEO optimization, and digital transformation services for businesses of all sizes." />
@@ -51,8 +51,8 @@ const Index = () => {
         </script>
       </Helmet>
       <GridPattern />
-      <Header />
-      <div className="pt-6">
+      <NewNavbar />
+      <div className="pt-20">
         <Hero />
         <TechStack />
         <section id="features">
@@ -67,7 +67,7 @@ const Index = () => {
         <section id="pricing">
           <PricingPage />
         </section>
-        <Bookacall/>
+        <NewCTA />
         <section id="testimonials">
           <WallOfLoveSection/>
         </section>
@@ -75,7 +75,7 @@ const Index = () => {
           <FAQ />
         </section>
         <GlobalPresence />
-        <Footer />
+        <NewFooter />
       </div>
     </main>
   );
