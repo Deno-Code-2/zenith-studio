@@ -1,6 +1,6 @@
 
 import { Helmet } from "react-helmet-async";
-import NavbarDemo from "@/components/header/NewNavbar";
+import NewNavbar from "@/components/header/NewNavbar";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import RecentProjects from "@/components/RecentProjects";
@@ -27,7 +27,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#f8fff8] via-[#e6f5e6] to-[#d4ecd4]">
       <Helmet>
         <title>Zenith Studio | Web Development & Digital Solutions Agency</title>
         <meta name="description" content="Zenith Studio offers premium web development, mobile app development, SEO optimization, and digital transformation services for businesses of all sizes." />
@@ -51,7 +51,7 @@ const Index = () => {
         </script>
       </Helmet>
       <GridPattern />
-      <NavbarDemo />
+      <NewNavbar />
       <div className="pt-20">
         <Hero />
         <TechStack />

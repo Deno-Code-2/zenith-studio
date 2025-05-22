@@ -17,6 +17,7 @@ const queryClient = new QueryClient();
 import IndexPage from "@/pages/Index";
 
 // Lazy load other pages
+const AboutPage = lazy(() => import("@/pages/About"));
 const ProjectsPage = lazy(() => import("@/pages/Projects"));
 const ContactPage = lazy(() => import("@/pages/Contact"));
 const PricingPage = lazy(() => import("@/pages/Pricing")); 
@@ -73,12 +74,13 @@ const AppWithPreloader = () => {
           <SmoothScroll />
           <Suspense fallback={
             <div className="flex items-center justify-center h-screen bg-white">
-              <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+              <div className="w-12 h-12 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin"></div>
             </div>
           }>
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<IndexPage />} />
+                <Route path="/about" element={<AboutPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
