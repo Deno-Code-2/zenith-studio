@@ -5,7 +5,7 @@ export default function NewCTA() {
   return (
     <section className="mx-auto mb-24 flex w-full max-w-7xl flex-col items-center justify-center">
       <div className="w-full">
-        <div className="relative z-20 h-[400px] w-full overflow-hidden rounded-xl border border-border bg-green-800 shadow-xl md:h-[400px]">
+        <div className="relative z-20 h-[400px] w-full overflow-hidden rounded-xl border border-border bg-primary shadow-xl md:h-[400px]">
           <img
             alt="Agent CTA Background"
             className="absolute inset-0 object-cover object-right md:object-center h-full w-full"
