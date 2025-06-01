@@ -9,15 +9,15 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'var(--font-sans)',
+  				'Inter',
                     ...fontFamily.sans
                 ],
-  			jakarta: [
-  				'Plus Jakarta Sans',
+  			inter: [
+  				'Inter',
   				'sans-serif'
   			],
-  			syne: [
-  				'Syne',
+  			cal: [
+  				'__CalSans_399708',
   				'sans-serif'
   			]
   		},
@@ -54,9 +54,7 @@ export default {
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			'custom-orange': '#E46534',
-            'custom-green': '#2D6A4F'
+  			}
   		},
   		keyframes: {
   			'accordion-down': {

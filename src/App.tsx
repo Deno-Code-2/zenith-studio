@@ -8,7 +8,6 @@ import { HelmetProvider } from "react-helmet-async";
 import SmoothScroll from "@/components/SmoothScroll";
 import { AnimatePresence } from "framer-motion";
 import PreloaderScreen from "@/components/PreloaderScreen";
-import ZenithChatbot from "@/components/ZenithChatbot";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -73,8 +72,8 @@ const AppWithPreloader = () => {
         <>
           <SmoothScroll />
           <Suspense fallback={
-            <div className="flex items-center justify-center h-screen bg-white">
-              <div className="w-12 h-12 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin"></div>
+            <div className="flex items-center justify-center h-screen bg-background">
+              <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
             </div>
           }>
             <AnimatePresence mode="wait">
@@ -89,9 +88,6 @@ const AppWithPreloader = () => {
               </Routes>
             </AnimatePresence>
           </Suspense>
-          
-          {/* Chatbot visible on all pages */}
-          <ZenithChatbot />
         </>
       )}
     </>

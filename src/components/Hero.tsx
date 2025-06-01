@@ -2,11 +2,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const navigate = useNavigate();
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -31,50 +28,23 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden py-20 md:py-24">
+    <div className="relative w-full overflow-hidden py-20 md:py-24 bg-background">
       {/* Grid Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
+              linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px)
             `,
             backgroundSize: '40px 40px'
-          }}
-        />
-        <motion.div
-          initial={{ x: '-100%', opacity: 0 }}
-          animate={{ x: '100%', opacity: [0, 0.6, 0] }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatDelay: 2,
-            ease: "linear"
-          }}
-          className="absolute top-1/2 h-[1px] w-full bg-gradient-to-r from-transparent via-custom-green/90 to-transparent"
-          style={{
-            boxShadow: '0 0 10px 2px rgba(255, 107, 53, 0.5)'
           }}
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center text-center mt-10">
-          {/* Announcement Banner */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-green-50 text-custom-green px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-green-200 inline-flex items-center"
-          >
-            <span className="bg-custom-green text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 text-xs">
-              🔥
-            </span>
-            New! We've launched our AI-powered development services
-          </motion.div>
-
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -83,16 +53,20 @@ const Hero = () => {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-foreground font-cal"
             >
-              Fueling Startup Dreams with Purpose, Precision, Unlimited Speed.
+              Expert Website Design & Development
+              <br />
+              for High-Performance, modern
+              <br />
+              and minimalistic websites
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl md:text-2xl text-gray-700 font-jakarta pt-1"
+              className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-inter pt-1"
             >
-              A cutting-edge startup studio leveraging AI to help visionary founders build MVPs and accelerate growth — all in under 5 weeks.
+              We craft and develop websites that deliver exceptional results and accelerate your business growth. No lengthy calls. No unnecessary complications. Just outstanding outcomes.
             </motion.p>
 
             <motion.div
@@ -102,7 +76,7 @@ const Hero = () => {
               <Button
                 asChild
                 variant="default"
-                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg"
+                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg bg-primary text-primary-foreground hover:bg-primary/90"
                 size="lg"
               >
                 <motion.a
@@ -112,17 +86,8 @@ const Hero = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Request Quote <ArrowRight className="ml-2 h-4 w-4" />
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </motion.a>
-              </Button>
-
-              <Button
-                variant="link"
-                onClick={() => navigate('/projects')}
-                className="w-full sm:w-auto text-custom-green hover:scale-105 transition-transform text-lg"
-                size="lg"
-              >
-                View Our Work
               </Button>
             </motion.div>
           </motion.div>
