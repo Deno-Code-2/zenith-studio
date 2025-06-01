@@ -1,9 +1,18 @@
 
+"use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useTransform,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export const AnimatedTooltip = ({
   items,
+  className,
 }: {
   items: {
     id: number;
@@ -11,65 +20,74 @@ export const AnimatedTooltip = ({
     designation: string;
     image: string;
   }[];
+  className?: string;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const springConfig = { stiffness: 100, damping: 5 };
+  const x = useMotionValue(0);
+  const rotate = useSpring(
+    useTransform(x, [-100, 100], [-45, 45]),
+    springConfig
+  );
+  const translateX = useSpring(
+    useTransform(x, [-100, 100], [-50, 50]),
+    springConfig
+  );
+  const handleMouseMove = (event: any) => {
+    const halfWidth = event.target.offsetWidth / 2;
+    x.set(event.nativeEvent.offsetX - halfWidth);
+  };
 
   return (
-    <div className="flex flex-row items-center justify-center py-8">
-      {items.map((item, idx) => (
+    <div className={cn("flex items-center gap-2", className)}>
+      {items.map((item) => (
         <div
-          key={item.id}
-          className="relative group"
-          onMouseEnter={() => setHoveredIndex(idx)}
+          className="-mr-4 relative group"
+          key={item.name}
+          onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          <div
-            className={`h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-full flex items-center justify-center cursor-pointer grayscale hover:grayscale-0 ${
-              hoveredIndex === idx && "grayscale-0"
-            }`}
-          >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="object-cover rounded-full h-full w-full"
-              onMouseMove={(e: React.MouseEvent<HTMLImageElement>) => {
-                if (hoveredIndex === idx) {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = e.clientX - rect.left - rect.width / 2;
-                  const y = e.clientY - rect.top - rect.height / 2;
-                  const tooltip = document.getElementById(`tooltip-${idx}`);
-                  if (tooltip) {
-                    tooltip.style.transform = `translate(${x * 0.1}px, ${
-                      y * 0.1
-                    }px)`;
-                  }
-                }
-              }}
-            />
-          </div>
-          {hoveredIndex === idx && (
-            <motion.div
-              id={`tooltip-${idx}`}
-              initial={{ opacity: 0, y: 20, scale: 0.6 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 10,
-                },
-              }}
-              exit={{ opacity: 0, y: 20, scale: 0.6 }}
-              className="absolute -top-16 left-0 right-0 z-50 flex items-center justify-center"
-            >
-              <div className="bg-black text-white rounded-md px-4 py-2 text-center">
-                <div className="font-bold text-sm">{item.name}</div>
-                <div className="text-xs">{item.designation}</div>
-              </div>
-            </motion.div>
-          )}
+          <AnimatePresence mode="popLayout">
+            {hoveredIndex === item.id && (
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.6 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: {
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 10,
+                  },
+                }}
+                exit={{ opacity: 0, y: 20, scale: 0.6 }}
+                style={{
+                  translateX: translateX,
+                  rotate: rotate,
+                  whiteSpace: "nowrap",
+                }}
+                className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-foreground z-50 shadow-xl px-4 py-2"
+              >
+                <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px" />
+                <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px" />
+                <div className="font-bold text-background relative z-30 text-base">
+                  {item.name}
+                </div>
+                <div className="text-muted-foreground text-xs">
+                  {item.designation}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <img
+            onMouseMove={handleMouseMove}
+            height={100}
+            width={100}
+            src={item.image}
+            alt={item.name}
+            className="object-cover !m-0 !p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-background relative transition duration-500"
+          />
         </div>
       ))}
     </div>

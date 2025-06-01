@@ -61,7 +61,7 @@
     "dicons": "^1.1.7",
     "dotted-map": "^2.2.3",
     "embla-carousel-react": "^8.3.0",
-    "framer-motion": "^12.7.4",
+    "framer-motion": "^12.15.0",
     "gsap": "^3.12.7",
     "input-otp": "^1.2.4",
     "lodash": "^4.17.21",
