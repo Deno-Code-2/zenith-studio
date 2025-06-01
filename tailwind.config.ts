@@ -9,10 +9,12 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'Inter',
+  				'__Inter_f50a95',
+                    'Inter',
                     ...fontFamily.sans
                 ],
   			inter: [
+  				'__Inter_f50a95',
   				'Inter',
   				'sans-serif'
   			],

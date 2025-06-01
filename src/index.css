@@ -82,7 +82,7 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: '__Inter_f50a95', 'Inter', sans-serif;
     font-weight: 400;
     @apply transition-colors duration-200;
     @apply bg-background text-foreground;
