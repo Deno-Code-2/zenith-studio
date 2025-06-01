@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Cover } from "@/components/ui/cover";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
@@ -86,7 +85,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-syne"
             >
-              Fueling Startup Dreams with Purpose, <Cover className="text-custom-green">Precision, Unlimited Speed.</Cover>
+              Fueling Startup Dreams with Purpose, Precision, Unlimited Speed.
             </motion.h1>
 
             <motion.p
