@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin, Send, ArrowRight, Linkedin, Twitter, Facebook, Instagram, MessageSquareShare, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
@@ -119,7 +118,6 @@ const Contact = () => {
       </Helmet>
       
       <main className="min-h-screen bg-white">
-        <Header />
         
         <section className="pt-32 pb-20 px-4">
           <div className="max-w-7xl mx-auto">

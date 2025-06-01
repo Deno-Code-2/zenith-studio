@@ -1,6 +1,6 @@
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import OurStory from "@/components/about/OurStory";
@@ -56,7 +56,6 @@ const About = () => {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
  
-      <Header />
       <Toaster />
 
       <section className="pt-28 pb-10">

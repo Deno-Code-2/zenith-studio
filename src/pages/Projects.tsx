@@ -1,11 +1,9 @@
-
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useQuery } from "@tanstack/react-query";
 import { ExternalLink } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -215,7 +213,6 @@ const Projects = () => {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4771BVNJVP"></script>
       </Helmet>
 
-      <Header />
       <PageTransition>
         <main className="max-w-7xl mx-auto px-8 lg:px-16 pt-32">
           <div className="text-center mb-16">
