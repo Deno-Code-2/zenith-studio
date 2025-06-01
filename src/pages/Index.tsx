@@ -13,7 +13,6 @@ import ServicesSection from "@/components/service";
 import GlobalPresence from "@/components/GlobalPresence";
 import FAQ from "@/components/FAQ";
 import PricingPage from "@/components/pricing";
-import Header from "@/components/Header";
 
 const Index = () => {
   useEffect(() => {
@@ -50,7 +49,7 @@ const Index = () => {
           `}
         </script>
       </Helmet>
-      <Header />
+      <GridPattern />
       <div className="pt-0">
         <Hero />
         <TechStack />

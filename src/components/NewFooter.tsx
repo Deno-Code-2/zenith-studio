@@ -6,35 +6,33 @@ export default function NewFooter() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="relative overflow-hidden bg-background border-t border-border">
-      <div className="container mx-auto max-w-7xl px-6 pb-8 pt-16">
-        <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-5">
-          {/* Logo and description */}
-          <div className="col-span-1">
+    <footer className="relative overflow-hidden rounded-t-3xl border-t bg-muted/30 md:rounded-t-[4rem]">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-green-500/30 blur-3xl dark:bg-green-500/10"></div>
+        <div className="absolute right-0 top-1/4 h-72 w-72 rounded-full bg-blue-500/30 blur-3xl dark:bg-blue-500/10"></div>
+      </div>
+      <div className="container mx-auto max-w-6xl px-5 pb-8 pt-16">
+        <div className="mb-12 grid grid-cols-2 gap-8 md:grid-cols-6">
+          <div className="col-span-2">
             <div className="mb-4 flex items-center justify-start gap-2">
               <img
                 src="/images/Logo.png"
                 alt="logo"
                 className="h-8 w-8 rounded-full"
               />
-              <span className="text-xl font-semibold text-foreground font-cal">
+              <span className="bg-green-500 bg-clip-text text-2xl font-semibold text-transparent">
                 Zenith Studio
               </span>
             </div>
-            <p className="mb-6 text-sm text-muted-foreground font-inter">
-              © {currentYear} Zenith Studio Private Limited.
-              <br />
-              All rights reserved.
-            </p>
-            <p className="mb-4 text-sm text-muted-foreground font-inter">
-              contact@zenith-studio.dev
+            <p className="mb-4 text-muted-foreground">
+              AI-powered studio helping founders launch MVPs and scale their startups in under 5 weeks.
             </p>
             <div className="flex space-x-3">
               <a
                 href="mailto:support@zenith-studio.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="rounded-full bg-background p-2 transition-colors hover:bg-muted"
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -42,153 +40,145 @@ export default function NewFooter() {
                 href="https://twitter.com/zenithstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="rounded-full bg-background p-2 transition-colors hover:bg-muted"
               >
                 <Twitter className="h-5 w-5" />
               </a>
+              <a
+                href="https://instagram.com/zenithstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-background p-2 transition-colors hover:bg-muted"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://linkedin.com/company/zenithstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-background p-2 transition-colors hover:bg-muted"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
             </div>
           </div>
-
-          {/* Company */}
           <div className="col-span-1">
-            <h3 className="mb-4 font-semibold font-cal text-foreground">Company</h3>
+            <h3 className="mb-4 font-semibold">Pages</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/#services"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground font-inter"
+                  to="/#features"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Work
+                  Features
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/#services"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground font-inter"
+                  to="/about"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Services
+                  About
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/projects"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Projects
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="col-span-1">
+            <h3 className="mb-4 font-semibold">Resources</h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   to="/#pricing"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground font-inter"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Pricing
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/contact"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground font-inter"
+                  to="/#services"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Templates
+                  Services
                 </Link>
               </li>
               <li>
                 <Link
                   to="/contact"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground font-inter"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground font-inter"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
-
-          {/* Products */}
           <div className="col-span-1">
-            <h3 className="mb-4 font-semibold font-cal text-foreground">Products</h3>
+            <h3 className="mb-4 font-semibold">Our Presence</h3>
             <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground font-inter">
-                Zenith UI
+              <li className="text-muted-foreground">
+                USA
               </li>
-              <li className="text-sm text-muted-foreground font-inter">
-                Zenith UI Pro
+              <li className="text-muted-foreground">
+                Dubai
               </li>
-              <li className="text-sm text-muted-foreground font-inter">
-                Algochurn
+              <li className="text-muted-foreground">
+                India
               </li>
             </ul>
           </div>
-
-          {/* Tools */}
           <div className="col-span-1">
-            <h3 className="mb-4 font-semibold font-cal text-foreground">Tools</h3>
+            <h3 className="mb-4 font-semibold">Support</h3>
             <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground font-inter">
-                Awesome Components
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Contact Us
+                </Link>
               </li>
-              <li className="text-sm text-muted-foreground font-inter">
-                Tailwindcss Buttons
+              <li>
+                <Link
+                  to="/#faq"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  FAQs
+                </Link>
               </li>
-              <li className="text-sm text-muted-foreground font-inter">
-                Mechanical Keyboard
-              </li>
-              <li className="text-sm text-muted-foreground font-inter">
-                Box Shadows
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="col-span-1">
-            <h3 className="mb-4 font-semibold font-cal text-foreground">Legal</h3>
-            <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground font-inter">
-                Privacy Policy
-              </li>
-              <li className="text-sm text-muted-foreground font-inter">
-                Terms and Conditions
-              </li>
-              <li className="text-sm text-muted-foreground font-inter">
-                Refund Policy
+              <li>
+                <a
+                  href="https://wa.me/919108041057"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  WhatsApp
+                </a>
               </li>
             </ul>
           </div>
         </div>
-
-        {/* Services Section */}
-        <div className="mb-8">
-          <h3 className="mb-6 font-semibold font-cal text-foreground">Services</h3>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
-            <div className="text-sm text-muted-foreground font-inter">Real Estate Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Healthcare Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Restaurant Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Affordable Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">B2B Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">B2C Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Attorney Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Mobile Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Fiverr Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Commercial Real Estate Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Lawyer Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Church Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Medical Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Los Angeles Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Corporate Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Hotel Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Creative Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Construction Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Marketing Website Design</div>
-            <div className="text-sm text-muted-foreground font-inter">Landing Page Development</div>
-            <div className="text-sm text-muted-foreground font-inter">SaaS App development</div>
-            <div className="text-sm text-muted-foreground font-inter">Custom Webapp Development</div>
-            <div className="text-sm text-muted-foreground font-inter">AI App Development</div>
-            <div className="text-sm text-muted-foreground font-inter">Custom Web Development</div>
-            <div className="text-sm text-muted-foreground font-inter">Custom Web Development Services</div>
-            <div className="text-sm text-muted-foreground font-inter">Custom Web Development Company</div>
-            <div className="text-sm text-muted-foreground font-inter">React Web Development Company</div>
-            <div className="text-sm text-muted-foreground font-inter">Web Design and Development</div>
-            <div className="text-sm text-muted-foreground font-inter">Web Design Services for Small Businesses</div>
+        <div className="relative border-t border-muted/50 pt-8">
+          <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-green-500/70 to-transparent"></div>
+          <div className="flex flex-col items-center justify-between text-sm text-muted-foreground md:flex-row">
+            <p>
+              &copy; {currentYear}{" "}
+              <span className="font-medium text-foreground">Zenith Studio</span>.
+              All rights reserved.
+            </p>
+            <div className="mt-4 flex items-center space-x-1 md:mt-0">
+              <span>
+                Your dream, our code — launched in days.®
+              </span>
+            </div>
           </div>
         </div>
       </div>

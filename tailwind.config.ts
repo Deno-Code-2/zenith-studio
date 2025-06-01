@@ -8,9 +8,18 @@ export default {
   theme: {
   	extend: {
   		fontFamily: {
-  			sans: ['Inter', ...fontFamily.sans],
-  			inter: ['Inter', 'sans-serif'],
-  			cal: ['Cal Sans', 'sans-serif']
+  			sans: [
+  				'Inter',
+                    ...fontFamily.sans
+                ],
+  			inter: [
+  				'Inter',
+  				'sans-serif'
+  			],
+  			cal: [
+  				'__CalSans_399708',
+  				'sans-serif'
+  			]
   		},
   		colors: {
   			border: 'hsl(var(--border))',
