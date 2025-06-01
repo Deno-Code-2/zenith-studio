@@ -69,7 +69,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden py-20 md:py-24 bg-background">
+    <div className="relative w-full overflow-hidden py-20 md:py-24 bg-white">
       <AnimatedGridPattern className="absolute inset-0 -z-10" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,18 +82,18 @@ const Hero = () => {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground font-cal"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-black font-cal"
             >
-              Expert Website Design & Development
+              <span className="whitespace-nowrap">Expert Website Design & Development</span>
               <br />
-              for High-Performance, modern
+              <span className="whitespace-nowrap">for High-Performance, modern</span>
               <br />
-              and minimalistic websites
+              <span className="whitespace-nowrap">and minimalistic websites</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-inter pt-1"
+              className="text-lg sm:text-xl md:text-2xl text-gray-600 font-inter pt-1"
             >
               We craft and develop websites that deliver exceptional results and accelerate your business growth. No lengthy calls. No unnecessary complications. Just outstanding outcomes.
             </motion.p>
@@ -105,7 +105,7 @@ const Hero = () => {
               <Button
                 asChild
                 variant="default"
-                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg bg-foreground text-background hover:bg-foreground/90"
+                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg bg-black text-white hover:bg-gray-800"
                 size="lg"
               >
                 <motion.a

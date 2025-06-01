@@ -81,19 +81,31 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: white;
   }
 
   body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
+    background-color: white !important;
+    color: black !important;
     @apply transition-colors duration-200;
-    @apply bg-background text-foreground;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cal Sans', sans-serif;
     font-weight: 700;
+    color: black !important;
   }
+
+  * {
+    background-color: inherit;
+  }
+}
+
+/* Force white background everywhere */
+html, body, #root {
+  background-color: white !important;
 }
 
 /* Custom Scrollbar */
@@ -130,6 +142,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: white !important;
+    color: black !important;
   }
 }
 
@@ -214,5 +228,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: white !important;
+    color: black !important;
   }
 }
