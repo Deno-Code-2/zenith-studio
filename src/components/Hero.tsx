@@ -78,11 +78,11 @@ const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full max-w-4xl space-y-3 md:space-y-4"
+            className="w-full max-w-5xl space-y-3 md:space-y-4"
           >
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-foreground font-cal"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground font-cal"
             >
               Expert Website Design & Development
               <br />
@@ -100,7 +100,7 @@ const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-5"
+              className="flex flex-col items-center gap-4 pt-5"
             >
               <Button
                 asChild

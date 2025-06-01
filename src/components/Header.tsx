@@ -31,6 +31,19 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('#')) {
+      scrollToSection(href.substring(1));
+    }
+  };
  
   const containerVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -73,19 +86,6 @@ export default function Header() {
     closed: { opacity: 0, x: 20 },
     open: { opacity: 1, x: 0 },
   };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('#')) {
-      scrollToSection(href.substring(1));
-    }
-  };
  
   return (
     <>
@@ -109,10 +109,10 @@ export default function Header() {
             >
               <Link to="/" className="flex items-center space-x-3">
                 <div className="relative">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 via-rose-600 to-rose-700 shadow-lg">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-gray-800 via-gray-900 to-black shadow-lg">
                     <Zap className="h-5 w-5 text-white" />
                   </div>
-                  <div className="absolute -right-1 -top-1 h-3 w-3 animate-pulse rounded-full bg-green-400"></div>
+                  <div className="absolute -right-1 -top-1 h-3 w-3 animate-pulse rounded-full bg-white"></div>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-lg font-bold text-foreground font-cal">
@@ -192,13 +192,6 @@ export default function Header() {
               >
                 <Search className="h-5 w-5" />
               </motion.button>
- 
-              <Link
-                to="/contact"
-                className="px-4 py-2 text-sm font-medium text-foreground/80 transition-colors duration-200 hover:text-foreground"
-              >
-                Sign In
-              </Link>
  
               <motion.div
                 whileHover={{ scale: 1.02 }}
@@ -280,13 +273,6 @@ export default function Header() {
                   className="space-y-3 border-t border-border pt-6"
                   variants={mobileItemVariants}
                 >
-                  <Link
-                    to="/contact"
-                    className="block w-full rounded-lg py-3 text-center font-medium text-foreground transition-colors duration-200 hover:bg-muted"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Sign In
-                  </Link>
                   <a
                     href="https://cal.com/zenithstudio/30min"
                     target="_blank"
