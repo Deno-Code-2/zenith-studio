@@ -163,7 +163,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-gray-800 font-inter"
                 >
-                  <span>Get Started</span>
+                  <span>Book A Call</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </motion.div>
@@ -228,7 +228,7 @@ export default function Header() {
                     className="block w-full rounded-lg bg-black py-3 text-center font-medium text-white transition-all duration-200 hover:bg-gray-800 font-inter"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Get Started
+                    Book A Call
                   </Link>
                 </motion.div>
               </div>

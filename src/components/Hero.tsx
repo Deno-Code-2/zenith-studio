@@ -85,19 +85,22 @@ const Hero = () => {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-black font-cal"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black font-cal"
             >
               <span className="whitespace-nowrap">Expert Website Design & Development</span>
               <br />
               for High-Performance, modern
               <br />
               and minimalistic websites
-              <spam><svg xmlns="http://www.w3.org/2000/svg" class="inline-block md:h-14 md:w-14 h-8 w-8 stroke-yellow-500 stroke-[1px]" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" fill="rgba(254, 239, 172, 1)" opacity="0.4959999999991851" pathLength="1" stroke-dashoffset="0px" stroke-dasharray="0.49533333333480795px 1px"></path></svg><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" fill="rgba(253, 233, 143, 1)" opacity="0.6833333333343035" pathLength="1" stroke-dashoffset="0px" stroke-dasharray="0.6839999999986807px 1px"></path><svg xmlns="http://www.w3.org/2000/svg" class="inline-block md:h-14 md:w-14 h-8 w-8 stroke-yellow-500 stroke-[1px]" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" fill="rgba(253, 237, 163, 1)" opacity="0.5606666666668995" pathLength="1" stroke-dashoffset="0px" stroke-dasharray="0.5599999999976717px 1px"></path></svg></spam>
+              <svg xmlns="http://www.w3.org/2000/svg" className="inline-block md:h-14 md:w-14 h-8 w-8 stroke-[#199e76] stroke-[1px]" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" fill="rgba(25, 158, 118, 0.4)" opacity="0.4646666666667443" pathLength="1" strokeDashoffset="0px" strokeDasharray="0.4653333333311214px 1px"></path>
+              </svg>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto font-inter pt-1"
+              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto font-inter pt-1"
             >
               We design and build websites that drive results and help your business grow. No Calls. No BS. Just Results.
             </motion.p>
@@ -119,7 +122,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  Book A Call <ArrowRight className="ml-2 h-4 w-4" />
                 </motion.a>
               </Button>
               

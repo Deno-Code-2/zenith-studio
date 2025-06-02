@@ -68,7 +68,7 @@ const RecentProjects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4 font-syne">
-            Tech <span className="text-green-500">MEETS</span> Precision
+            Tech <span className="text-[#199e76]">MEETS</span> Precision
           </h2>
           <p className="text-center text-black font-jakarta max-w-2xl mx-auto">
             Zenith Studio's recent projects feature cutting-edge design, user-friendly interfaces, and tailored solutions for clients.
@@ -82,7 +82,7 @@ const RecentProjects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="group relative overflow-hidden rounded-xl bg-white backdrop-blur-sm border border-black transition-all duration-300 hover:border-green/40"
+              className="group relative overflow-hidden rounded-xl bg-white backdrop-blur-sm border border-black transition-all duration-300 hover:border-[#199e76]/40"
             >
               <div className="relative">
                 <div className="aspect-video overflow-hidden">
@@ -102,7 +102,7 @@ const RecentProjects = () => {
                     </h3>
                     <motion.a 
                       href={project.project_url} 
-                      className="text-black hover:text-custom-green transition-colors"
+                      className="text-black hover:text-[#199e76] transition-colors"
                       target="_blank" 
                       rel="noopener noreferrer"
                       whileHover={{ rotate: 15, scale: 1.1 }}
@@ -120,7 +120,7 @@ const RecentProjects = () => {
                     whileHover={{ opacity: 1, scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <span className="bg-green-500 text-custom-green px-2 py-1 rounded-full text-xs">
+                    <span className="bg-[#199e76] text-white px-2 py-1 rounded-full text-xs">
                       {project.project_type}
                     </span>
                   </motion.div>
@@ -136,7 +136,7 @@ const RecentProjects = () => {
           >
             <Button 
               onClick={() => navigate('/projects')}
-              className="font-jakarta text-white bg-green-500 hover:bg-custom-green/90"
+              className="font-jakarta text-white bg-[#199e76] hover:bg-[#147a5e]"
             >
               View All Projects
             </Button>

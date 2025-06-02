@@ -1,78 +1,78 @@
+
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import NewFooter from "@/components/NewFooter";
 import { useState } from "react";
-
-// Project data
-const projects = [
-  {
-    id: 1,
-    title: "Fintech Dashboard",
-    description: "A comprehensive financial analytics dashboard with real-time data visualization and user-friendly interface.",
-    image: "/images/projects/fintech-dashboard.webp",
-    category: "Web Application",
-    link: "https://example.com/fintech",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js"]
-  },
-  {
-    id: 2,
-    title: "E-commerce Platform",
-    description: "A scalable e-commerce solution with integrated payment gateways, inventory management, and customer analytics.",
-    image: "/images/projects/ecommerce.webp",
-    category: "Web Application",
-    link: "https://example.com/ecommerce",
-    technologies: ["Next.js", "Node.js", "MongoDB", "Stripe API"]
-  },
-  {
-    id: 3,
-    title: "Health & Fitness App",
-    description: "A mobile application for tracking fitness goals, nutrition, and providing personalized workout recommendations.",
-    image: "/images/projects/fitness-app.webp",
-    category: "Mobile Application",
-    link: "https://example.com/fitness",
-    technologies: ["React Native", "Firebase", "Redux", "Health API"]
-  },
-  {
-    id: 4,
-    title: "Real Estate Platform",
-    description: "A property listing and management platform with virtual tours, mortgage calculator, and agent dashboard.",
-    image: "/images/projects/real-estate.webp",
-    category: "Web Application",
-    link: "https://example.com/realestate",
-    technologies: ["Vue.js", "Express", "PostgreSQL", "Google Maps API"]
-  },
-  {
-    id: 5,
-    title: "Learning Management System",
-    description: "An educational platform for course creation, student management, and progress tracking with interactive content.",
-    image: "/images/projects/lms.webp",
-    category: "Web Application",
-    link: "https://example.com/lms",
-    technologies: ["React", "Django", "AWS", "WebRTC"]
-  },
-  {
-    id: 6,
-    title: "Restaurant Ordering System",
-    description: "A digital menu and ordering system for restaurants with kitchen display, inventory tracking, and analytics.",
-    image: "/images/projects/restaurant.webp",
-    category: "Web Application",
-    link: "https://example.com/restaurant",
-    technologies: ["Next.js", "Node.js", "MongoDB", "Stripe"]
-  }
-];
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
 // Categories for filtering
-const categories = ["All", "Web Application", "Mobile Application", "UI/UX Design"];
+const categories = ["All", "Landing Page", "Web Application", "Mobile Application", "UI/UX Design"];
+
+const fetchProjects = async () => {
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Error fetching projects:', error);
+    throw error;
+  }
+  return data;
+};
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
   
+  const { data: projects, isLoading, error } = useQuery({
+    queryKey: ['projects'],
+    queryFn: fetchProjects
+  });
+
   const filteredProjects = filter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+    ? projects || []
+    : (projects || []).filter(project => project.project_type === filter);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Helmet>
+          <title>Our Projects | Zenith Studio - Portfolio & Case Studies</title>
+          <meta name="description" content="Explore our portfolio of successful web development projects, mobile applications, and digital solutions. See how we've helped businesses transform their digital presence." />
+          <link rel="canonical" href="https://www.zenith-studio.dev/projects" />
+        </Helmet>
+        <Header />
+        <div className="pt-16 flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#199e76] mx-auto mb-4"></div>
+            <p className="text-gray-600 font-inter">Loading projects...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Helmet>
+          <title>Our Projects | Zenith Studio - Portfolio & Case Studies</title>
+          <meta name="description" content="Explore our portfolio of successful web development projects, mobile applications, and digital solutions. See how we've helped businesses transform their digital presence." />
+          <link rel="canonical" href="https://www.zenith-studio.dev/projects" />
+        </Helmet>
+        <Header />
+        <div className="pt-16 flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <p className="text-red-600 font-inter">Error loading projects. Please try again later.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -93,7 +93,7 @@ const Projects = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                Our <span className="text-green-500">Projects</span>
+                Our <span className="text-[#199e76]">Projects</span>
               </motion.h1>
               <motion.p 
                 className="text-lg text-gray-700 mb-8 font-inter"
@@ -144,37 +144,28 @@ const Projects = () => {
                 >
                   <div className="aspect-video w-full overflow-hidden">
                     <img 
-                      src={project.image} 
+                      src={project.image_url || '/placeholder.svg'} 
                       alt={project.title} 
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
                   <div className="p-6">
                     <span className="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full mb-3">
-                      {project.category}
+                      {project.project_type}
                     </span>
                     <h3 className="text-xl font-bold text-black mb-2 font-cal">{project.title}</h3>
                     <p className="text-gray-600 mb-4 font-inter">{project.description}</p>
                     
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, i) => (
-                        <span 
-                          key={i} 
-                          className="text-xs px-2 py-1 bg-gray-50 text-gray-600 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-green-500 hover:text-green-600 font-medium"
-                    >
-                      View Project <ArrowRight className="ml-1 h-4 w-4" />
-                    </a>
+                    {project.project_url && (
+                      <a 
+                        href={project.project_url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[#199e76] hover:text-[#147a5e] font-medium"
+                      >
+                        View Project <ExternalLink className="ml-1 h-4 w-4" />
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               ))}
