@@ -92,28 +92,7 @@ const Hero = () => {
               for High-Performance, modern
               <br />
               and minimalistic websites
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="inline-block md:h-14 md:w-14 h-8 w-8 stroke-yellow-500 stroke-[1px] ml-2" 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                strokeWidth="2" 
-                stroke="currentColor" 
-                fill="none" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path 
-                  d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" 
-                  fill="rgba(254, 239, 177, 1)" 
-                  opacity="0.4646666666667443" 
-                  pathLength="1" 
-                  strokeDashoffset="0px" 
-                  strokeDasharray="0.4653333333311214px 1px"
-                ></path>
-              </svg>
+              <spam><svg xmlns="http://www.w3.org/2000/svg" class="inline-block md:h-14 md:w-14 h-8 w-8 stroke-yellow-500 stroke-[1px]" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" fill="rgba(254, 239, 172, 1)" opacity="0.4959999999991851" pathLength="1" stroke-dashoffset="0px" stroke-dasharray="0.49533333333480795px 1px"></path></svg><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" fill="rgba(253, 233, 143, 1)" opacity="0.6833333333343035" pathLength="1" stroke-dashoffset="0px" stroke-dasharray="0.6839999999986807px 1px"></path><svg xmlns="http://www.w3.org/2000/svg" class="inline-block md:h-14 md:w-14 h-8 w-8 stroke-yellow-500 stroke-[1px]" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" fill="rgba(253, 237, 163, 1)" opacity="0.5606666666668995" pathLength="1" stroke-dashoffset="0px" stroke-dasharray="0.5599999999976717px 1px"></path></svg></spam>
             </motion.h1>
 
             <motion.p
