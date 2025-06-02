@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import GlobalPresence from "@/components/GlobalPresence";
 import Bookacall from "@/components/Book-a-call";
+import { Helmet } from "react-helmet-async";
+import Header from "@/components/Header";
 
 const Pricing = () => {
   // Scroll to top on page load
@@ -120,92 +122,100 @@ const Pricing = () => {
   };
 
   return (
-    <main className="min-h-screen bg-white">
-      <section className="pt-24 pb-16 px-4">
-        <div className="container mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-14"
-          >
-            <h2 className="text-lg font-medium text-custom-orange mb-2 font-jakarta">
-              Choose the plan that suits you
-            </h2>
-            <h1 className="text-4xl md:text-5xl font-bold text-black font-syne mb-5">
-              Transparent <span className="text-custom-orange">Pricing</span>
-            </h1>
-            <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
-              Budget-friendly solutions with no hidden costs. Everything included as mentioned.
-            </p>
-          </motion.div>
+    <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Pricing | Zenith Studio - Transparent & Affordable Plans</title>
+        <meta name="description" content="Discover our transparent pricing plans for web development, mobile apps, and digital solutions. Find the perfect package for your business needs and budget." />
+        <link rel="canonical" href="https://www.zenith-studio.dev/pricing" />
+      </Helmet>
+      <Header />
+      <div className="pt-16">
+        <section className="pt-24 pb-16 px-4">
+          <div className="container mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-14"
+            >
+              <h2 className="text-lg font-medium text-custom-orange mb-2 font-jakarta">
+                Choose the plan that suits you
+              </h2>
+              <h1 className="text-4xl md:text-5xl font-bold text-black font-syne mb-5">
+                Transparent <span className="text-custom-orange">Pricing</span>
+              </h1>
+              <p className="text-gray-700 max-w-2xl mx-auto font-jakarta">
+                Budget-friendly solutions with no hidden costs. Everything included as mentioned.
+              </p>
+            </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {plans.map((plan, index) => (
-              <motion.div
-                key={plan.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative p-6 rounded-lg border-2 transition-all duration-300 flex flex-col h-full group
-                  ${plan.highlighted ? "border-custom-orange bg-custom-orange/5 shadow-md" : "border-gray-200 hover:border-custom-orange"}`}
-              >
-                {plan.highlighted && (
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4, duration: 0.3 }}
-                    className="absolute top-0 right-0 bg-custom-orange text-black px-3 py-1 rounded-bl-lg rounded-tr-lg text-xs font-bold"
-                  >
-                    POPULAR CHOICE
-                  </motion.div>
-                )}
-                <div className="mb-5">
-                  <h3 className="text-lg font-bold text-black mb-1 font-syne">{plan.title}</h3>
-                  <div className="flex items-end gap-1 mb-2">
-                    <span className="text-3xl font-bold text-black font-syne">{plan.price}</span>
-                    {plan.price !== "Custom Quote" && <span className="text-gray-500 text-sm mb-1">/ INR</span>}
-                  </div>
-                  <p className="text-xs text-gray-500 uppercase mb-3 font-jakarta">{plan.billing}</p>
-                  <p className="text-gray-700 text-sm font-jakarta">{plan.description}</p>
-                </div>
-                <motion.ul className="space-y-2.5 mb-7 flex-grow">
-                  {plan.features.map((feature, featureIndex) => (
-                    <motion.li 
-                      key={featureIndex} 
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.1 + index * 0.05 + featureIndex * 0.03 }}
-                      className="flex items-start gap-2 text-gray-700 text-sm font-jakarta"
-                    >
-                      <Check className="w-4 h-4 text-custom-orange flex-shrink-0 mt-1" />
-                      <span>{feature}</span>
-                    </motion.li>
-                  ))}
-                </motion.ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              {plans.map((plan, index) => (
                 <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  key={plan.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`relative p-6 rounded-lg border-2 transition-all duration-300 flex flex-col h-full group
+                    ${plan.highlighted ? "border-custom-orange bg-custom-orange/5 shadow-md" : "border-gray-200 hover:border-custom-orange"}`}
                 >
-                  <Button
-                    variant="default"
-                    className={`w-full mt-auto font-medium group-hover:bg-black group-hover:text-white transition-all duration-300 ${plan.highlighted ? "bg-custom-orange hover:bg-custom-orange/90 text-black" : "bg-white border border-custom-orange text-black"}`}
-                    asChild
+                  {plan.highlighted && (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.4, duration: 0.3 }}
+                      className="absolute top-0 right-0 bg-custom-orange text-black px-3 py-1 rounded-bl-lg rounded-tr-lg text-xs font-bold"
+                    >
+                      POPULAR CHOICE
+                    </motion.div>
+                  )}
+                  <div className="mb-5">
+                    <h3 className="text-lg font-bold text-black mb-1 font-syne">{plan.title}</h3>
+                    <div className="flex items-end gap-1 mb-2">
+                      <span className="text-3xl font-bold text-black font-syne">{plan.price}</span>
+                      {plan.price !== "Custom Quote" && <span className="text-gray-500 text-sm mb-1">/ INR</span>}
+                    </div>
+                    <p className="text-xs text-gray-500 uppercase mb-3 font-jakarta">{plan.billing}</p>
+                    <p className="text-gray-700 text-sm font-jakarta">{plan.description}</p>
+                  </div>
+                  <motion.ul className="space-y-2.5 mb-7 flex-grow">
+                    {plan.features.map((feature, featureIndex) => (
+                      <motion.li 
+                        key={featureIndex} 
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.1 + index * 0.05 + featureIndex * 0.03 }}
+                        className="flex items-start gap-2 text-gray-700 text-sm font-jakarta"
+                      >
+                        <Check className="w-4 h-4 text-custom-orange flex-shrink-0 mt-1" />
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </motion.ul>
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <a href={createMailtoLink(plan.emailSubject, plan.emailBody)}>
-                      {plan.buttonText}
-                    </a>
-                  </Button>
+                    <Button
+                      variant="default"
+                      className={`w-full mt-auto font-medium group-hover:bg-black group-hover:text-white transition-all duration-300 ${plan.highlighted ? "bg-custom-orange hover:bg-custom-orange/90 text-black" : "bg-white border border-custom-orange text-black"}`}
+                      asChild
+                    >
+                      <a href={createMailtoLink(plan.emailSubject, plan.emailBody)}>
+                        {plan.buttonText}
+                      </a>
+                    </Button>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-      <GlobalPresence />
-      <Bookacall />
-      <Footer />
-    </main>
+        </section>
+        <GlobalPresence />
+        <Bookacall />
+        <Footer />
+      </div>
+    </div>
   );
 };
 

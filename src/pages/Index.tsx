@@ -1,9 +1,9 @@
 
 import { Helmet } from "react-helmet-async";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import RecentProjects from "@/components/RecentProjects";
-import GridPattern from "@/components/GridPattern";
 import NewFooter from "@/components/NewFooter";
 import Features from "@/components/Features";
 import WallOfLoveSection from "@/components/Testimonials";
@@ -26,7 +26,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen relative overflow-hidden bg-background">
+    <main className="min-h-screen relative overflow-hidden bg-white">
       <Helmet>
         <title>Zenith Studio | Web Development & Digital Solutions Agency</title>
         <meta name="description" content="Zenith Studio offers premium web development, mobile app development, SEO optimization, and digital transformation services for businesses of all sizes." />
@@ -49,7 +49,7 @@ const Index = () => {
           `}
         </script>
       </Helmet>
-      <GridPattern />
+      <Header />
       <div className="pt-0">
         <Hero />
         <TechStack />

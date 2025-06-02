@@ -6,11 +6,7 @@ export default function NewFooter() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="relative overflow-hidden rounded-t-3xl border-t bg-muted/30 md:rounded-t-[4rem]">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-green-500/30 blur-3xl dark:bg-green-500/10"></div>
-        <div className="absolute right-0 top-1/4 h-72 w-72 rounded-full bg-blue-500/30 blur-3xl dark:bg-blue-500/10"></div>
-      </div>
+    <footer className="relative overflow-hidden bg-white border-t border-gray-200">
       <div className="container mx-auto max-w-6xl px-5 pb-8 pt-16">
         <div className="mb-12 grid grid-cols-2 gap-8 md:grid-cols-6">
           <div className="col-span-2">
@@ -20,164 +16,196 @@ export default function NewFooter() {
                 alt="logo"
                 className="h-8 w-8 rounded-full"
               />
-              <span className="bg-green-500 bg-clip-text text-2xl font-semibold text-transparent">
+              <span className="text-2xl font-semibold text-black font-cal">
                 Zenith Studio
               </span>
             </div>
-            <p className="mb-4 text-muted-foreground">
-              AI-powered studio helping founders launch MVPs and scale their startups in under 5 weeks.
+            <p className="mb-4 text-gray-600 font-inter">
+              © 2025 Zenith Studio Solutions Private Limited.
+            </p>
+            <p className="mb-4 text-gray-600 font-inter">
+              All rights reserved.
+            </p>
+            <p className="mb-4 text-gray-600 font-inter">
+              contact@zenithstudio.com
             </p>
             <div className="flex space-x-3">
               <a
                 href="mailto:support@zenith-studio.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-background p-2 transition-colors hover:bg-muted"
+                className="rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200"
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-5 w-5 text-black" />
               </a>
               <a
                 href="https://twitter.com/zenithstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-background p-2 transition-colors hover:bg-muted"
+                className="rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200"
               >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="https://instagram.com/zenithstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-background p-2 transition-colors hover:bg-muted"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="https://linkedin.com/company/zenithstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-background p-2 transition-colors hover:bg-muted"
-              >
-                <Linkedin className="h-5 w-5" />
+                <Twitter className="h-5 w-5 text-black" />
               </a>
             </div>
           </div>
+          
           <div className="col-span-1">
-            <h3 className="mb-4 font-semibold">Pages</h3>
+            <h3 className="mb-4 font-semibold text-black font-cal">Company</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/#features"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  to="/work"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
                 >
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/projects"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Projects
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="col-span-1">
-            <h3 className="mb-4 font-semibold">Resources</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  to="/#pricing"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Pricing
+                  Work
                 </Link>
               </li>
               <li>
                 <Link
                   to="/#services"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
                 >
                   Services
                 </Link>
               </li>
               <li>
                 <Link
+                  to="/#pricing"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
+                >
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/templates"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
+                >
+                  Templates
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/contact"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
                 >
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
+          
           <div className="col-span-1">
-            <h3 className="mb-4 font-semibold">Our Presence</h3>
+            <h3 className="mb-4 font-semibold text-black font-cal">Products</h3>
             <ul className="space-y-2">
-              <li className="text-muted-foreground">
-                USA
+              <li>
+                <span className="text-gray-600 font-inter">Zenith UI</span>
               </li>
-              <li className="text-muted-foreground">
-                Dubai
+              <li>
+                <span className="text-gray-600 font-inter">Zenith UI Pro</span>
               </li>
-              <li className="text-muted-foreground">
-                India
+              <li>
+                <span className="text-gray-600 font-inter">Algochurn</span>
               </li>
             </ul>
           </div>
+          
           <div className="col-span-1">
-            <h3 className="mb-4 font-semibold">Support</h3>
+            <h3 className="mb-4 font-semibold text-black font-cal">Tools</h3>
+            <ul className="space-y-2">
+              <li>
+                <span className="text-gray-600 font-inter">Awesome Components</span>
+              </li>
+              <li>
+                <span className="text-gray-600 font-inter">Tailwindcss Buttons</span>
+              </li>
+              <li>
+                <span className="text-gray-600 font-inter">Mechanical Keyboard</span>
+              </li>
+              <li>
+                <span className="text-gray-600 font-inter">Box Shadows</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="col-span-1">
+            <h3 className="mb-4 font-semibold text-black font-cal">Legal</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/contact"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  to="/privacy"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
                 >
-                  Contact Us
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/#faq"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  to="/terms"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
                 >
-                  FAQs
+                  Terms and Conditions
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://wa.me/919108041057"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                <Link
+                  to="/refund"
+                  className="text-gray-600 transition-colors hover:text-black font-inter"
                 >
-                  WhatsApp
-                </a>
+                  Refund Policy
+                </Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="relative border-t border-muted/50 pt-8">
-          <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-green-500/70 to-transparent"></div>
-          <div className="flex flex-col items-center justify-between text-sm text-muted-foreground md:flex-row">
-            <p>
-              &copy; {currentYear}{" "}
-              <span className="font-medium text-foreground">Zenith Studio</span>.
-              All rights reserved.
-            </p>
-            <div className="mt-4 flex items-center space-x-1 md:mt-0">
-              <span>
-                Your dream, our code — launched in days.®
-              </span>
+        
+        <div className="pt-8 border-t border-gray-200">
+          <h3 className="mb-6 font-semibold text-black font-cal text-lg">Services</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            <div className="space-y-2">
+              <p className="text-gray-600 font-inter">Real Estate Website Design</p>
+              <p className="text-gray-600 font-inter">B2B Website Design</p>
+              <p className="text-gray-600 font-inter">Fiverr Website Design</p>
+              <p className="text-gray-600 font-inter">Medical Website Design</p>
+              <p className="text-gray-600 font-inter">Creative Website Design</p>
+              <p className="text-gray-600 font-inter">SaaS App development</p>
+              <p className="text-gray-600 font-inter">Custom Web Development Services</p>
+              <p className="text-gray-600 font-inter">Web Design Services for Small Businesses</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-gray-600 font-inter">Healthcare Website Design</p>
+              <p className="text-gray-600 font-inter">B2C Website Design</p>
+              <p className="text-gray-600 font-inter">Commercial Real Estate Website Design</p>
+              <p className="text-gray-600 font-inter">Los Angeles Website Design</p>
+              <p className="text-gray-600 font-inter">Construction Website Design</p>
+              <p className="text-gray-600 font-inter">Custom Webapp Development</p>
+              <p className="text-gray-600 font-inter">Custom Web Development Company</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-gray-600 font-inter">Restaurant Website Design</p>
+              <p className="text-gray-600 font-inter">Attorney Website Design</p>
+              <p className="text-gray-600 font-inter">Lawyer Website Design</p>
+              <p className="text-gray-600 font-inter">Corporate Website Design</p>
+              <p className="text-gray-600 font-inter">Marketing Website Design</p>
+              <p className="text-gray-600 font-inter">AI App Development</p>
+              <p className="text-gray-600 font-inter">React Web Development Company</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-gray-600 font-inter">Affordable Website Design</p>
+              <p className="text-gray-600 font-inter">Mobile Website Design</p>
+              <p className="text-gray-600 font-inter">Church Website Design</p>
+              <p className="text-gray-600 font-inter">Hotel Website Design</p>
+              <p className="text-gray-600 font-inter">Landing Page Development</p>
+              <p className="text-gray-600 font-inter">Custom Web Development</p>
+              <p className="text-gray-600 font-inter">Web Design and Development</p>
             </div>
           </div>
         </div>
