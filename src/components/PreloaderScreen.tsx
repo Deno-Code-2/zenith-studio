@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { AppleHelloEnglishEffect } from '@/components/ui/apple-hello-effect';
 
 interface PreloaderScreenProps {
   onComplete: () => void;
@@ -28,20 +27,22 @@ const PreloaderScreen = ({ onComplete }: PreloaderScreenProps) => {
       }}
     > 
       <div className="flex flex-col items-center justify-center">
-        <AppleHelloEnglishEffect 
-          speed={1.1} 
-          onAnimationComplete={handleAnimationComplete}
-          className="h-16 md:h-20 lg:h-24 text-black"
-        />
-        {animationComplete && (
-          <motion.p
+        {/* Custom Zenith Studio Text Animation */}
+        <motion.div
+          className="h-16 md:h-20 lg:h-24 text-black text-4xl md:text-5xl lg:text-6xl font-bold font-cal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-8 text-lg md:text-xl text-gray-600 font-inter"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            onAnimationComplete={handleAnimationComplete}
           >
-            Welcome to Zenith Studio
-          </motion.p>
-        )}
+            Zenith Studio
+          </motion.span>
+        </motion.div>
       </div>
     </motion.div>
   );

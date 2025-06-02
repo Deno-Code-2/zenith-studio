@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Search } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface NavItem {
@@ -88,7 +88,7 @@ export default function Header() {
         animate="visible"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className={`flex items-center justify-between ${isScrolled ? 'h-12' : 'h-16'} transition-all duration-500`}>
+          <div className="flex items-center justify-between h-16">
             <motion.div
               className="flex items-center space-x-3"
               variants={itemVariants}
@@ -100,18 +100,16 @@ export default function Header() {
                   <img
                     src="/images/Logo.png"
                     alt="Zenith Studio"
-                    className={`rounded-full transition-all duration-500 ${isScrolled ? 'h-8 w-8' : 'h-10 w-10'}`}
+                    className="h-10 w-10 rounded-full"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className={`font-bold text-black font-cal transition-all duration-500 ${isScrolled ? 'text-lg' : 'text-xl'}`}>
+                  <span className="text-xl font-bold text-black font-cal">
                     Zenith Studio
                   </span>
-                  {!isScrolled && (
-                    <span className="-mt-1 text-xs text-gray-600 font-inter">
-                      Build faster
-                    </span>
-                  )}
+                  <span className="-mt-1 text-xs text-gray-600 font-inter">
+                    Build faster
+                  </span>
                 </div>
               </Link>
             </motion.div>

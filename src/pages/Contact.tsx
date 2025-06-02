@@ -4,6 +4,9 @@ import Header from "@/components/Header";
 import ContactForm from "@/components/ContactForm";
 import ContactDetails from "@/components/ContactDetails";
 import GoogleMap from "@/components/GoogleMap";
+import GlobalPresence from "@/components/GlobalPresence";
+import NewCTA from "@/components/NewCTA";
+import NewFooter from "@/components/NewFooter";
 import { motion } from "framer-motion";
 
 const Contact = () => {
@@ -17,7 +20,7 @@ const Contact = () => {
       <Header />
       <div className="pt-16">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-[#199e76]/10 to-white">
+        <section className="py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -127,7 +130,12 @@ const Contact = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Additional Sections */}
+        <GlobalPresence />
+        <NewCTA />
       </div>
+      <NewFooter />
     </div>
   );
 };
