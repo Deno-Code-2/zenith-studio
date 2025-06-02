@@ -99,7 +99,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto font-inter pt-1"
             >
-              We craft and develop websites that deliver exceptional results and accelerate your business growth. No lengthy calls. No unnecessary complications. Just outstanding outcomes.
+              We design and build websites that drive results and help your business grow. No Calls. No BS. Just Results.
             </motion.p>
 
             <motion.div
