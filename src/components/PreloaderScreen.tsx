@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { ZenithStudioEffect } from '@/components/ui/zenith-studio-effect';
 
 interface PreloaderScreenProps {
   onComplete: () => void;
@@ -27,22 +28,14 @@ const PreloaderScreen = ({ onComplete }: PreloaderScreenProps) => {
       }}
     > 
       <div className="flex flex-col items-center justify-center">
-        {/* Custom Zenith Studio Text Animation */}
-        <motion.div
-          className="h-16 md:h-20 lg:h-24 text-black text-4xl md:text-5xl lg:text-6xl font-bold font-cal"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+        {/* Zenith Studio Drawing Animation */}
+        <div className="h-24 md:h-28 lg:h-32 flex items-center justify-center">
+          <ZenithStudioEffect
+            speed={1.2}
             onAnimationComplete={handleAnimationComplete}
-          >
-            Zenith Studio
-          </motion.span>
-        </motion.div>
+            className="text-black h-full w-auto"
+          />
+        </div>
       </div>
     </motion.div>
   );

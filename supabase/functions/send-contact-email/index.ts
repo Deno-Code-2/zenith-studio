@@ -29,10 +29,10 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { name, email, phone, service, pricing, deadline, message }: ContactEmailRequest = await req.json();
 
-    // Send email to the business
+    // Send email to both business emails
     const businessEmailResponse = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
-      to: ["hello@zenith-studio.dev"], // Your business email
+      to: ["support@zenith-studio.dev", "syedmoinuddin106@gmail.com"], // Both email addresses
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
