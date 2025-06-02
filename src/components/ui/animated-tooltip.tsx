@@ -1,77 +1,55 @@
+"use client";
+import React from "react";
+import { AnimatedTooltip } from "../ui/animated-tooltip";
+const people = [
+  {
+    id: 1,
+    name: "John Doe",
+    designation: "Software Engineer",
+    image:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    id: 2,
+    name: "Robert Johnson",
+    designation: "Product Manager",
+    image:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 3,
+    name: "Jane Smith",
+    designation: "Data Scientist",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 4,
+    name: "Emily Davis",
+    designation: "UX Designer",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 5,
+    name: "Tyler Durden",
+    designation: "Soap Developer",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+  },
+  {
+    id: 6,
+    name: "Dora",
+    designation: "The Explorer",
+    image:
+      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
+  },
+];
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-
-export const AnimatedTooltip = ({
-  items,
-}: {
-  items: {
-    id: number;
-    name: string;
-    designation: string;
-    image: string;
-  }[];
-}) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
+export function AnimatedTooltipPreview() {
   return (
-    <div className="flex flex-row items-center justify-center py-8">
-      {items.map((item, idx) => (
-        <div
-          key={item.id}
-          className="relative group"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          <div
-            className={`h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-full flex items-center justify-center cursor-pointer grayscale hover:grayscale-0 ${
-              hoveredIndex === idx && "grayscale-0"
-            }`}
-          >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="object-cover rounded-full h-full w-full"
-              onMouseMove={(e: React.MouseEvent<HTMLImageElement>) => {
-                if (hoveredIndex === idx) {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = e.clientX - rect.left - rect.width / 2;
-                  const y = e.clientY - rect.top - rect.height / 2;
-                  const tooltip = document.getElementById(`tooltip-${idx}`);
-                  if (tooltip) {
-                    tooltip.style.transform = `translate(${x * 0.1}px, ${
-                      y * 0.1
-                    }px)`;
-                  }
-                }
-              }}
-            />
-          </div>
-          {hoveredIndex === idx && (
-            <motion.div
-              id={`tooltip-${idx}`}
-              initial={{ opacity: 0, y: 20, scale: 0.6 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 10,
-                },
-              }}
-              exit={{ opacity: 0, y: 20, scale: 0.6 }}
-              className="absolute -top-16 left-0 right-0 z-50 flex items-center justify-center"
-            >
-              <div className="bg-black text-white rounded-md px-4 py-2 text-center">
-                <div className="font-bold text-sm">{item.name}</div>
-                <div className="text-xs">{item.designation}</div>
-              </div>
-            </motion.div>
-          )}
-        </div>
-      ))}
+    <div className="flex flex-row items-center justify-center mb-10 w-full">
+      <AnimatedTooltip items={people} />
     </div>
   );
-};
+}
