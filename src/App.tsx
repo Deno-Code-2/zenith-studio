@@ -22,6 +22,12 @@ const ContactPage = lazy(() => import("@/pages/Contact"));
 const PricingPage = lazy(() => import("@/pages/Pricing")); 
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 
+// Lazy load service pages
+const RealEstateWebsiteDesign = lazy(() => import("@/pages/services/RealEstateWebsiteDesign"));
+const B2BWebsiteDesign = lazy(() => import("@/pages/services/B2BWebsiteDesign"));
+const SaaSAppDevelopment = lazy(() => import("@/pages/services/SaaSAppDevelopment"));
+const AIAppDevelopment = lazy(() => import("@/pages/services/AIAppDevelopment"));
+
 // Microsoft Clarity initialization
 const initClarity = () => {
   // @ts-ignore
@@ -83,6 +89,13 @@ const AppWithPreloader = () => {
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
+                
+                {/* Service Pages */}
+                <Route path="/services/real-estate-website-design" element={<RealEstateWebsiteDesign />} />
+                <Route path="/services/b2b-website-design" element={<B2BWebsiteDesign />} />
+                <Route path="/services/saas-app-development" element={<SaaSAppDevelopment />} />
+                <Route path="/services/ai-app-development" element={<AIAppDevelopment />} />
+                
                 <Route path="/404" element={<NotFoundPage />} />
                 <Route path="*" element={<Navigate to="/404" replace />} />
               </Routes>
