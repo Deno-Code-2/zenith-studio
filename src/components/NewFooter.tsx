@@ -108,6 +108,21 @@ export default function NewFooter() {
             </ul>
           </div>
           
+          <div className="col-span-2">
+            <h3 className="mb-4 font-semibold text-black font-cal">Services</h3>
+            <div className="grid grid-cols-1 gap-2 text-sm">
+              <Link to="/services/real-estate-website-design" className="text-gray-600 hover:text-black transition-colors font-inter">Real Estate Website Design</Link>
+              <Link to="/services/b2b-website-design" className="text-gray-600 hover:text-black transition-colors font-inter">B2B Website Design</Link>
+              <Link to="/services/medical-website-design" className="text-gray-600 hover:text-black transition-colors font-inter">Medical Website Design</Link>
+              <Link to="/services/saas-app-development" className="text-gray-600 hover:text-black transition-colors font-inter">SaaS App development</Link>
+              <Link to="/services/custom-web-development" className="text-gray-600 hover:text-black transition-colors font-inter">Custom Web Development</Link>
+              <Link to="/services/restaurant-website-design" className="text-gray-600 hover:text-black transition-colors font-inter">Restaurant Website Design</Link>
+              <Link to="/services/marketing-website-design" className="text-gray-600 hover:text-black transition-colors font-inter">Marketing Website Design</Link>
+              <Link to="/services/ai-app-development" className="text-gray-600 hover:text-black transition-colors font-inter">AI App Development</Link>
+              <Link to="/services/landing-page-development" className="text-gray-600 hover:text-black transition-colors font-inter">Landing Page Development</Link>
+            </div>
+          </div>
+          
           <div className="col-span-1">
             <h3 className="mb-4 font-semibold text-black font-cal">Legal</h3>
             <ul className="space-y-2">
@@ -136,25 +151,6 @@ export default function NewFooter() {
                 </Link>
               </li>
             </ul>
-          </div>
-        </div>
-        
-        <div className="pt-8 border-t border-gray-200">
-          <h3 className="mb-6 font-semibold text-black font-cal text-lg">Services</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
-            <div className="space-y-2">
-              <Link to="/services/real-estate-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">Real Estate Website Design</Link>
-              <Link to="/services/b2b-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">B2B Website Design</Link>
-              <Link to="/services/medical-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">Medical Website Design</Link>
-              <Link to="/services/saas-app-development" className="block text-gray-600 hover:text-black transition-colors font-inter">SaaS App development</Link>
-              <Link to="/services/custom-web-development" className="block text-gray-600 hover:text-black transition-colors font-inter">Custom Web Development</Link>
-            </div>
-            <div className="space-y-2">
-              <Link to="/services/restaurant-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">Restaurant Website Design</Link>
-              <Link to="/services/marketing-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">Marketing Website Design</Link>
-              <Link to="/services/ai-app-development" className="block text-gray-600 hover:text-black transition-colors font-inter">AI App Development</Link>
-              <Link to="/services/landing-page-development" className="block text-gray-600 hover:text-black transition-colors font-inter">Landing Page Development</Link>
-            </div>
           </div>
         </div>
       </div>

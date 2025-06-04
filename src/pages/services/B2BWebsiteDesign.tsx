@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
+import { Features } from "@/components/ui/features-4";
 
 const B2BWebsiteDesign = () => {
   return (
@@ -16,12 +17,40 @@ const B2BWebsiteDesign = () => {
       <Header />
       
       <div className="pt-20">
+        {/* Hero Section */}
         <div className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-black mb-6 font-syne">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-black mb-6 font-syne">
               B2B Website Design
             </h1>
-            
+            <p className="text-xl text-gray-600 mb-8 font-jakarta max-w-2xl mx-auto">
+              Create powerful B2B websites that establish credibility, generate leads, and drive business growth.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://cal.com/zenithstudio/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors font-jakarta"
+              >
+                Get Started Today
+              </a>
+              <a
+                href="#learn-more"
+                className="border border-gray-300 text-black px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors font-jakarta"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <Features />
+
+        {/* Content Section */}
+        <div id="learn-more" className="container mx-auto px-4 py-16">
+          <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-gray-600 mb-8 font-jakarta">
                 Create powerful B2B websites that establish credibility, generate leads, and drive business growth.

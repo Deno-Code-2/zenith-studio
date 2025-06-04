@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
+import { Features } from "@/components/ui/features-4";
 
 const RestaurantWebsiteDesign = () => {
   return (
@@ -43,6 +44,9 @@ const RestaurantWebsiteDesign = () => {
             </div>
           </div>
         </div>
+
+        {/* Features Section */}
+        <Features />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">
