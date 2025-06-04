@@ -11,11 +11,6 @@ export default function NewFooter() {
         <div className="mb-12 grid grid-cols-2 gap-8 md:grid-cols-6">
           <div className="col-span-2">
             <div className="mb-4 flex items-center justify-start gap-2">
-              <img
-                src="/images/Logo.png"
-                alt="logo"
-                className="h-8 w-8 rounded-full"
-              />
               <span className="text-2xl font-semibold text-black font-cal">
                 Zenith Studio
               </span>
@@ -114,21 +109,6 @@ export default function NewFooter() {
           </div>
           
           <div className="col-span-1">
-            <h3 className="mb-4 font-semibold text-black font-cal">Products</h3>
-            <ul className="space-y-2">
-              <li>
-                <span className="text-gray-600 font-inter">Zenith UI</span>
-              </li>
-              <li>
-                <span className="text-gray-600 font-inter">Zenith UI Pro</span>
-              </li>
-              <li>
-                <span className="text-gray-600 font-inter">Algochurn</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="col-span-1">
             <h3 className="mb-4 font-semibold text-black font-cal">Legal</h3>
             <ul className="space-y-2">
               <li>
@@ -161,43 +141,19 @@ export default function NewFooter() {
         
         <div className="pt-8 border-t border-gray-200">
           <h3 className="mb-6 font-semibold text-black font-cal text-lg">Services</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
             <div className="space-y-2">
               <Link to="/services/real-estate-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">Real Estate Website Design</Link>
               <Link to="/services/b2b-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">B2B Website Design</Link>
-              <p className="text-gray-600 font-inter">Fiverr Website Design</p>
-              <p className="text-gray-600 font-inter">Medical Website Design</p>
-              <p className="text-gray-600 font-inter">Creative Website Design</p>
+              <Link to="/services/medical-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">Medical Website Design</Link>
               <Link to="/services/saas-app-development" className="block text-gray-600 hover:text-black transition-colors font-inter">SaaS App development</Link>
-              <p className="text-gray-600 font-inter">Custom Web Development Services</p>
-              <p className="text-gray-600 font-inter">Web Design Services for Small Businesses</p>
+              <Link to="/services/custom-web-development" className="block text-gray-600 hover:text-black transition-colors font-inter">Custom Web Development</Link>
             </div>
             <div className="space-y-2">
-              <p className="text-gray-600 font-inter">Healthcare Website Design</p>
-              <p className="text-gray-600 font-inter">B2C Website Design</p>
-              <p className="text-gray-600 font-inter">Commercial Real Estate Website Design</p>
-              <p className="text-gray-600 font-inter">Los Angeles Website Design</p>
-              <p className="text-gray-600 font-inter">Construction Website Design</p>
-              <p className="text-gray-600 font-inter">Custom Webapp Development</p>
-              <p className="text-gray-600 font-inter">Custom Web Development Company</p>
-            </div>
-            <div className="space-y-2">
-              <p className="text-gray-600 font-inter">Restaurant Website Design</p>
-              <p className="text-gray-600 font-inter">Attorney Website Design</p>
-              <p className="text-gray-600 font-inter">Lawyer Website Design</p>
-              <p className="text-gray-600 font-inter">Corporate Website Design</p>
-              <p className="text-gray-600 font-inter">Marketing Website Design</p>
+              <Link to="/services/restaurant-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">Restaurant Website Design</Link>
+              <Link to="/services/marketing-website-design" className="block text-gray-600 hover:text-black transition-colors font-inter">Marketing Website Design</Link>
               <Link to="/services/ai-app-development" className="block text-gray-600 hover:text-black transition-colors font-inter">AI App Development</Link>
-              <p className="text-gray-600 font-inter">React Web Development Company</p>
-            </div>
-            <div className="space-y-2">
-              <p className="text-gray-600 font-inter">Affordable Website Design</p>
-              <p className="text-gray-600 font-inter">Mobile Website Design</p>
-              <p className="text-gray-600 font-inter">Church Website Design</p>
-              <p className="text-gray-600 font-inter">Hotel Website Design</p>
-              <p className="text-gray-600 font-inter">Landing Page Development</p>
-              <p className="text-gray-600 font-inter">Custom Web Development</p>
-              <p className="text-gray-600 font-inter">Web Design and Development</p>
+              <Link to="/services/landing-page-development" className="block text-gray-600 hover:text-black transition-colors font-inter">Landing Page Development</Link>
             </div>
           </div>
         </div>

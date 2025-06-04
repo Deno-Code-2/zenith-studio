@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ZenithStudioEffect } from '@/components/ui/zenith-studio-effect';
+import { AppleHelloEnglishEffect } from '@/components/ui/apple-hello-effect';
 
 interface PreloaderScreenProps {
   onComplete: () => void;
@@ -28,10 +28,10 @@ const PreloaderScreen = ({ onComplete }: PreloaderScreenProps) => {
       }}
     > 
       <div className="flex flex-col items-center justify-center">
-        {/* Zenith Studio Drawing Animation */}
+        {/* Hello Animation */}
         <div className="h-24 md:h-28 lg:h-32 flex items-center justify-center">
-          <ZenithStudioEffect
-            speed={1.2}
+          <AppleHelloEnglishEffect
+            speed={1.1}
             onAnimationComplete={handleAnimationComplete}
             className="text-black h-full w-auto"
           />

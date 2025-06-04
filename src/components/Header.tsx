@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -96,13 +95,6 @@ export default function Header() {
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
               <Link to="/" className="flex items-center space-x-3">
-                <div className="relative">
-                  <img
-                    src="/images/Logo.png"
-                    alt="Zenith Studio"
-                    className="h-10 w-10 rounded-full"
-                  />
-                </div>
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-black font-cal">
                     Zenith Studio

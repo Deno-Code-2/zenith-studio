@@ -1,4 +1,3 @@
-
 import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
@@ -22,11 +21,21 @@ const ContactPage = lazy(() => import("@/pages/Contact"));
 const PricingPage = lazy(() => import("@/pages/Pricing")); 
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 
+// Lazy load legal pages
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsAndConditions = lazy(() => import("@/pages/TermsAndConditions"));
+const RefundPolicy = lazy(() => import("@/pages/RefundPolicy"));
+
 // Lazy load service pages
 const RealEstateWebsiteDesign = lazy(() => import("@/pages/services/RealEstateWebsiteDesign"));
 const B2BWebsiteDesign = lazy(() => import("@/pages/services/B2BWebsiteDesign"));
 const SaaSAppDevelopment = lazy(() => import("@/pages/services/SaaSAppDevelopment"));
 const AIAppDevelopment = lazy(() => import("@/pages/services/AIAppDevelopment"));
+const MedicalWebsiteDesign = lazy(() => import("@/pages/services/MedicalWebsiteDesign"));
+const RestaurantWebsiteDesign = lazy(() => import("@/pages/services/RestaurantWebsiteDesign"));
+const MarketingWebsiteDesign = lazy(() => import("@/pages/services/MarketingWebsiteDesign"));
+const CustomWebDevelopment = lazy(() => import("@/pages/services/CustomWebDevelopment"));
+const LandingPageDevelopment = lazy(() => import("@/pages/services/LandingPageDevelopment"));
 
 // Microsoft Clarity initialization
 const initClarity = () => {
@@ -90,11 +99,21 @@ const AppWithPreloader = () => {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 
+                {/* Legal Pages */}
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<TermsAndConditions />} />
+                <Route path="/refund" element={<RefundPolicy />} />
+                
                 {/* Service Pages */}
                 <Route path="/services/real-estate-website-design" element={<RealEstateWebsiteDesign />} />
                 <Route path="/services/b2b-website-design" element={<B2BWebsiteDesign />} />
                 <Route path="/services/saas-app-development" element={<SaaSAppDevelopment />} />
                 <Route path="/services/ai-app-development" element={<AIAppDevelopment />} />
+                <Route path="/services/medical-website-design" element={<MedicalWebsiteDesign />} />
+                <Route path="/services/restaurant-website-design" element={<RestaurantWebsiteDesign />} />
+                <Route path="/services/marketing-website-design" element={<MarketingWebsiteDesign />} />
+                <Route path="/services/custom-web-development" element={<CustomWebDevelopment />} />
+                <Route path="/services/landing-page-development" element={<LandingPageDevelopment />} />
                 
                 <Route path="/404" element={<NotFoundPage />} />
                 <Route path="*" element={<Navigate to="/404" replace />} />
