@@ -5,13 +5,47 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { Brain, Zap, Database, Shield, Cpu, Bot } from "lucide-react";
 
 const AIAppDevelopment = () => {
+  const aiFeatures = [
+    {
+      icon: <Brain className="size-4" />,
+      title: "Machine Learning",
+      description: "Advanced ML algorithms for predictive analytics, recommendation systems, and intelligent automation."
+    },
+    {
+      icon: <Bot className="size-4" />,
+      title: "AI Chatbots",
+      description: "Intelligent conversational AI that provides 24/7 customer support and engagement."
+    },
+    {
+      icon: <Zap className="size-4" />,
+      title: "Real-time Processing",
+      description: "Lightning-fast AI inference and real-time data processing for immediate insights."
+    },
+    {
+      icon: <Database className="size-4" />,
+      title: "Data Intelligence",
+      description: "Transform raw data into actionable insights with advanced analytics and visualization."
+    },
+    {
+      icon: <Shield className="size-4" />,
+      title: "Ethical AI",
+      description: "Responsible AI development with bias detection, privacy protection, and transparency."
+    },
+    {
+      icon: <Cpu className="size-4" />,
+      title: "Custom Models",
+      description: "Tailored AI models trained specifically for your business needs and industry requirements."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
         <title>AI App Development | Zenith Studio</title>
-        <meta name="description" content="Professional AI application development services to build intelligent solutions for your business." />
+        <meta name="description" content="Cutting-edge AI application development services to build intelligent solutions for your business." />
       </Helmet>
       
       <Header />
@@ -24,7 +58,7 @@ const AIAppDevelopment = () => {
               AI App Development
             </h1>
             <p className="text-xl text-gray-600 mb-8 font-jakarta max-w-2xl mx-auto">
-              Build cutting-edge AI applications that automate processes and provide intelligent solutions for your business.
+              Build intelligent applications powered by cutting-edge AI technology that transforms your business operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -46,7 +80,11 @@ const AIAppDevelopment = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="AI-Powered Solutions for Modern Business"
+          description="We develop intelligent applications that leverage machine learning, natural language processing, and computer vision to solve complex business challenges."
+          features={aiFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">

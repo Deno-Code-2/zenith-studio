@@ -5,8 +5,42 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { UtensilsCrossed, MapPin, Clock, Camera, Star, Smartphone } from "lucide-react";
 
 const RestaurantWebsiteDesign = () => {
+  const restaurantFeatures = [
+    {
+      icon: <UtensilsCrossed className="size-4" />,
+      title: "Interactive Menus",
+      description: "Beautiful, mobile-friendly digital menus with mouth-watering food photography and descriptions."
+    },
+    {
+      icon: <Clock className="size-4" />,
+      title: "Online Reservations",
+      description: "Integrated booking system for table reservations with real-time availability updates."
+    },
+    {
+      icon: <Camera className="size-4" />,
+      title: "Food Photography",
+      description: "Stunning food galleries and professional photography that make dishes irresistible."
+    },
+    {
+      icon: <MapPin className="size-4" />,
+      title: "Location & Hours",
+      description: "Clear location information, hours of operation, and Google Maps integration for easy navigation."
+    },
+    {
+      icon: <Star className="size-4" />,
+      title: "Customer Reviews",
+      description: "Integrated review system and testimonials to build trust and showcase customer satisfaction."
+    },
+    {
+      icon: <Smartphone className="size-4" />,
+      title: "Online Ordering",
+      description: "Seamless online ordering system for takeout and delivery with payment processing."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
@@ -46,7 +80,11 @@ const RestaurantWebsiteDesign = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="Restaurant Websites That Drive Reservations"
+          description="We create appetizing restaurant websites with online ordering, reservation systems, and stunning food photography that brings customers through your doors."
+          features={restaurantFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">

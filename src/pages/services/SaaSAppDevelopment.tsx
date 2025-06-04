@@ -5,8 +5,42 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { Cloud, Database, Users, Shield, Zap, Settings } from "lucide-react";
 
 const SaaSAppDevelopment = () => {
+  const saasFeatures = [
+    {
+      icon: <Cloud className="size-4" />,
+      title: "Cloud-Native",
+      description: "Built for the cloud with automatic scaling and high availability across global regions."
+    },
+    {
+      icon: <Database className="size-4" />,
+      title: "Multi-Tenant",
+      description: "Secure multi-tenant architecture that isolates customer data while optimizing resources."
+    },
+    {
+      icon: <Users className="size-4" />,
+      title: "User Management",
+      description: "Complete user authentication, role-based access control, and team collaboration features."
+    },
+    {
+      icon: <Shield className="size-4" />,
+      title: "Enterprise Security",
+      description: "Bank-level security with encryption, compliance, and regular security audits."
+    },
+    {
+      icon: <Zap className="size-4" />,
+      title: "Lightning Fast",
+      description: "Optimized performance with CDN delivery and intelligent caching for global users."
+    },
+    {
+      icon: <Settings className="size-4" />,
+      title: "Easy Integration",
+      description: "RESTful APIs and webhooks for seamless integration with existing business tools."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
@@ -46,7 +80,11 @@ const SaaSAppDevelopment = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="Why Choose Our SaaS Development?"
+          description="We build enterprise-grade SaaS applications with modern architecture, scalable infrastructure, and user-centric design that grows with your business."
+          features={saasFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">

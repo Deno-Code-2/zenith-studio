@@ -5,8 +5,42 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { Shield, Calendar, FileText, Phone, Users, Heart } from "lucide-react";
 
 const MedicalWebsiteDesign = () => {
+  const medicalFeatures = [
+    {
+      icon: <Shield className="size-4" />,
+      title: "HIPAA Compliant",
+      description: "Secure, compliant design that protects patient privacy and meets healthcare regulations."
+    },
+    {
+      icon: <Calendar className="size-4" />,
+      title: "Online Booking",
+      description: "Integrated appointment scheduling system for easy patient booking and management."
+    },
+    {
+      icon: <FileText className="size-4" />,
+      title: "Patient Portal",
+      description: "Secure patient portals for accessing medical records, test results, and communication."
+    },
+    {
+      icon: <Phone className="size-4" />,
+      title: "Telemedicine Ready",
+      description: "Built-in telemedicine capabilities for virtual consultations and remote patient care."
+    },
+    {
+      icon: <Users className="size-4" />,
+      title: "Trust Building",
+      description: "Professional design with doctor credentials, testimonials, and certifications."
+    },
+    {
+      icon: <Heart className="size-4" />,
+      title: "Patient Experience",
+      description: "User-friendly interface designed for patients of all ages and technical abilities."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
@@ -46,7 +80,11 @@ const MedicalWebsiteDesign = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="Healthcare Websites That Patients Trust"
+          description="We design medical websites that comply with healthcare regulations, build patient trust, and streamline your practice operations."
+          features={medicalFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">

@@ -5,8 +5,42 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { Target, Zap, BarChart, Users, TestTube, Smartphone } from "lucide-react";
 
 const LandingPageDevelopment = () => {
+  const landingPageFeatures = [
+    {
+      icon: <Target className="size-4" />,
+      title: "Conversion Optimized",
+      description: "Every element strategically placed to maximize conversions and achieve your campaign goals."
+    },
+    {
+      icon: <Zap className="size-4" />,
+      title: "Lightning Fast",
+      description: "Ultra-fast loading speeds that keep visitors engaged and improve your ad quality scores."
+    },
+    {
+      icon: <BarChart className="size-4" />,
+      title: "A/B Testing Ready",
+      description: "Built-in testing capabilities to optimize headlines, CTAs, and layouts for better performance."
+    },
+    {
+      icon: <Users className="size-4" />,
+      title: "Lead Capture",
+      description: "Optimized forms and lead magnets that capture visitor information and grow your pipeline."
+    },
+    {
+      icon: <TestTube className="size-4" />,
+      title: "Campaign Focused",
+      description: "Single-purpose design that eliminates distractions and guides visitors to take action."
+    },
+    {
+      icon: <Smartphone className="size-4" />,
+      title: "Mobile First",
+      description: "Responsive design that converts perfectly on all devices, especially mobile traffic."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
@@ -46,7 +80,11 @@ const LandingPageDevelopment = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="Landing Pages That Convert"
+          description="We create high-performing landing pages with conversion optimization, A/B testing, and lead capture systems that maximize your campaign ROI."
+          features={landingPageFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">

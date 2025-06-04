@@ -5,8 +5,42 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { Home, Search, MapPin, Camera, Users, Smartphone } from "lucide-react";
 
 const RealEstateWebsiteDesign = () => {
+  const realEstateFeatures = [
+    {
+      icon: <Home className="size-4" />,
+      title: "Property Showcase",
+      description: "Beautiful property galleries with high-resolution images and virtual tours to captivate buyers."
+    },
+    {
+      icon: <Search className="size-4" />,
+      title: "Advanced Search",
+      description: "Powerful search filters by location, price, property type, and custom criteria for easy discovery."
+    },
+    {
+      icon: <MapPin className="size-4" />,
+      title: "Interactive Maps",
+      description: "Google Maps integration with property markers, neighborhood info, and nearby amenities."
+    },
+    {
+      icon: <Camera className="size-4" />,
+      title: "Virtual Tours",
+      description: "360° virtual tours and video walkthroughs to give buyers an immersive experience."
+    },
+    {
+      icon: <Users className="size-4" />,
+      title: "Lead Generation",
+      description: "Contact forms, inquiry systems, and CRM integration to capture and manage leads effectively."
+    },
+    {
+      icon: <Smartphone className="size-4" />,
+      title: "Mobile Optimized",
+      description: "Fully responsive design that works perfectly on all devices for on-the-go property hunting."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
@@ -46,7 +80,11 @@ const RealEstateWebsiteDesign = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="Real Estate Website Features That Convert"
+          description="We create real estate websites with powerful property search, stunning galleries, and lead generation tools that help you close more deals."
+          features={realEstateFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">

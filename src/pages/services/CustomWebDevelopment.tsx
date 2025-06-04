@@ -5,8 +5,42 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { Code, Database, Puzzle, Shield, Zap, Settings } from "lucide-react";
 
 const CustomWebDevelopment = () => {
+  const customDevFeatures = [
+    {
+      icon: <Code className="size-4" />,
+      title: "Custom Solutions",
+      description: "Bespoke web applications built from scratch to meet your unique business requirements."
+    },
+    {
+      icon: <Database className="size-4" />,
+      title: "Database Design",
+      description: "Optimized database architecture for efficient data storage, retrieval, and management."
+    },
+    {
+      icon: <Puzzle className="size-4" />,
+      title: "API Integration",
+      description: "Seamless integration with third-party services, payment gateways, and business tools."
+    },
+    {
+      icon: <Shield className="size-4" />,
+      title: "Security First",
+      description: "Enterprise-grade security measures to protect your data and users from threats."
+    },
+    {
+      icon: <Zap className="size-4" />,
+      title: "Performance Optimized",
+      description: "Lightning-fast loading speeds with optimized code and modern development practices."
+    },
+    {
+      icon: <Settings className="size-4" />,
+      title: "Scalable Architecture",
+      description: "Future-proof solutions that grow with your business and handle increased traffic."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
@@ -46,7 +80,11 @@ const CustomWebDevelopment = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="Custom Development Solutions"
+          description="We build powerful, scalable web applications using cutting-edge technologies and best practices tailored specifically to your business needs."
+          features={customDevFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">

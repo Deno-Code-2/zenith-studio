@@ -5,8 +5,42 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { Target, TrendingUp, Users, BarChart, Megaphone, Zap } from "lucide-react";
 
 const MarketingWebsiteDesign = () => {
+  const marketingFeatures = [
+    {
+      icon: <Target className="size-4" />,
+      title: "Conversion Focused",
+      description: "Every element designed to guide visitors toward your conversion goals and maximize ROI."
+    },
+    {
+      icon: <TrendingUp className="size-4" />,
+      title: "Lead Generation",
+      description: "Powerful lead capture forms, landing pages, and CTA optimization to grow your pipeline."
+    },
+    {
+      icon: <BarChart className="size-4" />,
+      title: "Analytics Ready",
+      description: "Built-in tracking and analytics setup to measure performance and optimize campaigns."
+    },
+    {
+      icon: <Users className="size-4" />,
+      title: "Audience Targeting",
+      description: "Personalized user experiences that speak directly to your ideal customer segments."
+    },
+    {
+      icon: <Megaphone className="size-4" />,
+      title: "Campaign Integration",
+      description: "Seamless integration with marketing tools, email platforms, and advertising campaigns."
+    },
+    {
+      icon: <Zap className="size-4" />,
+      title: "Fast Loading",
+      description: "Lightning-fast performance that keeps visitors engaged and improves search rankings."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
@@ -46,7 +80,11 @@ const MarketingWebsiteDesign = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="Marketing Websites That Convert"
+          description="We design marketing websites with conversion optimization, lead generation, and analytics tracking that turn your visitors into customers."
+          features={marketingFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">

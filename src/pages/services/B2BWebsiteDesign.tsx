@@ -5,8 +5,42 @@ import NewFooter from "@/components/NewFooter";
 import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
+import { Building, TrendingUp, Shield, Users, Award, Target } from "lucide-react";
 
 const B2BWebsiteDesign = () => {
+  const b2bFeatures = [
+    {
+      icon: <Building className="size-4" />,
+      title: "Professional Branding",
+      description: "Corporate design that establishes credibility and builds trust with business decision-makers."
+    },
+    {
+      icon: <TrendingUp className="size-4" />,
+      title: "Lead Generation",
+      description: "Conversion-optimized forms, landing pages, and CTAs designed to capture qualified business leads."
+    },
+    {
+      icon: <Shield className="size-4" />,
+      title: "Trust Signals",
+      description: "Client testimonials, case studies, certifications, and security badges to build confidence."
+    },
+    {
+      icon: <Users className="size-4" />,
+      title: "Stakeholder Focus",
+      description: "Multi-audience design that speaks to different roles in the B2B buying process."
+    },
+    {
+      icon: <Award className="size-4" />,
+      title: "Case Studies",
+      description: "Compelling success stories and ROI demonstrations that prove your business value."
+    },
+    {
+      icon: <Target className="size-4" />,
+      title: "Sales Enablement",
+      description: "Resources, whitepapers, and tools that support your sales team's efforts."
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
@@ -46,7 +80,11 @@ const B2BWebsiteDesign = () => {
         </div>
 
         {/* Features Section */}
-        <Features />
+        <Features 
+          title="B2B Websites That Drive Business Results"
+          description="We design B2B websites that speak to decision-makers, build trust, and convert prospects into long-term business partners."
+          features={b2bFeatures}
+        />
 
         {/* Content Section */}
         <div id="learn-more" className="container mx-auto px-4 py-16">
