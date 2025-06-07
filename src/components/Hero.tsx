@@ -126,9 +126,9 @@ const Hero = () => {
                 </motion.a>
               </Button>
               
-              <div className="flex items-center justify-center">
-                <AnimatedTooltip items={people} />
-              </div>
+<div className="flex items-center justify-center">
+  {/* <AnimatedTooltip items={people} /> */}
+</div>
             </motion.div>
           </motion.div>
         </div>
