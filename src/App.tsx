@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -6,7 +7,6 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { HelmetProvider } from "react-helmet-async";
 import SmoothScroll from "@/components/SmoothScroll";
 import { AnimatePresence } from "framer-motion";
-import PreloaderScreen from "@/components/PreloaderScreen";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -47,19 +47,11 @@ const initClarity = () => {
   window.clarity("identify", "anonymous");
 };
 
-// Separate component to handle the preloader logic
-const AppWithPreloader = () => {
+// Separate component to handle the app logic
+const AppContent = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
-  const [loading, setLoading] = useState(isHomePage && sessionStorage.getItem('initialLoadComplete') !== 'true');
 
-  // Mark initial load as complete when preloader finishes
   useEffect(() => {
-    if (loading && isHomePage) {
-      // Don't set this immediately, let the preloader finish first
-      return;
-    }
-    
     // Force light mode on the document element
     document.documentElement.classList.remove("dark");
     document.documentElement.classList.add("light");
@@ -69,59 +61,45 @@ const AppWithPreloader = () => {
     
     // Initialize Microsoft Clarity
     initClarity();
-  }, [loading, isHomePage]);
-
-  const handlePreloaderComplete = () => {
-    setLoading(false);
-    sessionStorage.setItem('initialLoadComplete', 'true');
-  };
+  }, [location]);
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        {loading && <PreloaderScreen onComplete={handlePreloaderComplete} />}
-      </AnimatePresence>
-      
-      {/* Only render the app content when loading is complete or not on homepage */}
-      {(!loading || !isHomePage) && (
-        <>
-          <SmoothScroll />
-          <Suspense fallback={
-            <div className="flex items-center justify-center h-screen bg-background">
-              <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
-            </div>
-          }>
-            <AnimatePresence mode="wait">
-              <Routes>
-                <Route path="/" element={<IndexPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/pricing" element={<PricingPage />} />
-                
-                {/* Legal Pages */}
-                <Route path="/privacy" element={<PrivacyPolicy />} />
-                <Route path="/terms" element={<TermsAndConditions />} />
-                <Route path="/refund" element={<RefundPolicy />} />
-                
-                {/* Service Pages */}
-                <Route path="/services/real-estate-website-design" element={<RealEstateWebsiteDesign />} />
-                <Route path="/services/b2b-website-design" element={<B2BWebsiteDesign />} />
-                <Route path="/services/saas-app-development" element={<SaaSAppDevelopment />} />
-                <Route path="/services/ai-app-development" element={<AIAppDevelopment />} />
-                <Route path="/services/medical-website-design" element={<MedicalWebsiteDesign />} />
-                <Route path="/services/restaurant-website-design" element={<RestaurantWebsiteDesign />} />
-                <Route path="/services/marketing-website-design" element={<MarketingWebsiteDesign />} />
-                <Route path="/services/custom-web-development" element={<CustomWebDevelopment />} />
-                <Route path="/services/landing-page-development" element={<LandingPageDevelopment />} />
-                
-                <Route path="/404" element={<NotFoundPage />} />
-                <Route path="*" element={<Navigate to="/404" replace />} />
-              </Routes>
-            </AnimatePresence>
-          </Suspense>
-        </>
-      )}
+      <SmoothScroll />
+      <Suspense fallback={
+        <div className="flex items-center justify-center h-screen bg-background">
+          <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+        </div>
+      }>
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<IndexPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            
+            {/* Legal Pages */}
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsAndConditions />} />
+            <Route path="/refund" element={<RefundPolicy />} />
+            
+            {/* Service Pages */}
+            <Route path="/services/real-estate-website-design" element={<RealEstateWebsiteDesign />} />
+            <Route path="/services/b2b-website-design" element={<B2BWebsiteDesign />} />
+            <Route path="/services/saas-app-development" element={<SaaSAppDevelopment />} />
+            <Route path="/services/ai-app-development" element={<AIAppDevelopment />} />
+            <Route path="/services/medical-website-design" element={<MedicalWebsiteDesign />} />
+            <Route path="/services/restaurant-website-design" element={<RestaurantWebsiteDesign />} />
+            <Route path="/services/marketing-website-design" element={<MarketingWebsiteDesign />} />
+            <Route path="/services/custom-web-development" element={<CustomWebDevelopment />} />
+            <Route path="/services/landing-page-development" element={<LandingPageDevelopment />} />
+            
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="*" element={<Navigate to="/404" replace />} />
+          </Routes>
+        </AnimatePresence>
+      </Suspense>
     </>
   );
 };
@@ -132,7 +110,7 @@ function App() {
       <ThemeProvider>
         <QueryClientProvider client={queryClient}>
           <Router>
-            <AppWithPreloader />
+            <AppContent />
             <Toaster />
           </Router>
         </QueryClientProvider>
