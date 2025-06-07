@@ -19,6 +19,7 @@ const AboutPage = lazy(() => import("@/pages/About"));
 const ProjectsPage = lazy(() => import("@/pages/Projects"));
 const ContactPage = lazy(() => import("@/pages/Contact"));
 const PricingPage = lazy(() => import("@/pages/Pricing")); 
+const TemplatesPage = lazy(() => import("@/pages/Templates"));
 const NotFoundPage = lazy(() => import("@/pages/NotFound"));
 
 // Lazy load legal pages
@@ -78,6 +79,7 @@ const AppContent = () => {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/templates" element={<TemplatesPage />} />
             
             {/* Legal Pages */}
             <Route path="/privacy" element={<PrivacyPolicy />} />

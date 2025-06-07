@@ -6,6 +6,7 @@ import GlobalPresence from "@/components/GlobalPresence";
 import NewCTA from "@/components/NewCTA";
 import { Features } from "@/components/ui/features-4";
 import { Home, Search, MapPin, Camera, Users, Smartphone } from "lucide-react";
+import { IconHover3D } from "@/components/ui/icon-3d-hover";
 
 const RealEstateWebsiteDesign = () => {
   const realEstateFeatures = [
@@ -86,47 +87,31 @@ const RealEstateWebsiteDesign = () => {
           features={realEstateFeatures}
         />
 
-        {/* Content Section */}
+        {/* Content Section with IconHover3D */}
         <div id="learn-more" className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 font-syne">What We Offer</h3>
-                  <ul className="space-y-3 font-jakarta">
-                    <li>• Property showcase galleries</li>
-                    <li>• Advanced search filters</li>
-                    <li>• Interactive property maps</li>
-                    <li>• Lead capture forms</li>
-                    <li>• Agent profile pages</li>
-                    <li>• Virtual tour integration</li>
-                    <li>• Mobile-responsive design</li>
-                    <li>• SEO optimization</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 font-syne">Key Features</h3>
-                  <ul className="space-y-3 font-jakarta">
-                    <li>• MLS integration</li>
-                    <li>• Property comparison tools</li>
-                    <li>• Mortgage calculators</li>
-                    <li>• Contact forms</li>
-                    <li>• Property alerts</li>
-                    <li>• Social media integration</li>
-                    <li>• Analytics and tracking</li>
-                    <li>• Fast loading speeds</li>
-                  </ul>
-                </div>
-              </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <IconHover3D 
+                heading="What We Offer"
+                text="Property showcase galleries, advanced search filters, interactive property maps, lead capture forms, agent profile pages, virtual tour integration, mobile-responsive design, and SEO optimization for maximum visibility."
+                width={500}
+                height={200}
+              />
               
-              <div className="bg-gray-50 p-8 rounded-lg mb-8">
-                <h3 className="text-2xl font-bold mb-4 font-syne">Why Choose Our Real Estate Web Design?</h3>
-                <p className="text-gray-600 font-jakarta">
-                  We understand the real estate market and create websites that not only look professional but also drive results. 
-                  Our designs are optimized for lead generation and provide an exceptional user experience across all devices.
-                </p>
-              </div>
+              <IconHover3D 
+                heading="Key Features"
+                text="MLS integration, property comparison tools, mortgage calculators, contact forms, property alerts, social media integration, analytics and tracking, and fast loading speeds for optimal user experience."
+                width={500}
+                height={200}
+              />
+            </div>
+            
+            <div className="bg-gray-50 p-8 rounded-lg mb-8">
+              <h3 className="text-2xl font-bold mb-4 font-syne">Why Choose Our Real Estate Web Design?</h3>
+              <p className="text-gray-600 font-jakarta">
+                We understand the real estate market and create websites that not only look professional but also drive results. 
+                Our designs are optimized for lead generation and provide an exceptional user experience across all devices.
+              </p>
             </div>
           </div>
         </div>

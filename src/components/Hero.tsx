@@ -85,14 +85,14 @@ const Hero = () => {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black font-cal"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-black font-cal px-2"
             >
-              <span className="whitespace-nowrap">Expert Website Design & Development</span>
-              <br />
-              for High-Performance, modern
-              <br />
-              and minimalistic websites
-              <svg xmlns="http://www.w3.org/2000/svg" className="inline-block md:h-14 md:w-14 h-8 w-8 stroke-[#199e76] stroke-[1px]" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <span className="block sm:inline">Expert Website Design & Development</span>
+              <br className="hidden sm:block" />
+              <span className="block sm:inline">for High-Performance, modern</span>
+              <br className="hidden sm:block" />
+              <span className="block sm:inline">and minimalistic websites</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="inline-block ml-2 h-6 w-6 sm:h-8 sm:w-8 md:h-12 md:w-12 lg:h-14 lg:w-14 stroke-[#199e76] stroke-[1px]" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" fill="rgba(25, 158, 118, 0.4)" opacity="0.4646666666667443" pathLength="1" strokeDashoffset="0px" strokeDasharray="0.4653333333311214px 1px"></path>
               </svg>
@@ -100,7 +100,7 @@ const Hero = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto font-inter pt-1"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto font-inter pt-1 px-2"
             >
               We design and build websites that drive results and help your business grow. No Calls. No BS. Just Results.
             </motion.p>
@@ -112,7 +112,7 @@ const Hero = () => {
               <Button
                 asChild
                 variant="default"
-                className="w-full sm:w-auto hover:scale-105 transition-transform text-lg bg-black text-white hover:bg-gray-800 font-inter"
+                className="w-full sm:w-auto hover:scale-105 transition-transform text-base sm:text-lg bg-black text-white hover:bg-gray-800 font-inter"
                 size="lg"
               >
                 <motion.a
@@ -126,9 +126,9 @@ const Hero = () => {
                 </motion.a>
               </Button>
               
-<div className="flex items-center justify-center">
-  {/* <AnimatedTooltip items={people} /> */}
-</div>
+              <div className="flex items-center justify-center">
+                {/* <AnimatedTooltip items={people} /> */}
+              </div>
             </motion.div>
           </motion.div>
         </div>
